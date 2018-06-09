@@ -11,20 +11,36 @@ import BodyScroll from "../components/UI/BodyScroll";
 import Button from "../components/UI/Button";
 
 class MovingSafelyScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+    }
+    onNavigatorEvent = event => {
+        if (event.type === "NavBarButtonPress") {
+            if (event.id === "sideDrawerToggle") {
+                this.props.navigator.toggleDrawer({
+                    side: "left"
+                });
+            } 
+        }  
+    }
 
-    learnMoreHandler = () => {
+    learnMoreHandler1 = () => {
       this.props.navigator.push({
-        screen: "StrokeApp.HomeScreen",
-        title: "Home",
+        screen: "StrokeApp.MovingSafelyLM1Screen",
       });  
     }
+    learnMoreHandler2 = () => {
+      this.props.navigator.push({
+        screen: "StrokeApp.MovingSafelyLM2Screen",
+      });  
+    }
+
     render() {
         return (
           <View style={styles.container}>
             <BodyScroll>
-
-                    <Image source={require('../assets/newDay.png')} style={styles.image} />
-          
+                    <Image source={require('../assets/boton-video.png')} style={styles.image} />
                     <HeadingText>
                     How Helpers Protect Themselves
                     </HeadingText>
@@ -38,7 +54,7 @@ class MovingSafelyScreen extends Component {
                     <MainText> 
                     • If you are a wheelchair user, a helper brings wheelchair close to front edge of toilet. Both brakes are locked, footrests swung out.
                     </MainText>
-                    <Button color="#0773B9" textColor="white" onPress={this.learnMoreHandler}>Learn More >></Button>  
+                    <Button color="#0773B9" textColor="white" onPress={this.learnMoreHandler1}>Learn More >></Button>  
 
                     <HeadingText>
                     Assisted Transfer to the Bathtub
@@ -46,12 +62,12 @@ class MovingSafelyScreen extends Component {
                     <MainText> 
                     It takes good balance and sure footing to get in and out of the bathtub. Generally more difficult to get out of the tub on your own than to get into it. 
                     </MainText>                   
-                    <Button color="#0773B9" textColor="white" onPress={this.learnMoreHandler}>Learn More >></Button>             
+                    <Button color="#0773B9" textColor="white" onPress={this.learnMoreHandler2}>Learn More >></Button>             
             </BodyScroll>                
-            <Footer 
+            <Footer style={{marginBottom: 40}}
               navigator={this.props.navigator} 
               navBkText={'A New Day'} navBkAction={'StrokeApp.NewDayScreen'}
-              navFdText={'A New Day'} navFdAction={'StrokeApp.NewDayScreen'}
+              navFdText={'Toolkit'} navFdAction={'StrokeApp.EmergencyToolkitScreen'}
             />
           </View>           
         );
@@ -66,7 +82,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
     },
     image: {
-      width: '100%',
+      //width: '100%',
     },
   });
 

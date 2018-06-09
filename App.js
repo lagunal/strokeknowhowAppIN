@@ -9,7 +9,9 @@ import NewDayScreen from './src/screens/NewDay.Screen';
 import LearnMoreScreen from './src/screens/LearnMore.Screen';
 import NewDayLMScreen from './src/screens/NewDayLM.Screen';
 import MovingSafelyScreen from './src/screens/MovingSafely.Screen';
-
+import MovingSafelyLM1Screen from './src/screens/MovingSafelyLM1.Screen';
+import MovingSafelyLM2Screen from './src/screens/MovingSafelyLM2.Screen';
+import EmergencyToolkit from './src/screens/EmergencyToolkit.Screen';
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.SideDrawer",() => SideDrawer);
@@ -18,14 +20,16 @@ Navigation.registerComponent("StrokeApp.NewDayScreen", () => NewDayScreen);
 Navigation.registerComponent("StrokeApp.LearnMoreScreen", () => LearnMoreScreen);
 Navigation.registerComponent("StrokeApp.NewDayLMScreen", () => NewDayLMScreen);
 Navigation.registerComponent("StrokeApp.MovingSafelyScreen", () => MovingSafelyScreen);
-
+Navigation.registerComponent("StrokeApp.MovingSafelyLM1Screen", () => MovingSafelyLM1Screen);
+Navigation.registerComponent("StrokeApp.MovingSafelyLM2Screen", () => MovingSafelyLM2Screen);
+Navigation.registerComponent("StrokeApp.EmergencyToolkitScreen", () => EmergencyToolkit);
 
 // Start a App
-  Promise.all([
-      Icon.getImageSource("ios-menu", 30)
-  ]).then(sources => {
-      Navigation.startSingleScreenApp({
-        screen: {
+Promise.all([
+    Icon.getImageSource("ios-menu", 30)
+]).then(sources => {
+    Navigation.startSingleScreenApp({
+      screen: {
           screen: "StrokeApp.HomeScreen",
           title: "Home",
           navigatorButtons: {
@@ -37,14 +41,15 @@ Navigation.registerComponent("StrokeApp.MovingSafelyScreen", () => MovingSafelyS
                 }
             ]
         }
-        },
-        drawer: {
-          left: {
-              screen: "StrokeApp.SideDrawer"
-          }
+      },
+      drawer: {
+        left: {
+            screen: "StrokeApp.SideDrawer"
+        }
       }
-      });
- });
+    });
+});
+
 
 // Navigation.startTabBasedApp({
 //   tabs: [

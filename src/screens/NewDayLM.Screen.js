@@ -29,7 +29,7 @@ class NewDayLMScreen extends Component {
                 •Moving slowly, not making abrupt changes, you are less likely to become dizzy.                    
                 </MainText>  
             </BodyScroll>
-                <Footer 
+                <Footer style={{marginBottom: 40}}
                   navigator={this.props.navigator} 
                   navBkText={'A New Day'} navBkAction={'StrokeApp.NewDayScreen'}
                   navFdText={'Moving Safely'} navFdAction={'StrokeApp.MovingSafelyScreen'}

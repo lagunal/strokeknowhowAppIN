@@ -10,8 +10,10 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 
 import MainText from "../components/UI/MainText";
+import HeadingText from "../components/UI/HeadingText";
 
 class SideDrawer extends Component {
+
   render() {
     return (
       <View
@@ -23,12 +25,45 @@ class SideDrawer extends Component {
         <TouchableOpacity>
           <View style={styles.drawerItem}>
             <Icon
-              name="ios-log-in"
+              name="ios-home-outline"
               size={30}
-              color="#aaa"
+              color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText>Sign In</MainText>
+            <MainText style={styles.textColor}><HeadingText>Home</HeadingText></MainText>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={styles.drawerItem}>
+            <Icon
+              name="ios-list-box-outline"
+              size={30}
+              color="white"
+              style={styles.drawerItemIcon}
+            />
+            <MainText style={styles.textColor}><HeadingText>Contents</HeadingText></MainText>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={styles.drawerItem}>
+            <Icon
+              name="ios-create-outline"
+              size={30}
+              color="white"
+              style={styles.drawerItemIcon}
+            />
+            <MainText style={styles.textColor}><HeadingText>Toolkits</HeadingText></MainText>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={styles.drawerItem}>
+            <Icon
+              name="ios-log-in"
+              size={30}
+              color="white"
+              style={styles.drawerItemIcon}
+            />
+            <MainText style={styles.textColor}><HeadingText>Sign In</HeadingText></MainText>
           </View>
         </TouchableOpacity>
       </View>
@@ -38,19 +73,23 @@ class SideDrawer extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
-    backgroundColor: "white",
+    marginTop: 65,
+    //paddingTop: 10,
+    backgroundColor: "#0773B9",
     flex: 1
   },
   drawerItem: {
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
-    backgroundColor: "#eee"
+    backgroundColor: "#0773B9"
   },
   drawerItemIcon: {
     marginRight: 10
-  }
+  },
+  textColor: {
+    color: "white",
+  },
 });
 
 export default SideDrawer;
