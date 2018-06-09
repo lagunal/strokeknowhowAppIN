@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Navigation } from "react-native-navigation";
 import {
   View,
   Text,
@@ -12,6 +13,14 @@ import Icon from "react-native-vector-icons/Ionicons";
 import MainText from "../components/UI/MainText";
 
 class SideDrawer extends Component {
+
+  loginHandler = () => {
+    this.props.navigator.push({
+      screen: "StrokeApp.LoginScreen",
+      title: "Login",
+    });
+  }
+
   render() {
     return (
       <View
@@ -20,7 +29,7 @@ class SideDrawer extends Component {
           { width: Dimensions.get("window").width * 0.8 }
         ]}
       >
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => this.loginHandler() }>
           <View style={styles.drawerItem}>
             <Icon
               name="ios-log-in"

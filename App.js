@@ -9,7 +9,7 @@ import NewDayScreen from './src/screens/NewDay.Screen';
 import LearnMoreScreen from './src/screens/LearnMore.Screen';
 import NewDayLMScreen from './src/screens/NewDayLM.Screen';
 import MovingSafelyScreen from './src/screens/MovingSafely.Screen';
-
+import LoginScreen from './src/screens/Login.Screen';
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.SideDrawer",() => SideDrawer);
@@ -18,7 +18,7 @@ Navigation.registerComponent("StrokeApp.NewDayScreen", () => NewDayScreen);
 Navigation.registerComponent("StrokeApp.LearnMoreScreen", () => LearnMoreScreen);
 Navigation.registerComponent("StrokeApp.NewDayLMScreen", () => NewDayLMScreen);
 Navigation.registerComponent("StrokeApp.MovingSafelyScreen", () => MovingSafelyScreen);
-
+Navigation.registerComponent("StrokeApp.LoginScreen", () => LoginScreen);
 
 // Start a App
   Promise.all([
@@ -26,7 +26,8 @@ Navigation.registerComponent("StrokeApp.MovingSafelyScreen", () => MovingSafelyS
   ]).then(sources => {
       Navigation.startSingleScreenApp({
         screen: {
-          screen: "StrokeApp.HomeScreen",
+          //screen: "StrokeApp.HomeScreen",
+          screen: "StrokeApp.LoginScreen",
           title: "Home",
           navigatorButtons: {
             leftButtons: [
