@@ -23,10 +23,10 @@ class LoginScreen extends Component {
       this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
 
       this.state = {
-        username: 'chickweiner',
-        name: '', // 'Chick Weiner',
-        email: '', // 'chickweiner@gmail.com',
-        password:  '2442CHICK',
+        username: '', //'chickweiner',
+        name: '', //'Chick Weiner',
+        email: '', //'chickweiner@gmail.com',
+        password:  '', //'2442CHICK',
         enterButtonDisabled: false,
         user: null,
         error: '',
@@ -35,16 +35,17 @@ class LoginScreen extends Component {
         inLogin: true,
         loading: false,
         showSpinner: false,
-        url: 'http://192.168.1.102/strokeknowhow/api/',
+        url: 'http://strokeknowhow.org/api/',
+        //url: 'http://192.168.1.102/strokeknowhow/api/',
       }
   }
 
   async componentDidMount() {
     try {
       const userData = await AsyncStorage.getItem('user');
-      console.log(userData);
 
-      this.setState({ user: userData });
+      this.setState({ user: JSON.parse(userData) });
+      console.log(this.state.user);
     } catch (error) {
       console.log(error);
       alert(error);
@@ -58,7 +59,7 @@ class LoginScreen extends Component {
                   side: "left"
               });
           } 
-      }  
+      } 
   }
 
   learnMoreHandler = () => {
@@ -81,34 +82,40 @@ class LoginScreen extends Component {
     const { email, password } = this.state;
 
     //login
-    return fetch(this.state.url + 'user/generate_auth_cookie/?insecure=cool&username=' + this.state.username + '&password=' + this.state.password)
-    .then((response) => response.json())
-    .then((loginRes) => {
-      if(loginRes.status == 'error'){
-        this.setState({ error: loginRes.error, loading: false });
-      } else {
-        //console.log(loginRes.user);
-        let user = {
-          id: loginRes.user.id,
-          avatar: loginRes.user.avatar,
-          displayname: loginRes.user.displayname,
-          email: loginRes.user.email,
-          username: loginRes.user.username,
-        }
-        console.log(user);
-        
-        console.log(this.setUser('hola bb'));
-        //alert('ok');
-      }
+    try {
+      const url = this.state.url + 'user/generate_auth_cookie/?insecure=cool&username=' + this.state.username + '&password=' + this.state.password;
+      return fetch(url)
+      .then((response) => response.json())
+      .then((loginRes) => {
+        console.log(loginRes);
 
-      this.setState({showSpinner: false});
-    })
-    .catch((error) => {
+        if(loginRes.status == 'error'){
+          this.setState({ error: loginRes.error, loading: false });
+        } else {
+          let user = {
+            id: loginRes.user.id,
+            avatar: loginRes.user.avatar,
+            displayname: loginRes.user.displayname,
+            email: loginRes.user.email,
+            username: loginRes.user.username,
+          }
+          
+          this.setUser(user);
+          alert('ok');
+        }
+  
+        this.setState({showSpinner: false});
+      })
+      .catch((error) => {
+        console.error(error);
+        this.setState({ error: 'Network error, please try again', loading: false });
+        this.setState({showSpinner: false});
+      });
+    } catch (error) {
       console.error(error);
       this.setState({ error: 'Network error, please try again', loading: false });
-      this.setState({showSpinner: false});
-    });
-  }  
+    }
+  }
 
   //Register Screen
   onRegisterScreenButton = () => {
@@ -122,51 +129,54 @@ class LoginScreen extends Component {
 
     //Get token
     return fetch(this.state.url + 'get_nonce/?controller=user&method=register')
-    .then((response) => response.json())
+    .then((response) => response.json()) 
     .then((tokenRes) => {
-      console.log(tokenRes);
-
       //register
       return fetch(this.state.url + 'user/register/?insecure=cool&username=' + this.state.username + '&email=' + this.state.email + '&nonce=' + tokenRes.nonce + '&display_name=' + this.state.name + '&notify=both&user_pass=' + this.state.password)
       .then((response) => response.json())
       .then((registrationReg) => {
-        console.log(registrationReg);
-  
-        if(registrationReg.status == 'error'){
+        //console.log(registrationReg);
+        if(registrationReg.status != 'ok'){
           this.setState({ error: registrationReg.error, loading: false });
         } else {
-          //console.log(registrationReg.user);
-          this.setUser(registrationReg.user);
-          alert('ok');
+          //Get User Data to login
+          return fetch(this.state.url + 'user/get_userinfo/?insecure=cool&user_id=' + registrationReg.user_id)
+          .then((response) => response.json())
+          .then((userReg) => {
+            //console.log(userReg);
+            if(userReg.status != 'ok'){
+              this.setState({ error: userReg.error, loading: false });
+            } else {
+              this.setUser(userReg);
+
+              alert('ok');
+            }
+
+            this.setState({showSpinner: false});
+          })
         }
-        this.setState({showSpinner: false});
+
+        this.setState({showSpinner: false});        
       })
+      .catch((error) => {
+        console.error(error);
+        this.setState({ error: 'Network error, please try again', loading: false });
+        this.setState({showSpinner: false});
+      });      
     })
     .catch((error) => {
       console.error(error);
       this.setState({ error: 'Network error, please try again', loading: false });
       this.setState({showSpinner: false});
-    });    
+    });
   }
 
   async setUser (userData) {
     try {
-      const user = await AsyncStorage.setItem('user', userData);
-      console.log(user);
-      this.setState({user: user});
-      return user;
-
-      /*
-      AsyncStorage.setItem('user', userData, (res) => {
-        AsyncStorage.getItem('user', (err, result) => {
-          console.log(result);
-        });
-      });
-
-      console.log(userData);
+      const user = await AsyncStorage.setItem('user', JSON.stringify(userData));
       this.setState({user: userData});
-      return userData;
-      */
+
+      return user;
     } catch (error) {
       console.log(error);
     }
@@ -174,11 +184,8 @@ class LoginScreen extends Component {
 
   //Email Validation
   validateEMail = (text) => {
-    //this.setState({email:text});
-    //return;
-
-    //console.log(text);
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+
     if(reg.test(text) === false) {
       //console.log("Email is Not Correct");
       this.setState({email:text, enterButtonDisabled:true, emailError: 'Wrong Email Format'});

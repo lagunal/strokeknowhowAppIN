@@ -12,12 +12,23 @@ import Button from "../components/UI/Button";
 import BodyScroll from "../components/UI/BodyScroll";
 
 class NewDayScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+    }
+    onNavigatorEvent = event => {
+        if (event.type === "NavBarButtonPress") {
+            if (event.id === "sideDrawerToggle") {
+                this.props.navigator.toggleDrawer({
+                    side: "left"
+                });
+            } 
+        }  
+    }
 
     learnMoreHandler = () => {
       this.props.navigator.push({
         screen: "StrokeApp.NewDayLMScreen",
-        title: "What you can do",
-
       });  
     }
     render() {

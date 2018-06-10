@@ -8,35 +8,62 @@ import Icon from "react-native-vector-icons/Ionicons";
 class Footer extends Component {
 
     forwardHandler = () => {
-      this.props.navigator.push({
-        screen: this.props.navFdAction,
-        title: this.props.navFdText,
-        backButtonHidden: true,
-      });  
+          Promise.all([
+            Icon.getImageSource("ios-menu", 30)
+          ]).then(sources => {     
+              this.props.navigator.push({
+                screen: this.props.navFdAction,
+                title: this.props.navFdText,
+                backButtonHidden: true,
+                navigatorButtons: {
+                    leftButtons: [
+                        {
+                            icon: sources[0],
+                            title: "Menu",
+                            id: "sideDrawerToggle"
+                        }
+                    ]
+                },
+              });
+        });  
     }
-
+  
     backHandler = () => {
-      this.props.navigator.push({
-        screen: this.props.navBkAction,
-        title: this.props.navBkText,
-        backButtonHidden: true,
-      });  
+        Promise.all([
+          Icon.getImageSource("ios-menu", 30)
+        ]).then(sources => {   
+            this.props.navigator.push({
+              screen: this.props.navBkAction,
+              title: this.props.navBkText,
+              backButtonHidden: true,
+              navigatorButtons: {
+                  leftButtons: [
+                      {
+                          icon: sources[0],
+                          title: "Menu",
+                          id: "sideDrawerToggle"
+                      }
+                  ]
+              },
+            });  
+        });  
+        //this.props.navigator.pop();
     }
 
     render() {
         return (
-          <View style={[styles.footer]}> 
+          <View style={[styles.footer, this.props.style]}> 
 
             <TouchableOpacity style={[styles.buttonFooter, {backgroundColor: '#001E38'}]} onPress={this.backHandler}>
               
-                  <Icon size={40} name="ios-arrow-dropleft" color="white" />
+                  <Icon size={40} name="ios-arrow-back" color="white" />
                   <Text style={styles.text}>{this.props.navBkText}</Text>
-            
+
             </TouchableOpacity>
             <TouchableOpacity style={[styles.buttonFooter, {backgroundColor: '#ED7030'}]} onPress={this.forwardHandler}>
          
                   <Text style={styles.text}>{this.props.navFdText}</Text>
-                  <Icon size={40} name="ios-arrow-dropright" color="white" />
+                  <Icon size={40} name="ios-arrow-forward" color="white" />
              
             </TouchableOpacity>
 
