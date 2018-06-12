@@ -1,7 +1,7 @@
-const apiHost = 'http://localhost/strokeknowhow2/wp-json/toolkit/v1/';
+const apiHost = 'https://strokeknowhow.org/wp-json/toolkit/v1/';
 
 export default {
-  async fetchEmergency() {
+  async getEmergency() {
     try {
       const response = await fetch(apiHost + 'get-emergency/3');
       const responseJson = await response.json();

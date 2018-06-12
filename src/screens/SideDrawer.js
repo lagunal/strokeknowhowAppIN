@@ -15,6 +15,7 @@ import HeadingText from "../components/UI/HeadingText";
 class SideDrawer extends Component {
 
   loginHandler = () => {
+    alert(this.props.navigator);
     this.props.navigator.push({
       screen: "StrokeApp.LoginScreen",
       title: "Login",

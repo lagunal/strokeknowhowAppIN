@@ -35,7 +35,7 @@ class LoginScreen extends Component {
         inLogin: true,
         loading: false,
         showSpinner: false,
-        url: 'http://strokeknowhow.org/api/',
+        url: 'https://strokeknowhow.org/api/',
         //url: 'http://192.168.1.102/strokeknowhow/api/',
       }
   }
@@ -102,9 +102,11 @@ class LoginScreen extends Component {
           
           this.setUser(user);
           alert('ok');
+          console.log(user);
+          this.setState({showSpinner: false});
         }
   
-        this.setState({showSpinner: false});
+        //this.setState({showSpinner: false});
       })
       .catch((error) => {
         console.error(error);

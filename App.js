@@ -32,8 +32,8 @@ Navigation.registerComponent("StrokeApp.LoginScreen", () => LoginScreen);
   ]).then(sources => {
       Navigation.startSingleScreenApp({
         screen: {
-          screen: "StrokeApp.HomeScreen",
-          //screen: "StrokeApp.LoginScreen",
+          //screen: "StrokeApp.HomeScreen",
+          screen: "StrokeApp.LoginScreen",
           title: "Home",
           navigatorButtons: {
             leftButtons: [
