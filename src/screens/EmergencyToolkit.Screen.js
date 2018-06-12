@@ -3,6 +3,7 @@ import {
     StyleSheet,
     View,
     Image,
+    ActivityIndicator
   } from 'react-native';
 
 //import Footer from '../components/Footer';
@@ -13,24 +14,44 @@ import BodyScroll from "../components/UI/BodyScroll";
 import ajax from '../ajax';
 
 class EmergencyToolkit extends Component {
-  
+
+    constructor(props){
+      super(props);
+      this.state ={ 
+        isLoading: true,
+        data: [],
+      }
+    };
+
     async componentDidMount() {
-      const emergency = await ajax.fetchEmergency();
-      console.log(emergency.hospital1);
+      const emergency = await ajax.getEmergency();
+      this.setState({
+        isLoading: false,
+        data: emergency,
+      });
+      
     }
 
     render() {
+
+        if(this.state.isLoading){
+          return(
+            <View style={{flex: 1, padding: 20}}>
+              <ActivityIndicator size='large' />
+            </View>
+          )
+        }
+
         return (
           <View style={styles.container}>
-            <BodyScroll> 
+
 
                 <MainText>
                   <HeadingText>
-                  Emergency Toolkit
+                     {this.state.data.hospital1}
                   </HeadingText>
                 </MainText>  
-                              
-            </BodyScroll>                    
+                 
 
           </View>           
         );

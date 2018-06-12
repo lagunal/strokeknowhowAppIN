@@ -14,6 +14,14 @@ import HeadingText from "../components/UI/HeadingText";
 
 class SideDrawer extends Component {
 
+  loginHandler = () => {
+    alert(this.props.navigator);
+    this.props.navigator.push({
+      screen: "StrokeApp.LoginScreen",
+      title: "Login",
+    });
+  }
+  
   render() {
     return (
       <View
@@ -55,7 +63,7 @@ class SideDrawer extends Component {
             <MainText style={styles.textColor}><HeadingText>Toolkits</HeadingText></MainText>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => this.loginHandler() }>
           <View style={styles.drawerItem}>
             <Icon
               name="ios-log-in"

@@ -12,6 +12,7 @@ import MovingSafelyScreen from './src/screens/MovingSafely.Screen';
 import MovingSafelyLM1Screen from './src/screens/MovingSafelyLM1.Screen';
 import MovingSafelyLM2Screen from './src/screens/MovingSafelyLM2.Screen';
 import EmergencyToolkit from './src/screens/EmergencyToolkit.Screen';
+import LoginScreen from './src/screens/Login.Screen';
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.SideDrawer",() => SideDrawer);
@@ -23,14 +24,16 @@ Navigation.registerComponent("StrokeApp.MovingSafelyScreen", () => MovingSafelyS
 Navigation.registerComponent("StrokeApp.MovingSafelyLM1Screen", () => MovingSafelyLM1Screen);
 Navigation.registerComponent("StrokeApp.MovingSafelyLM2Screen", () => MovingSafelyLM2Screen);
 Navigation.registerComponent("StrokeApp.EmergencyToolkitScreen", () => EmergencyToolkit);
+Navigation.registerComponent("StrokeApp.LoginScreen", () => LoginScreen);
 
 // Start a App
-Promise.all([
-    Icon.getImageSource("ios-menu", 30)
-]).then(sources => {
-    Navigation.startSingleScreenApp({
-      screen: {
-          screen: "StrokeApp.HomeScreen",
+  Promise.all([
+      Icon.getImageSource("ios-menu", 30)
+  ]).then(sources => {
+      Navigation.startSingleScreenApp({
+        screen: {
+          //screen: "StrokeApp.HomeScreen",
+          screen: "StrokeApp.LoginScreen",
           title: "Home",
           navigatorButtons: {
             leftButtons: [
