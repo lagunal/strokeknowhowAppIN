@@ -13,6 +13,13 @@ import MovingSafelyLM1Screen from './src/screens/MovingSafelyLM1.Screen';
 import MovingSafelyLM2Screen from './src/screens/MovingSafelyLM2.Screen';
 import EmergencyToolkit from './src/screens/EmergencyToolkit.Screen';
 import LoginScreen from './src/screens/Login.Screen';
+import SharingHomeCareScreen from './src/screens/SharingHomeCare.Screen';
+import SharingHomeCareLMScreen from './src/screens/SharingHomeCareLM.Screen';
+import FamilyPlanScreen from './src/screens/FamilyPlan.Screen';
+import OrientYourselfScreen from './src/screens/OrientYourself.Screen';
+import OrientYourselfLMScreen from './src/screens/OrientYourselfLM.Screen';
+import FatigueScreen from './src/screens/Fatigue.Screen';
+
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.SideDrawer",() => SideDrawer);
@@ -25,6 +32,12 @@ Navigation.registerComponent("StrokeApp.MovingSafelyLM1Screen", () => MovingSafe
 Navigation.registerComponent("StrokeApp.MovingSafelyLM2Screen", () => MovingSafelyLM2Screen);
 Navigation.registerComponent("StrokeApp.EmergencyToolkitScreen", () => EmergencyToolkit);
 Navigation.registerComponent("StrokeApp.LoginScreen", () => LoginScreen);
+Navigation.registerComponent("StrokeApp.SharingHomeCareScreen", () => SharingHomeCareScreen);
+Navigation.registerComponent("StrokeApp.SharingHomeCareLMScreen", () => SharingHomeCareLMScreen);
+Navigation.registerComponent("StrokeApp.FamilyPlanScreen", () => FamilyPlanScreen);
+Navigation.registerComponent("StrokeApp.OrientYourselfScreen", () => OrientYourselfScreen);
+Navigation.registerComponent("StrokeApp.OrientYourselfLMScreen", () => OrientYourselfLMScreen);
+Navigation.registerComponent("StrokeApp.FatigueScreen", () => FatigueScreen);
 
 // Start a App
   Promise.all([
@@ -32,42 +45,12 @@ Navigation.registerComponent("StrokeApp.LoginScreen", () => LoginScreen);
   ]).then(sources => {
       Navigation.startSingleScreenApp({
         screen: {
-          //screen: "StrokeApp.HomeScreen",
           screen: "StrokeApp.LoginScreen",
-          title: "Home",
-          navigatorButtons: {
-            leftButtons: [
-                {
-                    icon: sources[0],
-                    title: "Menu",
-                    id: "sideDrawerToggle"
-                }
-            ]
-        }
+          //screen: "StrokeApp.HomeScreen",
+          title: "Login",
+
       },
-      drawer: {
-        left: {
-            screen: "StrokeApp.SideDrawer"
-        }
-      }
     });
 });
-
-
-// Navigation.startTabBasedApp({
-//   tabs: [
-//       {
-//           screen: "StrokeApp.HomeScreen",
-//           label: "Home",
-//           title: "Home",
-//           icon: require('./src/assets/leftIcon.png'),
-//       },
-//       {
-// //           screen: "StrokeApp.NewDayScreen",
-//           label: "A New Day",
-//           title: "A New Day",
-//           icon: require('./src/assets/rightIcon.png'),
-//       }
-//   ]
 
 

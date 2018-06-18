@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import { Navigation } from "react-native-navigation";
 import Spinner from 'react-native-loading-spinner-overlay';
+import Video from 'react-native-video';
 
 import {
   StyleSheet, View, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, Text, Icon, TextInput, AsyncStorage
@@ -9,24 +9,26 @@ import {
 
 import styles from '../components/styles.js';
 
-import Footer from '../components/Footer';
 import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import Button from "../components/UI/Button";
-
 import TextFieldInput from '../components/UI/TextInputField.js';
+import startTabs from './MainTabs'; //start tabs navigation
+
+import validateEmail from "../utility/validateEmail";
+import validatePassword from "../utility/validatePassword";
 
 class LoginScreen extends Component {
 
   constructor(props) {
       super(props);
-      this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+      //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
 
       this.state = {
-        username: '', //'chickweiner',
-        name: '', //'Chick Weiner',
-        email: '', //'chickweiner@gmail.com',
-        password:  '', //'2442CHICK',
+        username: '', 
+        name: '', 
+        email: '', 
+        password:  '', 
         enterButtonDisabled: false,
         user: null,
         error: '',
@@ -36,7 +38,6 @@ class LoginScreen extends Component {
         loading: false,
         showSpinner: false,
         url: 'https://strokeknowhow.org/api/',
-        //url: 'http://192.168.1.102/strokeknowhow/api/',
       }
   }
 
@@ -52,22 +53,37 @@ class LoginScreen extends Component {
     }
   }
 
-  onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-          if (event.id === "sideDrawerToggle") {
-              this.props.navigator.toggleDrawer({
-                  side: "left"
-              });
-          } 
-      } 
+  //start bottom tabs navigation 
+  loggedHandler = () => {
+    startTabs(); 
   }
 
-  learnMoreHandler = () => {
-    this.props.navigator.push({
-      screen: "StrokeApp.LearnMoreScreen",
-      title: "One man's Journey",
+  //Email Validation///////////// ***************put in utility folder
+  validateEMail = (text) => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
 
-    });  
+    if(reg.test(text) === false) {
+      this.setState({email:text, enterButtonDisabled:true, emailError: 'Wrong Email Format'});
+      return false;
+    } else {
+      this.setState({email:text, enterButtonDisabled:false, emailError: ''});
+    }
+  }
+
+    //Password Validation///////////// ***************put in utility folder
+  validatePassword = (text) => {
+      let minLength = 4;
+      let valid = true;
+      let error = '';
+
+      text = text.trim();
+
+      if( text.length < minLength ){
+        valid = false;
+        error = 'At least ' + minLength + ' characters';
+      }
+      this.setState({password:text, enterButtonDisabled:!valid, passwordError: error});
+      return valid;
   }
 
   //EMAIL LOGIN
@@ -87,7 +103,7 @@ class LoginScreen extends Component {
       return fetch(url)
       .then((response) => response.json())
       .then((loginRes) => {
-        console.log(loginRes);
+        //console.log(loginRes);
 
         if(loginRes.status == 'error'){
           this.setState({ error: loginRes.error, loading: false });
@@ -101,9 +117,8 @@ class LoginScreen extends Component {
           }
           
           this.setUser(user);
-          alert('ok');
-          console.log(user);
           this.setState({showSpinner: false});
+          this.loggedHandler();
         }
   
         //this.setState({showSpinner: false});
@@ -184,37 +199,6 @@ class LoginScreen extends Component {
     }
   }
 
-  //Email Validation
-  validateEMail = (text) => {
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
-
-    if(reg.test(text) === false) {
-      //console.log("Email is Not Correct");
-      this.setState({email:text, enterButtonDisabled:true, emailError: 'Wrong Email Format'});
-      return false;
-    } else {
-      this.setState({email:text, enterButtonDisabled:false, emailError: ''});
-      //console.log("Email is Correct");
-    }
-  }
-
-  //Password Validation
-  validatePassword = (text) => {
-    //let reg = '[ \t]+$';
-    let minLength = 4;
-    let valid = true;
-    let error = '';
-
-    text = text.trim();
-
-    if( text.length < minLength ){
-      valid = false;
-      error = 'At least ' + minLength + ' characters';
-    }
-
-    this.setState({password:text, enterButtonDisabled:!valid, passwordError: error});
-    return valid;
-  }
 
   renderButtonOrLoading() {
     if(this.state.loading) {
@@ -224,7 +208,7 @@ class LoginScreen extends Component {
     return <View style={styles.buttonContainer}>
         <TouchableOpacity disabled={this.state.enterButtonDisabled || this.state.username.trim() == "" || this.state.password.trim() == ""}
           style={styles.EMailLogin}
-          onPress={this.onEMailLogin} >
+          onPress={ this.onEMailLogin } >
           <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>Login</Text>
         </TouchableOpacity>
       </View>;
@@ -259,7 +243,6 @@ class LoginScreen extends Component {
   }
 
   render() {
-    //console.log(this.state.checkedLogin);
     if(this.state.loading) {
       return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -274,19 +257,22 @@ class LoginScreen extends Component {
       return (
         <ScrollView style={{padding: 20, backgroundColor: 'white'}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
-            
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
-
-            <View style={styles.buttonContainer}>
-              <Image resizeMode="contain" style={styles.logo} source={require('../assets/logo-header.jpg')} animation="fade" />
+            <View>
+              <Image resizeMode="contain" style={styles.logo} source={require('../assets/banner.jpg')} />
             </View>
-
+            <View style={styles.buttonContainer}>
+                <Image style={{width: 200, height: 200}} source={require('../assets/patty.png')} />
+            </View>
+            <View>
+              <MainText><HeadingText>Welcome to StrokeKnowHow</HeadingText></MainText>
+              <MainText>We are a worldwide stroke community learning from one another</MainText>
+            </View>
             <TextFieldInput
               label='Username or Email Address'
               placeholder='Username'
               value={this.state.username}
               onChangeText={username => this.setState({ username })}
-              /*onChangeText={(email) => this.validateEMail(email)}*/
               autoCorrect={true}
             />
             <Text style={styles.errorText}>{this.state.emailError}</Text>
@@ -350,7 +336,7 @@ class LoginScreen extends Component {
               label='Username'
               placeholder='Email Address'
               value={this.state.email}
-              onChangeText={(email) => this.validateEMail(email)}
+              onChangeText={(email) => this.EMail(email)}
               autoCorrect={true}
             />
             <Text style={styles.errorText}>{this.state.emailError}</Text>
@@ -383,5 +369,6 @@ class LoginScreen extends Component {
   }
 
 }
+
 
 export default LoginScreen;
