@@ -1,73 +1,72 @@
-
 import React, { Component } from 'react';
 import { Navigation } from "react-native-navigation";
 import Spinner from 'react-native-loading-spinner-overlay';
+import Video from 'react-native-video';
 
 import {
-  StyleSheet, View, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, Text, Icon, TextInput, AsyncStorage
+  StyleSheet, View, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, Text, TextInput, Picker, AsyncStorage
 } from 'react-native';
+
+import Icon from "react-native-vector-icons/Ionicons";
 
 import styles from '../components/styles.js';
 
-import Footer from '../components/Footer';
 import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import Button from "../components/UI/Button";
+import TextFieldInput from '../components/UI/TextInputField';
+import startTabs from './MainTabs'; //start tabs navigation
 
-import TextFieldInput from '../components/UI/TextInputField.js';
+//import validateEmail from '../utility/validateEmail.js';
+//import validatePassword from '../utility/validatePassword.js';
+
+const apiUrl = 'https://strokeknowhow.org/api/';
 
 class LoginScreen extends Component {
 
   constructor(props) {
       super(props);
-      this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+      //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
 
       this.state = {
-        username: '', //'chickweiner',
-        name: '', //'Chick Weiner',
-        email: '', //'chickweiner@gmail.com',
-        password:  '', //'2442CHICK',
+        username: '', 
+        name: '', 
+        email: '', 
+        password: '', 
         enterButtonDisabled: false,
-        user: null,
         error: '',
         emailError: '',
         passwordError: '',
         inLogin: true,
         loading: false,
         showSpinner: false,
-        url: 'http://strokeknowhow.org/api/',
-        //url: 'http://192.168.1.102/strokeknowhow/api/',
+        language: 'en',
       }
   }
 
   async componentDidMount() {
     try {
       const userData = await AsyncStorage.getItem('user');
+      const language = await AsyncStorage.getItem('language');
 
       this.setState({ user: JSON.parse(userData) });
-      console.log(this.state.user);
+      this.setState({ language: language });
+
+      //Try login
+      //console.log(this.state.user);
+      if(this.state.user && this.state.user.username !=='' && this.state.user.password !=='') {
+        this.setState({username: this.state.user.username, password: this.state.user.password});
+        this.onEMailLogin();
+      }
     } catch (error) {
       console.log(error);
       alert(error);
     }
   }
 
-  onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-          if (event.id === "sideDrawerToggle") {
-              this.props.navigator.toggleDrawer({
-                  side: "left"
-              });
-          } 
-      } 
-  }
-
-  learnMoreHandler = () => {
-    this.props.navigator.push({
-      screen: "StrokeApp.LearnMoreScreen",
-      title: "One man's Journey",
-
-    });  
+  //start bottom tabs navigation 
+  loggedHandler = () => {
+    startTabs(); 
   }
 
   //EMAIL LOGIN
@@ -83,11 +82,12 @@ class LoginScreen extends Component {
 
     //login
     try {
-      const url = this.state.url + 'user/generate_auth_cookie/?insecure=cool&username=' + this.state.username + '&password=' + this.state.password;
+      const data = {insecure: 'cool', username: this.state.username, password: this.state.password};
+      const url = `${apiUrl}user/generate_auth_cookie/?insecure=${encodeURIComponent(data.insecure)}&username=${encodeURIComponent(data.username)}&password=${encodeURIComponent(data.password)}`;
       return fetch(url)
       .then((response) => response.json())
       .then((loginRes) => {
-        console.log(loginRes);
+        //console.log(loginRes);
 
         if(loginRes.status == 'error'){
           this.setState({ error: loginRes.error, loading: false });
@@ -98,10 +98,12 @@ class LoginScreen extends Component {
             displayname: loginRes.user.displayname,
             email: loginRes.user.email,
             username: loginRes.user.username,
+            password: password,
           }
           
           this.setUser(user);
-          alert('ok');
+          this.setLanguage(this.state.language);
+          this.loggedHandler();
         }
   
         this.setState({showSpinner: false});
@@ -122,17 +124,22 @@ class LoginScreen extends Component {
     this.setState({inLogin: false});
   }
 
+  //Login Screen
+  goToLogin = () => {
+    this.setState({inLogin: true});
+  }
+
   //Register Button
   onRegisterButton = () => {
     this.setState({showSpinner: true});
     this.setState({ error: '' });
 
     //Get token
-    return fetch(this.state.url + 'get_nonce/?controller=user&method=register')
+    return fetch(apiUrl + 'get_nonce/?controller=user&method=register')
     .then((response) => response.json()) 
     .then((tokenRes) => {
       //register
-      return fetch(this.state.url + 'user/register/?insecure=cool&username=' + this.state.username + '&email=' + this.state.email + '&nonce=' + tokenRes.nonce + '&display_name=' + this.state.name + '&notify=both&user_pass=' + this.state.password)
+      return fetch(apiUrl + 'user/register/?insecure=cool&username=' + this.state.username + '&email=' + this.state.email + '&nonce=' + tokenRes.nonce + '&display_name=' + this.state.name + '&notify=both&user_pass=' + this.state.password)
       .then((response) => response.json())
       .then((registrationReg) => {
         //console.log(registrationReg);
@@ -140,7 +147,7 @@ class LoginScreen extends Component {
           this.setState({ error: registrationReg.error, loading: false });
         } else {
           //Get User Data to login
-          return fetch(this.state.url + 'user/get_userinfo/?insecure=cool&user_id=' + registrationReg.user_id)
+          return fetch(apiUrl + 'user/get_userinfo/?insecure=cool&user_id=' + registrationReg.user_id)
           .then((response) => response.json())
           .then((userReg) => {
             //console.log(userReg);
@@ -149,7 +156,7 @@ class LoginScreen extends Component {
             } else {
               this.setUser(userReg);
 
-              alert('ok');
+              this.goToLogin();
             }
 
             this.setState({showSpinner: false});
@@ -182,7 +189,17 @@ class LoginScreen extends Component {
     }
   }
 
-  //Email Validation
+  async setLanguage (lang) {
+    try {
+      const value = await AsyncStorage.setItem('language', lang);
+      this.setState({language: lang});
+
+      return value;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   validateEMail = (text) => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
 
@@ -196,16 +213,19 @@ class LoginScreen extends Component {
     }
   }
 
-  //Password Validation
   validatePassword = (text) => {
     //let reg = '[ \t]+$';
     let minLength = 4;
     let valid = true;
     let error = '';
 
+    if(text === undefined) {
+      return;
+    }
+
     text = text.trim();
 
-    if( text.length < minLength ){
+    if( text.length < minLength ) {
       valid = false;
       error = 'At least ' + minLength + ' characters';
     }
@@ -214,15 +234,21 @@ class LoginScreen extends Component {
     return valid;
   }
 
+  changeLanguage = (itemValue, itemIndex) => {
+    //console.log(itemValue, itemIndex);
+
+    this.setState({language: itemValue});
+  }
+
   renderButtonOrLoading() {
     if(this.state.loading) {
         return <Text>Wait...</Text>
     }
 
     return <View style={styles.buttonContainer}>
-        <TouchableOpacity disabled={this.state.enterButtonDisabled || this.state.username.trim() == "" || this.state.password.trim() == ""}
+        <TouchableOpacity disabled={this.state.enterButtonDisabled || this.state.username == "" || this.state.password == ""}
           style={styles.EMailLogin}
-          onPress={this.onEMailLogin} >
+          onPress={ this.onEMailLogin } >
           <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>Login</Text>
         </TouchableOpacity>
       </View>;
@@ -257,7 +283,6 @@ class LoginScreen extends Component {
   }
 
   render() {
-    //console.log(this.state.checkedLogin);
     if(this.state.loading) {
       return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -272,11 +297,27 @@ class LoginScreen extends Component {
       return (
         <ScrollView style={{padding: 20, backgroundColor: 'white'}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
-            
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
-
+            <View>
+              <Image resizeMode="contain" style={styles.logo} source={require('../assets/banner.jpg')} />
+            </View>
             <View style={styles.buttonContainer}>
-              <Image resizeMode="contain" style={styles.logo} source={require('../assets/logo-header.jpg')} animation="fade" />
+                <Image style={{width: 150, height: 150}} source={require('../assets/patty.png')} />
+            </View>
+            <View>
+              <MainText><HeadingText>Welcome to StrokeKnowHow</HeadingText></MainText>
+              <MainText>We are a worldwide stroke community learning from one another</MainText>
+            </View>
+
+            <View style={styles.containerStyle}>
+              <Picker
+                selectedValue={this.state.language}
+                style={styles.comboStyle}
+                /*onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>*/
+                onValueChange={(itemValue, itemIndex) => this.changeLanguage(itemValue, itemIndex)} >
+                <Picker.Item label="English" value="en" />
+                <Picker.Item label="Español" value="es" />
+              </Picker>
             </View>
 
             <TextFieldInput
@@ -284,7 +325,6 @@ class LoginScreen extends Component {
               placeholder='Username'
               value={this.state.username}
               onChangeText={username => this.setState({ username })}
-              /*onChangeText={(email) => this.validateEMail(email)}*/
               autoCorrect={true}
             />
             <Text style={styles.errorText}>{this.state.emailError}</Text>
@@ -310,9 +350,6 @@ class LoginScreen extends Component {
               {this.renderButtonOrRegister()}
             </View>
             
-            <View style={{marginTop: 20}}>
-            </View>
-
           </KeyboardAvoidingView>
         </ScrollView>
       );
@@ -322,7 +359,11 @@ class LoginScreen extends Component {
       return (
         <ScrollView style={{padding: 20, backgroundColor: 'white'}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
-            
+
+            <TouchableOpacity onPress={this.goToLogin}>
+              <Icon size={40} name="md-arrow-back" color="black" />
+            </TouchableOpacity>
+
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
 
             <View style={styles.buttonContainer}>
@@ -381,5 +422,6 @@ class LoginScreen extends Component {
   }
 
 }
+
 
 export default LoginScreen;

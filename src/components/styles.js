@@ -150,7 +150,7 @@ export default StyleSheet.create({
     logo: {
         flexGrow: 1, 
         /*position: 'absolute',*/
-        width: 300,
+        width: '100%',
         height: 100
     },
     title: {
@@ -194,6 +194,16 @@ export default StyleSheet.create({
         width: '100%',
         borderWidth: 0,
     },
+    comboStyle: {
+        paddingRight: 5,
+        paddingLeft: 5,
+        paddingBottom: 2,
+        color: 'black',
+        flex: 1,
+        height: 25,
+        width: '100%',
+        borderWidth: 0,
+    },
     containerStyle: {
         marginLeft: 15,
         marginRight: 15,
@@ -220,7 +230,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#fa836b',
+        backgroundColor: '#ED7030',
         borderWidth: .5,
         height: 40,
         borderRadius: 3,
@@ -232,7 +242,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#001199',
+        backgroundColor: '#0773B9',
         borderWidth: .5,
         height: 40,
         borderRadius: 3,

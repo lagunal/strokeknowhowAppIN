@@ -12,15 +12,33 @@ import Icon from "react-native-vector-icons/Ionicons";
 import MainText from "../components/UI/MainText";
 import HeadingText from "../components/UI/HeadingText";
 
+import {rootNavigator} from './Home.Screen'; //navigator object from homeScreen
+
 class SideDrawer extends Component {
 
   loginHandler = () => {
-    this.props.navigator.push({
-      screen: "StrokeApp.LoginScreen",
-      title: "Login",
+    rootNavigator.push({
+      screen: 'StrokeApp.LoginScreen',
+    });
+    rootNavigator.toggleDrawer({
+      side: 'left',
+      animated: true,
+      to: 'close',
     });
   }
-  
+
+  homeHandler = () => {
+    rootNavigator.push({
+      screen: 'StrokeApp.HomeScreen',
+      title: "Home",
+    });
+    rootNavigator.toggleDrawer({
+      side: 'left',
+      animated: true,
+      to: 'close',
+    });
+  }
+
   render() {
     return (
       <View
@@ -29,7 +47,7 @@ class SideDrawer extends Component {
           { width: Dimensions.get("window").width * 0.8 }
         ]}
       >
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => this.homeHandler() }>
           <View style={styles.drawerItem}>
             <Icon
               name="ios-home-outline"
@@ -51,26 +69,15 @@ class SideDrawer extends Component {
             <MainText style={styles.textColor}><HeadingText>Contents</HeadingText></MainText>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.drawerItem}>
-            <Icon
-              name="ios-create-outline"
-              size={30}
-              color="white"
-              style={styles.drawerItemIcon}
-            />
-            <MainText style={styles.textColor}><HeadingText>Toolkits</HeadingText></MainText>
-          </View>
-        </TouchableOpacity>
         <TouchableOpacity onPress={() => this.loginHandler() }>
           <View style={styles.drawerItem}>
             <Icon
-              name="ios-log-in"
+              name="ios-log-out"
               size={30}
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><HeadingText>Sign In</HeadingText></MainText>
+            <MainText style={styles.textColor}><HeadingText>Log Out</HeadingText></MainText>
           </View>
         </TouchableOpacity>
       </View>
