@@ -66,10 +66,9 @@ class EmergencyToolkit extends Component {
     }
 
     //loop for rendering the medicines of the toolkits using ToolkitMedication UI component
-    renderMedicines() {
+    renderMedicines(times) {
       const medicines = [];
       let background = '';
-      let times = 8; //times for repeat the rendering
       for (let i=1; i <= times; i++) {
           background = (i%2 == 0) ? 'white' : 'lightgrey';
           medicines.push(<ToolkitMedication 
@@ -225,7 +224,7 @@ class EmergencyToolkit extends Component {
                       <MainText><HeadingText>MEDICINES</HeadingText></MainText>
                   </View>
 
-                    {this.renderMedicines()}
+                    {this.renderMedicines(8)}
 
                   <View style={{flex: 1, flexDirection: 'row', backgroundColor: 'lightgray'}}>    
                     
