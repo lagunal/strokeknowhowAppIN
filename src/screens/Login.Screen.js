@@ -206,11 +206,12 @@ class LoginScreen extends Component {
     }
 
     return <View style={styles.buttonContainer}>
-        <TouchableOpacity disabled={this.state.enterButtonDisabled || this.state.username.trim() == "" || this.state.password.trim() == ""}
+        <TouchableOpacity 
           style={styles.EMailLogin}
-          onPress={ this.onEMailLogin } >
+          onPress={ this.loggedHandler } >
           <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>Login</Text>
         </TouchableOpacity>
+
       </View>;
   }  
 

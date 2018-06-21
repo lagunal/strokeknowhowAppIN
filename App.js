@@ -19,7 +19,7 @@ import FamilyPlanScreen from './src/screens/FamilyPlan.Screen';
 import OrientYourselfScreen from './src/screens/OrientYourself.Screen';
 import OrientYourselfLMScreen from './src/screens/OrientYourselfLM.Screen';
 import FatigueScreen from './src/screens/Fatigue.Screen';
-
+import ToolkitHomeScreen from './src/screens/ToolkitHomeScreen';
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.SideDrawer",() => SideDrawer);
@@ -38,6 +38,7 @@ Navigation.registerComponent("StrokeApp.FamilyPlanScreen", () => FamilyPlanScree
 Navigation.registerComponent("StrokeApp.OrientYourselfScreen", () => OrientYourselfScreen);
 Navigation.registerComponent("StrokeApp.OrientYourselfLMScreen", () => OrientYourselfLMScreen);
 Navigation.registerComponent("StrokeApp.FatigueScreen", () => FatigueScreen);
+Navigation.registerComponent("StrokeApp.ToolkitHomeScreen", () => ToolkitHomeScreen);
 
 // Start a App
   Promise.all([

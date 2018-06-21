@@ -36,7 +36,7 @@ const startTabs = () => {
                     icon: sources[4],
                 },
                 {
-                    screen: "StrokeApp.EmergencyToolkitScreen",
+                    screen: "StrokeApp.ToolkitHomeScreen",
                     label: "Toolkits",
                     //title: "Emergency Information Station",
                     icon: sources[2],

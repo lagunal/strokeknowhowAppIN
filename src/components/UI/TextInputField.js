@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, TextInput } from 'react-native';
 import styles from '../styles.js';
 
@@ -7,10 +7,8 @@ const TextFieldInput = ({ label, value, onChangeText, placeholder, secureTextEnt
 
     return (
         <View style={containerStyle}>
-            {/*
-            <Text>{label}</Text>
-            */}
             <TextInput
+                {...this.props} 
                 autoCorrect={false}
                 placeholder={placeholder}
                 secureTextEntry={secureTextEntry}
