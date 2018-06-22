@@ -1,4 +1,5 @@
-const apiHost = 'http://10.0.0.34:80/strokeknowhow2/wp-json/toolkit/v1/';
+//const apiHost = 'http://10.0.0.34:80/strokeknowhow2/wp-json/toolkit/v1/';
+const apiHost = 'http://strokeknowhow.org/wp-json/toolkit/v1/';
 
 export default {
   //fetch the data from energency toolkit
