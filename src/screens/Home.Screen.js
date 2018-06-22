@@ -39,12 +39,12 @@ class HomeScreen extends Component {
       screen: 'StrokeApp.LoginScreen',
       backButtonHidden: true,
       navigatorStyle: {
-        tabBarHidden: true
+        tabBarHidden: true,
       },
-      title: 'Login'
+      title: 'Login',
     });
 
-    const user = await AsyncStorage.setItem('user', '');
+    //const user = await AsyncStorage.setItem('user', '');
   }
 
   render() {

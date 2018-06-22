@@ -298,12 +298,29 @@ class LoginScreen extends Component {
         <ScrollView style={{padding: 20, backgroundColor: 'white'}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
+            {/*
             <View>
               <Image resizeMode="contain" style={styles.logo} source={require('../assets/banner.jpg')} />
             </View>
+            */}
+            <View>
+              <Video
+                source={require('../assets/Sequence-Intro.mp4')}
+                style={{height: 200}}
+                rate={1}
+                paused={false}
+                volume={1}
+                muted={false}
+                playWhenInactive={true}
+                resizeMode='contain'
+                repeat={true}
+                />
+            </View>
+            {/*
             <View style={styles.buttonContainer}>
                 <Image style={{width: 150, height: 150}} source={require('../assets/patty.png')} />
             </View>
+            */}
             <View>
               <MainText><HeadingText>Welcome to StrokeKnowHow</HeadingText></MainText>
               <MainText>We are a worldwide stroke community learning from one another</MainText>
