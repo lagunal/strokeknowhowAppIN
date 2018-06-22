@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     Linking
   } from 'react-native';
-
+import Video from 'react-native-video';
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
@@ -48,10 +48,32 @@ class RangeMotionScreen extends Component {
 
             <MainText><SubHeadingText>Good Body Positioning </SubHeadingText></MainText>
 
+              <Video
+                source={require('../assets/8._Proper_Sitting_Posture.mp4')}
+                style={{height: 200}}
+                rate={1}
+                paused={false}
+                volume={1}
+                muted={false}
+                playWhenInactive={true}
+                resizeMode='contain'
+                repeat={true}
+                />
 
-            <ImageContainer src={require('../assets/boton-video.png')} />
+              <View style={{margin: 30}}>
+              </View>
 
-            <ImageContainer src={require('../assets/boton-video.png')} />
+              <Video
+                source={require('../assets/9._How_Shoulder_Blade_Motion_and_Trunk_Rotation_work_together.mp4')}
+                style={{height: 200}}
+                rate={1}
+                paused={false}
+                volume={1}
+                muted={false}
+                playWhenInactive={true}
+                resizeMode='contain'
+                repeat={true}
+                />
 
 
             <MainText>

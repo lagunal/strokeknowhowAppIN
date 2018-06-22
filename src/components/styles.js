@@ -194,6 +194,16 @@ export default StyleSheet.create({
         width: '100%',
         borderWidth: 0,
     },
+    comboStyle: {
+        paddingRight: 5,
+        paddingLeft: 5,
+        paddingBottom: 2,
+        color: 'black',
+        flex: 1,
+        height: 25,
+        width: '100%',
+        borderWidth: 0,
+    },
     containerStyle: {
         marginLeft: 15,
         marginRight: 15,

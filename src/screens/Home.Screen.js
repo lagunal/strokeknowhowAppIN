@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import { Navigation } from "react-native-navigation";
 
 import {
-  StyleSheet, View, Text
+  StyleSheet, View, Image, Text, TouchableOpacity, AsyncStorage
 } from 'react-native';
+
+import Icon from "react-native-vector-icons/Ionicons";
 
 import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
-
 
 export let rootNavigator = null; //variable to export navigation object to drawer
 
@@ -33,12 +34,29 @@ class HomeScreen extends Component {
 
   }
 
+  async logOutHandler () {
+    rootNavigator.resetTo({
+      screen: 'StrokeApp.LoginScreen',
+      backButtonHidden: true,
+      navigatorStyle: {
+        tabBarHidden: true,
+      },
+      title: 'Login',
+    });
+
+    const user = await AsyncStorage.setItem('user', '');
+  }
+
 
   render() {
 
     return (
       <View style={styles.container}>
       <BodyScroll>
+        <TouchableOpacity onPress={this.logOutHandler}>
+          <Icon size={40} name="md-exit" color="black" />
+        </TouchableOpacity>
+
         <ImageContainer src={require('../assets/home.png')} />  
         <MainText>
             I was a sports writer of a major newspaper,  who had a stroke in a New York subway during rush hour.  In the ambulance, 

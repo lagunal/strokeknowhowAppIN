@@ -5,6 +5,7 @@ import {
     Image,
     ActivityIndicator,
     Text,
+    TouchableOpacity
   } from 'react-native';
 
 import HeadingText from '../components/UI/HeadingText';
