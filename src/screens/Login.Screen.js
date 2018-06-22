@@ -15,8 +15,8 @@ import Button from "../components/UI/Button";
 import TextFieldInput from '../components/UI/TextInputField.js';
 import startTabs from './MainTabs'; //start tabs navigation
 
-import validateEmail from "../utility/validateEmail";
-import validatePassword from "../utility/validatePassword";
+//import validateEmail from "../utility/validateEmail";
+//import validatePassword from "../utility/validatePassword";
 
 class LoginScreen extends Component {
 
@@ -224,7 +224,7 @@ class LoginScreen extends Component {
         <TouchableOpacity disabled={this.state.enterButtonDisabled}
           style={styles.EMailRegister}
           onPress={this.onRegisterScreenButton} >
-          <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>Register</Text>
+          <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>JOIN IN</Text>
         </TouchableOpacity>
       </View>;
   }

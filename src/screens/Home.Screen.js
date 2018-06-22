@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Navigation } from "react-native-navigation";
 
 import {
-  StyleSheet, View, Image, Text, TouchableOpacity
+  StyleSheet, View, Text
 } from 'react-native';
 
 import HeadingText from '../components/UI/HeadingText';
@@ -43,14 +43,9 @@ class HomeScreen extends Component {
         <MainText>
             I was a sports writer of a major newspaper,  who had a stroke in a New York subway during rush hour.  In the ambulance, 
             I overheard the word ‘stroke,’ and realized they were talking about me. 
-            Out of the hospital in five days: I could stand, but not walk. My family couldn’t understand what I was trying to say to them. 
-            Insurance paid only a handful of physical therapy. NOW WHAT?
+            Out of the hospital in five days: I could stand, not walk.  
+            Insurance paid for a handful of physical therapy. NOW WHAT?
         </MainText>
-        <MainText >
-            We’re living through a time when every 
-            family affected by stroke must find out what it will 
-            take to reclaim your life – there’s no other way!                                             
-        </MainText> 
         <Text style={{marginLeft: 300}}>Mike</Text >    
         <MainText>
           <HeadingText>
@@ -61,11 +56,14 @@ class HomeScreen extends Component {
           <ImageContainer src={require('../assets/newDay.png')} />
         </View>
         <MainText>
-            • It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. It lowers capacity of the heart’s pumping rate, reduces lung capacity, alters blood pressure, and increases chance 
+            • It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. Lowers capacity of heart’s pumping rate, reduces lung capacity, alters blood pressure, increases chance 
             of pneumonia. 
         </MainText>
         <MainText>  
-            • Do slow stretches in bed to ease stiffness. Before sitting up, roll from side to side to involve both sides of your body. 
+            • Do slow stretches in bed to ease stiffness. Roll from side to side. 
+        </MainText>
+        <MainText>  
+            • Before moving take your time, avoid quick changes to avoid becoming dizzy.  
         </MainText>
       </BodyScroll> 
       </View>

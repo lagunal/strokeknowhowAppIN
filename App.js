@@ -1,57 +1,58 @@
 console.disableYellowBox = true;
 
 import { Navigation } from "react-native-navigation";
-import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from "./src/screens/Home.Screen";
 import SideDrawer from "./src/screens/SideDrawer";
-import NewDayScreen from './src/screens/NewDay.Screen';
-import LearnMoreScreen from './src/screens/LearnMore.Screen';
-import NewDayLMScreen from './src/screens/NewDayLM.Screen';
+import MedicationsScreen from './src/screens/Medications.Screen';
+import WeeklyPlanScreen from './src/screens/WeeklyPlan.Screen';
 import MovingSafelyScreen from './src/screens/MovingSafely.Screen';
-import MovingSafelyLM1Screen from './src/screens/MovingSafelyLM1.Screen';
-import MovingSafelyLM2Screen from './src/screens/MovingSafelyLM2.Screen';
 import EmergencyToolkit from './src/screens/EmergencyToolkit.Screen';
 import LoginScreen from './src/screens/Login.Screen';
-import SharingHomeCareScreen from './src/screens/SharingHomeCare.Screen';
-import SharingHomeCareLMScreen from './src/screens/SharingHomeCareLM.Screen';
-import FamilyPlanScreen from './src/screens/FamilyPlan.Screen';
-import OrientYourselfScreen from './src/screens/OrientYourself.Screen';
-import OrientYourselfLMScreen from './src/screens/OrientYourselfLM.Screen';
+import SkinCareScreen from './src/screens/SkinCare.Screen';
+import BladderControlScreen from './src/screens/BladderControl.Screen';
+import BloodPressureScreen from './src/screens/BloodPressure.Screen';
 import FatigueScreen from './src/screens/Fatigue.Screen';
 import ToolkitHomeScreen from './src/screens/ToolkitHomeScreen';
+import RangeMotionScreen from './src/screens/RangeMotion.Screen';
+import GettingUpScreen from './src/screens/GettingUp.Screen';
+import BrainBodyScreen from './src/screens/BrainBody.Screen';
+import EmergencyScreen from './src/screens/Emergency.Screen';
+import BioScreen from './src/screens/Bio.Screen';
+import ContentsScreen from './src/screens/Contents.Screen';
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.SideDrawer",() => SideDrawer);
 Navigation.registerComponent("StrokeApp.HomeScreen", () => HomeScreen);
-Navigation.registerComponent("StrokeApp.NewDayScreen", () => NewDayScreen);
-Navigation.registerComponent("StrokeApp.LearnMoreScreen", () => LearnMoreScreen);
-Navigation.registerComponent("StrokeApp.NewDayLMScreen", () => NewDayLMScreen);
+Navigation.registerComponent("StrokeApp.MedicationsScreen", () => MedicationsScreen);
+Navigation.registerComponent("StrokeApp.WeeklyPlanScreen", () => WeeklyPlanScreen);
 Navigation.registerComponent("StrokeApp.MovingSafelyScreen", () => MovingSafelyScreen);
-Navigation.registerComponent("StrokeApp.MovingSafelyLM1Screen", () => MovingSafelyLM1Screen);
-Navigation.registerComponent("StrokeApp.MovingSafelyLM2Screen", () => MovingSafelyLM2Screen);
 Navigation.registerComponent("StrokeApp.EmergencyToolkitScreen", () => EmergencyToolkit);
 Navigation.registerComponent("StrokeApp.LoginScreen", () => LoginScreen);
-Navigation.registerComponent("StrokeApp.SharingHomeCareScreen", () => SharingHomeCareScreen);
-Navigation.registerComponent("StrokeApp.SharingHomeCareLMScreen", () => SharingHomeCareLMScreen);
-Navigation.registerComponent("StrokeApp.FamilyPlanScreen", () => FamilyPlanScreen);
-Navigation.registerComponent("StrokeApp.OrientYourselfScreen", () => OrientYourselfScreen);
-Navigation.registerComponent("StrokeApp.OrientYourselfLMScreen", () => OrientYourselfLMScreen);
+Navigation.registerComponent("StrokeApp.SkinCareScreen", () => SkinCareScreen);
+Navigation.registerComponent("StrokeApp.BladderControlScreen", () => BladderControlScreen);
+Navigation.registerComponent("StrokeApp.BloodPressureScreen", () => BloodPressureScreen);
 Navigation.registerComponent("StrokeApp.FatigueScreen", () => FatigueScreen);
 Navigation.registerComponent("StrokeApp.ToolkitHomeScreen", () => ToolkitHomeScreen);
+Navigation.registerComponent("StrokeApp.RangeMotionScreen", () => RangeMotionScreen);
+Navigation.registerComponent("StrokeApp.GettingUpScreen", () => GettingUpScreen);
+Navigation.registerComponent("StrokeApp.BrainBodyScreen", () => BrainBodyScreen);
+Navigation.registerComponent("StrokeApp.EmergencyScreen", () => EmergencyScreen);
+Navigation.registerComponent("StrokeApp.BioScreen", () => BioScreen);
+Navigation.registerComponent("StrokeApp.ContentsScreen", () => ContentsScreen);
 
 // Start a App
-  Promise.all([
-      Icon.getImageSource("ios-menu", 30)
-  ]).then(sources => {
+//   Promise.all([
+//       Icon.getImageSource("ios-menu", 30)
+//   ]).then(sources => {
       Navigation.startSingleScreenApp({
         screen: {
           screen: "StrokeApp.LoginScreen",
           //screen: "StrokeApp.HomeScreen",
           title: "Login",
 
-      },
-    });
-});
+        },
+      });
+//});
 
 

@@ -5,18 +5,18 @@ import {
     Image,
     ActivityIndicator,
     Text,
-    TouchableOpacity
   } from 'react-native';
 
 import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
-import ToolkitMedication from "../components/UI/ToolkitMedication";
+import ToolkitMedication from "../components/ToolkitMedication";
 import ToolkitContactInfo from "../components/ToolkitContactInfo";
 import ToolkitItemDetail from "../components/ToolkitItemDetail"
+import ToolkitSingleItem from "../components/ToolkitSingleItem"
+import SubHeadingText from '../components/UI/SubHeadingText';
 
 import ajax from '../ajax/ajax';
-
 
 class EmergencyToolkit extends Component {
 
@@ -112,7 +112,7 @@ class EmergencyToolkit extends Component {
           <BodyScroll>
             <View >
                 <MainText><HeadingText>EMERGENCY INFORMATION STATION</HeadingText></MainText>
-                <MainText><HeadingText>ESENTIAL INFORMATION</HeadingText></MainText>
+                <MainText><SubHeadingText>ESENTIAL INFORMATION</SubHeadingText></MainText>
             </View>
 
             <View style={{flex: 1}}>
@@ -180,17 +180,16 @@ class EmergencyToolkit extends Component {
                     onItemPress={this.setCurrentItem}
                     backgroundColor={'lightgray'}/>
 
-                  <View style={{flex: 1, flexDirection: 'row', backgroundColor: 'white'}}>    
-                    
-                    <View style={{flex: 1}}>   
-                      <MainText>Medical conditions</MainText>
-                      <Text>{this.state.data.condition1}</Text>
-                    </View>
 
-                  </View>
+                  <ToolkitSingleItem                 
+                    label='Medical Conditions'
+                    name={this.state.data.condition1}
+                    keyId={['condition1']}
+                    onItemPress={this.setCurrentItem}/>
+
 
                   <View >
-                      <MainText><HeadingText>CONTACT PHONE NUMBERS</HeadingText></MainText>
+                      <MainText><SubHeadingText>CONTACT PHONE NUMBERS</SubHeadingText></MainText>
                   </View>
 
                   <ToolkitContactInfo 
@@ -221,25 +220,20 @@ class EmergencyToolkit extends Component {
                     backgroundColor={'lightgray'}/>
 
                   <View>
-                      <MainText><HeadingText>MEDICINES</HeadingText></MainText>
+                      <MainText><SubHeadingText>MEDICINES</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedicines(8)}
 
-                  <View style={{flex: 1, flexDirection: 'row', backgroundColor: 'lightgray'}}>    
-                    
-                    <View style={{flex: 1}}>   
-                      <MainText>Allergies to Medications</MainText>
-                      <Text>{this.state.data.allergies1}</Text>
-                    </View>
-
-                  </View>
+                  <ToolkitSingleItem                 
+                    label='Allergies to Medications'
+                    name={this.state.data.allergies1}
+                    keyId={['allergies1']}
+                    onItemPress={this.setCurrentItem}/>
 
             </View>
 
-
-       
-              </BodyScroll>
+          </BodyScroll>
           </View>           
         );
     }
@@ -249,7 +243,6 @@ class EmergencyToolkit extends Component {
  const styles = StyleSheet.create({
      container: {
        flex: 1,
-       //alignItems: 'center',
        justifyContent: 'flex-start',
        backgroundColor: 'white',
      },

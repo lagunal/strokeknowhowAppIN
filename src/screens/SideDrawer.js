@@ -13,6 +13,7 @@ import MainText from "../components/UI/MainText";
 import HeadingText from "../components/UI/HeadingText";
 
 import {rootNavigator} from './Home.Screen'; //navigator object from homeScreen
+import SubHeadingText from "../components/UI/SubHeadingText";
 
 class SideDrawer extends Component {
 
@@ -44,7 +45,7 @@ class SideDrawer extends Component {
       <View
         style={[
           styles.container,
-          { width: Dimensions.get("window").width * 0.8 }
+          { width: Dimensions.get("window").width * 5 }
         ]}
       >
         <TouchableOpacity onPress={() => this.homeHandler() }>
@@ -55,7 +56,7 @@ class SideDrawer extends Component {
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><HeadingText>Home</HeadingText></MainText>
+            <MainText style={styles.textColor}><SubHeadingText>Home</SubHeadingText></MainText>
           </View>
         </TouchableOpacity>
         <TouchableOpacity>
@@ -66,9 +67,58 @@ class SideDrawer extends Component {
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><HeadingText>Contents</HeadingText></MainText>
+            <MainText style={styles.textColor}><SubHeadingText>Emergency information</SubHeadingText></MainText>
           </View>
         </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.drawerItem}>
+            <Icon
+              name="ios-list-box-outline"
+              size={30}
+              color="white"
+              style={styles.drawerItemIcon}
+            />
+            <MainText style={styles.textColor}><SubHeadingText>Help Needed Toolkit</SubHeadingText></MainText>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.drawerItem}>
+            <Icon
+              name="ios-list-box-outline"
+              size={30}
+              color="white"
+              style={styles.drawerItemIcon}
+            />
+            <MainText style={styles.textColor}><SubHeadingText>Weekly Schedule Toolkit</SubHeadingText></MainText>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.drawerItem}>
+            <Icon
+              name="ios-list-box-outline"
+              size={30}
+              color="white"
+              style={styles.drawerItemIcon}
+            />
+            <MainText style={styles.textColor}><SubHeadingText>Medications Toolkit</SubHeadingText></MainText>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.drawerItem}>
+            <Icon
+              name="ios-list-box-outline"
+              size={30}
+              color="white"
+              style={styles.drawerItemIcon}
+            />
+            <MainText style={styles.textColor}><SubHeadingText>Physical Therapy Toolkit</SubHeadingText></MainText>
+          </View>
+        </TouchableOpacity>
+
         <TouchableOpacity onPress={() => this.loginHandler() }>
           <View style={styles.drawerItem}>
             <Icon
@@ -77,7 +127,7 @@ class SideDrawer extends Component {
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><HeadingText>Log Out</HeadingText></MainText>
+            <MainText style={styles.textColor}><SubHeadingText>Log Out</SubHeadingText></MainText>
           </View>
         </TouchableOpacity>
       </View>
@@ -87,7 +137,7 @@ class SideDrawer extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 65,
+    marginTop: 25,
     //paddingTop: 10,
     backgroundColor: "#0773B9",
     flex: 1

@@ -47,6 +47,38 @@ class ToolkitHomeScreen extends Component {
             </MainText>  
         </TouchableOpacity>
    
+        <TouchableOpacity onPress={this.handlePress}>
+            <MainText>
+            <HeadingText>
+                Help Needed Toolkit
+            </HeadingText>
+            </MainText>  
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.handlePress}>
+            <MainText>
+            <HeadingText>
+                Weekly Schedule Toolkit
+            </HeadingText>
+            </MainText>  
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.handlePress}>
+            <MainText>
+            <HeadingText>
+                Medications Toolkit
+            </HeadingText>
+            </MainText>  
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.handlePress}>
+            <MainText>
+            <HeadingText>
+                Physical Therapy Toolkit
+            </HeadingText>
+            </MainText>  
+        </TouchableOpacity>
+
       </View>
     );
   }
@@ -55,9 +87,10 @@ class ToolkitHomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'white',
+    padding: 30,
 
   },
 

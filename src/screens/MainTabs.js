@@ -30,7 +30,7 @@ const startTabs = () => {
                     }
                 },
                 {
-                    screen: "StrokeApp.HomeScreen",
+                    screen: "StrokeApp.ContentsScreen",
                     label: "Contents",
                     title: "Contents",
                     icon: sources[4],
@@ -38,7 +38,7 @@ const startTabs = () => {
                 {
                     screen: "StrokeApp.ToolkitHomeScreen",
                     label: "Toolkits",
-                    //title: "Emergency Information Station",
+                    title: "Toolkits Home",
                     icon: sources[2],
                     navigatorButtons: {
                         leftButtons: [

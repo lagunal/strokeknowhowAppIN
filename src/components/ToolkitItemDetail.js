@@ -22,6 +22,7 @@ class ToolkitItemDetail extends Component {
     }
     //updates the data array with the updated info and call function to save 
     handlePress = () => {
+        console.log(this.props.keyId);
         var data = this.props.data;
         if (this.props.keyId[2]) { //if parent is ToolkitMedication
             for (var key in data){
@@ -31,12 +32,18 @@ class ToolkitItemDetail extends Component {
                     data[key] = (key === this.props.keyId[2]) ? this.state.purpose : data[key];
                 }
             }
-        } else {
+        } else if (this.props.keyId[1]) { //if parent is ToolkitContactInfo
             for (var key in data){
                 if (data.hasOwnProperty(key)) {
                     data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];
                     data[key] = (key === this.props.keyId[1]) ? this.state.phone : data[key];
                     
+                }
+            }
+        } else {
+            for (var key in data){
+                if (data.hasOwnProperty(key)) {
+                    data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];                    
                 }
             }
         }
@@ -46,7 +53,6 @@ class ToolkitItemDetail extends Component {
     
     render(){
         const { item } = this.props;
-
         if (this.props.keyId[2]) { //if parent is ToolkitMedication
             return(
                 <View style={{flex: 1}}>    
@@ -70,20 +76,35 @@ class ToolkitItemDetail extends Component {
             )
         }
 
-        return(
-                <View style={{flex: 1}}>    
-                                    
-                    <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
-                    <TextFieldInput value={this.state.name} 
-                            onChangeText={name => this.setState({ name } )} />
-                    <MainText><HeadingText> {item.labelContact} </HeadingText> </MainText>
-                    <TextFieldInput value={this.state.phone} 
-                            onChangeText={phone => this.setState({ phone } )}/>
+        if (this.props.keyId[1]) { //if parent is ToolkitContactInfo
+            return(
+                    <View style={{flex: 1}}>    
+                                        
+                        <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
+                        <TextFieldInput value={this.state.name} 
+                                onChangeText={name => this.setState({ name } )} />
+                        <MainText><HeadingText> {item.labelContact} </HeadingText> </MainText>
+                        <TextFieldInput value={this.state.phone} 
+                                onChangeText={phone => this.setState({ phone } )}/>
 
-                    <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
-                       Save
-                    </Button>
-                </View>
+                        <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
+                        Save
+                        </Button>
+                    </View>
+            )
+        }
+        //parent is emergencyToolkitScreen
+        return(
+            <View style={{flex: 1}}>    
+                                
+                <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
+                <TextFieldInput value={this.state.name} 
+                        onChangeText={name => this.setState({ name } )} />
+
+                <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
+                Save
+                </Button>
+            </View>
         )
     }
 
