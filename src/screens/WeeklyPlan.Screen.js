@@ -13,6 +13,7 @@ import SubHeadingText from "../components/UI/SubHeadingText";
 import PictureLegend from "../components/UI/PictureLegend";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
+import BorderBox from '../styles/BorderBox';
 
 class WeeklyPlanScreen extends Component {
   constructor(props) {
@@ -46,70 +47,82 @@ class WeeklyPlanScreen extends Component {
         return (
           <View style={styles.container}>
             <BodyScroll>
-            <MainText>
-                 Get FREE Interactive Help Needed Toolkit at 
+              <MainText>
+                Share this Interactive Help Needed Tool with your family.
               </MainText>
-              <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
+              {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
                 <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
                 www.strokeknowhow.org 
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
 
               <ImageContainer src={require('../assets/help_needed_icon.png')} />
 
                 <MainText>
-                <SubHeadingText>Questions Families Ask</SubHeadingText>
+                  <HeadingText>Questions Families Ask</HeadingText>
                 </MainText>
-                <MainText>
-                  • Who will handle personal care; 
-                      physical therapy? When? • Shop, 
-                      share housekeeping? When? 
-                  • Drive to doctor and therapy appointments. 
+                <MainText style={[{marginVertical: 0}]}>
+                    {`\u2022`} Who will handle personal care; physical therapy? When?
                 </MainText>
-               
-                <MainText style={{margin: 25}}>
-                Call 1-888-4-STROKE or
-                http://www.strokeassociation.org/STROKEORG/strokegroup for nearby Stroke Group.
-                For CPR training, contact www.heart.org 1-877-242-4277
-
+                <MainText style={[{marginVertical: 0}]}>
+                    {`\u2022`} Shop, share housekeeping? When? 
                 </MainText>
-
+                <MainText style={[{marginVertical: 0}]}>     
+                    {`\u2022`} Drive to doctor and therapy appointments. 
+                </MainText>
+                <View style={BorderBox.border}>
+                    <MainText style={[{alignSelf: 'center'}, {textColor: 'white'}]}>
+                    Call 1-888-4-STROKE
+                    </MainText>
+                      <TouchableOpacity onPress={() => Linking.openURL('http://www.strokeassociation.org/STROKEORG/strokegroup')}>
+                        <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
+                                  or  http://strokeassociation.org 
+                        </Text>
+                      </TouchableOpacity>
+                    <MainText style={{marginHorizontal: 25}}>  
+                      for nearby Stroke Group.
+                      For CPR training, contact www.heart.org 1-877-242-4277
+                    </MainText>
+                </View>
                 <MainText>
                     <HeadingText>A Weekly Plan</HeadingText>
                 </MainText>
 
                 <ImageContainer src={require('../assets/family-plan.png')} />
-                <PictureLegend>
-                Rachel’s granddaughter shows her how to organize a weekly schedule in Tel Aviv, Israel.  
-                </PictureLegend>
-
-                <MainText>  
-                  <SubHeadingText>Benefits of a Weekly Schedule</SubHeadingText>
-                </MainText>
-                <MainText>      
-                  • Keeping track of timeorganizes each day. Prioritizes what needs to take place, give it time.• Have stimulating times, others in between, that are quiet — to sit down, nap, simply relax. 
-                </MainText>
-
                 <MainText>
-                 Get FREE Interactive Weekly Schedule Toolkit at 
-              </MainText>
-              <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
+                    Rachel’s granddaughter shows her how to organize a weekly schedule in Tel Aviv, Israel.  
+                </MainText>
+
+                {/* <MainText>  
+                  <SubHeadingText>Benefits of a Weekly Schedule</SubHeadingText>
+                </MainText> */}
+                <MainText style={[{marginVertical: 0}]}>      
+                    {`\u2022`} Keep track of time each day. Prioritize.  
+                </MainText>
+                <MainText style={[{marginVertical: 0}]}>  
+                    {`\u2022`} Have stimulating times, others that are quiet.    
+                </MainText>
+
+                <MainText style={[{marginBottom: 0}]} >
+                  Share the interactive Weekly Schedule Toolkit with your family. 
+                </MainText>
+              {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
                 <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
                 www.strokeknowhow.org 
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
               
-              <ImageContainer src={require('../assets/weekly-schedule-icon.png')} />
+              <ImageContainer style={{width: '50%'}} src={require('../assets/weekly-schedule-icon.png')} />
               
-              <MainText><SubHeadingText>Family Plan</SubHeadingText></MainText>
+              <MainText><HeadingText>Family Plan</HeadingText></MainText>
               <MainText>
-            • After a stroke, the family looks at care, living and medical expenses, how each will help.  
-            </MainText>
-            <MainText>
-            • Ask a physical therapist to evaluate ability to move, talk, understand, handle personal care. 
-            </MainText>
-            <MainText>
-            • To understand emotional effects, a psychologist may suggest ways to cope.
+              {`\u2022`} After a stroke, the family looks at the care, living/medical expenses, how each will help.  
+              </MainText>
+              <MainText>
+              {`\u2022`} Ask a physical therapist to evaluate the ability to move, talk, handle personal care. 
+              </MainText>
+              <MainText>
+              {`\u2022`} To understand emotional effects, a psychologist may suggest ways to cope.
               </MainText>
             </BodyScroll>      
           </View>

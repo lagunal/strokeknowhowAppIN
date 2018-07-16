@@ -12,6 +12,7 @@ import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
+import LegendText from "../components/UI/LegendText";
 
 export let rootNavigator = null; //variable to export navigation object to drawer
 
@@ -53,9 +54,9 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
       <BodyScroll>
-        <TouchableOpacity onPress={this.logOutHandler}>
+        {/* <TouchableOpacity onPress={this.logOutHandler}>
           <Icon size={40} name="md-exit" color="black" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <ImageContainer src={require('../assets/home.png')} />  
         <MainText>
@@ -64,24 +65,24 @@ class HomeScreen extends Component {
             Out of the hospital in five days: I could stand, not walk.  
             Insurance paid for a handful of physical therapy. NOW WHAT?
         </MainText>
-        <Text style={{marginLeft: 300}}>Mike</Text >    
+        <LegendText>-- Mike</LegendText >    
         <MainText>
           <HeadingText>
-            A new day
+            A New Day
           </HeadingText>
         </MainText>  
         <View style={styles.imageContainer}>  
           <ImageContainer src={require('../assets/newDay.png')} />
         </View>
         <MainText>
-            • It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. Lowers capacity of heart’s pumping rate, reduces lung capacity, alters blood pressure, increases chance 
+            {`\u2022`} It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. Lowers capacity of heart’s pumping rate, reduces lung capacity, alters blood pressure, increases chance 
             of pneumonia. 
         </MainText>
         <MainText>  
-            • Do slow stretches in bed to ease stiffness. Roll from side to side. 
+            {`\u2022`} Do slow stretches in bed to ease stiffness. Roll from side to side. 
         </MainText>
         <MainText>  
-            • Before moving take your time, avoid quick changes to avoid becoming dizzy.  
+            {`\u2022`} Before moving take your time, avoid quick changes to avoid becoming dizzy.  
         </MainText>
       </BodyScroll> 
       </View>

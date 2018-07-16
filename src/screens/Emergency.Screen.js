@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    Text,
-    TouchableOpacity,
-    Linking
   } from 'react-native';
 
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import SubHeadingText from '../components/UI/SubHeadingText';
-import PictureLegend from '../components/UI/PictureLegend';
 import ImageContainer from "../components/UI/ImageContainer";
 
 class EmergencyScreen extends Component {
@@ -35,8 +31,8 @@ class EmergencyScreen extends Component {
       if (event.type === "NavBarButtonPress") {
         if (event.id === "forwardButton") {
           this.props.navigator.push({
-              screen: "StrokeApp.BioScreen",
-              title: "Florence Weiner Bio",
+              screen: "StrokeApp.GettingOrganizedScreen",
+              title: "Getting Organized",
           });
         }
       }  
@@ -48,38 +44,34 @@ class EmergencyScreen extends Component {
             <BodyScroll>
 
             <MainText>
-                Get FREE Interactive Emergency Information Station Toolkit at 
+                Share  the  Interactive  Emergency  Information  Station  Toolkit  with  your  family.
             </MainText>
-            <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
+            {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
               <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
               www.strokeknowhow.org 
               </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <ImageContainer src={require('../assets/emergency-station-icon.png')} />    
 
             <MainText>
                 If you believe it is an emergency – it probably is! Get help immediately. 
-                Hospital will will call the doctor for information. 
-                It helpsto know medical condition, medications (name, dosage).           
+                Hospital will call the doctor for information. 
+                It helps to know medical condition, medications (name, dosage).           
             </MainText>
 
-            <MainText><SubHeadingText>Type in information on Emergency Toolkit, keep it handy</SubHeadingText></MainText>
+            <MainText><SubHeadingText>Don’t wait. Get help.</SubHeadingText></MainText>
 
-            <MainText>
-                Don’t wait. Get help.
-            </MainText>
-
-            <MainText>
-                Call 911 or your emergency number.   
+            <MainText style={{color: 'red'}}>
+            {`\u2022`} Call 911 or your emergency number.   
             </MainText>      
 
-            <MainText>
-                • Report possible stroke, or another emergency. 
+            <MainText style={{color: 'red'}}>
+            {`\u2022`} Report possible stroke, or another emergency. 
             </MainText>    
 
-            <MainText>
-                • Answer questions in clear, short answers.
+            <MainText style={{color: 'red'}}>
+            {`\u2022`} Answer questions in clear, short answers.
                 If you need a translator, ask immediately. Do not hang up first: Wait for instructions. 
             </MainText>    
             

@@ -5,6 +5,7 @@ import {
   } from 'react-native';
 
 import SubHeadingText from '../components/UI/SubHeadingText';
+import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
@@ -44,46 +45,56 @@ class BladderControlScreen extends Component {
 
                 <ImageContainer src={require('../assets/bladder-control.png')} />
 
-                <MainText><SubHeadingText>Retraining the Bladder</SubHeadingText></MainText>
+                <MainText><HeadingText>Retraining the Bladder</HeadingText></MainText>
 
                 <MainText>  
-                  Ask a doctor or nursere-establishing bladder control. 
+                {`\u2022`} Ask a doctor or nurser in re-establishing bladder control. 
                   Brain and bladder need to keep dry on your schedule.
-                  • At first, urinate every hour, not wait for urge, until urination is controlled. 
-                  With greater control, urinate every 3 to 4 hours. 
+                </MainText>
+                <MainText>  
+                {`\u2022`} At first, urinate every hour, not wait for urge until urination is controlled. 
+                  With greater control, urinate every 3 to 4 hours when awake. 
                 </MainText>
 
-                <MainText><SubHeadingText>Regaining Bowel Control </SubHeadingText></MainText>
+                <MainText><HeadingText>Regaining Bowel Control </HeadingText></MainText>
 
                 <MainText>  
-                • Get help re-training brain’s ability to control movements. At first, empty on a routine. Increase time to relieve oneself. 
-                • Constipation, an effect of stroke, caused by certain medications, aging, inactivity, low-fiber. 
+                {`\u2022`} Get help re-training brain’s ability to control movements. At first, empty on a routine. Increase time to relieve oneself. 
+                </MainText>
+                <MainText>  
+                {`\u2022`} Constipation, an effect of stroke, caused by certain medications, aging, inactivity, low-fiber. 
                 </MainText>
 
-                <MainText><SubHeadingText>Drinking Water</SubHeadingText></MainText>
+                <MainText><HeadingText>Drinking Water</HeadingText></MainText>
 
                 <MainText>  
-                  • We depend on drinking water to live. After a stroke, swallowing may be difficult, offer sips of water often to avoid dehydration. 
-                  Do not use a straw.                
-                 </MainText>
+                {`\u2022`} We depend on drinking water to live. After a stroke, swallowing may be difficult, offer sips of water often to avoid dehydration. 
+                  Do not us a straw.                
+                </MainText>
 
-                <MainText><SubHeadingText>Swallowing</SubHeadingText></MainText>
+                <MainText><HeadingText>Swallowing</HeadingText></MainText>
 
                 <ImageContainer src={require('../assets/swallowing.png')} />
 
                 <MainText>  
-                  Aspeech therapist or nurse can help in retraining swallowing. 
-                  • Watchfor a swallowing emergency. Act quickly. 
-                  • Learn CPR.
-                  • After eating, check for food in cheeks, under the tongue, upper palate.                
-                 </MainText>
+                  Aspeech therapist or nurse can help retraining swallowing. 
+                </MainText>
+                <MainText>
+                {`\u2022`} Watch for a swallowing emergency. Act quickly. 
+                  After eating, check for food in cheeks, under the tongue, upper palate.  
+                </MainText>
+                <MainText>   
+                {`\u2022`} Learn CPR.               
+                </MainText>
 
-                <MainText><SubHeadingText>Questions to Ask Your Doctor</SubHeadingText></MainText>
+                <MainText><HeadingText>Questions to Ask Your Doctor</HeadingText></MainText>
 
                 <MainText>  
-                  • What do we need to know about my stroke? High blood pressure, diabetes? Numbers to report?
-                  • Side effects of medicine to report?  
-                  • Has my hospital report been sent to doctors?
+                {`\u2022`} What do we need to know about my stroke? High blood pressure, diabetes?
+                  Side effects of medicine to report?  
+                </MainText>  
+                <MainText>  
+                {`\u2022`} Has my hospital report been sent to doctors?
                 </MainText>
 
             </BodyScroll>                

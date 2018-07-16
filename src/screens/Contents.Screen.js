@@ -5,7 +5,7 @@ import {
   StyleSheet, View, Text, TouchableOpacity
 } from 'react-native';
 
-import HeadingText from '../components/UI/HeadingText';
+
 import MainText from "../components/UI/MainText";
 import SubHeadingText from '../components/UI/SubHeadingText';
 import BodyScroll from '../components/UI/BodyScroll';
@@ -16,25 +16,19 @@ class ContentsScreen extends Component {
   constructor(props) {
       super(props);
       this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+
   }
   onNavigatorEvent = event => {
-    //   if (event.type === "NavBarButtonPress") {
-    //       if (event.id === "forwardButton") {
-    //         this.props.navigator.push({
-    //             screen: "StrokeApp.MovingSafelyScreen",
-    //             title: "Moving Safely",
-    //         });
-    //     }
-    //   }  
 
   }
 
-  handlePress = () => {
+  handlePress = (screenName, screenTitle) => {
     this.props.navigator.push({
-        screen: "StrokeApp.EmergencyToolkitScreen",
+        screen: screenName,
+        title: screenTitle
     });
   }
-
+  
   render() {
 
     return (
@@ -42,7 +36,7 @@ class ContentsScreen extends Component {
 
         <BodyScroll>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.HomeScreen', 'Home')}>
                     <MainText>
                     <SubHeadingText>
                         Home - A New Day
@@ -50,7 +44,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MovingSafelyScreen','Moving Safely')}>
                     <MainText>
                     <SubHeadingText>
                         Moving Safely
@@ -58,7 +52,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.WeeklyPlanScreen','Weekly Plan')}>
                     <MainText>
                     <SubHeadingText>
                         Weekly Plan
@@ -66,7 +60,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.FatigueScreen','Fatigue')}>
                     <MainText>
                     <SubHeadingText>
                        Fatigue is a challenge
@@ -74,7 +68,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MedicationsScreen','Medications')}>
                     <MainText>
                     <SubHeadingText>
                         Organizing Medications
@@ -82,7 +76,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BladderControlScreen','Bladder Control')}>
                     <MainText>
                     <SubHeadingText>
                         Bladder Control
@@ -90,7 +84,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BloodPressureScreen','Blood Pressure')}>
                     <MainText>
                     <SubHeadingText>
                         Blood pressure
@@ -98,7 +92,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.RangeMotionScreen','Range of Motion')}>
                     <MainText>
                     <SubHeadingText>
                         Range of Motion
@@ -106,7 +100,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.SkinCareScreen','Skin Care')}>
                     <MainText>
                     <SubHeadingText>
                         Skin Care
@@ -114,7 +108,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.GettingUpScreen','Getting Up')}>
                     <MainText>
                     <SubHeadingText>
                         Getting Up When Feeling Down
@@ -122,7 +116,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BrainBodyScreen','Brain/Body')}>
                     <MainText>
                     <SubHeadingText>
                         Brain/Body Connection 
@@ -130,7 +124,7 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.EmergencyScreen','Emergency')}>
                     <MainText>
                     <SubHeadingText>
                         Emergency
@@ -138,7 +132,15 @@ class ContentsScreen extends Component {
                     </MainText>  
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.GettingOrganizedScreen','Getting Organized')}>
+                    <MainText>
+                    <SubHeadingText>
+                        Getting Organized
+                    </SubHeadingText>
+                    </MainText>  
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BioScreen','Bio')}>
                     <MainText>
                     <SubHeadingText>
                         Florence Weiner Bio

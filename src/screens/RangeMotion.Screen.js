@@ -11,7 +11,6 @@ import Video from 'react-native-video';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import SubHeadingText from '../components/UI/SubHeadingText';
-import ImageContainer from "../components/UI/ImageContainer";
 
 class RangeMotionScreen extends Component {
     constructor(props) {
@@ -34,8 +33,8 @@ class RangeMotionScreen extends Component {
       if (event.type === "NavBarButtonPress") {
         if (event.id === "forwardButton") {
           this.props.navigator.push({
-              screen: "StrokeApp.SkinCareScreen",
-              title: "Skin Care",
+              screen: "StrokeApp.RangeMotionScreen2",
+              title: "Range of Motion",
           });
         }
       }  
@@ -47,34 +46,20 @@ class RangeMotionScreen extends Component {
             <BodyScroll>
 
             <MainText><SubHeadingText>Good Body Positioning </SubHeadingText></MainText>
-
+            <View style={{padding: 20}}>
               <Video
-                source={require('../assets/8._Proper_Sitting_Posture.mp4')}
+                source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/9._How_Shoulder_Blade_Motion_and_Trunk_Rotation_work_together.mp4"}}
                 style={{height: 200}}
                 rate={1}
                 paused={false}
                 volume={1}
-                muted={false}
-                playWhenInactive={true}
+                muted={true}
+                playInBackground={false}
+                playWhenInactive={false}
                 resizeMode='contain'
-                repeat={true}
+                repeat={false}
                 />
-
-              <View style={{margin: 30}}>
-              </View>
-
-              <Video
-                source={require('../assets/9._How_Shoulder_Blade_Motion_and_Trunk_Rotation_work_together.mp4')}
-                style={{height: 200}}
-                rate={1}
-                paused={false}
-                volume={1}
-                muted={false}
-                playWhenInactive={true}
-                resizeMode='contain'
-                repeat={true}
-                />
-
+            </View>
 
             <MainText>
                More at

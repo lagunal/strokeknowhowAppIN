@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Navigation } from "react-native-navigation";
 import Spinner from 'react-native-loading-spinner-overlay';
 import Video from 'react-native-video';
 
@@ -9,18 +8,17 @@ import {
 
 import Icon from "react-native-vector-icons/Ionicons";
 
-import styles from '../components/styles.js';
+import styles from '../styles/styles';
 
 import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
-import Button from "../components/UI/Button";
 import TextFieldInput from '../components/UI/TextInputField';
 import startTabs from './MainTabs'; //start tabs navigation
 
 //import validateEmail from '../utility/validateEmail.js';
 //import validatePassword from '../utility/validatePassword.js';
 
-const apiUrl = 'https://strokeknowhow.org/api/';
+const apiUrl = 'http://strokeknowhow.org/api/';
 
 class LoginScreen extends Component {
 
@@ -40,7 +38,7 @@ class LoginScreen extends Component {
         inLogin: true,
         loading: false,
         showSpinner: false,
-        language: 'en',
+        //language: 'en',
       }
   }
 
@@ -49,10 +47,10 @@ class LoginScreen extends Component {
       const userData = await AsyncStorage.getItem('user');
       //const userData = '';
 
-      const language = await AsyncStorage.getItem('language');
+      //const language = await AsyncStorage.getItem('language');
 
       this.setState({ user: JSON.parse(userData) });
-      this.setState({ language: language });
+      //this.setState({ language: language });
 
       //Try login
       //console.log(this.state.user);
@@ -104,7 +102,7 @@ class LoginScreen extends Component {
           }
           
           this.setUser(user);
-          this.setLanguage(this.state.language);
+          //this.setLanguage(this.state.language);
           this.loggedHandler();
         }
   
@@ -191,16 +189,16 @@ class LoginScreen extends Component {
     }
   }
 
-  async setLanguage (lang) {
-    try {
-      const value = await AsyncStorage.setItem('language', lang);
-      this.setState({language: lang});
+  // async setLanguage (lang) {
+  //   try {
+  //     const value = await AsyncStorage.setItem('language', lang);
+  //     this.setState({language: lang});
 
-      return value;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     return value;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   validateEMail = (text) => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
@@ -236,11 +234,9 @@ class LoginScreen extends Component {
     return valid;
   }
 
-  changeLanguage = (itemValue, itemIndex) => {
-    //console.log(itemValue, itemIndex);
-
-    this.setState({language: itemValue});
-  }
+  // changeLanguage = (itemValue, itemIndex) => {
+  //   this.setState({language: itemValue});
+  // }
 
   renderButtonOrLoading() {
     if(this.state.loading) {
@@ -298,46 +294,38 @@ class LoginScreen extends Component {
 
     if(this.state.inLogin) { //LOGIN
       return (
-        <ScrollView style={{padding: 20, backgroundColor: 'white'}}>
+        <ScrollView style={{paddingHorizontal: 20, paddingVertical: 0, backgroundColor: 'white'}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
-            {/*
-            <View>
-              <Image resizeMode="contain" style={styles.logo} source={require('../assets/banner.jpg')} />
-            </View>
-            */}
+
             <View>
               <Video
-                source={require('../assets/102_Pattys_husband.mp4')}
+                source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/17.Every-Stroke-is-different.mp4"}}
                 style={{height: 200}}
                 rate={1}
                 paused={false}
                 volume={1}
                 muted={false}
-                playWhenInactive={true}
+                playWhenInactive={false}
                 resizeMode='contain'
-                repeat={true}
+                repeat={false}
                 />
             </View>
-            {/*
-            <View style={styles.buttonContainer}>
-                <Image style={{width: 150, height: 150}} source={require('../assets/patty.png')} />
-            </View>
-            */}
+            
             <View>
               <MainText><HeadingText>Welcome to StrokeKnowHow</HeadingText></MainText>
-              <MainText>We are a worldwide stroke community learning from one another</MainText>
+              <MainText style={{textAlign: 'center'}}>We are a worldwide stroke community learning from one another</MainText>
             </View>
 
             <View style={styles.containerStyle}>
-              <Picker
+              {/* <Picker
                 selectedValue={this.state.language}
                 style={styles.comboStyle}
-                /*onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>*/
+                onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
                 onValueChange={(itemValue, itemIndex) => this.changeLanguage(itemValue, itemIndex)} >
                 <Picker.Item label="English" value="en" />
                 <Picker.Item label="Español" value="es" />
-              </Picker>
+              </Picker> */}
             </View>
             <TextFieldInput
               label='Username or Email Address'
@@ -361,11 +349,11 @@ class LoginScreen extends Component {
 
             <Text style={styles.errorText}>{this.state.error}</Text>
 
-            <View style={{marginTop: 20}}>
+            <View style={{marginTop: 0}}>
               {this.renderButtonOrLoading()}
             </View>
 
-            <View style={{marginTop: 20}}>
+            <View style={{marginTop: 5}}>
               {this.renderButtonOrRegister()}
             </View>
             

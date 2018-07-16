@@ -4,40 +4,43 @@ import {
   Text,
   Dimensions,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from "react-native";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
 import MainText from "../components/UI/MainText";
-import HeadingText from "../components/UI/HeadingText";
 
 import {rootNavigator} from './Home.Screen'; //navigator object from homeScreen
 import SubHeadingText from "../components/UI/SubHeadingText";
 
 class SideDrawer extends Component {
 
-  loginHandler = () => {
+  async logoutHandler () {
     rootNavigator.push({
       screen: 'StrokeApp.LoginScreen',
+      title: 'Login'
     });
-    rootNavigator.toggleDrawer({
-      side: 'left',
-      animated: true,
-      to: 'close',
-    });
-  }
+    rootNavigator.popToRoot({animated: true, animationType: 'fade',});
 
-  homeHandler = () => {
-    rootNavigator.push({
-      screen: 'StrokeApp.HomeScreen',
-      title: "Home",
-    });
     rootNavigator.toggleDrawer({
       side: 'left',
       animated: true,
       to: 'close',
     });
+    const user = await AsyncStorage.setItem('user', '');
+  };
+
+  emergencyHandler = () => {
+      rootNavigator.push({
+        screen: 'StrokeApp.EmergencyToolkitScreen',
+      });
+      rootNavigator.toggleDrawer({
+        side: 'left',
+        animated: true,
+        to: 'close',
+      });
   }
 
   render() {
@@ -45,21 +48,13 @@ class SideDrawer extends Component {
       <View
         style={[
           styles.container,
-          { width: Dimensions.get("window").width * 5 }
+          { width: Dimensions.get("window").width * 2 }
         ]}
       >
-        <TouchableOpacity onPress={() => this.homeHandler() }>
-          <View style={styles.drawerItem}>
-            <Icon
-              name="ios-home-outline"
-              size={30}
-              color="white"
-              style={styles.drawerItemIcon}
-            />
-            <MainText style={styles.textColor}><SubHeadingText>Home</SubHeadingText></MainText>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
+        <View style={styles.drawerItem}>
+          <MainText style={styles.textColor}><SubHeadingText>TOOLKITS</SubHeadingText></MainText>
+        </View>
+        <TouchableOpacity onPress={this.emergencyHandler}>
           <View style={styles.drawerItem}>
             <Icon
               name="ios-list-box-outline"
@@ -79,7 +74,7 @@ class SideDrawer extends Component {
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><SubHeadingText>Help Needed Toolkit</SubHeadingText></MainText>
+            <MainText style={styles.textColor}><SubHeadingText>Help Needed</SubHeadingText></MainText>
           </View>
         </TouchableOpacity>
 
@@ -91,7 +86,7 @@ class SideDrawer extends Component {
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><SubHeadingText>Weekly Schedule Toolkit</SubHeadingText></MainText>
+            <MainText style={styles.textColor}><SubHeadingText>Weekly Schedule</SubHeadingText></MainText>
           </View>
         </TouchableOpacity>
 
@@ -103,7 +98,7 @@ class SideDrawer extends Component {
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><SubHeadingText>Medications Toolkit</SubHeadingText></MainText>
+            <MainText style={styles.textColor}><SubHeadingText>Medications</SubHeadingText></MainText>
           </View>
         </TouchableOpacity>
 
@@ -115,11 +110,11 @@ class SideDrawer extends Component {
               color="white"
               style={styles.drawerItemIcon}
             />
-            <MainText style={styles.textColor}><SubHeadingText>Physical Therapy Toolkit</SubHeadingText></MainText>
+            <MainText style={styles.textColor}><SubHeadingText>Physical Therapy</SubHeadingText></MainText>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => this.loginHandler() }>
+        <TouchableOpacity onPress={() => this.logoutHandler()}>
           <View style={styles.drawerItem}>
             <Icon
               name="ios-log-out"

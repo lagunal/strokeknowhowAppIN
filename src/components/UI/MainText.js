@@ -11,11 +11,11 @@ const mainText = props => (
 
 const styles = StyleSheet.create({
     mainText: {
-        color: "black",
+        color: "blue",
         fontFamily: 'Verdana',
-        fontSize: 15,
-        textAlign: 'center',
-        margin: 7,    
+        fontSize: 17,
+        textAlign: 'justify',
+        margin: 10,
     }
 });
 

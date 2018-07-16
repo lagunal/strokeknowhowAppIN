@@ -1,11 +1,11 @@
 //const apiHost = 'http://10.0.0.34:80/strokeknowhow2/wp-json/toolkit/v1/';
-const apiHost = 'http://strokeknowhow.org/wp-json/toolkit/v1/';
+const apiHost = 'https://strokeknowhow.org/wp-json/toolkit/v1/';
 
 export default {
   //fetch the data from energency toolkit
-  async getEmergency() {
+  async getEmergency(userId) {
     try {
-      const response = await fetch(apiHost + 'get-emergency/3');
+      const response = await fetch(apiHost + 'get-emergency/' + userId);
       const responseJson = await response.json();
       return responseJson;
     } catch(error) {
@@ -14,9 +14,9 @@ export default {
   },
   
   //save data emergency toolkit
-  saveToolkit(data) {
+  saveToolkit(data, userId) {
     try {
-      fetch(apiHost + 'save-emergency/3', {
+      fetch(apiHost + 'save-emergency/' + userId, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

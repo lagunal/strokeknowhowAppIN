@@ -4,20 +4,17 @@ import {
     View,
     Text,
   } from 'react-native';
-import { Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 
+import Video from 'react-native-video';
 import MainText from "../components/UI/MainText";
 import HeadingText from '../components/UI/HeadingText';
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
 import SubHeadingText from '../components/UI/SubHeadingText';
+import LegendText from "../components/UI/LegendText";
 
 class MovingSafelyScreen extends Component {
 
-    // Promise.all([
-    //   Icon.getImageSource("ios-arrow-forward", 30)
-    // ]).then(sources => {
       static navigatorButtons = {
         rightButtons: [
           {
@@ -35,14 +32,7 @@ class MovingSafelyScreen extends Component {
     }
         
     onNavigatorEvent = event => {
-        // if (event.type === "ScreenChangedEvent") {
-        //   if (event.id === "willDisappear") {
-        //     this.props.navigator.pop({
-        //       animated: true, // does the pop have transition animation or does it happen immediately (optional)
-        //       animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
-        //     });
-        //   }
-        // }
+
         if (event.type === "NavBarButtonPress") {
             if (event.id === "forwardButton") {
               this.props.navigator.push({
@@ -57,14 +47,26 @@ class MovingSafelyScreen extends Component {
         return (
           <View style={styles.container}>
             <BodyScroll>
-                    <ImageContainer src={require('../assets/boton-video.png')} />
-                    <MainText><SubHeadingText>How Helpers Protect Themselves</SubHeadingText></MainText>
+                    <View style={{padding: 20}}>
+                      <Video
+                        source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/16.Transfer-from-bed-to-wheelchair.mp4"}}
+                        style={{height: 300}}
+                        rate={1}
+                        paused={false}
+                        volume={1}
+                        muted={false}
+                        playWhenInactive={false}
+                        resizeMode='contain'
+                        repeat={false}
+                        />
+                    </View>
+                    <MainText><HeadingText>How Helpers Protect Themselves</HeadingText></MainText>
                     
                     <MainText>  
-                    • When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
+                    When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
                     </MainText>
                     <MainText>
-                    • Stand with feet slightly apart, one foot ahead of the other to keep your balance and shift your weight if necessary.
+                    Stand with feet slightly apart, one foot ahead of the other to keep your balance and shift your weight if necessary.
                     </MainText>
                     <MainText><HeadingText>
                       Share the Care
@@ -75,7 +77,7 @@ class MovingSafelyScreen extends Component {
                           it hit our whole family, and we each had 
                           a job to do– even the kids.
                     </MainText>
-                    <Text style={{marginLeft: 300}}>Javier</Text>
+                    <LegendText>-- Javier</LegendText>
                                     
             </BodyScroll>                
 

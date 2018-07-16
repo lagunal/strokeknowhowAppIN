@@ -40,15 +40,15 @@ const startTabs = () => {
                     label: "Toolkits",
                     title: "Toolkits Home",
                     icon: sources[2],
-                    navigatorButtons: {
-                        leftButtons: [
-                            {
-                                icon: sources[3],
-                                title: "Menu",
-                                id: "sideDrawerToggle"
-                            }
-                        ]
-                    }
+                    // navigatorButtons: {
+                    //     leftButtons: [
+                    //         {
+                    //             icon: sources[3],
+                    //             title: "Menu",
+                    //             id: "sideDrawerToggle"
+                    //         }
+                    //     ]
+                    // }
                 },
                 // {
                 //     screen: "StrokeApp.HomeScreen",

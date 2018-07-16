@@ -15,11 +15,13 @@ import BloodPressureScreen from './src/screens/BloodPressure.Screen';
 import FatigueScreen from './src/screens/Fatigue.Screen';
 import ToolkitHomeScreen from './src/screens/ToolkitHomeScreen';
 import RangeMotionScreen from './src/screens/RangeMotion.Screen';
+import RangeMotionScreen2 from './src/screens/RangeMotion.Screen2';
 import GettingUpScreen from './src/screens/GettingUp.Screen';
 import BrainBodyScreen from './src/screens/BrainBody.Screen';
 import EmergencyScreen from './src/screens/Emergency.Screen';
 import BioScreen from './src/screens/Bio.Screen';
 import ContentsScreen from './src/screens/Contents.Screen';
+import GettingOrganizedScreen from './src/screens/GettingOrganized.Screen';
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.SideDrawer",() => SideDrawer);
@@ -35,11 +37,13 @@ Navigation.registerComponent("StrokeApp.BloodPressureScreen", () => BloodPressur
 Navigation.registerComponent("StrokeApp.FatigueScreen", () => FatigueScreen);
 Navigation.registerComponent("StrokeApp.ToolkitHomeScreen", () => ToolkitHomeScreen);
 Navigation.registerComponent("StrokeApp.RangeMotionScreen", () => RangeMotionScreen);
+Navigation.registerComponent("StrokeApp.RangeMotionScreen2", () => RangeMotionScreen2);
 Navigation.registerComponent("StrokeApp.GettingUpScreen", () => GettingUpScreen);
 Navigation.registerComponent("StrokeApp.BrainBodyScreen", () => BrainBodyScreen);
 Navigation.registerComponent("StrokeApp.EmergencyScreen", () => EmergencyScreen);
 Navigation.registerComponent("StrokeApp.BioScreen", () => BioScreen);
 Navigation.registerComponent("StrokeApp.ContentsScreen", () => ContentsScreen);
+Navigation.registerComponent("StrokeApp.GettingOrganizedScreen", () => GettingOrganizedScreen);
 
 // Start a App
 //   Promise.all([

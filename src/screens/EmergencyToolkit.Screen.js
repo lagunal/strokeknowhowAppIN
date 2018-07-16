@@ -5,7 +5,8 @@ import {
     Image,
     ActivityIndicator,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    AsyncStorage
   } from 'react-native';
 
 import HeadingText from '../components/UI/HeadingText';
@@ -27,12 +28,17 @@ class EmergencyToolkit extends Component {
         isLoading: true,
         data: [],
         currentItem: null,
+        user: [],
       }
     };
 
     //get data from rest API
     async componentDidMount() {
-      const data = await ajax.getEmergency();
+      //get the id from logged user
+      const userData = await AsyncStorage.getItem('user');
+      this.setState({ user: JSON.parse(userData) });
+      
+      const data = await ajax.getEmergency(this.state.user.id);
       this.setState({ 
         isLoading: false, 
         data: data,
@@ -102,7 +108,8 @@ class EmergencyToolkit extends Component {
                <ToolkitItemDetail item={this.state.currentItem} 
                                   keyId={this.state.keyId}
                                   data={this.state.data} 
-                                  onPress={this.saveData} 
+                                  onPress={this.saveData}
+                                  userId={this.state.user.id} 
                                  />
             </View>
           )
