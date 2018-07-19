@@ -13,6 +13,7 @@ import SubHeadingText from "../components/UI/SubHeadingText";
 import PictureLegend from "../components/UI/PictureLegend";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
+import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
 import BorderBox from '../styles/BorderBox';
 
 class WeeklyPlanScreen extends Component {
@@ -48,7 +49,7 @@ class WeeklyPlanScreen extends Component {
           <View style={styles.container}>
             <BodyScroll>
               <MainText>
-                Share this Interactive Help Needed Tool with your family.
+                Share this Interactive Help Needed Toolkit with your family. (click image below)
               </MainText>
               {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
                 <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
@@ -56,7 +57,7 @@ class WeeklyPlanScreen extends Component {
                 </Text>
               </TouchableOpacity> */}
 
-              <ImageContainer src={require('../assets/help_needed_icon.png')} />
+              <ImageToolkitContainer src={require('../assets/help_needed_icon.png')} />
 
                 <MainText>
                   <HeadingText>Questions Families Ask</HeadingText>
@@ -71,17 +72,16 @@ class WeeklyPlanScreen extends Component {
                     {`\u2022`} Drive to doctor and therapy appointments. 
                 </MainText>
                 <View style={BorderBox.border}>
-                    <MainText style={[{alignSelf: 'center'}, {textColor: 'white'}]}>
-                    Call 1-888-4-STROKE
+                    <MainText style={[{color: 'black'}, {marginVertical: 0},{alignSelf: 'center'}]}>
+                      <Text style={{fontWeight: 'bold'}}>Stroke Groups</Text>  1-888-4-STROKE 
                     </MainText>
                       <TouchableOpacity onPress={() => Linking.openURL('http://www.strokeassociation.org/STROKEORG/strokegroup')}>
-                        <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
-                                  or  http://strokeassociation.org 
+                        <Text style={[{color: 'black'}, {fontSize: 20}, {alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
+                                  http://strokeassociation.org 
                         </Text>
                       </TouchableOpacity>
-                    <MainText style={{marginHorizontal: 25}}>  
-                      for nearby Stroke Group.
-                      For CPR training, contact www.heart.org 1-877-242-4277
+                    <MainText style={[{color: 'black'},{marginVertical: 0}]}>  
+                      <Text style={{fontWeight: 'bold'}}>CPR:</Text> 1-877-242-4277  www.heart.org
                     </MainText>
                 </View>
                 <MainText>
@@ -104,7 +104,7 @@ class WeeklyPlanScreen extends Component {
                 </MainText>
 
                 <MainText style={[{marginBottom: 0}]} >
-                  Share the interactive Weekly Schedule Toolkit with your family. 
+                  Share the interactive Weekly Schedule Toolkit with your family. (click image below)
                 </MainText>
               {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
                 <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
@@ -112,7 +112,7 @@ class WeeklyPlanScreen extends Component {
                 </Text>
               </TouchableOpacity> */}
               
-              <ImageContainer style={{width: '50%'}} src={require('../assets/weekly-schedule-icon.png')} />
+              <ImageToolkitContainer src={require('../assets/weekly-schedule-icon.png')} />
               
               <MainText><HeadingText>Family Plan</HeadingText></MainText>
               <MainText>

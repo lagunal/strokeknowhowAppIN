@@ -7,8 +7,8 @@ import {
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
-import SubHeadingText from '../components/UI/SubHeadingText';
-import ImageContainer from "../components/UI/ImageContainer";
+import HeadingText from '../components/UI/HeadingText';
+import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
 
 class EmergencyScreen extends Component {
     constructor(props) {
@@ -31,8 +31,8 @@ class EmergencyScreen extends Component {
       if (event.type === "NavBarButtonPress") {
         if (event.id === "forwardButton") {
           this.props.navigator.push({
-              screen: "StrokeApp.GettingOrganizedScreen",
-              title: "Getting Organized",
+              screen: "StrokeApp.BioScreen",
+              title: "Bio",
           });
         }
       }  
@@ -44,7 +44,7 @@ class EmergencyScreen extends Component {
             <BodyScroll>
 
             <MainText>
-                Share  the  Interactive  Emergency  Information  Station  Toolkit  with  your  family.
+                Share  the  Interactive  Emergency  Information  Station  Toolkit  with  your  family. (Click image below)
             </MainText>
             {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
               <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
@@ -52,7 +52,7 @@ class EmergencyScreen extends Component {
               </Text>
             </TouchableOpacity> */}
 
-            <ImageContainer src={require('../assets/emergency-station-icon.png')} />    
+            <ImageToolkitContainer src={require('../assets/emergency-station-icon.png')} />    
 
             <MainText>
                 If you believe it is an emergency – it probably is! Get help immediately. 
@@ -60,17 +60,17 @@ class EmergencyScreen extends Component {
                 It helps to know medical condition, medications (name, dosage).           
             </MainText>
 
-            <MainText><SubHeadingText>Don’t wait. Get help.</SubHeadingText></MainText>
+            <MainText><HeadingText>Don’t wait. Get help.</HeadingText></MainText>
 
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Call 911 or your emergency number.   
             </MainText>      
 
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Report possible stroke, or another emergency. 
             </MainText>    
 
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Answer questions in clear, short answers.
                 If you need a translator, ask immediately. Do not hang up first: Wait for instructions. 
             </MainText>    

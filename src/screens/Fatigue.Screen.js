@@ -53,7 +53,7 @@ class FatigueScreen extends Component {
                         Never did I think about my energy. 
                         After stroke, extreme fatigue hit me, I wasn't prepared for it. 
                     </MainText>
-                    <PictureLegend style={[{color: 'red'}, {marginLeft: 85}]}>
+                    <PictureLegend style={[{marginLeft: 85}]}>
                         -- Ghauth L. 45, Surgeon, South Africa   
                     </PictureLegend>
                     <MainText><HeadingText>Saving Energy</HeadingText></MainText>
@@ -77,7 +77,7 @@ class FatigueScreen extends Component {
                     {`\u2022`} Stop, rest, breathe deeply, slowly. 
                     </MainText>
                     <MainText>
-                    {`\u2022`} Continue climbing two or three steps while you exhale. Stand still when inhaling, 
+                    {`\u2022`} Continue climbing two or three steps while you exhale. Stand still when inhaling.
                     </MainText>
 
             </BodyScroll>                

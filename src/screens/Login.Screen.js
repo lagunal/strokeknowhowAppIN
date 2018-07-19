@@ -247,7 +247,7 @@ class LoginScreen extends Component {
         <TouchableOpacity disabled={this.state.enterButtonDisabled || this.state.username == "" || this.state.password == ""}
           style={styles.EMailLogin}
           onPress={ this.onEMailLogin } >
-          <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>Login</Text>
+          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>LOG IN</Text>
         </TouchableOpacity>
 
       </View>;
@@ -262,7 +262,7 @@ class LoginScreen extends Component {
         <TouchableOpacity disabled={this.state.enterButtonDisabled}
           style={styles.EMailRegister}
           onPress={this.onRegisterScreenButton} >
-          <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>JOIN IN</Text>
+          <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>JOIN IN</Text>
         </TouchableOpacity>
       </View>;
   }
@@ -300,8 +300,8 @@ class LoginScreen extends Component {
 
             <View>
               <Video
-                source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/17.Every-Stroke-is-different.mp4"}}
-                style={{height: 200}}
+                source={{uri: "http://strokeknowhow.org/wp-content/uploads/2018/07/102_Pattys_husband.mp4"}}
+                style={{height: 100}}
                 rate={1}
                 paused={false}
                 volume={1}
@@ -313,8 +313,8 @@ class LoginScreen extends Component {
             </View>
             
             <View>
-              <MainText><HeadingText>Welcome to StrokeKnowHow</HeadingText></MainText>
-              <MainText style={{textAlign: 'center'}}>We are a worldwide stroke community learning from one another</MainText>
+              <MainText><HeadingText>Welcome {`\n`} Stroke Know How</HeadingText></MainText>
+              <MainText style={[{textAlign: 'center'}, {fontSize: 20}]}>We are a worldwide stroke <Text style={{fontSize: 24, fontWeight: 'bold'}}>community</Text> {`\n`} learning from one another</MainText>
             </View>
 
             <View style={styles.containerStyle}>
@@ -328,7 +328,7 @@ class LoginScreen extends Component {
               </Picker> */}
             </View>
             <TextFieldInput
-              label='Username or Email Address'
+              label='Username'
               placeholder='Username'
               value={this.state.username}
               onChangeText={username => this.setState({ username })}
@@ -337,9 +337,9 @@ class LoginScreen extends Component {
             <Text style={styles.errorText}>{this.state.emailError}</Text>
 
             <TextFieldInput
-              label='Password'
+              label='Shared Family Password'
               autoCorrect={false}
-              placeholder='Shared Password'
+              placeholder='Shared Family Password'
               secureTextEntry
               value={this.state.password}
               /*onChangeText={password => this.setState({ password })}*/
@@ -378,6 +378,7 @@ class LoginScreen extends Component {
             </View>
 
             <TextFieldInput
+              label='User Name'
               placeholder='Username'
               value={this.state.username}
               onChangeText={username => this.setState({ username })}
@@ -386,14 +387,14 @@ class LoginScreen extends Component {
 
             <TextFieldInput
               label='Family name'
-              placeholder='Family name'
+              placeholder='Family name (ex. Lopez Family)'
               value={this.state.name}
               onChangeText={name => this.setState({ name })}
               autoCorrect={true}
             />
 
             <TextFieldInput
-              label='Username'
+              label='Email Address'
               placeholder='Email Address'
               value={this.state.email}
               onChangeText={(email) => this.EMail(email)}
@@ -402,7 +403,7 @@ class LoginScreen extends Component {
             <Text style={styles.errorText}>{this.state.emailError}</Text>
 
             <TextFieldInput
-              label='Password'
+              label='Shared Password'
               autoCorrect={false}
               placeholder='Shared Password'
               secureTextEntry

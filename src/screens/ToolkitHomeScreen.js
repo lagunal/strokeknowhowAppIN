@@ -42,19 +42,11 @@ class ToolkitHomeScreen extends Component {
        <TouchableOpacity onPress={this.handlePress}>
             <MainText>
             <HeadingText>
-                Emergency Toolkit
-            </HeadingText>
-            </MainText>  
-        </TouchableOpacity>
-   
-        <TouchableOpacity onPress={this.handlePress}>
-            <MainText>
-            <HeadingText>
                 Help Needed Toolkit
             </HeadingText>
             </MainText>  
         </TouchableOpacity>
-
+   
         <TouchableOpacity onPress={this.handlePress}>
             <MainText>
             <HeadingText>
@@ -75,6 +67,14 @@ class ToolkitHomeScreen extends Component {
             <MainText>
             <HeadingText>
                 Physical Therapy Toolkit
+            </HeadingText>
+            </MainText>  
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.handlePress}>
+            <MainText>
+            <HeadingText>
+                Emergency Toolkit
             </HeadingText>
             </MainText>  
         </TouchableOpacity>

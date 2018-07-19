@@ -12,7 +12,7 @@ import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
-import LegendText from "../components/UI/LegendText";
+import PictureLegend from "../components/UI/PictureLegend";
 
 export let rootNavigator = null; //variable to export navigation object to drawer
 
@@ -60,12 +60,17 @@ class HomeScreen extends Component {
 
         <ImageContainer src={require('../assets/home.png')} />  
         <MainText>
+            We’re living through a time when every family affected by stroke 
+            must find out what it will take to reclaim your life – there’s no other way. 
+        </MainText>
+        <MainText>    
             I was a sports writer of a major newspaper,  who had a stroke in a New York subway during rush hour.  In the ambulance, 
             I overheard the word ‘stroke,’ and realized they were talking about me. 
-            Out of the hospital in five days: I could stand, not walk.  
+            Out of the hospital in five days: I could stand, not walk.
+            My family couldn’t understand what I was trying to say to them.  
             Insurance paid for a handful of physical therapy. NOW WHAT?
         </MainText>
-        <LegendText>-- Mike</LegendText >    
+        <PictureLegend style={{marginLeft: 100}}>-- Mike</PictureLegend>    
         <MainText>
           <HeadingText>
             A New Day

@@ -18,6 +18,7 @@ import SubHeadingText from "../components/UI/SubHeadingText";
 class SideDrawer extends Component {
 
   async logoutHandler () {
+    const user = await AsyncStorage.setItem('user', '');
     rootNavigator.push({
       screen: 'StrokeApp.LoginScreen',
       title: 'Login'
@@ -29,7 +30,7 @@ class SideDrawer extends Component {
       animated: true,
       to: 'close',
     });
-    const user = await AsyncStorage.setItem('user', '');
+    
   };
 
   emergencyHandler = () => {
@@ -134,14 +135,14 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 25,
     //paddingTop: 10,
-    backgroundColor: "#0773B9",
+    backgroundColor: "#1749FF",
     flex: 1
   },
   drawerItem: {
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
-    backgroundColor: "#0773B9"
+    backgroundColor: "#1749FF"
   },
   drawerItemIcon: {
     marginRight: 10

@@ -7,7 +7,7 @@ import {
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
-import SubHeadingText from '../components/UI/SubHeadingText';
+import HeadingText from '../components/UI/HeadingText';
 
 class GettingOrganizedScreen extends Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class GettingOrganizedScreen extends Component {
           <View style={styles.container}>
             <BodyScroll>
 
-            <MainText><SubHeadingText>Getting Organized</SubHeadingText></MainText>
+            <MainText><HeadingText>Getting Organized</HeadingText></MainText>
 
             <MainText>
                 {`\u2022`} Consider  using  a  school  notebook,  loose-leaf  book,  cell  phone 

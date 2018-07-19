@@ -8,6 +8,7 @@ export default StyleSheet.create({
         borderStyle: 'solid',
         borderWidth: 1, 
         margin: 10,
-        backgroundColor: '#ff6666',      
+        backgroundColor: '#e6f2ff',
+        height: 85,
     },
 });

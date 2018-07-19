@@ -45,10 +45,10 @@ class BladderControlScreen extends Component {
 
                 <ImageContainer src={require('../assets/bladder-control.png')} />
 
-                <MainText><HeadingText>Retraining the Bladder</HeadingText></MainText>
+                <MainText><HeadingText>Bladder Retraining</HeadingText></MainText>
 
                 <MainText>  
-                {`\u2022`} Ask a doctor or nurser in re-establishing bladder control. 
+                {`\u2022`} Ask a doctor or nurse in re-establishing bladder control. 
                   Brain and bladder need to keep dry on your schedule.
                 </MainText>
                 <MainText>  
@@ -56,7 +56,7 @@ class BladderControlScreen extends Component {
                   With greater control, urinate every 3 to 4 hours when awake. 
                 </MainText>
 
-                <MainText><HeadingText>Regaining Bowel Control </HeadingText></MainText>
+                <MainText><HeadingText>Bowel Control </HeadingText></MainText>
 
                 <MainText>  
                 {`\u2022`} Get help re-training brain’s ability to control movements. At first, empty on a routine. Increase time to relieve oneself. 
@@ -69,7 +69,7 @@ class BladderControlScreen extends Component {
 
                 <MainText>  
                 {`\u2022`} We depend on drinking water to live. After a stroke, swallowing may be difficult, offer sips of water often to avoid dehydration. 
-                  Do not us a straw.                
+                  Do not use a straw.                
                 </MainText>
 
                 <MainText><HeadingText>Swallowing</HeadingText></MainText>
@@ -77,7 +77,7 @@ class BladderControlScreen extends Component {
                 <ImageContainer src={require('../assets/swallowing.png')} />
 
                 <MainText>  
-                  Aspeech therapist or nurse can help retraining swallowing. 
+                  A speech therapist or nurse can help retraining swallowing. 
                 </MainText>
                 <MainText>
                 {`\u2022`} Watch for a swallowing emergency. Act quickly. 
@@ -87,7 +87,7 @@ class BladderControlScreen extends Component {
                 {`\u2022`} Learn CPR.               
                 </MainText>
 
-                <MainText><HeadingText>Questions to Ask Your Doctor</HeadingText></MainText>
+                <MainText><HeadingText>Questions for a Doctor</HeadingText></MainText>
 
                 <MainText>  
                 {`\u2022`} What do we need to know about my stroke? High blood pressure, diabetes?

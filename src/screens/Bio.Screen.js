@@ -20,11 +20,11 @@ class BioScreen extends Component {
           <View style={styles.container}>
             <BodyScroll>
 
-            <ImageContainer src={require('../assets/bio.png')} />    
+            <ImageContainer src={require('../assets/bio.jpg')} />    
 
             <MainText>
                 A long-time activist in the disability rights movement, and author of more than a dozen books, Florence Weiner has interviewed hundreds of men and women and their families touched by stroke. 
-                She shares their advice here,and at StrokeKnowHow.org: A worldwide stroke community based on the belief that we learn best from one another.    
+                She shares their advice here, and at StrokeKnowHow.org: A worldwide stroke community based on the belief that we learn best from one another.    
             </MainText>
 
             <MainText>

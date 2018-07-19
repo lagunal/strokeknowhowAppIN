@@ -12,6 +12,7 @@ import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
 import SubHeadingText from '../components/UI/SubHeadingText';
 import LegendText from "../components/UI/LegendText";
+import PictureLegend from "../components/UI/PictureLegend";
 
 class MovingSafelyScreen extends Component {
 
@@ -60,7 +61,7 @@ class MovingSafelyScreen extends Component {
                         repeat={false}
                         />
                     </View>
-                    <MainText><HeadingText>How Helpers Protect Themselves</HeadingText></MainText>
+                    <MainText><HeadingText>Protecting Helpers</HeadingText></MainText>
                     
                     <MainText>  
                     When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
@@ -69,7 +70,7 @@ class MovingSafelyScreen extends Component {
                     Stand with feet slightly apart, one foot ahead of the other to keep your balance and shift your weight if necessary.
                     </MainText>
                     <MainText><HeadingText>
-                      Share the Care
+                      Sharing Care
                     </HeadingText></MainText>
                     <ImageContainer src={require('../assets/family.png')} />
                     <MainText>  
@@ -77,7 +78,7 @@ class MovingSafelyScreen extends Component {
                           it hit our whole family, and we each had 
                           a job to do– even the kids.
                     </MainText>
-                    <LegendText>-- Javier</LegendText>
+                    <PictureLegend>-- Javier</PictureLegend>
                                     
             </BodyScroll>                
 

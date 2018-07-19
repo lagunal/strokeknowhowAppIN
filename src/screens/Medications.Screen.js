@@ -12,6 +12,7 @@ import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
+import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
 import BorderBox from '../styles/BorderBox';
 
 class NewDayScreen extends Component {
@@ -56,7 +57,7 @@ class NewDayScreen extends Component {
                 </MainText>
 
                 <MainText>
-                    Share  the  Interactive  Medication  toolkit  with  your  family. 
+                    Share  the  Interactive  Medication  toolkit  with  your  family. (click image below)
                 </MainText>
                 {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
                   <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
@@ -64,7 +65,7 @@ class NewDayScreen extends Component {
                   </Text>
                 </TouchableOpacity> */}
 
-                <ImageContainer src={require('../assets/medication-icon.png')} />
+                <ImageToolkitContainer src={require('../assets/medication-icon.png')} />
 
                 <MainText>
                 <HeadingText>
@@ -73,7 +74,7 @@ class NewDayScreen extends Component {
                 </MainText>
 
                 <MainText>
-                {`\u2022`} To prevent infection, protect the skin, forcomfort, a loved one should be washed or bathed every day with warm water and soap. 
+                {`\u2022`} To prevent infection, protect the skin, for comfort, a loved one should be washed or bathed every day with warm water and soap. 
                   Dried thoroughly, massaged with a soothing lotion. 
                 </MainText>
 
@@ -81,18 +82,16 @@ class NewDayScreen extends Component {
                 {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
                </MainText>
                <View style={BorderBox.border}>    
-                      <MainText>  
-                      <Text style={{fontWeight: 'bold'}}>AbleData</Text> 
+                      <MainText style={[{color: '0d0d0d'}, {fontWeight: 'bold'},{marginVertical: 0},{alignSelf: 'center'}]}>
+                         Product Information 
+                         </MainText>
                         <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/')}>
-                          <Text style={[{color: 'blue'} , {fontSize: 20},  {paddingHorizontal: 5}]}>
-                            (www.Abledata.com) 
+                          <Text style={[{color: '0d0d0d'} , {fontSize: 22}, {alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
+                                      www.Abledata.com 
                           </Text>
                         </TouchableOpacity>
-                        has information on almost all assistive products and programs in English and Spanish. Provide manufacturers, but sell no products.
-                      </MainText>
-                      <MainText>
-                          <Text style={{fontWeight: 'bold'}}>Call, email, chat </Text> 
-                          8:30- 5:30 p.m. EST, M-F 800-227-0216, TTY - 703-992-8313 (TTY), Email: abledata@neweditions.net 
+                      <MainText style={[{color: '0d0d0d'},{marginVertical: 0}]}>
+                          1-800-227-0216     English / Spanish
                       </MainText>
                </View>           
             </BodyScroll>                    

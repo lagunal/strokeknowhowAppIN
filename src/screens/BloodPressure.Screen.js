@@ -10,9 +10,11 @@ import {
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
+import HeadingText from '../components/UI/HeadingText';
 import SubHeadingText from '../components/UI/SubHeadingText';
 import PictureLegend from '../components/UI/PictureLegend';
 import ImageContainer from "../components/UI/ImageContainer";
+import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
 import LegendText from "../components/UI/LegendText";
 import BorderBox from '../styles/BorderBox';
 
@@ -50,22 +52,22 @@ class BloodPressureScreen extends Component {
           <View style={styles.container}>
             <BodyScroll>
 
-            <MainText><SubHeadingText>Blood pressure</SubHeadingText></MainText>
+            <MainText><HeadingText>Blood Pressure</HeadingText></MainText>
 
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Higher (systolic) pressure during a heartbeat. 
             </MainText>
-            <MainText style={{color: 'red'}}>  
+            <MainText>  
             {`\u2022`} Lower (diastolic) pressure is between beats. Blood pressure higher than 120/80, lower than (140/90), you are pre-hypertensive.
             </MainText>
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Blood pressure higher than 140/90, lower than 160/100, you have Stage 1 high blood pressure. 
             </MainText>
-            <MainText style={{color: 'red'}}>  
+            <MainText>  
             {`\u2022`} Blood pressure higher than 160/100, you have Stage 2 high blood pressure. 
             </MainText>
 
-            <MainText><SubHeadingText>Testing Blood Sugar </SubHeadingText></MainText>
+            <MainText><HeadingText>Blood Sugar </HeadingText></MainText>
 
             <MainText>
             {`\u2022`} Blood glucose test is used for diabetes. Results used to regulate medications, diet. 
@@ -76,26 +78,28 @@ class BloodPressureScreen extends Component {
 
             <ImageContainer src={require('../assets/confucious.png')} />
 
-            <PictureLegend>
-              It doesn’t matter how slow you go 
+            <MainText><SubHeadingText>
+              It doesn’t matter how slow you go {`\n`}
               as long as you do not stop.
-            </PictureLegend>
-            <LegendText>Confucious</LegendText>
+            </SubHeadingText></MainText>
+            <MainText style={[{marginLeft: 250},{fontSize: 16}]}>Confucious</MainText>
             
             <View style={BorderBox.border}>
+
+                <MainText style={[{margin: 0},{fontWeight: 'bold'},{alignSelf: 'center'}]}>
+                  National Rehabilitation {`\n`} Information Center NARIC
+                </MainText>                
                 <TouchableOpacity onPress={() => Linking.openURL('https://www.naric.com')}>
-                  <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
+                  <MainText style={[{color: '0d0d0d'} , {alignSelf: 'center'},{marginVertical: 0},{textDecorationLine: 'underline'} ]}>
                     https://www.naric.com
-                  </Text>
+                  </MainText>
                 </TouchableOpacity>
-                <MainText>
-                  <Text style={{fontWeight: 'bold'}}>NARIC (National Rehabilitation Information Center)</Text> Best place for answers in English and Spanish about disability and rehabilitation information.
+                <MainText style={{marginTop: 0}}>
+                    1-800-346-2742.    English / Spanish
                 </MainText>
-                <MainText>   
-                  <Text style={{fontWeight: 'bold'}}>Call, email, chat</Text> 8:30-5:30 EST, M to F. 800/346-2742 (V), 301/459-5984 (TTY).
-                </MainText>
+
             </View>
-            <MainText><SubHeadingText>Questions for Physical Therapists</SubHeadingText></MainText>
+            <MainText><HeadingText>Physical Therapists</HeadingText></MainText>
 
             <MainText>
             {`\u2022`} How to continue physical therapy?  
@@ -107,7 +111,7 @@ class BloodPressureScreen extends Component {
 
 
             <MainText>
-              Share  the  Interactive  Physical  Therapy  Toolkit  with  your  family
+              Share  the  Interactive  Physical  Therapy  Toolkit  with  your  family. (click image below)
             </MainText>
             {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
               <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
@@ -115,7 +119,7 @@ class BloodPressureScreen extends Component {
               </Text>
             </TouchableOpacity> */}
             
-            <ImageContainer src={require('../assets/physical-therapy-icon.png')} />
+            <ImageToolkitContainer src={require('../assets/physical-therapy-icon.png')} />
             
             </BodyScroll>                
           </View>           

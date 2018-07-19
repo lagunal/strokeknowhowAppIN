@@ -9,7 +9,7 @@ const startTabs = () => {
         Icon.getImageSource(Platform.OS === 'android' ? "md-create" : "ios-create", 30), //toolkit icon
         Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30), //side drawer icon
         Icon.getImageSource(Platform.OS === 'android' ? "md-list-box" : "ios-list-box", 30), //contents icon
-        Icon.getImageSource(Platform.OS === 'android' ? "md-log-out" : "ios-log-out", 30) //sign out icon
+        Icon.getImageSource(Platform.OS === 'android' ? "md-log-out" : "ios-log-out-outline", 30) //sign out icon
     ]).then(sources => {
         Navigation.startTabBasedApp({
             tabs: [
@@ -40,27 +40,20 @@ const startTabs = () => {
                     label: "Toolkits",
                     title: "Toolkits Home",
                     icon: sources[2],
-                    // navigatorButtons: {
-                    //     leftButtons: [
-                    //         {
-                    //             icon: sources[3],
-                    //             title: "Menu",
-                    //             id: "sideDrawerToggle"
-                    //         }
-                    //     ]
-                    // }
                 },
-                // {
-                //     screen: "StrokeApp.HomeScreen",
-                //     label: "Sign out",
-                //     title: "Sign out",
-                //     icon: sources[5],
-                // },
+                {
+                    screen: "StrokeApp.HomeScreen",
+                    label: "Sign out",
+                    title: "Sign out",
+                    icon: sources[5],
+                },
             ],
             tabsStyle: {
                 tabBarSelectedButtonColor: "white",
-                tabBarBackgroundColor: '#0773B9',
+                tabBarBackgroundColor: '#1749FF', // change the background color of the tab bar
                 tabBarButtonColor: 'white',
+                tabBarTextFontFamily: 'Helvetica', //change the tab font family
+                selectedTabFontSize: 12,
             },
             drawer: {
                 left: {
@@ -69,7 +62,7 @@ const startTabs = () => {
             },
             appStyle: {
                 tabBarSelectedButtonColor: "white",
-                tabBarBackgroundColor: '#0773B9',
+                tabBarBackgroundColor: '#1749FF',
                 tabBarButtonColor: 'white',
             },
         });

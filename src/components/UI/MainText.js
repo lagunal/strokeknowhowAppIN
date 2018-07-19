@@ -11,7 +11,7 @@ const mainText = props => (
 
 const styles = StyleSheet.create({
     mainText: {
-        color: "blue",
+        color: '#0d0d0d',
         fontFamily: 'Verdana',
         fontSize: 17,
         textAlign: 'justify',

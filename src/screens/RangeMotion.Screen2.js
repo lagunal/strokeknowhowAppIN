@@ -46,10 +46,10 @@ class RangeMotionScreen2 extends Component {
             <BodyScroll>
 
             <MainText><HeadingText>Good Body Positioning </HeadingText></MainText>
-            <View style={{padding: 20}}>
+            <View>
               <Video
                 source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/8._Proper_Sitting_Posture.mp4"}}
-                style={{height: 300}}
+                style={{height: 350}}
                 rate={1}
                 paused={false}
                 volume={1}

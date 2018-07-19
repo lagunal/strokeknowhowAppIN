@@ -6,11 +6,10 @@ import {
     TouchableOpacity,
     Linking
   } from 'react-native';
-import Video from 'react-native-video';
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
-import SubHeadingText from '../components/UI/SubHeadingText';
+import HeadingText from '../components/UI/HeadingText';
 import PictureLegend from '../components/UI/PictureLegend';
 import ImageContainer from "../components/UI/ImageContainer";
 import BorderBox from '../styles/BorderBox';
@@ -50,75 +49,77 @@ class GettingUpScreen extends Component {
 
             <ImageContainer src={require('../assets/getting-up.png')} />
 
-            <MainText><SubHeadingText>Getting Up When Feeling Down</SubHeadingText></MainText>
+            <MainText><HeadingText>Getting Up {`\n`} When Feeling Down</HeadingText></MainText>
 
             <MainText>
               Advice from people who’ve been there:
             </MainText>
 
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Stress comes from what we tell ourselves. Substitute positive ‘self-talk’ for negative. 
             </MainText>
 
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Be around people who make you feel good about yourself.  Meet them at a
-                stroke club and aphasia group. Look for a family touched by stroke. It can make a difference.
+                stroke club and aphasia group. Look for a family touched by stroke. It makes {`\n`} a difference.
             </MainText>
 
-            <MainText style={{color: 'red'}}>
+            <MainText>
             {`\u2022`} Sadness, impatience, loss, love, come with one another. 
                 Feelings are all valid, and a reaction of what you've been through. 
             </MainText>
 
-            <View style={{padding: 20}}>
-              <Video
-                source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/19.Rob-Lawyer-and-blue-grass-musician.mp4"}}
-                style={{height: 200}}
-                rate={1}
-                paused={false}
-                volume={1}
-                muted={true}
-                playInBackground={false}
-                playWhenInactive={false}
-                resizeMode='contain'
-                repeat={false}
-                />
-            </View>
+            <MainText><HeadingText>Keeping up the Determination</HeadingText></MainText>
 
-            <MainText><SubHeadingText>What is Aphasia?</SubHeadingText></MainText>
+            <ImageContainer src={require('../assets/skin-care2.png')} />
 
             <MainText>
-                Aphasia is a condition that makes it difficult to say what you are thinking, or understand what is said. 
-                More than half of men and women after a stroke have the condition. 
+            There’s no telling who or what it will be that gives you the will and determination to go forward—it’s your openness to its reception that counts. 
+            It could be your wife or husband, children, God, friends of many years, or people you meet with similar experiences to yours. 
+            </MainText>
+            <PictureLegend style={{marginLeft: 250}}>Bill</PictureLegend>
+
+            <MainText><HeadingText>Kufungisisa {`\n`}Sadness in Zimbabwe</HeadingText></MainText>
+
+            <ImageContainer src={require('../assets/kufungisisa.png')} />
+
+            <MainText>
+            After my stroke, depression hit me hard. I am the youngest lawyer in the court, suddenly I could not see what my future held.  
+            </MainText>
+            <MainText>  
+            My wife continued my care until she had to return to her job for our income. Then my uncle and a neighbor came.
             </MainText>
 
-            <MainText style={{color: 'red'}}>
-                <Text style={{textDecorationLine: 'underline'}}>
-                    {`\u2022`} Aphasia does not affect intelligence
-                </Text>    
-            </MainText>
-            <MainText style={{color: 'red'}}>
-            {`\u2022`} Learning is ongoing: Talking, reading, writing,  problem solving.
-                You keep at it, until you get back what you've lost. 
+            <MainText>
+            Three things that helped me: 
             </MainText>
 
-            <MainText style={{color: 'red'}}>
-            {`\u2022`} Find an Aphasia Group or a family with similar experiences as yours. 
-                It increases confidence, and encourages friendships.  
+            <MainText style={{marginVertical: 0}}>
+            {`\u2022`} The love of my wife and children. 
             </MainText>
+
+            <MainText style={{marginVertical: 0}}>  
+            {`\u2022`} My best friend since childhood challenged me to reach for greater independence. 
+            </MainText>
+
+            <MainText style={{marginVertical: 0}}>  
+            {`\u2022`} From a group of athletes with disabilities I learned an important lesson: ‘Don’t let anyone take away your role in the family, responsibilities you can handle.
+            </MainText>
+
+            <PictureLegend style={{marginLeft: 150}}>
+            -- R.W., Zimbabwe, Africa
+            </PictureLegend>
+
             <View style={BorderBox.border}>
-                <MainText>
-                    <Text style={{fontWeight: 'bold'}}>National Aphasia Association. </Text>
-                    It is a non-profit organization dedicated to advocating for persons with aphasia and their families.
-                    Find support groups, aphasia centers and programs, as well as speech language professionals near you:
+                <MainText style={[{color: '0d0d0d'},{fontWeight: 'bold'},{marginVertical: 0}]}>
+                Centers for Independent Living CIL
                 </MainText>
-                <MainText>    
-                    <TouchableOpacity onPress={() => Linking.openURL('https://www.aphasia.org/site ')}>
-                      <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
-                        https://www.aphasia.org/site 
-                      </Text>
-                    </TouchableOpacity>  
-                </MainText>
+                <Text style={[{fontSize: 18},{alignSelf: 'center'}]}>Disability information.</Text>
+                    <TouchableOpacity onPress={() => Linking.openURL('http://www.ilru.org/projects/cil-net/cil-center-and-association-directory')}>
+                    <Text style={[{color: '0d0d0d'},{alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
+                        http://www.ilru.org/projects/cil-net/
+                    </Text>
+                </TouchableOpacity> 
             </View>
 
             </BodyScroll>                

@@ -192,7 +192,8 @@ export default StyleSheet.create({
         flex: 1,
         height: 100,
         width: '100%',
-        borderWidth: 0,
+        borderWidth: 1,
+        opacity: 1,
     },
     comboStyle: {
         paddingRight: 5,
@@ -210,8 +211,8 @@ export default StyleSheet.create({
         height: 55,
         flexDirection: 'column',
         alignItems: 'flex-start',
-        borderColor: 'gray',
-        borderBottomWidth: 1,
+        //borderColor: 'black',
+        //borderBottomWidth: 1,
     },
     GooglePlusStyle: {
         flexDirection: 'row',

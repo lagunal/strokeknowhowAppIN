@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 
-const imageContainer = ({ src }) => {
+const imageToolkitContainer = ({ src }) => {
 
     return(
         <View style={styles.container}>
@@ -18,15 +18,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 10,
-    marginHorizontal: 0,
+    //paddingVertical: 10,
+    //marginHorizontal: 0,
   },
   image: {
-    //width: '100%',
-    width: 375,
-    height: 180,
+    width: 300,
+    height: 300,
     //height: 'auto',
   }
 });
 
-export default imageContainer;
+export default imageToolkitContainer;

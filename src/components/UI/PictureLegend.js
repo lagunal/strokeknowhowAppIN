@@ -12,7 +12,7 @@ const PictureLegend = props => (
 const styles = StyleSheet.create({
   textHeading: {
     fontSize: 14,
-    color: 'blue',
+    //color: 'blue',
     paddingLeft: 15,
     paddingRight: 25,
     textAlign: 'center',

@@ -52,7 +52,6 @@ Navigation.registerComponent("StrokeApp.GettingOrganizedScreen", () => GettingOr
       Navigation.startSingleScreenApp({
         screen: {
           screen: "StrokeApp.LoginScreen",
-          //screen: "StrokeApp.HomeScreen",
           title: "Login",
 
         },
