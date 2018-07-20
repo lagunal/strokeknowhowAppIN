@@ -14,16 +14,18 @@ export default {
   },
   
   //save data emergency toolkit
-  saveToolkit(data, userId) {
+  saveToolkit(data, userId, token) {
     try {
-      fetch(apiHost + 'save-emergency/' + userId, {
+      fetch(apiHost + 'save-emergency/', {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
+          'Accept': 'application/json',
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
         },
         body: JSON.stringify({
           json: data,
+          id: userId,
         }),
       });
     } catch(error) {

@@ -18,6 +18,7 @@ import ToolkitItemDetail from "../components/ToolkitItemDetail"
 import ToolkitSingleItem from "../components/ToolkitSingleItem"
 import SubHeadingText from '../components/UI/SubHeadingText';
 
+import jsonData from '../assets/json/emergencyToolkit.json'; //json used for first time toolkit.
 import ajax from '../ajax/ajax';
 
 class EmergencyToolkit extends Component {
@@ -37,12 +38,21 @@ class EmergencyToolkit extends Component {
       //get the id from logged user
       const userData = await AsyncStorage.getItem('user');
       this.setState({ user: JSON.parse(userData) });
-      
-      const data = await ajax.getEmergency(this.state.user.id);
-      this.setState({ 
-        isLoading: false, 
-        data: data,
-      });
+      try {
+          const data = await ajax.getEmergency(this.state.user.id);
+          var dataToolkit = [];
+          if (Object.keys(data).length === 0) {//if toolkit is new (no data from fetch)
+             dataToolkit = jsonData; //assign "empty" json to data for toolkit
+          } else {
+            dataToolkit = data; //assign existing data from toolkit
+          }
+          this.setState({ 
+            isLoading: false, 
+            data: dataToolkit,
+          });
+      } catch(error) {
+        console.log(error);
+      }
     
     }
 
@@ -110,6 +120,7 @@ class EmergencyToolkit extends Component {
                                   data={this.state.data} 
                                   onPress={this.saveData}
                                   userId={this.state.user.id} 
+                                  token={this.state.user.token}
                                  />
             </View>
           )

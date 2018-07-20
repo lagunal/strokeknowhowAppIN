@@ -47,7 +47,7 @@ class ToolkitItemDetail extends Component {
                 }
             }
         }
-        ajax.saveToolkit(data, this.props.userId);
+        ajax.saveToolkit(data, this.props.userId, this.props.token);
         this.props.onPress();//calls the onPress event from parent 
     }
     

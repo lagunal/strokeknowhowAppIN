@@ -18,7 +18,7 @@ import startTabs from './MainTabs'; //start tabs navigation
 //import validateEmail from '../utility/validateEmail.js';
 //import validatePassword from '../utility/validatePassword.js';
 
-const apiUrl = 'http://strokeknowhow.org/api/';
+const apiUrl = 'https://strokeknowhow.org/api/';
 
 class LoginScreen extends Component {
 
@@ -99,6 +99,7 @@ class LoginScreen extends Component {
             email: loginRes.user.email,
             username: loginRes.user.username,
             password: password,
+            token: loginRes.cookie,
           }
           
           this.setUser(user);
