@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 300,
+    //width: '80%',
     height: 300,
     //height: 'auto',
   }

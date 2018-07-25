@@ -35,18 +35,18 @@ class HomeScreen extends Component {
 
   }
 
-  async logOutHandler () {
-    rootNavigator.resetTo({
-      screen: 'StrokeApp.LoginScreen',
-      backButtonHidden: true,
-      navigatorStyle: {
-        tabBarHidden: true,
-      },
-      title: 'Login',
-    });
+  // async logOutHandler () {
+  //   rootNavigator.resetTo({
+  //     screen: 'StrokeApp.LoginScreen',
+  //     backButtonHidden: true,
+  //     navigatorStyle: {
+  //       tabBarHidden: true,
+  //     },
+  //     title: 'Login',
+  //   });
 
-    const user = await AsyncStorage.setItem('user', '');
-  }
+  //   const user = await AsyncStorage.setItem('user', '');
+  // }
 
 
   render() {

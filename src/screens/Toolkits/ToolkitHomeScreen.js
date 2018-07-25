@@ -5,8 +5,8 @@ import {
   StyleSheet, View, Text, TouchableOpacity
 } from 'react-native';
 
-import HeadingText from '../components/UI/HeadingText';
-import MainText from "../components/UI/MainText";
+import HeadingText from '../../components/UI/HeadingText';
+import MainText from "../../components/UI/MainText";
 
 
 class ToolkitHomeScreen extends Component {
@@ -27,9 +27,14 @@ class ToolkitHomeScreen extends Component {
 
   }
 
-  handlePress = () => {
+  handlePressEmergency = () => {
     this.props.navigator.push({
         screen: "StrokeApp.EmergencyToolkitScreen",
+    });
+  }
+  handlePressMedications = () => {
+    this.props.navigator.push({
+        screen: "StrokeApp.MedicationsToolkitScreen",
     });
   }
 
@@ -55,7 +60,7 @@ class ToolkitHomeScreen extends Component {
             </MainText>  
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.handlePress}>
+        <TouchableOpacity onPress={this.handlePressMedications}>
             <MainText>
             <HeadingText>
                 Medications Toolkit
@@ -71,7 +76,7 @@ class ToolkitHomeScreen extends Component {
             </MainText>  
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.handlePress}>
+        <TouchableOpacity onPress={this.handlePressEmergency}>
             <MainText>
             <HeadingText>
                 Emergency Toolkit

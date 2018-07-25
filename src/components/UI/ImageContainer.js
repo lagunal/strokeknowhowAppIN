@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 
-const imageContainer = ({ src }) => {
+const imageContainer = ({src}) => {
 
     return(
         <View style={styles.container}>
@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
   },
   image: {
-    //width: '100%',
-    width: 375,
-    height: 180,
+    width: '100%',
+    //width: 375,
+    //height: 180,
     //height: 'auto',
   }
 });

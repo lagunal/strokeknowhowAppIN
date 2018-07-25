@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import MainText from "./UI/MainText";
+import MainText from "../../UI/MainText";
 
 class ToolkitContactInfo extends Component {
 

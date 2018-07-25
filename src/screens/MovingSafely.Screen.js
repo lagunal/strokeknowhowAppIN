@@ -3,8 +3,10 @@ import {
     StyleSheet,
     View,
     Text,
+    Platform
   } from 'react-native';
 
+import Icon from 'react-native-vector-icons/Ionicons';
 import Video from 'react-native-video';
 import MainText from "../components/UI/MainText";
 import HeadingText from '../components/UI/HeadingText';
@@ -16,20 +18,38 @@ import PictureLegend from "../components/UI/PictureLegend";
 
 class MovingSafelyScreen extends Component {
 
-      static navigatorButtons = {
-        rightButtons: [
-          {
-              icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-              title: "Forward",
-              label: "Forward",
-              id: "forwardButton"
-          }
-        ]
-      }
 
+    static navigatorButtons = {
+      
+      rightButtons: [
+        {
+          
+            //icon: sources[0],
+            //icon: Icon.getImageSource(Platform.OS === 'android' ? "md-arrow-forward" : "ios-arrow-forward", 30).then((source) => this.setState({ icon: source })),
+            icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
+            //icon: this.state.userIcon,
+            //title: "Forward",
+            //label: "Forward",
+            //Component: 'ForwardButton',
+            id: "forwardButton"
+            
+        }
+      ]
+    }
+
+
+
+
+      
+    
     constructor(props) {
         super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);        
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);    
+        // this.state = {
+        //   userIcon: ''
+        // }
+        // Icon.getImageSource(Platform.OS === 'android' ? "md-arrow-forward" : "ios-arrow-forward", 30).then((source) => this.setState({ userIcon: source }));
+        // console.log(this.state.userIcon);
     }
         
     onNavigatorEvent = event => {

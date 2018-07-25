@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import MainText from "./UI/MainText";
+import MainText from "../../UI/MainText";
 
 const ToolkitMedication = (props) => {
 

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import HeadingText from './UI/HeadingText';
-import MainText from "./UI/MainText";
-import TextFieldInput from "./UI/TextInputField";
-import Button from "./UI/Button";
+import HeadingText from '../../UI/HeadingText';
+import MainText from "../../UI/MainText";
+import TextFieldInput from "../../UI/TextInputField";
+import Button from "../../UI/Button";
 
-import ajax from '../ajax/ajax';
+import ajax from '../../../ajax/ajax';
 
 class ToolkitItemDetail extends Component {
 
@@ -22,7 +22,6 @@ class ToolkitItemDetail extends Component {
     }
     //updates the data array with the updated info and call function to save 
     handlePress = () => {
-        console.log(this.props.keyId);
         var data = this.props.data;
         if (this.props.keyId[2]) { //if parent is ToolkitMedication
             for (var key in data){
@@ -47,7 +46,7 @@ class ToolkitItemDetail extends Component {
                 }
             }
         }
-        ajax.saveToolkit(data, this.props.userId, this.props.token);
+        ajax.saveToolkit(data, this.props.userId, this.props.token, 'emergency');
         this.props.onPress();//calls the onPress event from parent 
     }
     

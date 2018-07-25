@@ -22,8 +22,9 @@ const startTabs = () => {
                         rightButtons: [
                             {
                                 icon: sources[1],
-                                title: "Forward",
-                                label: "Forward",
+                                //component: 'ForwardButton',
+                                //title: "Forward",
+                                //label: "Forward",
                                 id: "forwardButton"
                             }
                         ]
@@ -42,10 +43,11 @@ const startTabs = () => {
                     icon: sources[2],
                 },
                 {
-                    screen: "StrokeApp.HomeScreen",
+                    screen: "StrokeApp.LogoutModalScreen",
                     label: "Sign out",
-                    title: "Sign out",
+                    //title: "Sign out",
                     icon: sources[5],
+                    modal: true,
                 },
             ],
             tabsStyle: {
@@ -54,11 +56,6 @@ const startTabs = () => {
                 tabBarButtonColor: 'white',
                 tabBarTextFontFamily: 'Helvetica', //change the tab font family
                 selectedTabFontSize: 12,
-            },
-            drawer: {
-                left: {
-                    screen: "StrokeApp.SideDrawer"
-                }
             },
             appStyle: {
                 tabBarSelectedButtonColor: "white",

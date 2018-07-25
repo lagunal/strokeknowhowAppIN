@@ -9,17 +9,17 @@ import {
     AsyncStorage
   } from 'react-native';
 
-import HeadingText from '../components/UI/HeadingText';
-import MainText from "../components/UI/MainText";
-import BodyScroll from "../components/UI/BodyScroll";
-import ToolkitMedication from "../components/ToolkitMedication";
-import ToolkitContactInfo from "../components/ToolkitContactInfo";
-import ToolkitItemDetail from "../components/ToolkitItemDetail"
-import ToolkitSingleItem from "../components/ToolkitSingleItem"
-import SubHeadingText from '../components/UI/SubHeadingText';
+import HeadingText from '../../components/UI/HeadingText';
+import MainText from "../../components/UI/MainText";
+import BodyScroll from "../../components/UI/BodyScroll";
+import ToolkitMedication from "../../components/Toolkits/Emergency/ToolkitMedication";
+import ToolkitContactInfo from "../../components/Toolkits/Emergency/ToolkitContactInfo";
+import ToolkitItemDetail from "../../components/Toolkits/Emergency/ToolkitItemDetail"
+import ToolkitSingleItem from "../../components/Toolkits/Emergency/ToolkitSingleItem"
+import SubHeadingText from '../../components/UI/SubHeadingText';
 
-import jsonData from '../assets/json/emergencyToolkit.json'; //json used for first time toolkit.
-import ajax from '../ajax/ajax';
+import jsonData from '../../assets/json/emergencyToolkit.json'; //json used for first time toolkit.
+import ajax from '../../ajax/ajax';
 
 class EmergencyToolkit extends Component {
 
@@ -39,7 +39,7 @@ class EmergencyToolkit extends Component {
       const userData = await AsyncStorage.getItem('user');
       this.setState({ user: JSON.parse(userData) });
       try {
-          const data = await ajax.getEmergency(this.state.user.id);
+          const data = await ajax.getToolkit(this.state.user.id, 'emergency');
           var dataToolkit = [];
           if (Object.keys(data).length === 0) {//if toolkit is new (no data from fetch)
              dataToolkit = jsonData; //assign "empty" json to data for toolkit

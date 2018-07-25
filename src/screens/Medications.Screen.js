@@ -67,33 +67,7 @@ class NewDayScreen extends Component {
 
                 <ImageToolkitContainer src={require('../assets/medication-icon.png')} />
 
-                <MainText>
-                <HeadingText>
-                  Personal Cleanliness
-                </HeadingText>
-                </MainText>
 
-                <MainText>
-                {`\u2022`} To prevent infection, protect the skin, for comfort, a loved one should be washed or bathed every day with warm water and soap. 
-                  Dried thoroughly, massaged with a soothing lotion. 
-                </MainText>
-
-                <MainText>  
-                {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
-               </MainText>
-               <View style={BorderBox.border}>    
-                      <MainText style={[{color: '0d0d0d'}, {fontWeight: 'bold'},{marginVertical: 0},{alignSelf: 'center'}]}>
-                         Product Information 
-                         </MainText>
-                        <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/')}>
-                          <Text style={[{color: '0d0d0d'} , {fontSize: 22}, {alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
-                                      www.Abledata.com 
-                          </Text>
-                        </TouchableOpacity>
-                      <MainText style={[{color: '0d0d0d'},{marginVertical: 0}]}>
-                          1-800-227-0216     English / Spanish
-                      </MainText>
-               </View>           
             </BodyScroll>                    
 
           </View>           

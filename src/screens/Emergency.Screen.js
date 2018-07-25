@@ -32,7 +32,7 @@ class EmergencyScreen extends Component {
         if (event.id === "forwardButton") {
           this.props.navigator.push({
               screen: "StrokeApp.BioScreen",
-              title: "Bio",
+              title: "About Us",
           });
         }
       }  
