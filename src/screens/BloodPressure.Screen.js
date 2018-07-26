@@ -46,7 +46,12 @@ class BloodPressureScreen extends Component {
         }
       }  
     }
-    
+    handlePhysical = () => {
+      this.props.navigator.push({
+        screen: "StrokeApp.PhysicalToolkitScreen",
+      });
+    }
+
     render() {
         return (
           <View style={styles.container}>
@@ -113,14 +118,11 @@ class BloodPressureScreen extends Component {
             <MainText>
               Share  the  Interactive  Physical  Therapy  Toolkit  with  your  family. (click image below)
             </MainText>
-            {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
-              <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
-              www.strokeknowhow.org 
-              </Text>
-            </TouchableOpacity> */}
-            
-            <ImageToolkitContainer src={require('../assets/physical-therapy-icon.png')} />
-            
+
+            <TouchableOpacity onPress={this.handlePhysical}>
+                <ImageToolkitContainer src={require('../assets/physical-therapy-icon.png')} />
+            </TouchableOpacity>
+
             </BodyScroll>                
           </View>           
         );

@@ -44,21 +44,28 @@ class WeeklyPlanScreen extends Component {
         }  
   }
 
+  handleHelpNeeded = () => {
+      this.props.navigator.push({
+        screen: "StrokeApp.HelpNeededToolkitScreen",
+      });
+  }
+  handleSchedule = () => {
+    this.props.navigator.push({
+      screen: "StrokeApp.ScheduleToolkitScreen",
+    });
+  }
     render() {
         return (
           <View style={styles.container}>
             <BodyScroll>
-              <MainText>
-                Share this Interactive Help Needed Toolkit with your family. (click image below)
-              </MainText>
-              {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
-                <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
-                www.strokeknowhow.org 
-                </Text>
-              </TouchableOpacity> */}
+                <MainText>
+                  Share this Interactive Help Needed Toolkit with your family. (click image below)
+                </MainText>
 
-              <ImageToolkitContainer src={require('../assets/help_needed_icon.png')} />
-
+                <TouchableOpacity onPress={this.handleHelpNeeded}>
+                  <ImageToolkitContainer src={require('../assets/help_needed_icon.png')} />
+                </TouchableOpacity>
+                
                 <MainText>
                   <HeadingText>Questions Families Ask</HeadingText>
                 </MainText>
@@ -106,14 +113,11 @@ class WeeklyPlanScreen extends Component {
                 <MainText style={[{marginBottom: 0}]} >
                   Share the interactive Weekly Schedule Toolkit with your family. (click image below)
                 </MainText>
-              {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
-                <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
-                www.strokeknowhow.org 
-                </Text>
-              </TouchableOpacity> */}
-              
-              <ImageToolkitContainer src={require('../assets/weekly-schedule-icon.png')} />
-              
+
+              <TouchableOpacity onPress={this.handleSchedule}>
+                <ImageToolkitContainer src={require('../assets/weekly-schedule-icon.png')} />
+              </TouchableOpacity>
+
               <MainText><HeadingText>Family Plan</HeadingText></MainText>
               <MainText>
               {`\u2022`} After a stroke, the family looks at the care, living/medical expenses, how each will help.  

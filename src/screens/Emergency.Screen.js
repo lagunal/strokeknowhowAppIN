@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
+    TouchableOpacity
   } from 'react-native';
 
 
@@ -37,7 +38,12 @@ class EmergencyScreen extends Component {
         }
       }  
     }
-    
+    handleEmergency = () => {
+      this.props.navigator.push({
+        screen: "StrokeApp.EmergencyToolkitScreen",
+      });
+    }
+
     render() {
         return (
           <View style={styles.container}>
@@ -46,13 +52,10 @@ class EmergencyScreen extends Component {
             <MainText>
                 Share  the  Interactive  Emergency  Information  Station  Toolkit  with  your  family. (Click image below)
             </MainText>
-            {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
-              <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
-              www.strokeknowhow.org 
-              </Text>
-            </TouchableOpacity> */}
-
-            <ImageToolkitContainer src={require('../assets/emergency-station-icon.png')} />    
+ 
+            <TouchableOpacity onPress={this.handleEmergency}>
+                <ImageToolkitContainer src={require('../assets/emergency-station-icon.png')} />    
+            </TouchableOpacity>
 
             <MainText>
                 If you believe it is an emergency – it probably is! Get help immediately. 

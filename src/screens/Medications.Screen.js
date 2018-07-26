@@ -43,6 +43,11 @@ class NewDayScreen extends Component {
       }  
     }
 
+    handleMedication = () => {
+      this.props.navigator.push({
+        screen: "StrokeApp.MedicationsToolkitScreen",
+      });
+    }
 
     render() {
         return (
@@ -59,14 +64,10 @@ class NewDayScreen extends Component {
                 <MainText>
                     Share  the  Interactive  Medication  toolkit  with  your  family. (click image below)
                 </MainText>
-                {/* <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
-                  <Text style={[{color: 'blue'} , {alignSelf: 'center'} ]}>
-                  www.strokeknowhow.org 
-                  </Text>
-                </TouchableOpacity> */}
 
-                <ImageToolkitContainer src={require('../assets/medication-icon.png')} />
-
+                <TouchableOpacity onPress={this.handleMedication}>
+                    <ImageToolkitContainer src={require('../assets/medication-icon.png')} />
+                </TouchableOpacity>
 
             </BodyScroll>                    
 
