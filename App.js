@@ -19,6 +19,7 @@ import MovingSafelyScreen from './src/screens/MovingSafely.Screen';
 import EmergencyToolkit from './src/screens/Toolkits/EmergencyToolkit.Screen';
 import MedicationsToolkit from './src/screens/Toolkits/MedicationsToolkit.Screen';
 import HelpNeededToolkit from './src/screens/Toolkits/HelpNeededToolkit.Screen';
+import PhysicalToolkit from './src/screens/Toolkits/PhysicalToolkit.Screen';
 import LoginScreen from './src/screens/Login.Screen';
 import SkinCareScreen from './src/screens/SkinCare.Screen';
 import BladderControlScreen from './src/screens/BladderControl.Screen';
@@ -44,6 +45,7 @@ Navigation.registerComponent("StrokeApp.MovingSafelyScreen", () => MovingSafelyS
 Navigation.registerComponent("StrokeApp.EmergencyToolkitScreen", () => EmergencyToolkit);
 Navigation.registerComponent("StrokeApp.MedicationsToolkitScreen", () => MedicationsToolkit);
 Navigation.registerComponent("StrokeApp.HelpNeededToolkitScreen", () => HelpNeededToolkit);
+Navigation.registerComponent("StrokeApp.PhysicalToolkitScreen", () => PhysicalToolkit);
 Navigation.registerComponent("StrokeApp.LoginScreen", () => LoginScreen);
 Navigation.registerComponent("StrokeApp.SkinCareScreen", () => SkinCareScreen);
 Navigation.registerComponent("StrokeApp.BladderControlScreen", () => BladderControlScreen);

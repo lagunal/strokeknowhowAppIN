@@ -42,6 +42,11 @@ class ToolkitHomeScreen extends Component {
         screen: "StrokeApp.HelpNeededToolkitScreen",
     });
   }
+  handlePressPhysical = () => {
+    this.props.navigator.push({
+        screen: "StrokeApp.PhysicalToolkitScreen",
+    });
+  }
 
   render() {
 
@@ -73,7 +78,7 @@ class ToolkitHomeScreen extends Component {
             </MainText>  
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.handlePress}>
+        <TouchableOpacity onPress={this.handlePressPhysical}>
             <MainText>
             <HeadingText>
                 Physical Therapy Toolkit
