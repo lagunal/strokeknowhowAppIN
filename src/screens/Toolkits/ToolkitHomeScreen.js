@@ -37,6 +37,11 @@ class ToolkitHomeScreen extends Component {
         screen: "StrokeApp.MedicationsToolkitScreen",
     });
   }
+  handlePressHelpNeeded = () => {
+    this.props.navigator.push({
+        screen: "StrokeApp.HelpNeededToolkitScreen",
+    });
+  }
 
   render() {
 
@@ -44,7 +49,7 @@ class ToolkitHomeScreen extends Component {
       <View style={styles.container}>
 
 
-       <TouchableOpacity onPress={this.handlePress}>
+       <TouchableOpacity onPress={this.handlePressHelpNeeded}>
             <MainText>
             <HeadingText>
                 Help Needed Toolkit
