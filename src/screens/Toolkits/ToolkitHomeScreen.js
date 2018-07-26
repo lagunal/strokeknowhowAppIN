@@ -47,6 +47,11 @@ class ToolkitHomeScreen extends Component {
         screen: "StrokeApp.PhysicalToolkitScreen",
     });
   }
+  handlePressSchedule = () => {
+    this.props.navigator.push({
+        screen: "StrokeApp.ScheduleToolkitScreen",
+    });
+  }
 
   render() {
 
@@ -62,7 +67,7 @@ class ToolkitHomeScreen extends Component {
             </MainText>  
         </TouchableOpacity>
    
-        <TouchableOpacity onPress={this.handlePress}>
+        <TouchableOpacity onPress={this.handlePressSchedule}>
             <MainText>
             <HeadingText>
                 Weekly Schedule Toolkit

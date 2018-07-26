@@ -13,19 +13,19 @@ const ToolkitMedication = (props) => {
         <TouchableOpacity onPress={this.handlePress}>
             <View style={{flex: 1, flexDirection: 'row', backgroundColor: props.backgroundColor}}>    
 
-                <View style={{flex: 2}}>   
+                <View style={{flex: 3}}>   
                     <MainText>{props.labelMedication}</MainText>
-                    <Text>{props.medication}</Text>
+                    <MainText>{props.medication}</MainText>
                 </View>
 
-                <View style={{flex: 1}}>   
+                <View style={{flex: 2}}>   
                     <MainText>{props.labelDosage}</MainText>
-                    <Text>{props.dosage}</Text>
+                    <MainText>{props.dosage}</MainText>
                 </View>
 
-                <View style={{flex: 1}}>   
+                <View style={{flex: 2}}>   
                     <MainText>{props.labelPurpose}</MainText>
-                    <Text>{props.purpose}</Text>
+                    <MainText>{props.purpose}</MainText>
                 </View>
 
             </View>

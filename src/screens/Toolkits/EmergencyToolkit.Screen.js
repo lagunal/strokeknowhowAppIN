@@ -131,7 +131,9 @@ class EmergencyToolkit extends Component {
           <BodyScroll>
             <View >
                 <MainText><HeadingText>EMERGENCY INFORMATION STATION</HeadingText></MainText>
-                <MainText><SubHeadingText>ESENTIAL INFORMATION</SubHeadingText></MainText>
+            </View>
+            <View style={styles.labelEsential}>    
+                <MainText><SubHeadingText>ESSENTIAL INFORMATION</SubHeadingText></MainText>
             </View>
 
             <View style={{flex: 1}}>
@@ -207,7 +209,7 @@ class EmergencyToolkit extends Component {
                     onItemPress={this.setCurrentItem}/>
 
 
-                  <View >
+                  <View style={styles.labelContact}>
                       <MainText><SubHeadingText>CONTACT PHONE NUMBERS</SubHeadingText></MainText>
                   </View>
 
@@ -238,8 +240,8 @@ class EmergencyToolkit extends Component {
                     onItemPress={this.setCurrentItem}
                     backgroundColor={'lightgray'}/>
 
-                  <View>
-                      <MainText><SubHeadingText>MEDICINES</SubHeadingText></MainText>
+                  <View style={styles.labelMedicine}>
+                      <MainText><SubHeadingText>MEDICINE</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedicines(8)}
@@ -260,12 +262,20 @@ class EmergencyToolkit extends Component {
 
 
  const styles = StyleSheet.create({
-     container: {
+    container: {
        flex: 1,
        justifyContent: 'flex-start',
        backgroundColor: 'white',
      },
-
+    labelEsential: {
+       backgroundColor: 'yellow',
+     },
+    labelContact: {
+      backgroundColor: '#ED7030',
+    },
+    labelMedicine: {
+      backgroundColor: '#1749FF',
+    }
    });
 
   
