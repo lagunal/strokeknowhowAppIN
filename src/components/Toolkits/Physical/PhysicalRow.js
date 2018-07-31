@@ -13,7 +13,7 @@ const PhysicalRow = (props) => {
         <TouchableOpacity onPress={this.handlePress}>
             <View style={{backgroundColor: props.backgroundColor}}>    
                 <View style={styles.containerColumm}>    
-                    <View style={styles.containerSubRow}>
+                    <View style={styles.containerSubRow1}>
                             <View style={styles.item}>   
                                 <MainText style={styles.label}>{props.labelExercise}</MainText>
                                 <Text>{props.exercise}</Text>
@@ -26,19 +26,19 @@ const PhysicalRow = (props) => {
                             </View>
                     </View>
 
-                    <View style={[styles.containerSubRow]}>
+                    <View style={styles.containerSubRow2}>
                             <View style={styles.item}>   
-                                <Text style={styles.label}>{props.labelPulse1}</Text>
+                                <Text style={styles.label2}>{props.labelPulse1}</Text>
                                 <Text>{props.pulse1}</Text>
                             </View>
 
                             <View style={styles.item}>   
-                                <Text style={styles.label}>{props.labelPulse2}</Text>
+                                <Text style={styles.label2}>{props.labelPulse2}</Text>
                                 <Text>{props.pulse2}</Text>
                             </View>
 
                             <View style={styles.item}>   
-                                <Text style={styles.label}>{props.labelGoals}</Text>
+                                <Text style={styles.label2}>{props.labelGoals}</Text>
                                 <Text>{props.goals1}</Text>
                                 <Text>{props.goals2}</Text>
                                 <Text>{props.goals3}</Text>
@@ -58,12 +58,23 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
     },
-    containerSubRow: {
+    containerSubRow1: {
+        flex: 1, 
+        flexDirection: 'row',
+        backgroundColor: '#1749FF', 
+    },
+    containerSubRow2: {
         flex: 1, 
         flexDirection: 'row', 
-    },
+        backgroundColor: 'yellow', 
+    },    
     label: {
         fontWeight: 'bold',
+        color: 'white'
+    },
+    label2: {
+        fontWeight: 'bold',
+        color: 'black'
     },
     item: {
         flex: 1,

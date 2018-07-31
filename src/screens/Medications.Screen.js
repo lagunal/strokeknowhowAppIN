@@ -12,8 +12,9 @@ import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
-import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
-import BorderBox from '../styles/BorderBox';
+import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
+
+const helpNeededIcon = require('../assets/medication-icon.png');
 
 class NewDayScreen extends Component {
     constructor(props) {
@@ -58,16 +59,14 @@ class NewDayScreen extends Component {
                 <ImageContainer src={require('../assets/medications.png')} />
                 
                 <MainText>
-                  Ruth, M. 78, uses a pill organizer and Interactive Medication Toolkit. Ruth’s daughter, Linda, can also see the Toolkit.
+                    Ruth, M. 78, uses a pill organizer and the Interactive Medication Toolkit. Ruth’s daughter, can also see the Toolkit.
                 </MainText>
 
-                <MainText>
-                    Share  the  Interactive  Medication  toolkit  with  your  family. (click image below)
-                </MainText>
-
-                <TouchableOpacity onPress={this.handleMedication}>
-                    <ImageToolkitContainer src={require('../assets/medication-icon.png')} />
-                </TouchableOpacity>
+                <LinkToolkitWrapper 
+                  text={'Share Interactive Medication toolkit with family. (click image below)'}
+                  source={helpNeededIcon}
+                  onPress={this.handleMedication}
+                />
 
             </BodyScroll>                    
 

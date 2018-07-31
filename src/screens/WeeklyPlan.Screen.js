@@ -3,6 +3,7 @@ import {
     StyleSheet,
     View,
     Text,
+    Image,
     TouchableOpacity,
     Linking
   } from 'react-native';
@@ -10,11 +11,15 @@ import {
 import MainText from "../components/UI/MainText";
 import HeadingText from "../components/UI/HeadingText";
 import SubHeadingText from "../components/UI/SubHeadingText";
-import PictureLegend from "../components/UI/PictureLegend";
 import BodyScroll from "../components/UI/BodyScroll";
-import ImageContainer from "../components/UI/ImageContainer";
-import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
+import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
+
 import BorderBox from '../styles/BorderBox';
+
+const safetyImage = require('../assets/safety.png');
+const familyPlanImage = require('../assets/family-plan.png');
+const weeklyScheduleIcon = require('../assets/weekly-schedule-icon.png');
+const helpNeededIcon = require('../assets/help_needed_icon.png');
 
 class WeeklyPlanScreen extends Component {
   constructor(props) {
@@ -37,8 +42,8 @@ class WeeklyPlanScreen extends Component {
         if (event.type === "NavBarButtonPress") {
             if (event.id === "forwardButton") {
               this.props.navigator.push({
-                  screen: "StrokeApp.FatigueScreen",
-                  title: "Fatigue",
+                  screen: "StrokeApp.MedicationsScreen",
+                  title: "Medications",
               });
           }
         }  
@@ -58,76 +63,105 @@ class WeeklyPlanScreen extends Component {
         return (
           <View style={styles.container}>
             <BodyScroll>
-                <MainText>
-                  Share this Interactive Help Needed Toolkit with your family. (click image below)
-                </MainText>
 
-                <TouchableOpacity onPress={this.handleHelpNeeded}>
-                  <ImageToolkitContainer src={require('../assets/help_needed_icon.png')} />
-                </TouchableOpacity>
+                <LinkToolkitWrapper 
+                  text={'Share Interactive Help Needed Toolkit with family. (click image below)'}
+                  source={helpNeededIcon}
+                  onPress={this.handleHelpNeeded}
+                />
                 
                 <MainText>
-                  <HeadingText>Questions Families Ask</HeadingText>
+                    <HeadingText>Let's Talk About Safety</HeadingText>
                 </MainText>
-                <MainText style={[{marginVertical: 0}]}>
-                    {`\u2022`} Who will handle personal care; physical therapy? When?
+
+                <Image source={safetyImage} resizeMode='cover' style={styles.image} />
+
+                <MainText>
+                    Pat became a wheelchair user after a car crash. 
+                    Her husband, Bill made their home safer and accessible.     
                 </MainText>
-                <MainText style={[{marginVertical: 0}]}>
-                    {`\u2022`} Shop, share housekeeping? When? 
+                <MainText style={styles.bullets}>      
+                    {`\u2022`} To widen the door opening for Pat’s wheelchair, the molding was removed.    
                 </MainText>
-                <MainText style={[{marginVertical: 0}]}>     
-                    {`\u2022`} Drive to doctor and therapy appointments. 
+                <MainText style={styles.bullets}>      
+                    {`\u2022`} Light switches, toilet-tissue dispensers, towel racks to be easily reached were lowered. 
                 </MainText>
-                <View style={BorderBox.border}>
-                    <MainText style={[{color: 'black'}, {marginVertical: 0},{alignSelf: 'center'}]}>
-                      <Text style={{fontWeight: 'bold'}}>Stroke Groups</Text>  1-888-4-STROKE 
-                    </MainText>
-                      <TouchableOpacity onPress={() => Linking.openURL('http://www.strokeassociation.org/STROKEORG/strokegroup')}>
-                        <Text style={[{color: 'black'}, {fontSize: 20}, {alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
-                                  http://strokeassociation.org 
-                        </Text>
-                      </TouchableOpacity>
-                    <MainText style={[{color: 'black'},{marginVertical: 0}]}>  
-                      <Text style={{fontWeight: 'bold'}}>CPR:</Text> 1-877-242-4277  www.heart.org
-                    </MainText>
-                </View>
+                <MainText style={styles.bullets}>      
+                    {`\u2022`} A raised toilet makes transfers easier. 
+                    A grab bar, and on side of the toilet ensure safer transfers.   
+                </MainText>
+                <MainText style={styles.bullets}>      
+                    {`\u2022`} The mirrored medicine cabinet was lowered.   
+                </MainText>
+                <MainText>
+                    Falls are the #1 cause of home injuries. Wet bathroom floors lead 
+                    home injuries. Millions return to hospitals a month after discharge.     
+                </MainText>
+
                 <MainText>
                     <HeadingText>A Weekly Plan</HeadingText>
                 </MainText>
 
-                <ImageContainer src={require('../assets/family-plan.png')} />
+                <Image source={familyPlanImage} resizeMode='cover' style={styles.image} />
                 <MainText>
-                    Rachel’s granddaughter shows her how to organize a weekly schedule in Tel Aviv, Israel.  
+                    Rachel’s granddaughter shows her how to organize a weekly schedule. Tel Aviv, Israel.  
                 </MainText>
 
-                {/* <MainText>  
+                <MainText>  
                   <SubHeadingText>Benefits of a Weekly Schedule</SubHeadingText>
-                </MainText> */}
-                <MainText style={[{marginVertical: 0}]}>      
-                    {`\u2022`} Keep track of time each day. Prioritize.  
                 </MainText>
-                <MainText style={[{marginVertical: 0}]}>  
-                    {`\u2022`} Have stimulating times, others that are quiet.    
+                <MainText style={styles.bullets}>      
+                    {`\u2022`} Keeping track of time organizes each day. Prioritize what you need to take place, and give it a time.  
                 </MainText>
-
-                <MainText style={[{marginBottom: 0}]} >
-                  Share the interactive Weekly Schedule Toolkit with your family. (click image below)
+                <MainText style={styles.bullets}>  
+                    {`\u2022`} Have stimulating times, others in between, that are quiet — to sit down, nap, simply relax.    
                 </MainText>
 
-              <TouchableOpacity onPress={this.handleSchedule}>
-                <ImageToolkitContainer src={require('../assets/weekly-schedule-icon.png')} />
-              </TouchableOpacity>
+                <LinkToolkitWrapper 
+                  text={'Share interactive Weekly Schedule Toolkit with family. (click image below)'}
+                  source={weeklyScheduleIcon}
+                  onPress={this.handleSchedule}
+                />
 
-              <MainText><HeadingText>Family Plan</HeadingText></MainText>
-              <MainText>
-              {`\u2022`} After a stroke, the family looks at the care, living/medical expenses, how each will help.  
+              <MainText style={styles.bullets}>
+              {`\u2022`} After a stroke, each family looks at the care, their living and medical expenses needed, and how each one will help.   
               </MainText>
-              <MainText>
-              {`\u2022`} Ask a physical therapist to evaluate the ability to move, talk, handle personal care. 
+              <MainText style={styles.bullets}> 
+              {`\u2022`} Ask a physical therapist to evaluate the ability to move, talk, understand, handle personal care. 
               </MainText>
-              <MainText>
-              {`\u2022`} To understand emotional effects, a psychologist may suggest ways to cope.
+              <MainText style={styles.bullets}>
+              {`\u2022`} A psychologist can evaluate the emotional affects, and ways the family can cope with the changes.
               </MainText>
+
+            <MainText>
+            <HeadingText>
+              Personal Cleanliness
+            </HeadingText>
+            </MainText>
+
+            <MainText style={styles.bullets}> 
+            {`\u2022`} To prevent infection, protect skin, and for comfort, a loved one needs to be washed or bathed every day with warm water and soap. 
+                      Dry, then massaged with soothing lotion. 
+            </MainText>
+
+            <MainText style={styles.bullets}>  
+            {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
+            </MainText>
+            <View style={BorderBox.border}>    
+                  <MainText style={[{color: '0d0d0d'}, {fontWeight: 'bold'},{marginVertical: 0},{alignSelf: 'center'}]}>
+                      AbleData
+                      </MainText>
+                    <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/')}>
+                      <Text style={[{color: '0d0d0d'} , {fontSize: 22}, {alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
+                                  www.Abledata.com 
+                      </Text>
+                    </TouchableOpacity>
+                  <MainText style={[{color: '0d0d0d'},{marginVertical: 0}]}>
+                      1-800-227-0216     English / Spanish
+                  </MainText>
+            </View>   
+
+
             </BodyScroll>      
           </View>
         );
@@ -141,6 +175,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'space-between',
       backgroundColor: 'white',
+    },
+    image: {
+      alignSelf: 'center',
+      width: 250,
+    },
+    bullets: {
+      marginVertical: 5,
     },
 
   });

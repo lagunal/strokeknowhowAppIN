@@ -19,6 +19,8 @@ import SubHeadingText from '../../components/UI/SubHeadingText';
 import jsonData from '../../assets/json/physicalToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
 
+const logoImage = require('../../assets/logo-header.jpg');
+
 class PhysicalToolkit extends Component {
 
     constructor(props){
@@ -143,6 +145,7 @@ class PhysicalToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View >
+                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
                 <MainText><HeadingText>PHYSICAL THERAPY</HeadingText></MainText>
                 <MainText><SubHeadingText>MONDAY</SubHeadingText></MainText>
             </View>
@@ -202,6 +205,9 @@ class PhysicalToolkit extends Component {
        justifyContent: 'flex-start',
        backgroundColor: 'white',
      },
+     logoImage: {
+      width: '100%',
+    },
 
  });
 

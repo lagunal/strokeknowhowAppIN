@@ -21,6 +21,8 @@ import SubHeadingText from '../../components/UI/SubHeadingText';
 import jsonData from '../../assets/json/emergencyToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
 
+const logoImage = require('../../assets/logo-header.jpg');
+
 class EmergencyToolkit extends Component {
 
     constructor(props){
@@ -130,6 +132,7 @@ class EmergencyToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View >
+                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
                 <MainText><HeadingText>EMERGENCY INFORMATION STATION</HeadingText></MainText>
             </View>
             <View style={styles.labelEsential}>    
@@ -275,7 +278,10 @@ class EmergencyToolkit extends Component {
     },
     labelMedicine: {
       backgroundColor: '#1749FF',
-    }
+    },
+    logoImage: {
+      width: '100%',
+    },
    });
 
   

@@ -19,6 +19,8 @@ import ScheduleDetail from "../../components/Toolkits/Schedule/ScheduleDetail"
 import jsonData from '../../assets/json/scheduleToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
 
+const logoImage = require('../../assets/logo-header.jpg');
+
 class ScheduleToolkit extends Component {
 
     constructor(props){
@@ -118,7 +120,8 @@ class ScheduleToolkit extends Component {
         return (
           <View style={styles.container}>
           <BodyScroll>
-            <View >
+            <View>
+                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
                 <MainText><HeadingText>WEEKLY SCHEDULE</HeadingText></MainText>
             </View>
 
@@ -287,7 +290,10 @@ class ScheduleToolkit extends Component {
      },
      labelEvening: {
         backgroundColor: '#1749FF',
-     }
+     },
+     logoImage: {
+        width: '100%',
+     },
  });
 
   

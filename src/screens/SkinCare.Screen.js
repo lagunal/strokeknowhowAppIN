@@ -48,50 +48,26 @@ class SkinCareScreen extends Component {
 
             <ImageContainer src={require('../assets/skin-care1.png')} />
 
-            <MainText>
-            {`\u2022`} Check skin every day for redness, injury – especially when skin is fragile, poor circulation, diabetic.
+            <MainText style={styles.bullets}>
+            {`\u2022`} Check skin every day for redness, and injury – especially when skin is fragile, poor circulation, diabetic.
             </MainText>
 
-            <MainText>
-            {`\u2022`} Pressure sore or bruise requires immediate attention for medication or treatment.
+            <MainText style={styles.bullets}>
+            {`\u2022`} Pressure sore or bruise requires immediate attention for medication and treatment.
             </MainText>
 
-            <MainText>
+            <MainText style={styles.bullets}>
             {`\u2022`} Reposition <Text style={{textDecorationLine: 'underline'}}>at least every two hours</Text> when in bed for extended time. 
-                Pressure sores, skin breakdown occur from infrequent turning and changing positions. 
             </MainText>
 
-            <MainText>
-            {`\u2022`} When changing positions, helpers must <Text style={{textDecorationLine: 'underline'}}>lift not pull</Text> someone across sheet, to avoid friction injuries. 
+            <MainText style={styles.bullets}>
+            {`\u2022`} Helpers must <Text style={{textDecorationLine: 'underline'}}>lift not pull</Text> someone across sheet, to avoid friction injuries. 
             </MainText>
 
-            <MainText>
-            <HeadingText>
-              Personal Cleanliness
-            </HeadingText>
+            <MainText style={styles.bullets}>
+            {`\u2022`} Pressure sores, skin breakdown occur from infrequent turning, changing positions.  
             </MainText>
-
-            <MainText>
-            {`\u2022`} To prevent infection, protect the skin, for comfort, a loved one should be washed or bathed every day with warm water and soap. 
-              Dried thoroughly, massaged with a soothing lotion. 
-            </MainText>
-
-            <MainText>  
-            {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
-            </MainText>
-            <View style={BorderBox.border}>    
-                  <MainText style={[{color: '0d0d0d'}, {fontWeight: 'bold'},{marginVertical: 0},{alignSelf: 'center'}]}>
-                      Product Information 
-                      </MainText>
-                    <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/')}>
-                      <Text style={[{color: '0d0d0d'} , {fontSize: 22}, {alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
-                                  www.Abledata.com 
-                      </Text>
-                    </TouchableOpacity>
-                  <MainText style={[{color: '0d0d0d'},{marginVertical: 0}]}>
-                      1-800-227-0216     English / Spanish
-                  </MainText>
-            </View>           
+        
 
             </BodyScroll>                
           </View>           
@@ -106,7 +82,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: 'white',
     },
-
+    bullets: {
+      marginVertical: 5,
+    },
   });
 
   

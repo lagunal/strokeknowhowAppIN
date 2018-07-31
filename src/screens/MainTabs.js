@@ -50,17 +50,27 @@ const startTabs = () => {
                     modal: true,
                 },
             ],
-            tabsStyle: {
+            tabsStyle: { //for iOS
                 tabBarSelectedButtonColor: "white",
-                tabBarBackgroundColor: '#1749FF', // change the background color of the tab bar
+                tabBarBackgroundColor: '#0032e6', // change the background color of the tab bar
                 tabBarButtonColor: 'white',
                 tabBarTextFontFamily: 'Helvetica', //change the tab font family
-                selectedTabFontSize: 12,
+                selectedTabFontSize: 14,
+                navBarHideOnScroll: true,
+                navBarBackgroundColor: '#0032e6',
+                navBarButtonColor: 'white',
+                navBarTextColor: 'white',
             },
-            appStyle: {
+            appStyle: { //for Android
                 tabBarSelectedButtonColor: "white",
-                tabBarBackgroundColor: '#1749FF',
+                tabBarBackgroundColor: '#0032e6',
                 tabBarButtonColor: 'white',
+                navBarHideOnScroll: true,
+                navBarBackgroundColor: '#0032e6',
+                navBarButtonColor: 'white',
+                navBarTextColor: 'white',
+                navBarTitleTextCentered: true,
+                hideBackButtonTitle: true, //hide back button title for iOS
             },
         });
     });

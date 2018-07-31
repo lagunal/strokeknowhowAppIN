@@ -6,6 +6,7 @@ import SubHeadingText from '../../UI/SubHeadingText';
 import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
 import Button from "../../UI/Button";
+import BodyScroll from "../../UI/BodyScroll";
 
 import ajax from '../../../ajax/ajax';
 
@@ -56,6 +57,7 @@ class ToolkitItemDetail extends Component {
     render(){
             const { item } = this.props;
             return(
+                <BodyScroll>
                 <View style={{flex: 1}}>    
                     <MainText><HeadingText>{item.title}</HeadingText>  </MainText>
                     <MainText><SubHeadingText>{item.label1}</SubHeadingText>  </MainText>
@@ -78,6 +80,7 @@ class ToolkitItemDetail extends Component {
                        Save
                     </Button>
                 </View>
+                </BodyScroll>
             )
 
     }

@@ -11,13 +11,10 @@ import {
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import HeadingText from '../components/UI/HeadingText';
-import SubHeadingText from '../components/UI/SubHeadingText';
-import PictureLegend from '../components/UI/PictureLegend';
-import ImageContainer from "../components/UI/ImageContainer";
-import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
-import LegendText from "../components/UI/LegendText";
+import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 import BorderBox from '../styles/BorderBox';
 
+const physicalIcon = require('../assets/physical-therapy-icon.png');
 
 class BloodPressureScreen extends Component {
     constructor(props) {
@@ -59,35 +56,38 @@ class BloodPressureScreen extends Component {
 
             <MainText><HeadingText>Blood Pressure</HeadingText></MainText>
 
-            <MainText>
+            <MainText style={styles.bullets}>
             {`\u2022`} Higher (systolic) pressure during a heartbeat. 
             </MainText>
-            <MainText>  
-            {`\u2022`} Lower (diastolic) pressure is between beats. Blood pressure higher than 120/80, lower than (140/90), you are pre-hypertensive.
+            <MainText style={styles.bullets}>  
+            {`\u2022`} Lower (diastolic) pressure is between beats. 
             </MainText>
-            <MainText>
-            {`\u2022`} Blood pressure higher than 140/90, lower than 160/100, you have Stage 1 high blood pressure. 
+            <MainText style={styles.bullets}>   
+            {`\u2022`} Blood pressure higher than 120/80, lower than (140/90), you are pre-hypertensive.
             </MainText>
-            <MainText>  
-            {`\u2022`} Blood pressure higher than 160/100, you have Stage 2 high blood pressure. 
+            
+            <MainText style={styles.bullets}>
+            {`\u2022`} Blood pressure higher than 140/90, lower than 160/100, you have <Text style={{textDecorationLine: 'underline'}}>Stage 1</Text> high blood pressure. 
             </MainText>
-
-            <MainText><HeadingText>Blood Sugar </HeadingText></MainText>
-
-            <MainText>
-            {`\u2022`} Blood glucose test is used for diabetes. Results used to regulate medications, diet. 
-            </MainText>
-            <MainText>  
-            {`\u2022`} Ask when to test? Numbers to report.  
+            <MainText style={styles.bullets}>  
+            {`\u2022`} Blood pressure higher than 160/100, you have <Text style={{textDecorationLine: 'underline'}}>Stage 2</Text> high blood pressure. 
             </MainText>
 
-            <ImageContainer src={require('../assets/confucious.png')} />
+            <MainText><HeadingText>Testing Blood Sugar </HeadingText></MainText>
 
-            <MainText><SubHeadingText>
+            <MainText style={styles.bullets}>
+            {`\u2022`} Blood glucose test is used for diabetes. Results are used to regulate medications, diet.  
+            </MainText>
+            <MainText style={styles.bullets}>  
+            {`\u2022`} When to test? Numbers to report.  
+            </MainText>
+
+
+            {/* <MainText><SubHeadingText>
               It doesn’t matter how slow you go {`\n`}
               as long as you do not stop.
             </SubHeadingText></MainText>
-            <MainText style={[{marginLeft: 250},{fontSize: 16}]}>Confucious</MainText>
+            <MainText style={[{marginLeft: 250},{fontSize: 16}]}>Confucious</MainText> */}
             
             <View style={BorderBox.border}>
 
@@ -106,22 +106,24 @@ class BloodPressureScreen extends Component {
             </View>
             <MainText><HeadingText>Physical Therapists</HeadingText></MainText>
 
-            <MainText>
+            <MainText style={styles.bullets}>
             {`\u2022`} How to continue physical therapy?  
             </MainText>
-            <MainText>  
+            <MainText style={styles.bullets}>  
             {`\u2022`} Exercises to do? How? How often? 
-              How long? Benefits? Purpose?
+            </MainText>
+            <MainText style={styles.bullets}>  
+            {`\u2022`} How long?
+            </MainText>
+            <MainText style={styles.bullets}>  
+            {`\u2022`} Benefits? Purpose?
             </MainText>
 
-
-            <MainText>
-              Share  the  Interactive  Physical  Therapy  Toolkit  with  your  family. (click image below)
-            </MainText>
-
-            <TouchableOpacity onPress={this.handlePhysical}>
-                <ImageToolkitContainer src={require('../assets/physical-therapy-icon.png')} />
-            </TouchableOpacity>
+            <LinkToolkitWrapper 
+              text={'Share Interactive Physical Therapy Toolkit with family. (click image below)'}
+              source={physicalIcon}
+              onPress={this.handlePhysical}
+            />
 
             </BodyScroll>                
           </View>           
@@ -136,7 +138,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: 'white',
     },
-
+    bullets: {
+      marginVertical: 5,
+    },
   });
 
   

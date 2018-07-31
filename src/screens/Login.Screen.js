@@ -21,6 +21,13 @@ import startTabs from './MainTabs'; //start tabs navigation
 const apiUrl = 'https://strokeknowhow.org/api/';
 
 class LoginScreen extends Component {
+    
+  static navigatorStyle = {
+      navBarBackgroundColor: '#1749FF',
+      navBarButtonColor: 'white',
+      navBarTextColor: 'white',
+      
+  };
 
   constructor(props) {
       super(props);
@@ -39,6 +46,7 @@ class LoginScreen extends Component {
         loading: false,
         showSpinner: false,
         //language: 'en',
+        videoPaused: false,
       }
   }
 
@@ -107,7 +115,7 @@ class LoginScreen extends Component {
           this.loggedHandler();
         }
   
-        //this.setState({showSpinner: false});
+        this.setState({showSpinner: false});
       })
       .catch((error) => {
         console.error(error);
@@ -282,6 +290,10 @@ class LoginScreen extends Component {
       </View>;
   }
 
+  playVideo = () => {
+    this.setState({videoPaused: !this.state.videoPaused})
+  }
+
   render() {
     if(this.state.loading) {
       return (
@@ -295,42 +307,43 @@ class LoginScreen extends Component {
 
     if(this.state.inLogin) { //LOGIN
       return (
-        <ScrollView style={{paddingHorizontal: 20, paddingVertical: 0, backgroundColor: 'white'}}>
+        <ScrollView style={{paddingHorizontal: 0, paddingVertical: 0, backgroundColor: 'white'}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
 
-            <View>
+            <TouchableOpacity onPress={this.playVideo}>
               <Video
                 source={{uri: "http://strokeknowhow.org/wp-content/uploads/2018/07/102_Pattys_husband.mp4"}}
-                style={{height: 100}}
+                ref={(ref) => {
+                  this.player = ref
+                }}                
+                style={{height: 150}}
                 rate={1}
-                paused={false}
+                paused={this.state.videoPaused}
                 volume={1}
                 muted={false}
                 playWhenInactive={false}
                 resizeMode='contain'
                 repeat={false}
                 />
-            </View>
+            </TouchableOpacity>
             
             <View>
               <MainText><HeadingText>Welcome {`\n`} Stroke Know How</HeadingText></MainText>
               <MainText style={[{textAlign: 'center'}, {fontSize: 20}]}>We are a worldwide stroke <Text style={{fontSize: 24, fontWeight: 'bold'}}>community</Text> {`\n`} learning from one another</MainText>
             </View>
 
-            <View style={styles.containerStyle}>
-              {/* <Picker
-                selectedValue={this.state.language}
-                style={styles.comboStyle}
-                onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-                onValueChange={(itemValue, itemIndex) => this.changeLanguage(itemValue, itemIndex)} >
-                <Picker.Item label="English" value="en" />
-                <Picker.Item label="Español" value="es" />
-              </Picker> */}
-            </View>
+            {/* <Picker
+              selectedValue={this.state.language}
+              style={styles.comboStyle}
+              onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+              onValueChange={(itemValue, itemIndex) => this.changeLanguage(itemValue, itemIndex)} >
+              <Picker.Item label="English" value="en" />
+              <Picker.Item label="Español" value="es" />
+            </Picker> */}
+            
             <TextFieldInput
               label='Username'
-              placeholder='Username'
               value={this.state.username}
               onChangeText={username => this.setState({ username })}
               autoCorrect={true}
@@ -340,7 +353,6 @@ class LoginScreen extends Component {
             <TextFieldInput
               label='Shared Family Password'
               autoCorrect={false}
-              placeholder='Shared Family Password'
               secureTextEntry
               value={this.state.password}
               /*onChangeText={password => this.setState({ password })}*/
@@ -365,7 +377,7 @@ class LoginScreen extends Component {
     } else { //REGISTER
 
       return (
-        <ScrollView style={{padding: 20, backgroundColor: 'white'}}>
+        <ScrollView style={{padding: 0, backgroundColor: 'white'}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
 
             <TouchableOpacity onPress={this.goToLogin}>
@@ -380,15 +392,13 @@ class LoginScreen extends Component {
 
             <TextFieldInput
               label='User Name'
-              placeholder='Username'
               value={this.state.username}
               onChangeText={username => this.setState({ username })}
               autoCorrect={true}
             />
 
             <TextFieldInput
-              label='Family name'
-              placeholder='Family name (ex. Lopez Family)'
+              label='Family name (ex. Lopez Family)'
               value={this.state.name}
               onChangeText={name => this.setState({ name })}
               autoCorrect={true}
@@ -396,9 +406,8 @@ class LoginScreen extends Component {
 
             <TextFieldInput
               label='Email Address'
-              placeholder='Email Address'
               value={this.state.email}
-              onChangeText={(email) => this.EMail(email)}
+              onChangeText={(email) => this.validateEMail(email)}
               autoCorrect={true}
             />
             <Text style={styles.errorText}>{this.state.emailError}</Text>
@@ -406,7 +415,6 @@ class LoginScreen extends Component {
             <TextFieldInput
               label='Shared Password'
               autoCorrect={false}
-              placeholder='Shared Password'
               secureTextEntry
               value={this.state.password}
               /*onChangeText={password => this.setState({ password })}*/

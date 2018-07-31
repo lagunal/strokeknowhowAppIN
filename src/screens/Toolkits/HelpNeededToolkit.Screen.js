@@ -6,7 +6,7 @@ import {
     Text,
     ActivityIndicator,
     AsyncStorage,
-    TouchableOpacity
+    TouchableOpacity,
   } from 'react-native';
 
 import HeadingText from '../../components/UI/HeadingText';
@@ -20,6 +20,8 @@ import SubHeadingText from '../../components/UI/SubHeadingText';
 
 import jsonData from '../../assets/json/helpNeededToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
+
+const logoImage = require('../../assets/logo-header.jpg');
 
 class HelpNeedeToolkit extends Component {
 
@@ -145,8 +147,9 @@ class HelpNeedeToolkit extends Component {
         return (
           <View style={styles.container}>
           <BodyScroll>
-            <View >
-                <MainText><HeadingText>HELP NEEDED</HeadingText></MainText>
+            <View>
+                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
+                <MainText><HeadingText>HELP NEEDED TOOLKIT</HeadingText></MainText>
             </View>
 
             <View style={{flex: 1}}>
@@ -213,7 +216,10 @@ class HelpNeedeToolkit extends Component {
      },
      label: {
        fontWeight: 'bold',
-     }
+     },
+     logoImage: {
+        width: '100%',
+     },
  });
 
   

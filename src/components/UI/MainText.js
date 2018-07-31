@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     mainText: {
         color: '#0d0d0d',
         fontFamily: 'Verdana',
+        //fontFamily: 'Helvetica',
         fontSize: 17,
         textAlign: 'justify',
         margin: 10,

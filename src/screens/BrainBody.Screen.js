@@ -50,16 +50,12 @@ class BrainBodyScreen extends Component {
             <ImageContainer src={require('../assets/brain-body.png')} />
 
             <MainText>
-            {'\t'} My doctor told me research provesthat after a stroke, when there is injury to an area of the brain, 
-                doing tasks helps the healing. {`\n`}
-            
-               
-            {'\t'} For six months, I used both my weaker and strong hand, repeated it several times. 
-                I washed my kitchen window, set the table, sorted laundry. {`\n`}
-            
+            {'\t'} My doctor told me about research that proves after a stroke, when an area of the brain is injured, doing tasks, repeating them several times, helps healing. 
+                   For six months, I used both my weaker and stronger hand, washing my kitchen window, sorting laundry, polishing the table.{`\n`}
               
-            {'\t'} My goal was for my right hand to open and the fingers to move. I saw no difference, but I kept at it. 
-                One morning I reached for a cup for my coffee, and suddenly fingers in my right weaker hand, slowly opened. I began to cry, then kept moving my fingers. 
+            {'\t'} My goal was for my right hand to open and fingers to move. I kept at it, but saw no difference, {`\n`}
+            {'\t'} One morning I reached for a cup for coffee, suddenly fingers in my right hand slowly opened. I began to cry, and kept moving my fingers. {`\n`}
+            
             </MainText>
 
             <LegendText style={{marginLeft: 180}}>
@@ -67,19 +63,23 @@ class BrainBodyScreen extends Component {
             </LegendText>
 
             <MainText>
-                Add your ideas of tasks using both hands, repeating several times. 
+                Add your tasks, use both hands, repeat them several times. 
             </MainText>
 
-            <MainText>
-            {`\u2022`} Fold, open, re-fold items: paper napkins, washcloths, clothing. Sort items by color, size.
+            <MainText style={styles.bullets}>
+            {`\u2022`} Fold, open, re-fold items: paper napkins, clothes.
             </MainText>
 
-            <MainText>
+            <MainText style={styles.bullets}>
             {`\u2022`} Cut/peel vegetables, fruit. Polish silverware: Wash dishes. Place cans on a shelf.
             </MainText>
 
-            <MainText>
-            {`\u2022`} Button/Unbutton shirt. Zip up a jacket. 
+            <MainText style={styles.bullets}>
+            {`\u2022`} Polish silverware: Wash dishes.
+            </MainText>
+
+            <MainText style={styles.bullets}>
+            {`\u2022`} Button/Unbutton shirt.
             </MainText>
 
             <View style={{padding: 20}}>
@@ -105,18 +105,18 @@ class BrainBodyScreen extends Component {
             </MainText>
 
             <MainText>
-                <Text style={[{fontWeight: 'bold'}]}>
-                    {`\u2022`} Does not affect intelligence
+                <Text style={{fontWeight: 'bold'}}>
+                    {`\u2022`} Intelligence is not affected.
                 </Text>    
             </MainText>
-            <MainText>
-            {`\u2022`} Learning is ongoing: Talking, reading, writing,  problem solving.
-                You keep at it, until you get back what you've lost. 
+            <MainText style={styles.bullets}>
+            {`\u2022`} Relearning is ongoing: Talking, reading, writing, problem solving. 
+                        You keep at it, until you get back what you've lost.  
             </MainText>
 
-            <MainText>
-            {`\u2022`} Find an Aphasia Group or a family with similar experiences as yours. 
-                It increases confidence, and encourages friendships.  
+            <MainText style={styles.bullets}>
+            {`\u2022`} Find an Aphasia Group or a family with similar experiences. 
+                It can increases confidence, friendships.  
             </MainText>
             <View style={BorderBox.border}>
                 <MainText style={[{color: '0d0d0d'}, {fontWeight: 'bold'},{marginVertical: 0},{alignSelf: 'center'}]}>
@@ -145,7 +145,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: 'white',
     },
-
+    bullets: {
+        marginVertical: 5,
+      },
   });
 
   

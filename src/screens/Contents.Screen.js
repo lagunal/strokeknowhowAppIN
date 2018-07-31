@@ -13,6 +13,12 @@ import BodyScroll from '../components/UI/BodyScroll';
 
 class ContentsScreen extends Component {
 
+    static navigatorStyle = {
+        navBarBackgroundColor: '#1749FF',
+        navBarButtonColor: 'white',
+        navBarTextColor: 'white',
+    };
+        
   constructor(props) {
       super(props);
       this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
@@ -63,17 +69,6 @@ class ContentsScreen extends Component {
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Weekly Plan
-                        </SubHeadingText>
-                    </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
-                </View>    
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.FatigueScreen','Fatigue')}>
-                <View style={styles.item}> 
-                    <MainText>
-                        <SubHeadingText style={styles.title}>
-                            Fatigue is a challenge
                         </SubHeadingText>
                     </MainText>  
                     <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>

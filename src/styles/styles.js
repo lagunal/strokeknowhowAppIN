@@ -180,9 +180,21 @@ export default StyleSheet.create({
         //alignItems: 'center',
         flex: 1
       },
-      map: {
+    map: {
         ...StyleSheet.absoluteFillObject
     },
+    // inputStyle: {
+    //     paddingRight: 5,
+    //     paddingLeft: 5,
+    //     paddingBottom: 2,
+    //     color: 'black',
+    //     fontSize: 17,
+    //     flex: 1,
+    //     height: 100,
+    //     width: '100%',
+    //     borderWidth: 1,
+    //     opacity: 1,
+    // },
     inputStyle: {
         paddingRight: 5,
         paddingLeft: 5,
@@ -192,8 +204,9 @@ export default StyleSheet.create({
         flex: 1,
         height: 100,
         width: '100%',
-        borderWidth: 1,
-        opacity: 1,
+        borderWidth: 0,
+        borderColor: '#333',
+        borderBottomWidth: 1,        
     },
     comboStyle: {
         paddingRight: 5,
@@ -231,7 +244,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#ED7030',
+        backgroundColor: '#1749FF',
         borderWidth: .5,
         height: 40,
         borderRadius: 3,

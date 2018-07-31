@@ -19,6 +19,8 @@ import SubHeadingText from '../../components/UI/SubHeadingText';
 import jsonData from '../../assets/json/medicationsToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
 
+const logoImage = require('../../assets/logo-header.jpg');
+
 class MedicationsToolkit extends Component {
 
     constructor(props){
@@ -89,7 +91,7 @@ class MedicationsToolkit extends Component {
       const medicines = [];
       let background = '';
       for (let i=1; i <= times; i++) {
-          background = (i%2 == 0) ? 'white' : 'lightgrey';
+          background = (i%2 == 0) ? 'white' : 'yellow';
           medicines.push(<MedicationRow 
                             labelMedication='Medicine'
                             medication={this.state.data['medicine' + labelDay + i]} 
@@ -148,46 +150,49 @@ class MedicationsToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View >
-                <MainText><HeadingText>MEDICATIONS</HeadingText></MainText>
-                <MainText><SubHeadingText>MONDAY</SubHeadingText></MainText>
+                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
+                <MainText><HeadingText>MEDICATIONS TOOLKIT</HeadingText></MainText>
+                <View style={styles.titleWrap}> 
+                  <MainText><SubHeadingText style={styles.titleDay}>MONDAY</SubHeadingText></MainText>
+                </View>
             </View>
 
             <View style={{flex: 1}}>
                     
                     {this.renderMedications(5, 'Monday')}
 
-                  <View >
-                      <MainText><SubHeadingText>TUESDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>TUESDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedications(5, 'Tuesday')}
 
-                  <View>
-                      <MainText><SubHeadingText>WEDNESDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>WEDNESDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedications(5, 'Wednesday')}
 
-                  <View>
-                      <MainText><SubHeadingText>THURSDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>THURSDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedications(5, 'Thursday')}
 
-                  <View>
-                      <MainText><SubHeadingText>FRIDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>FRIDAY</SubHeadingText></MainText>
                   </View>
                     
                     {this.renderMedications(5, 'Friday')}
 
-                  <View>
-                      <MainText><SubHeadingText>SATURDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>SATURDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedications(5, 'Saturday')}
 
-                  <View>
-                      <MainText><SubHeadingText>SUNDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>SUNDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedications(5, 'Sunday')}
@@ -206,6 +211,15 @@ class MedicationsToolkit extends Component {
        justifyContent: 'flex-start',
        backgroundColor: 'white',
      },
+     logoImage: {
+       width: '100%',
+     },
+     titleWrap: {
+       backgroundColor: '#1749FF',
+     },
+     titleDay: {
+       color: 'white',
+     }
 
  });
 

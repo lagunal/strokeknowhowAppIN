@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Navigation } from "react-native-navigation";
 
 import {
-  StyleSheet, View, Image, Text, TouchableOpacity, AsyncStorage
+  StyleSheet, View, Image, Text, TouchableOpacity, AsyncStorage, StatusBar
 } from 'react-native';
 
 import Icon from "react-native-vector-icons/Ionicons";
@@ -18,11 +18,14 @@ export let rootNavigator = null; //variable to export navigation object to drawe
 
 class HomeScreen extends Component {
 
+
   constructor(props) {
       super(props);
       rootNavigator = this.props.navigator; //variable to export navigation object to drawer
       this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+
   }
+
   onNavigatorEvent = event => {
       if (event.type === "NavBarButtonPress") {
           if (event.id === "forwardButton") {
@@ -48,29 +51,26 @@ class HomeScreen extends Component {
   //   const user = await AsyncStorage.setItem('user', '');
   // }
 
-
   render() {
 
     return (
       <View style={styles.container}>
+      <StatusBar
+          barStyle="light-content"
+      />
       <BodyScroll>
         {/* <TouchableOpacity onPress={this.logOutHandler}>
           <Icon size={40} name="md-exit" color="black" />
         </TouchableOpacity> */}
 
         <ImageContainer src={require('../assets/home.png')} />  
-        <MainText>
-            We’re living through a time when every family affected by stroke 
-            must find out what it will take to reclaim your life – there’s no other way. 
-        </MainText>
         <MainText>    
             I was a sports writer of a major newspaper,  who had a stroke in a New York subway during rush hour.  In the ambulance, 
             I overheard the word ‘stroke,’ and realized they were talking about me. 
             Out of the hospital in five days: I could stand, not walk.
-            My family couldn’t understand what I was trying to say to them.  
             Insurance paid for a handful of physical therapy. NOW WHAT?
         </MainText>
-        <PictureLegend style={{marginLeft: 100}}>-- Mike</PictureLegend>    
+        <PictureLegend style={{marginLeft: 250}}>-- Mike</PictureLegend>    
         <MainText>
           <HeadingText>
             A New Day
@@ -79,14 +79,14 @@ class HomeScreen extends Component {
         <View style={styles.imageContainer}>  
           <ImageContainer src={require('../assets/newDay.png')} />
         </View>
-        <MainText>
-            {`\u2022`} It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. Lowers capacity of heart’s pumping rate, reduces lung capacity, alters blood pressure, increases chance 
+        <MainText style={[{marginVertical: 5}]}>
+            {`\u2022`} It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. Lowers the capacity of heart’s pumping rate, reduces lung capacity, alters blood pressure, increases chance 
             of pneumonia. 
         </MainText>
-        <MainText>  
+        <MainText style={[{marginVertical: 5}]}>  
             {`\u2022`} Do slow stretches in bed to ease stiffness. Roll from side to side. 
         </MainText>
-        <MainText>  
+        <MainText style={[{marginVertical: 5}]}>  
             {`\u2022`} Before moving take your time, avoid quick changes to avoid becoming dizzy.  
         </MainText>
       </BodyScroll> 

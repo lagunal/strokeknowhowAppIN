@@ -9,7 +9,9 @@ import {
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import HeadingText from '../components/UI/HeadingText';
-import ImageToolkitContainer from "../components/UI/ImageToolkitContainer";
+import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
+
+const emergencyIcon = require('../assets/emergency-station-icon.png');
 
 class EmergencyScreen extends Component {
     constructor(props) {
@@ -49,35 +51,37 @@ class EmergencyScreen extends Component {
           <View style={styles.container}>
             <BodyScroll>
 
-            <MainText>
-                Share  the  Interactive  Emergency  Information  Station  Toolkit  with  your  family. (Click image below)
-            </MainText>
- 
-            <TouchableOpacity onPress={this.handleEmergency}>
-                <ImageToolkitContainer src={require('../assets/emergency-station-icon.png')} />    
-            </TouchableOpacity>
+                <LinkToolkitWrapper 
+                  text={'Share Interactive Emergency Information Station Toolkit with family. (Click image below)'}
+                  source={emergencyIcon}
+                  onPress={this.handleEmergency}
+                />
 
-            <MainText>
-                If you believe it is an emergency – it probably is! Get help immediately. 
-                Hospital will call the doctor for information. 
-                It helps to know medical condition, medications (name, dosage).           
-            </MainText>
+                {/* <MainText>
+                    If you believe it is an emergency – it probably is! Get help immediately. 
+                    Hospital will call the doctor for information. 
+                    It helps to know medical condition, medications (name, dosage).           
+                </MainText> */}
 
-            <MainText><HeadingText>Don’t wait. Get help.</HeadingText></MainText>
+                <MainText><HeadingText>Don’t wait. Get help.</HeadingText></MainText>
 
-            <MainText>
-            {`\u2022`} Call 911 or your emergency number.   
-            </MainText>      
+                <MainText style={styles.bullets}>
+                {`\u2022`} Call 911 or your emergency number.   
+                </MainText>      
 
-            <MainText>
-            {`\u2022`} Report possible stroke, or another emergency. 
-            </MainText>    
+                <MainText style={styles.bullets}>
+                {`\u2022`} Report possible stroke, or another emergency. 
+                </MainText>    
 
-            <MainText>
-            {`\u2022`} Answer questions in clear, short answers.
-                If you need a translator, ask immediately. Do not hang up first: Wait for instructions. 
-            </MainText>    
-            
+                <MainText style={styles.bullets}>
+                {`\u2022`} Answer questions in clear, short answers.
+                    If you need a translator, ask immediately. 
+                </MainText>    
+
+                <MainText style={styles.bullets}>
+                {`\u2022`} Do not hang up first: Wait for instructions. 
+                </MainText> 
+
             </BodyScroll>                
           </View>           
         );
@@ -90,6 +94,9 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       backgroundColor: 'white',
+    },
+    bullets: {
+      marginVertical: 5,
     },
 
   });
