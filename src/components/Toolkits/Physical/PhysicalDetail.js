@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 import HeadingText from '../../UI/HeadingText';
 import SubHeadingText from '../../UI/SubHeadingText';
@@ -7,7 +7,7 @@ import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
 import Button from "../../UI/Button";
 import BodyScroll from "../../UI/BodyScroll";
-
+import styles from '../../../styles/styles';
 import ajax from '../../../ajax/ajax';
 
 class PhysicalDetail extends Component {
@@ -53,29 +53,37 @@ class PhysicalDetail extends Component {
             <View style={{flex: 1}}>    
                                 
                 <MainText><SubHeadingText>{item.labelExercise}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.exercise} 
+                <TextInput value={this.state.exercise} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={exercise => this.setState({ exercise } )} />
                 
                 <MainText><SubHeadingText>{item.labelTime}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.time1} 
+                <TextInput value={this.state.time1} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={time1 => this.setState({ time1 } )} />
-                <TextFieldInput value={this.state.time2} 
+                <TextInput value={this.state.time2} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={time2 => this.setState({ time2 } )} />
 
                 <MainText><SubHeadingText>{item.labelPulse1}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.pulse1} 
+                <TextInput value={this.state.pulse1}
+                        style={styles.inputStyleToolkit} 
                         onChangeText={pulse1 => this.setState({ pulse1 } )} />
 
                 <MainText><SubHeadingText>{item.labelPulse2}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.pulse2} 
+                <TextInput value={this.state.pulse2} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={pulse2 => this.setState({ pulse2 } )} />
 
                 <MainText><SubHeadingText>{item.labelGoals}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.goals1} 
+                <TextInput value={this.state.goals1} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={goals1 => this.setState({ goals1 } )} />
-                <TextFieldInput value={this.state.goals2} 
+                <TextInput value={this.state.goals2} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={goals2 => this.setState({ goals2 } )} />
-                <TextFieldInput value={this.state.goals3} 
+                <TextInput value={this.state.goals3} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={goals3 => this.setState({ goals3 } )} />
 
                 <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>

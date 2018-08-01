@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 import HeadingText from '../../UI/HeadingText';
 import SubHeadingText from '../../UI/SubHeadingText';
@@ -7,7 +7,7 @@ import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
 import Button from "../../UI/Button";
 import BodyScroll from "../../UI/BodyScroll";
-
+import styles from '../../../styles/styles';
 import ajax from '../../../ajax/ajax';
 
 class ScheduleDetail extends Component {
@@ -39,7 +39,8 @@ class ScheduleDetail extends Component {
             <View style={{flex: 1}}>    
                                 
                 <MainText><SubHeadingText>{item.label}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.name} 
+                <TextInput value={this.state.name} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={name => this.setState({ name } )} />
 
                 <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>

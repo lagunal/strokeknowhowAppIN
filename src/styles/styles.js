@@ -96,6 +96,20 @@ export default StyleSheet.create({
         color: '#333333',
         marginBottom: 5
     },
+    terms: {
+        fontSize: 13,
+        textAlign: 'center',
+    },    
+    termsContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textHyper: {
+        fontSize: 13,
+        color: '#000',
+        textDecorationLine: 'underline'
+    },    
     modules: {
         margin: 20
     },
@@ -119,9 +133,9 @@ export default StyleSheet.create({
         /*backgroundColor: '#2980b6',*/
         /*paddingVertical: 10,*/
         flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+         flexDirection: 'column',
+         alignItems: 'center',
+         justifyContent: 'center',
         margin: 10,
     },
     buttonText: {
@@ -183,6 +197,23 @@ export default StyleSheet.create({
     map: {
         ...StyleSheet.absoluteFillObject
     },
+    label: {
+        fontSize: 14,
+        color: '#333',
+    },
+    inputStyleToolkit: {
+        //paddingRight: 5,
+        //paddingLeft: 5,
+        //paddingBottom: 2,
+        color: 'black',
+        fontSize: 17,
+        flex: 1,
+        height: 50,
+        width: '100%',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        opacity: 1,
+    },
     // inputStyle: {
     //     paddingRight: 5,
     //     paddingLeft: 5,
@@ -192,20 +223,19 @@ export default StyleSheet.create({
     //     flex: 1,
     //     height: 100,
     //     width: '100%',
-    //     borderWidth: 1,
-    //     opacity: 1,
+    //     borderWidth: 0,
+    //     borderColor: '#333',
+    //     borderBottomWidth: 1,        
     // },
     inputStyle: {
-        paddingRight: 5,
-        paddingLeft: 5,
         paddingBottom: 2,
-        color: 'black',
+        color: 'white',
         fontSize: 17,
         flex: 1,
         height: 100,
         width: '100%',
-        borderWidth: 0,
-        borderColor: '#333',
+        borderWidth: 1,
+        borderColor: '#ccc',
         borderBottomWidth: 1,        
     },
     comboStyle: {
@@ -244,10 +274,10 @@ export default StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1749FF',
+        backgroundColor: '#b30000',
         borderWidth: .5,
         height: 40,
-        borderRadius: 3,
+        borderRadius: 5,
         width: '100%',
     },
     EMailRegister: {
@@ -256,10 +286,10 @@ export default StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#0773B9',
+        backgroundColor: '#b30000',
         borderWidth: .5,
         height: 40,
-        borderRadius: 3,
+        borderRadius: 5,
         width: '100%',
     },
     EMailLoginDisabled: {
@@ -279,5 +309,9 @@ export default StyleSheet.create({
         textAlign: 'center',
         fontSize: 14,
         color: '#900',
+    },
+    profileImage: {
+        height: 200, 
+        width: null
     },
 });

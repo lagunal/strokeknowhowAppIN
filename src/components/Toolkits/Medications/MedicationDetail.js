@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 import HeadingText from '../../UI/HeadingText';
 import SubHeadingText from '../../UI/SubHeadingText';
@@ -7,7 +7,7 @@ import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
 import Button from "../../UI/Button";
 import BodyScroll from "../../UI/BodyScroll";
-
+import styles from '../../../styles/styles';
 import ajax from '../../../ajax/ajax';
 
 class MedicationDetail extends Component {
@@ -51,31 +51,38 @@ class MedicationDetail extends Component {
             <View style={{flex: 1}}>    
                                 
                 <MainText><SubHeadingText>{item.labelMedicine}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.nameMedicine} 
+                <TextInput value={this.state.nameMedicine} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={nameMedicine => this.setState({ nameMedicine } )} />
                 
                 <MainText><SubHeadingText>{item.labelDose}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.dose} 
+                <TextInput value={this.state.dose} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={dose => this.setState({ dose } )} />
 
                 <MainText><SubHeadingText>{item.labelMorning}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.morning} 
+                <TextInput value={this.state.morning} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={morning => this.setState({ morning } )} />
 
                 <MainText><SubHeadingText>{item.labelNoon}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.noon} 
+                <TextInput value={this.state.noon} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={noon => this.setState({ noon } )} />
 
                 <MainText><SubHeadingText>{item.labelAfternoon}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.afternoon} 
+                <TextInput value={this.state.afternoon} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={afternoon => this.setState({ afternoon } )} />
 
                 <MainText><SubHeadingText>{item.labelEvening}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.evening} 
+                <TextInput value={this.state.evening} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={evening => this.setState({ evening } )} />
 
                 <MainText><SubHeadingText>{item.labelBedtime}</SubHeadingText>  </MainText>
-                <TextFieldInput value={this.state.bedtime} 
+                <TextInput value={this.state.bedtime} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={bedtime => this.setState({ bedtime } )} />
 
                 <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>

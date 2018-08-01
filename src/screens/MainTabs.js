@@ -9,7 +9,7 @@ const startTabs = () => {
         Icon.getImageSource(Platform.OS === 'android' ? "md-create" : "ios-create", 30), //toolkit icon
         Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30), //side drawer icon
         Icon.getImageSource(Platform.OS === 'android' ? "md-list-box" : "ios-list-box", 30), //contents icon
-        Icon.getImageSource(Platform.OS === 'android' ? "md-log-out" : "ios-log-out-outline", 30) //sign out icon
+        Icon.getImageSource(Platform.OS === 'android' ? "md-people" : "ios-people", 30) //sign out icon
     ]).then(sources => {
         Navigation.startTabBasedApp({
             tabs: [
@@ -43,8 +43,8 @@ const startTabs = () => {
                     icon: sources[2],
                 },
                 {
-                    screen: "StrokeApp.LogoutModalScreen",
-                    label: "Sign out",
+                    screen: "StrokeApp.ProfileScreen",
+                    label: "Account",
                     //title: "Sign out",
                     icon: sources[5],
                     modal: true,
@@ -56,7 +56,7 @@ const startTabs = () => {
                 tabBarButtonColor: 'white',
                 tabBarTextFontFamily: 'Helvetica', //change the tab font family
                 selectedTabFontSize: 14,
-                navBarHideOnScroll: true,
+                //navBarHideOnScroll: true,
                 navBarBackgroundColor: '#0032e6',
                 navBarButtonColor: 'white',
                 navBarTextColor: 'white',
@@ -65,7 +65,7 @@ const startTabs = () => {
                 tabBarSelectedButtonColor: "white",
                 tabBarBackgroundColor: '#0032e6',
                 tabBarButtonColor: 'white',
-                navBarHideOnScroll: true,
+                //navBarHideOnScroll: true,
                 navBarBackgroundColor: '#0032e6',
                 navBarButtonColor: 'white',
                 navBarTextColor: 'white',

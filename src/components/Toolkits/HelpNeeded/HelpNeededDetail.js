@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 import HeadingText from '../../UI/HeadingText';
 import SubHeadingText from '../../UI/SubHeadingText';
@@ -7,7 +7,7 @@ import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
 import Button from "../../UI/Button";
 import BodyScroll from "../../UI/BodyScroll";
-
+import styles from "../../../styles/styles";
 import ajax from '../../../ajax/ajax';
 
 class ToolkitItemDetail extends Component {
@@ -61,19 +61,23 @@ class ToolkitItemDetail extends Component {
                 <View style={{flex: 1}}>    
                     <MainText><HeadingText>{item.title}</HeadingText>  </MainText>
                     <MainText><SubHeadingText>{item.label1}</SubHeadingText>  </MainText>
-                    <TextFieldInput value={this.state.name1} 
+                    <TextInput value={this.state.name1} 
+                            style={styles.inputStyleToolkit}
                             onChangeText={name1 => this.setState({ name1 } )} />
 
                     <MainText><SubHeadingText> {item.label2} </SubHeadingText> </MainText>
-                    <TextFieldInput value={this.state.name2} 
+                    <TextInput value={this.state.name2} 
+                            style={styles.inputStyleToolkit}
                             onChangeText={name2 => this.setState({ name2 } )}/>
 
                     {item.label3 && <MainText><SubHeadingText> {item.label3} </SubHeadingText> </MainText>}
-                    {item.label3 && <TextFieldInput value={this.state.name3} 
+                    {item.label3 && <TextInput value={this.state.name3} 
+                            style={styles.inputStyleToolkit}
                             onChangeText={name3 => this.setState({ name3 } )}/>}
                     
                     {item.label4 && <MainText><SubHeadingText> {item.label4} </SubHeadingText> </MainText>}
-                    {item.label4 && <TextFieldInput value={this.state.name4} 
+                    {item.label4 && <TextInput value={this.state.name4} 
+                            style={styles.inputStyleToolkit}
                             onChangeText={name4 => this.setState({ name4 } )}/>}
 
                     <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>

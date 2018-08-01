@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 import HeadingText from '../../UI/HeadingText';
 import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
 import Button from "../../UI/Button";
-
+import styles from '../../../styles/styles';
 import ajax from '../../../ajax/ajax';
 
 class ToolkitItemDetail extends Component {
@@ -57,15 +57,18 @@ class ToolkitItemDetail extends Component {
                 <View style={{flex: 1}}>    
                                     
                     <MainText><HeadingText>{item.labelMedication}</HeadingText>  </MainText>
-                    <TextFieldInput value={this.state.medication} 
+                    <TextInput value={this.state.medication} 
+                            style={styles.inputStyleToolkit}
                             onChangeText={medication => this.setState({ medication } )} />
 
                     <MainText><HeadingText> {item.labelDosage} </HeadingText> </MainText>
-                    <TextFieldInput value={this.state.dosage} 
+                    <TextInput value={this.state.dosage} 
+                            style={styles.inputStyleToolkit}
                             onChangeText={dosage => this.setState({ dosage } )}/>
 
                     <MainText><HeadingText> {item.labelPurpose} </HeadingText> </MainText>
-                    <TextFieldInput value={this.state.purpose} 
+                    <TextInput value={this.state.purpose} 
+                            style={styles.inputStyleToolkit}
                             onChangeText={purpose => this.setState({ purpose } )}/>
 
                     <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
@@ -80,10 +83,12 @@ class ToolkitItemDetail extends Component {
                     <View style={{flex: 1}}>    
                                         
                         <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
-                        <TextFieldInput value={this.state.name} 
+                        <TextInput value={this.state.name} 
+                                style={styles.inputStyleToolkit}
                                 onChangeText={name => this.setState({ name } )} />
                         <MainText><HeadingText> {item.labelContact} </HeadingText> </MainText>
-                        <TextFieldInput value={this.state.phone} 
+                        <TextInput value={this.state.phone} 
+                                style={styles.inputStyleToolkit}
                                 onChangeText={phone => this.setState({ phone } )}/>
 
                         <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
@@ -97,7 +102,8 @@ class ToolkitItemDetail extends Component {
             <View style={{flex: 1}}>    
                                 
                 <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
-                <TextFieldInput value={this.state.name} 
+                <TextInput value={this.state.name} 
+                        style={styles.inputStyleToolkit}
                         onChangeText={name => this.setState({ name } )} />
 
                 <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>

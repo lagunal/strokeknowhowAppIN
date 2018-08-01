@@ -34,6 +34,7 @@ import BioScreen from './src/screens/Bio.Screen';
 import ContentsScreen from './src/screens/Contents.Screen';
 import LogoutModalScreen from './src/screens/Logout.Modal.Screen'
 import ForwardButton from './src/components/UI/ForwardButton';
+import ProfileScreen from './src/screens/Profile.Screen';
 
 // Register Screens
 Navigation.registerComponent("StrokeApp.HomeScreen", () => HomeScreen);
@@ -56,6 +57,7 @@ Navigation.registerComponent("StrokeApp.BrainBodyScreen", () => BrainBodyScreen)
 Navigation.registerComponent("StrokeApp.EmergencyScreen", () => EmergencyScreen);
 Navigation.registerComponent("StrokeApp.BioScreen", () => BioScreen);
 Navigation.registerComponent("StrokeApp.ContentsScreen", () => ContentsScreen);
+Navigation.registerComponent("StrokeApp.ProfileScreen", () => ProfileScreen);
 Navigation.registerComponent("StrokeApp.LogoutModalScreen", ()=> LogoutModalScreen);
 Navigation.registerComponent('ForwardButton', () => ForwardButton);
 

@@ -147,18 +147,34 @@ class WeeklyPlanScreen extends Component {
             <MainText style={styles.bullets}>  
             {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
             </MainText>
+
             <View style={BorderBox.border}>    
-                  <MainText style={[{color: '0d0d0d'}, {fontWeight: 'bold'},{marginVertical: 0},{alignSelf: 'center'}]}>
-                      AbleData
+                <View style={{flex:1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start',marginTop: 0}}>
+                    <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/new_products')}>
+                      <MainText style={{fontSize: 20, textDecorationLine: 'underline'}}>
+                                  abledata.com 
                       </MainText>
-                    <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/')}>
-                      <Text style={[{color: '0d0d0d'} , {fontSize: 22}, {alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
-                                  www.Abledata.com 
-                      </Text>
                     </TouchableOpacity>
-                  <MainText style={[{color: '0d0d0d'},{marginVertical: 0}]}>
-                      1-800-227-0216     English / Spanish
-                  </MainText>
+                    <MainText style={{fontSize: 18}}>
+                      Product Information
+                    </MainText>  
+                </View>
+
+                <View style={{flex:1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start',marginTop: 0}}>  
+                  <TouchableOpacity onPress={() => Linking.openURL('https://www.acl.gov/')}>
+                      <MainText style={{fontSize: 20, textDecorationLine: 'underline'}}>
+                                  acl.gov
+                      </MainText>
+                  </TouchableOpacity>
+                  <MainText style={{fontSize: 18}}>
+                      Community Information
+                  </MainText> 
+                </View>
+
+                <MainText style={{fontSize: 18, marginVertical: 0, alignSelf: 'center'}}>
+                    English / Spanish
+                </MainText>
+
             </View>   
 
 
