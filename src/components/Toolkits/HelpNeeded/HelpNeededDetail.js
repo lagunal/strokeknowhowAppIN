@@ -60,22 +60,22 @@ class ToolkitItemDetail extends Component {
                 <BodyScroll>
                 <View style={{flex: 1}}>    
                     <MainText><HeadingText>{item.title}</HeadingText>  </MainText>
-                    <MainText><SubHeadingText>{item.label1}</SubHeadingText>  </MainText>
+                    <MainText><HeadingText>{item.label1}</HeadingText>  </MainText>
                     <TextInput value={this.state.name1} 
                             style={styles.inputStyleToolkit}
                             onChangeText={name1 => this.setState({ name1 } )} />
 
-                    <MainText><SubHeadingText> {item.label2} </SubHeadingText> </MainText>
+                    <MainText><HeadingText> {item.label2} </HeadingText> </MainText>
                     <TextInput value={this.state.name2} 
                             style={styles.inputStyleToolkit}
                             onChangeText={name2 => this.setState({ name2 } )}/>
 
-                    {item.label3 && <MainText><SubHeadingText> {item.label3} </SubHeadingText> </MainText>}
+                    {item.label3 && <MainText><HeadingText> {item.label3} </HeadingText> </MainText>}
                     {item.label3 && <TextInput value={this.state.name3} 
                             style={styles.inputStyleToolkit}
                             onChangeText={name3 => this.setState({ name3 } )}/>}
                     
-                    {item.label4 && <MainText><SubHeadingText> {item.label4} </SubHeadingText> </MainText>}
+                    {item.label4 && <MainText><HeadingText> {item.label4} </HeadingText> </MainText>}
                     {item.label4 && <TextInput value={this.state.name4} 
                             style={styles.inputStyleToolkit}
                             onChangeText={name4 => this.setState({ name4 } )}/>}

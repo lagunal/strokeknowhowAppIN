@@ -12,9 +12,9 @@ const MedicationRow = (props) => {
     return(
         <TouchableOpacity onPress={this.handlePress}>
             <View style={{backgroundColor: props.backgroundColorTitle}}>
-                <MainText style={styles.label}>{props.title}</MainText>
+                <MainText style={[styles.label , {color: props.textColor}]}>{props.title}</MainText>
             </View>
-            <View style={{backgroundColor: props.backgroundColor}}>    
+            <View >    
 
                   <View style={styles.item}>    
                       <MainText>{props.label1}</MainText>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
     label: {
         fontWeight: 'bold',
-        
+        fontSize: 20,
     },
     item: {
         flex: 1,

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet, View, Text, TouchableOpacity, Image
 } from 'react-native';
+import Icon from "react-native-vector-icons/Ionicons";
 
 import HeadingText from '../../components/UI/HeadingText';
 import SubHeadingText from '../../components/UI/SubHeadingText';
@@ -58,59 +59,65 @@ class ToolkitHomeScreen extends Component {
     return (
       <View style={styles.container}>
 
-        <View style={styles.row}>
-                <View style={styles.toolkitWrap}>
-                    <MainText><HeadingText>Help Needed</HeadingText></MainText> 
-                    <View style={styles.imageWrap}> 
-                        <TouchableOpacity onPress={this.handlePressHelpNeeded}>
-                                <Image source={helpNeededImage} style={styles.image}  />
-                        </TouchableOpacity>
+                <TouchableOpacity onPress={this.handlePressHelpNeeded}>
+                    <View style={styles.item}>
+                        <Icon style={styles.icon} name="ios-people" size={30} md="md-people"></Icon>    
+                        <MainText>
+                            <SubHeadingText style={styles.title}>
+                                Help Needed Toolkit  
+                            </SubHeadingText>
+                        </MainText>  
+                        
                     </View>
-                </View>
-                <View style={styles.toolkitWrap}>
-                    <MainText><HeadingText>Schedule</HeadingText></MainText> 
-                    <View style={styles.imageWrap}> 
-                        <TouchableOpacity onPress={this.handlePressSchedule}>
-                                <Image source={scheduleImage} style={[{width: '95%'} , {height: '95%'}]} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-        </View>
+                </TouchableOpacity>
 
-        <View style={styles.row}>
-                <View style={styles.toolkitWrap}>
-                    <MainText><HeadingText>Medications</HeadingText></MainText> 
-                    <View style={styles.imageWrap}> 
-                        <TouchableOpacity onPress={this.handlePressMedications}>
-                                <Image source={medicationsImage} style={styles.image}  />
-                        </TouchableOpacity>
+                <TouchableOpacity onPress={this.handlePressSchedule}>
+                    <View style={styles.item}>
+                        <Icon style={styles.icon} name="md-calendar" size={30} md="md-calendar"></Icon>    
+                        <MainText>
+                            <SubHeadingText style={styles.title}>
+                                Weekly Schedule Toolkit  
+                            </SubHeadingText>
+                        </MainText>  
+                        
                     </View>
-                </View>
-                <View style={styles.toolkitWrap}>
-                    <MainText><HeadingText>Therapy</HeadingText></MainText> 
-                    <View style={styles.imageWrap}> 
-                        <TouchableOpacity onPress={this.handlePressPhysical}>
-                                <Image source={physicalImage} style={styles.image} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-        </View>
+                </TouchableOpacity>
 
-        <View style={styles.row}>
-                <View style={styles.toolkitWrap}>
-                    <MainText><HeadingText>Emergency</HeadingText></MainText> 
-                    <View style={styles.imageWrap}> 
-                        <TouchableOpacity onPress={this.handlePressEmergency}>
-                                <Image source={emergencyImage} style={styles.image}  />
-                        </TouchableOpacity>
+                <TouchableOpacity onPress={this.handlePressMedications}>
+                    <View style={styles.item}>
+                        <Icon style={styles.icon} name="ios-medkit" size={30} md="md-medkit"></Icon>    
+                        <MainText>
+                            <SubHeadingText style={styles.title}>
+                                Medications Toolkit  
+                            </SubHeadingText>
+                        </MainText>  
+                        
                     </View>
-                </View>
-                <View style={styles.toolkitWrap}>
-                    <View style={styles.imageWrap}> 
-                    </View>
-                </View>
-        </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={this.handlePressPhysical}>
+                    <View style={styles.item}>
+                        <Icon style={styles.icon} name="ios-bicycle" size={30} md="md-bicycle"></Icon>    
+                        <MainText>
+                            <SubHeadingText style={styles.title}>
+                                Physical Therapy Toolkit  
+                            </SubHeadingText>
+                        </MainText>  
+                        
+                    </View>
+                </TouchableOpacity> 
+
+                <TouchableOpacity onPress={this.handlePressEmergency}>
+                    <View style={styles.item}>
+                        <Icon style={styles.icon} name="ios-warning" size={30} md="md-warning"></Icon>    
+                        <MainText>
+                            <SubHeadingText style={styles.title}>
+                                Emergency Information 
+                            </SubHeadingText>
+                        </MainText>  
+                        
+                    </View>
+                </TouchableOpacity> 
       </View>
     );
   }
@@ -119,24 +126,24 @@ class ToolkitHomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-evenly',
 
   },
-  row: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'center'
+  item: {
+    flexDirection: "row",
+    alignItems: "center",
+    margin: 5,
+    backgroundColor: '#b30000',
+    height: 100,
   },
-  toolkitWrap: {
-    flex: 1,
-
+  title: {
+    color: 'white',
+    fontSize: 22,
   },
-  imageWrap: {
-     flex: 1,
+  icon: {
+      marginHorizontal: 10,
+      color: 'white',
   },
-  image: {
-      width: '100%',
-      height: '100%'
-  }
 
 });
 

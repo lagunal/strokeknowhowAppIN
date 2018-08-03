@@ -147,45 +147,49 @@ class PhysicalToolkit extends Component {
             <View >
                 <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
                 <MainText><HeadingText>PHYSICAL THERAPY</HeadingText></MainText>
-                <MainText><SubHeadingText>MONDAY</SubHeadingText></MainText>
             </View>
 
+            
+
             <View style={{flex: 1}}>
-                    
+                  <View style={styles.titleWrap}>    
+                      <MainText><SubHeadingText style={styles.titleDay}>MONDAY</SubHeadingText></MainText>
+                  </View>
+
                     {this.renderItem('monday')}
 
-                  <View >
-                      <MainText><SubHeadingText>TUESDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>TUESDAY</SubHeadingText></MainText>
                   </View>
                     
                     {this.renderItem('tuesday')}
 
-                  <View>
-                      <MainText><SubHeadingText>WEDNESDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>WEDNESDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderItem('wednesday')}
 
-                  <View>
-                      <MainText><SubHeadingText>THURSDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>THURSDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderItem('thursday')}
 
-                  <View>
-                      <MainText><SubHeadingText>FRIDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>FRIDAY</SubHeadingText></MainText>
                   </View>
                     
                     {this.renderItem('friday')}
 
-                  <View>
-                      <MainText><SubHeadingText>SATURDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>SATURDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderItem('saturday')}
 
-                  <View>
-                      <MainText><SubHeadingText>SUNDAY</SubHeadingText></MainText>
+                  <View style={styles.titleWrap}>
+                      <MainText><SubHeadingText style={styles.titleDay}>SUNDAY</SubHeadingText></MainText>
                   </View>
 
                     {this.renderItem('sunday')}
@@ -207,6 +211,12 @@ class PhysicalToolkit extends Component {
      },
      logoImage: {
       width: '100%',
+    },
+    titleWrap: {
+      backgroundColor: '#1749FF',
+    },
+    titleDay: {
+      color: 'white',
     },
 
  });

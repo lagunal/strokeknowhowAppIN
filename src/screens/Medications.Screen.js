@@ -67,7 +67,7 @@ class NewDayScreen extends Component {
                   source={helpNeededIcon}
                   onPress={this.handleMedication}
                 />
-
+              
             </BodyScroll>                    
 
           </View>           

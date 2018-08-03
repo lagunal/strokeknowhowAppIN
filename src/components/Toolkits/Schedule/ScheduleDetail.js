@@ -38,7 +38,7 @@ class ScheduleDetail extends Component {
             <BodyScroll>
             <View style={{flex: 1}}>    
                                 
-                <MainText><SubHeadingText>{item.label}</SubHeadingText>  </MainText>
+                <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
                 <TextInput value={this.state.name} 
                         style={styles.inputStyleToolkit}
                         onChangeText={name => this.setState({ name } )} />

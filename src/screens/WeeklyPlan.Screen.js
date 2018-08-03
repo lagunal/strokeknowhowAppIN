@@ -14,8 +14,6 @@ import SubHeadingText from "../components/UI/SubHeadingText";
 import BodyScroll from "../components/UI/BodyScroll";
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 
-import BorderBox from '../styles/BorderBox';
-
 const safetyImage = require('../assets/safety.png');
 const familyPlanImage = require('../assets/family-plan.png');
 const weeklyScheduleIcon = require('../assets/weekly-schedule-icon.png');
@@ -148,7 +146,7 @@ class WeeklyPlanScreen extends Component {
             {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
             </MainText>
 
-            <View style={BorderBox.border}>    
+            <View style={styles.border}>    
                 <View style={{flex:1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start',marginTop: 0}}>
                     <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/new_products')}>
                       <MainText style={{fontSize: 20, textDecorationLine: 'underline'}}>
@@ -177,7 +175,6 @@ class WeeklyPlanScreen extends Component {
 
             </View>   
 
-
             </BodyScroll>      
           </View>
         );
@@ -199,7 +196,13 @@ const styles = StyleSheet.create({
     bullets: {
       marginVertical: 5,
     },
-
+    border: {
+      borderStyle: 'solid',
+      borderWidth: 1, 
+      margin: 5,
+      backgroundColor: '#e6f2ff',
+      height: 110,
+    },
   });
 
   

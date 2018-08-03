@@ -12,13 +12,6 @@ export default StyleSheet.create({
         height: 22,
         color: 'white',
     },
-    /*
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      backgroundColor: 'lightgray',
-    },
-    */
     topbar: {
         flexDirection: 'row',
         backgroundColor: 'dimgray',
@@ -149,7 +142,6 @@ export default StyleSheet.create({
     },
     container: {
         flex: 1,
-        //backgroundColor: '#2c3e50',
     },
     loginContainer: {
         alignItems: 'center',
@@ -188,23 +180,20 @@ export default StyleSheet.create({
         height: 22,
         color: 'white',
     },
-    containerMap: {
-        ...StyleSheet.absoluteFillObject,
-        justifyContent: 'flex-end',
-        //alignItems: 'center',
-        flex: 1
-      },
-    map: {
-        ...StyleSheet.absoluteFillObject
-    },
+    // containerMap: {
+    //     ...StyleSheet.absoluteFillObject,
+    //     justifyContent: 'flex-end',
+    //     //alignItems: 'center',
+    //     flex: 1
+    //   },
+    // map: {
+    //     ...StyleSheet.absoluteFillObject
+    // },
     label: {
         fontSize: 14,
         color: '#333',
     },
     inputStyleToolkit: {
-        //paddingRight: 5,
-        //paddingLeft: 5,
-        //paddingBottom: 2,
         color: 'black',
         fontSize: 17,
         flex: 1,
@@ -214,19 +203,6 @@ export default StyleSheet.create({
         borderColor: '#ccc',
         opacity: 1,
     },
-    // inputStyle: {
-    //     paddingRight: 5,
-    //     paddingLeft: 5,
-    //     paddingBottom: 2,
-    //     color: 'black',
-    //     fontSize: 17,
-    //     flex: 1,
-    //     height: 100,
-    //     width: '100%',
-    //     borderWidth: 0,
-    //     borderColor: '#333',
-    //     borderBottomWidth: 1,        
-    // },
     inputStyle: {
         paddingBottom: 2,
         color: 'white',
@@ -257,17 +233,17 @@ export default StyleSheet.create({
         //borderColor: 'black',
         //borderBottomWidth: 1,
     },
-    GooglePlusStyle: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: '#4885ed',
-        borderWidth: .5,
-        borderColor: '#fff',
-        height: 30,
-        borderRadius: 3,
-        width: 190,
-        margin: 5,
-    },    
+    // GooglePlusStyle: {
+    //     flexDirection: 'row',
+    //     alignItems: 'center',
+    //     backgroundColor: '#4885ed',
+    //     borderWidth: .5,
+    //     borderColor: '#fff',
+    //     height: 30,
+    //     borderRadius: 3,
+    //     width: 190,
+    //     margin: 5,
+    // },    
     EMailLogin: {
         flex:1,
         opacity: 1,
@@ -314,4 +290,36 @@ export default StyleSheet.create({
         height: 200, 
         width: null
     },
+    profileImage: {
+        height: 200, 
+        width: null
+    },
+    userNameText: {
+        color: '#333',
+        fontSize: 22,
+        fontWeight: 'bold',
+        paddingBottom: 8,
+        textAlign: 'center',
+    },    
+    userDataText: {
+        color: '#777',
+        fontSize: 18,
+        fontWeight: 'normal',
+        paddingBottom: 8,
+        textAlign: 'center',
+    },
+    userProfileText: {
+        alignItems: 'center',
+    },    
+    profileIcon: {
+        color: '#777',
+        fontSize: 22,
+        paddingRight: 5,
+        paddingBottom: 8,
+    },
+    iconTextRow: {
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+
 });

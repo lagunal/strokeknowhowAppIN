@@ -15,7 +15,7 @@ const ScheduleRow = (props) => {
             <View style={{backgroundColor: props.backgroundColor}}>    
 
                   <View>    
-                      <MainText>{props.name}</MainText>
+                      <MainText style={{fontSize: 20}}>{props.name}</MainText>
                   </View>
                 
             </View>

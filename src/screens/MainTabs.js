@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const startTabs = () => {
     Promise.all([
-        Icon.getImageSource(Platform.OS === 'android' ? "md-home" : "ios-home", 30),  //home icon
+        Icon.getImageSource(Platform.OS === 'android' ? "md-home" : "ios-home", 20),  //home icon
         Icon.getImageSource(Platform.OS === 'android' ? "md-arrow-forward" : "ios-arrow-forward", 30), //forward icon
         Icon.getImageSource(Platform.OS === 'android' ? "md-create" : "ios-create", 30), //toolkit icon
         Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30), //side drawer icon
@@ -51,20 +51,29 @@ const startTabs = () => {
                 },
             ],
             tabsStyle: { //for iOS
-                tabBarSelectedButtonColor: "white",
+                tabBarSelectedButtonColor: "#0032e6",
                 tabBarBackgroundColor: '#0032e6', // change the background color of the tab bar
-                tabBarButtonColor: 'white',
+                tabBarButtonColor: '#0032e6',
                 tabBarTextFontFamily: 'Helvetica', //change the tab font family
-                selectedTabFontSize: 14,
-                //navBarHideOnScroll: true,
-                navBarBackgroundColor: '#0032e6',
-                navBarButtonColor: 'white',
-                navBarTextColor: 'white',
+                tabBarTextFontSize: 20,
+                //tabBarTextMargin: 10,
+                //tabBarSelectedTextColor: 'black',
+                tabBarTextColor: 'white',
+                navBarButtonColor: '#b30000',
+                navBarTextColor: '#b30000',
+                tabBarOptions: {
+                    labelStyle: { fontSize: 12 },
+                    height: 50,
+                }
+                    
+                    
             },
             appStyle: { //for Android
-                tabBarSelectedButtonColor: "white",
+                tabBarSelectedButtonColor: 'white',
                 tabBarBackgroundColor: '#0032e6',
                 tabBarButtonColor: 'white',
+                tabFontSize: 22,
+                selectedTabFontSize: 22,
                 //navBarHideOnScroll: true,
                 navBarBackgroundColor: '#0032e6',
                 navBarButtonColor: 'white',

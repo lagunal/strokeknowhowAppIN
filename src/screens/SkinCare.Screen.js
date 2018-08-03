@@ -11,7 +11,6 @@ import BodyScroll from "../components/UI/BodyScroll";
 import HeadingText from '../components/UI/HeadingText';
 import PictureLegend from '../components/UI/PictureLegend';
 import ImageContainer from "../components/UI/ImageContainer";
-import BorderBox from '../styles/BorderBox';
 
 class SkinCareScreen extends Component {
     constructor(props) {
@@ -67,8 +66,7 @@ class SkinCareScreen extends Component {
             <MainText style={styles.bullets}>
             {`\u2022`} Pressure sores, skin breakdown occur from infrequent turning, changing positions.  
             </MainText>
-        
-
+          
             </BodyScroll>                
           </View>           
         );

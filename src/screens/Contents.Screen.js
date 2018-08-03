@@ -13,11 +13,11 @@ import BodyScroll from '../components/UI/BodyScroll';
 
 class ContentsScreen extends Component {
 
-    static navigatorStyle = {
-        navBarBackgroundColor: '#1749FF',
-        navBarButtonColor: 'white',
-        navBarTextColor: 'white',
-    };
+    // static navigatorStyle = {
+    //     navBarBackgroundColor: '#1749FF',
+    //     navBarButtonColor: 'white',
+    //     navBarTextColor: 'white',
+    // };
         
   constructor(props) {
       super(props);
@@ -43,134 +43,134 @@ class ContentsScreen extends Component {
         <BodyScroll>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.HomeScreen', 'Home')}>
-                <View style={styles.item}>    
+                <View style={styles.item}>
+                    <Icon style={styles.icon} name="ios-home" size={30} md="md-home"></Icon>    
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Home - A New Day   
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MovingSafelyScreen','Moving Safely')}>
                 <View style={styles.item}> 
+                    <Icon style={styles.icon} name="ios-alert" size={30} md="md-alert"></Icon>  
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Moving Safely
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.WeeklyPlanScreen','Weekly Plan')}>
                 <View style={styles.item}> 
+                <Icon style={styles.icon} name="md-calendar" size={30} md="md-calendar"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Weekly Plan
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>    
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.MedicationsScreen','Medications')}>
                 <View style={styles.item}> 
+                <Icon style={styles.icon} name="ios-medkit" size={30} md="md-medkit"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Organizing Medications
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>    
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BladderControlScreen','Bladder Control')}>
                 <View style={styles.item}> 
+                <Icon style={styles.icon} name="ios-man" size={30} md="md-man"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Bladder Control
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>    
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BloodPressureScreen','Blood Pressure')}>
                 <View style={styles.item}> 
+                <Icon style={styles.icon} name="ios-heart" size={30} md="md-heart"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Blood pressure
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>    
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.RangeMotionScreen','Range of Motion')}>
                 <View style={styles.item}> 
+                <Icon style={styles.icon} name="ios-walk" size={30} md="md-walk"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Range of Motion
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>    
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.SkinCareScreen','Skin Care')}>
                 <View style={styles.item}> 
+                <Icon style={styles.icon} name="ios-finger-print" size={30} md="md-finger-print"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Skin Care
                         </SubHeadingText>
                     </MainText>
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>  
+                    
                 </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.GettingUpScreen','Getting Up')}>
                 <View style={styles.item}> 
+                <Icon style={styles.icon} name="ios-happy" size={30} md="md-happy"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Getting Up When Feeling Down
+                            Getting Up 
                         </SubHeadingText>
                     </MainText>
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>  
+                    
                 </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BrainBodyScreen','Brain/Body')}>
                 <View style={styles.item}>
+                <Icon style={styles.icon} name="ios-body" size={30} md="md-body"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Brain/Body Connection 
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
+                    
                 </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.handlePress('StrokeApp.EmergencyScreen','Emergency')}>
                 <View style={styles.item}>
+                <Icon style={styles.icon} name="ios-warning" size={30} md="md-warning"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
                             Emergency
                         </SubHeadingText>
                     </MainText>  
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>
-                </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.BioScreen','Bio')}>
-                <View style={styles.item}>
-                    <MainText>
-                        <SubHeadingText style={styles.title}>
-                            Florence Weiner Bio
-                        </SubHeadingText>
-                    </MainText>
-                    <Icon style={styles.icon} name="ios-arrow-round-forward" size={40} md="md-arrow-round-forward"></Icon>  
+                    
                 </View>
             </TouchableOpacity>
 
@@ -184,22 +184,22 @@ class ContentsScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: 'white',
 
   },
   item: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 0,
-    margin: 0,
+    margin: 5,
+    backgroundColor: '#b30000'
   },
   title: {
-    textAlign: 'left',
+    color: 'white',
+    fontSize: 22,
   },
   icon: {
-      marginRight: 20,
+      marginHorizontal: 10,
+      color: 'white',
   }
 });
 

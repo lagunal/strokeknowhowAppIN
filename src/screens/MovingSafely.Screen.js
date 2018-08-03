@@ -15,7 +15,6 @@ import ImageContainer from "../components/UI/ImageContainer";
 import SubHeadingText from '../components/UI/SubHeadingText';
 import LegendText from "../components/UI/LegendText";
 import PictureLegend from "../components/UI/PictureLegend";
-import BorderBox from '../styles/BorderBox';
 
 class MovingSafelyScreen extends Component {
 
@@ -121,7 +120,7 @@ class MovingSafelyScreen extends Component {
                     <MainText style={styles.bullets}>     
                         {`\u2022`} Drive to doctor and therapy appointments. 
                     </MainText>
-                    <View style={BorderBox.border}>
+                    <View style={styles.border}>
                         <MainText style={[{color: 'black'}, {marginVertical: 0},{alignSelf: 'center'}]}>
                           <Text style={{fontWeight: 'bold'}}>Stroke Groups</Text>  1-888-4-STROKE 
                         </MainText>
@@ -134,8 +133,7 @@ class MovingSafelyScreen extends Component {
                           <Text style={{fontWeight: 'bold'}}>CPR:</Text> 1-877-242-4277  www.heart.org
                         </MainText>
                     </View>
-
-                                    
+          
             </BodyScroll>                
 
           </View>           
@@ -153,7 +151,14 @@ const styles = StyleSheet.create({
     },
     bullets: {
       marginVertical: 5,
-    }
+    },
+    border: {
+      borderStyle: 'solid',
+      borderWidth: 1, 
+      margin: 5,
+      backgroundColor: '#e6f2ff',
+      height: 80,
+    },
   });
 
   

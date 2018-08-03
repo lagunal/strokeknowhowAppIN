@@ -5,7 +5,7 @@ import Video from 'react-native-video';
 import {
   StyleSheet, View, Image, TouchableOpacity, ScrollView, 
   KeyboardAvoidingView, Text, TextInput, Picker, AsyncStorage,
-  Dimensions, Linking
+  Dimensions, Linking, Platform
 } from 'react-native';
 
 import Icon from "react-native-vector-icons/Ionicons";
@@ -275,6 +275,7 @@ class LoginScreen extends Component {
   }
 
   render() {
+
     if(this.state.loading) {
       return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -285,9 +286,8 @@ class LoginScreen extends Component {
       );
     }
 
-   // if(this.state.inLogin) { //LOGIN
       return (
-        <ScrollView style={{flex: 1, paddingHorizontal: 0, paddingVertical: 0}}>
+        <ScrollView style={{flex: 1, width, height, paddingHorizontal: 0, paddingVertical: 0}}>
           <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
 
@@ -297,7 +297,7 @@ class LoginScreen extends Component {
                 ref={(ref) => {
                   this.player = ref
                 }}                
-                style={styles2.backgroundVideo}
+                style={videoStyles.backgroundVideo}
                 rate={1}
                 paused={false}
                 volume={1}
@@ -308,12 +308,12 @@ class LoginScreen extends Component {
                 />
             
             
-            <View style={{marginTop: 100}}>
+            <View style={!this.state.inLogin && Platform.OS !== 'android' ? {marginTop: 30} : {marginTop: 100}}>
               <MainText><HeadingText style={{color: 'white'}}>Welcome to {`\n`} StrokeKnowHow.org</HeadingText></MainText>
               <MainText style={{textAlign: 'center', fontSize: 20, color: 'white'}}>We are a worldwide stroke <Text style={{fontSize: 24, fontWeight: 'bold'}}>community</Text> {`\n`} learning from one another</MainText>
             </View>
 
-            <View style={{marginTop: 50}}>
+            <View style={!this.state.inLogin && Platform.OS !== 'android' ? {marginTop: 20} : {marginTop: 40}}>
                 <TextFieldInput
                   label='Username'
                   value={this.state.username}
@@ -329,6 +329,7 @@ class LoginScreen extends Component {
                       onChangeText={name => this.setState({ name })}
                       autoCorrect={true}
                     />}
+
                 {!this.state.inLogin &&
                     <TextFieldInput
                       label='Email Address'
@@ -337,10 +338,9 @@ class LoginScreen extends Component {
                       autoCorrect={true}
                     />}
                 {!this.state.inLogin && <Text style={styles.errorText}>{this.state.emailError}</Text>}
-                   
 
                 <TextFieldInput
-                  label='Shared Family Password'
+                  label={this.state.inLogin ? 'Shared Family Password' : 'Shared Family Password (6+ chars)'}
                   autoCorrect={false}
                   secureTextEntry
                   value={this.state.password}
@@ -351,6 +351,12 @@ class LoginScreen extends Component {
                 <Text style={styles.errorText}>{this.state.passwordError}</Text>
 
                 <Text style={styles.errorText}>{this.state.error}</Text>
+
+                {!this.state.inLogin &&
+                  <View style={styles.termsContainer}>
+                    <Text style={[styles.terms, {color: 'white'}]}>Tip: Everyone in your family will use this password, so tell them what it is!</Text>
+                  </View>}  
+                  
             </View>
 
             {this.state.inLogin &&
@@ -359,7 +365,7 @@ class LoginScreen extends Component {
             </View>}
 
             {!this.state.inLogin &&
-            <View>
+            <View style={{marginTop: 0}}>
               {this.renderButtonRegister()}
             </View>}
 
@@ -373,96 +379,35 @@ class LoginScreen extends Component {
                 </TouchableOpacity>
             </View>}
 
+            {this.state.inLogin && Platform.OS === 'android' ?
+              <View style={{height: 100}}>
+              </View>
+              :
+              <View style={{height: 0}}>
+              </View>
+            }
+
             {!this.state.inLogin &&
               <View style={{marginTop: 5, flex:1, flexDirection: 'row', justifyContent: 'center'}}>
                 {/* {this.renderButtonOrRegister()} */}
-                  <MainText style={{color: 'black'}}>Already have an account?</MainText>
+                  <MainText style={{color: 'white'}}>Already have an account?</MainText>
                   <TouchableOpacity 
                         onPress={this.goToLogin}>
                         <MainText style={{color: '#b30000', fontWeight: 'bold'}}>Log in</MainText>
                   </TouchableOpacity>
               </View>}
 
-            {!this.state.inLogin &&
-             <View style={styles.termsContainer}>
-              <Text style={styles.terms}>By clicking "Join In" I agree to StrokeKnowHow's</Text>
-              <Text style={styles.textHyper} onPress={ ()=> Linking.openURL('https://google.com') }>Terms of Service</Text>
-            </View>} 
-
-
             </KeyboardAvoidingView>
 
         </ScrollView>
       );
 
-    // } else { //REGISTER
-
-    //   return (
-    //     <ScrollView style={{padding: 0, backgroundColor: 'white'}}>
-    //       <KeyboardAvoidingView behavior='position' style={{flex: 1}}>
-
-    //         <TouchableOpacity onPress={this.goToLogin}>
-    //           <Icon size={40} name="md-arrow-back" color="black" />
-    //         </TouchableOpacity>
-
-    //         <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
-
-    //         <View style={styles.buttonContainer}>
-    //           <Image resizeMode="contain" style={styles.logo} source={require('../assets/logo-header.jpg')} />
-    //         </View>
-
-    //         <TextFieldInput
-    //           label='User Name'
-    //           value={this.state.username}
-    //           onChangeText={username => this.setState({ username })}
-    //           autoCorrect={true}
-    //         />
-
-    //         <TextFieldInput
-    //           label='Family name (ex. Lopez Family)'
-    //           value={this.state.name}
-    //           onChangeText={name => this.setState({ name })}
-    //           autoCorrect={true}
-    //         />
-
-    //         <TextFieldInput
-    //           label='Email Address'
-    //           value={this.state.email}
-    //           onChangeText={(email) => this.validateEMail(email)}
-    //           autoCorrect={true}
-    //         />
-    //         <Text style={styles.errorText}>{this.state.emailError}</Text>
-
-    //         <TextFieldInput
-    //           label='Shared Password'
-    //           autoCorrect={false}
-    //           secureTextEntry
-    //           value={this.state.password}
-    //           /*onChangeText={password => this.setState({ password })}*/
-    //           onChangeText={(password) => this.validatePassword(password)}
-    //         />
-    //         <Text style={styles.errorText}>{this.state.passwordError}</Text>
-
-    //         <Text style={styles.errorText}>{this.state.error}</Text>
-
-    //         <View style={{marginTop: 20}}>
-    //           {this.renderButtonRegister()}
-    //         </View>
-            
-    //         <View style={{marginTop: 20}}>
-    //         </View>
-
-    //       </KeyboardAvoidingView>
-    //     </ScrollView>
-    //   );
-
-    // }
 
   }
 
 }
 
-const styles2 = StyleSheet.create({
+const videoStyles = StyleSheet.create({
 
   backgroundVideo: {
     position: 'absolute',

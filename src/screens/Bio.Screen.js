@@ -32,11 +32,7 @@ class BioScreen extends Component {
 
             <MainText>
                 Every stroke is unique. So is the path we choose to find our way back. 
-                If you find answers, motivation, inspiration and hope, this work will have fulfilled its purpose.        
-            </MainText>
-
-            <MainText>
-                For Richard, the brightest light.
+                If you find answers, motivation, inspiration and hope, this work will have fulfilled its purpose. For Richard, the brightest light.       
             </MainText>
 
             </BodyScroll>                

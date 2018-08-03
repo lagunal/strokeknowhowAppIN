@@ -35,6 +35,18 @@ class HelpNeedeToolkit extends Component {
       }
     };
 
+    
+    // static navigatorButtons = {
+    //     rightButtons: [
+    //         {
+    //             //icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
+    //             title: "Save",
+    //             label: "Save",
+    //             id: "save"
+    //         }
+    //     ]
+    // };
+
     //get data from rest API
     async componentDidMount() {
       //get the id from logged user
@@ -94,7 +106,7 @@ class HelpNeedeToolkit extends Component {
             label3={'Physical Therapy'} name3={this.state.data['personal-care-' + day + '3']}
             keyId={['personal-care-' + day + '1', 'personal-care-' + day + '2','personal-care-' + day + '3']}
             onItemPress={this.setCurrentItem}
-            backgroundColor={'lightgray'} backgroundColorTitle={'#1749FF'}
+            textColor={'white'} backgroundColorTitle={'#1749FF'}
         />);
         items.push(
         <HelpNeededRow 
@@ -105,7 +117,7 @@ class HelpNeedeToolkit extends Component {
             label4={'Laundry'} name4={this.state.data['household-' + day + '4']}
             keyId={['household-' + day + '1', 'household-' + day + '2','household-' + day + '3','household-' + day + '4']}
             onItemPress={this.setCurrentItem}
-            backgroundColor={'white'} backgroundColorTitle={'#ED7030'}
+            textColor={'white'} backgroundColorTitle={'#ED7030'}
         />);               
         items.push(    
         <HelpNeededRow 
@@ -114,7 +126,7 @@ class HelpNeedeToolkit extends Component {
             label2={'Therapist Visits'} name2={this.state.data['schedule-' + day + '2']}
             keyId={['schedule-' + day + '1', 'schedule-' + day + '2']}
             onItemPress={this.setCurrentItem}
-            backgroundColor={'lightgray'} backgroundColorTitle={'yellow'}
+            textColor={'black'} backgroundColorTitle={'yellow'}
         />);
         
         return items;
@@ -160,37 +172,37 @@ class HelpNeedeToolkit extends Component {
                       {this.renderItems('monday')}
 
                   <View >
-                      <MainText><SubHeadingText>TUESDAY</SubHeadingText></MainText>
+                      <MainText style={styles.titleDay}>TUESDAY</MainText>
                   </View>
 
                       {this.renderItems('tuesday')}
 
                   <View>
-                      <MainText><SubHeadingText>WEDNESDAY</SubHeadingText></MainText>
+                        <MainText style={styles.titleDay}>WEDNESDAY</MainText>
                   </View>
 
                       {this.renderItems('wednesday')}
 
                   <View>
-                      <MainText><SubHeadingText>THURSDAY</SubHeadingText></MainText>
+                        <MainText style={styles.titleDay}>THURSDAY</MainText>
                   </View>
 
                       {this.renderItems('thursday')}
 
                   <View>
-                      <MainText><SubHeadingText>FRIDAY</SubHeadingText></MainText>
+                        <MainText style={styles.titleDay}>FRIDAY</MainText>
                   </View>
                     
                       {this.renderItems('friday')}
 
                   <View>
-                      <MainText><SubHeadingText>SATURDAY</SubHeadingText></MainText>
+                        <MainText style={styles.titleDay}>SATURDAY</MainText>
                   </View>
 
                       {this.renderItems('saturday')}
 
                   <View>
-                      <MainText><SubHeadingText>SUNDAY</SubHeadingText></MainText>
+                        <MainText style={styles.titleDay}>SUNDAY</MainText>
                   </View>
 
                       {this.renderItems('sunday')}
@@ -213,6 +225,7 @@ class HelpNeedeToolkit extends Component {
      titleDay: {
        fontWeight: 'bold',
        alignSelf: 'center',
+       fontSize: 24,
      },
      label: {
        fontWeight: 'bold',

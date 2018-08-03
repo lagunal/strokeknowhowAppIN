@@ -81,6 +81,7 @@ class EmergencyScreen extends Component {
                 <MainText style={styles.bullets}>
                 {`\u2022`} Do not hang up first: Wait for instructions. 
                 </MainText> 
+                
 
             </BodyScroll>                
           </View>           

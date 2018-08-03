@@ -213,7 +213,7 @@ class EmergencyToolkit extends Component {
 
 
                   <View style={styles.labelContact}>
-                      <MainText><SubHeadingText>CONTACT PHONE NUMBERS</SubHeadingText></MainText>
+                      <MainText><SubHeadingText style={{color: 'white'}}>CONTACT PHONE NUMBERS</SubHeadingText></MainText>
                   </View>
 
                   <ToolkitContactInfo 
@@ -244,7 +244,7 @@ class EmergencyToolkit extends Component {
                     backgroundColor={'lightgray'}/>
 
                   <View style={styles.labelMedicine}>
-                      <MainText><SubHeadingText>MEDICINE</SubHeadingText></MainText>
+                      <MainText><SubHeadingText style={{color: 'white'}}>MEDICINE</SubHeadingText></MainText>
                   </View>
 
                     {this.renderMedicines(8)}

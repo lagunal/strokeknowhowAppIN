@@ -61,16 +61,16 @@ const styles = StyleSheet.create({
     containerSubRow1: {
         flex: 1, 
         flexDirection: 'row',
-        backgroundColor: '#1749FF', 
+        //backgroundColor: '#1749FF', 
     },
     containerSubRow2: {
         flex: 1, 
         flexDirection: 'row', 
-        backgroundColor: 'yellow', 
+        //backgroundColor: 'yellow', 
     },    
     label: {
         fontWeight: 'bold',
-        color: 'white'
+        //color: 'white'
     },
     label2: {
         fontWeight: 'bold',

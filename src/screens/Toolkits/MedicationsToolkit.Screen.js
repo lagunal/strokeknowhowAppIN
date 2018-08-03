@@ -91,7 +91,7 @@ class MedicationsToolkit extends Component {
       const medicines = [];
       let background = '';
       for (let i=1; i <= times; i++) {
-          background = (i%2 == 0) ? 'white' : 'yellow';
+          background = (i%2 == 0) ? 'white' : 'lightgray';
           medicines.push(<MedicationRow 
                             labelMedication='Medicine'
                             medication={this.state.data['medicine' + labelDay + i]} 

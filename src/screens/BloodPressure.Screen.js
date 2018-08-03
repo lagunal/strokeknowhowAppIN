@@ -12,7 +12,6 @@ import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
 import HeadingText from '../components/UI/HeadingText';
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
-import BorderBox from '../styles/BorderBox';
 
 const physicalIcon = require('../assets/physical-therapy-icon.png');
 
@@ -89,7 +88,7 @@ class BloodPressureScreen extends Component {
             </SubHeadingText></MainText>
             <MainText style={[{marginLeft: 250},{fontSize: 16}]}>Confucious</MainText> */}
             
-            <View style={BorderBox.border}>
+            <View style={styles.border}>
 
                 <MainText style={[{margin: 0},{fontWeight: 'bold'},{alignSelf: 'center'}]}>
                   National Rehabilitation {`\n`} Information Center NARIC
@@ -140,6 +139,13 @@ const styles = StyleSheet.create({
     },
     bullets: {
       marginVertical: 5,
+    },
+    border: {
+      borderStyle: 'solid',
+      borderWidth: 1, 
+      margin: 5,
+      backgroundColor: '#e6f2ff',
+      height: 90,
     },
   });
 

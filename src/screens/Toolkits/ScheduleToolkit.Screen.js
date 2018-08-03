@@ -122,7 +122,7 @@ class ScheduleToolkit extends Component {
           <BodyScroll>
             <View>
                 <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                <MainText><HeadingText>WEEKLY SCHEDULE</HeadingText></MainText>
+                <MainText><HeadingText>WEEKLY SCHEDULE TOOLKIT</HeadingText></MainText>
             </View>
 
             <View style={{flex: 1}}>
@@ -131,133 +131,133 @@ class ScheduleToolkit extends Component {
                   </View>
 
                         <View style={style=styles.labelMorning}>
-                                <MainText style={styles.label}>MORNING</MainText>
+                                <MainText style={styles.labelBlack}>MORNING</MainText>
                         </View>
-                            {this.renderItems(5,'morning_monday','Monday morning')}
+                            {this.renderItems(5,'morning_monday','Monday Morning')}
 
                         <View style={style=styles.labelAfternoon}>
                                 <MainText style={styles.label}>AFTERNOON</MainText>
                         </View>
-                            {this.renderItems(5,'afternoon_monday','Monday afternoon')}
+                            {this.renderItems(5,'afternoon_monday','Monday Afternoon')}
 
                         <View style={style=styles.labelEvening}>
                                 <MainText style={styles.label}>EVENING</MainText>
                         </View>
-                            {this.renderItems(5,'evening_monday','Monday evening')}
+                            {this.renderItems(5,'evening_monday','Monday Evening')}
 
                   <View >
                         <MainText style={styles.titleDay}>TUESDAY</MainText>
                   </View>
 
                         <View style={style=styles.labelMorning}>
-                                <MainText style={styles.label}>MORNING</MainText>
+                                <MainText style={styles.labelBlack}>MORNING</MainText>
                         </View>
-                            {this.renderItems(5,'morning_tuesday','Tuesday morning')}
+                            {this.renderItems(5,'morning_tuesday','Tuesday Morning')}
 
                         <View style={style=styles.labelAfternoon}>
                                 <MainText style={styles.label}>AFTERNOON</MainText>
                         </View>
-                            {this.renderItems(5,'afternoon_tuesday','Tuesday afternoon')}
+                            {this.renderItems(5,'afternoon_tuesday','Tuesday Afternoon')}
 
                         <View style={style=styles.labelEvening}>
                                 <MainText style={styles.label}>EVENING</MainText>
                         </View>
-                            {this.renderItems(5,'evening_tuesday','Tuesday evening')}
+                            {this.renderItems(5,'evening_tuesday','Tuesday Evening')}
 
                   <View>
                         <MainText style={styles.titleDay}>WEDNESDAY</MainText>
                   </View>
 
                          <View style={style=styles.labelMorning}>
-                                <MainText style={styles.label}>MORNING</MainText>
+                                <MainText style={styles.labelBlack}>MORNING</MainText>
                         </View>
-                            {this.renderItems(5,'morning_wednesday','Wednesday morning')}
+                            {this.renderItems(5,'morning_wednesday','Wednesday Morning')}
 
                         <View style={style=styles.labelAfternoon}>
                                 <MainText style={styles.label}>AFTERNOON</MainText>
                         </View>
-                            {this.renderItems(5,'afternoon_wednesday','Wednesday afternoon')}
+                            {this.renderItems(5,'afternoon_wednesday','Wednesday Afternoon')}
 
                         <View style={style=styles.labelEvening}>
                                 <MainText style={styles.label}>EVENING</MainText>
                         </View>
-                            {this.renderItems(5,'evening_wednesday','Wednesday evening')}
+                            {this.renderItems(5,'evening_wednesday','Wednesday Evening')}
 
                   <View>
                         <MainText style={styles.titleDay}>THURSDAY</MainText>
                   </View>
 
                         <View style={style=styles.labelMorning}>
-                                <MainText style={styles.label}>MORNING</MainText>
+                                <MainText style={styles.labelBlack}>MORNING</MainText>
                         </View>
-                            {this.renderItems(5,'morning_thursday','Thursday morning')}
+                            {this.renderItems(5,'morning_thursday','Thursday Morning')}
 
                         <View style={style=styles.labelAfternoon}>
                                 <MainText style={styles.label}>AFTERNOON</MainText>
                         </View>
-                            {this.renderItems(5,'afternoon_thursday','Thursday afternoon')}
+                            {this.renderItems(5,'afternoon_thursday','Thursday Afternoon')}
 
                         <View style={style=styles.labelEvening}>
                                 <MainText style={styles.label}>EVENING</MainText>
                         </View>
-                            {this.renderItems(5,'evening_thursday','Thursday evening')}
+                            {this.renderItems(5,'evening_thursday','Thursday Evening')}
 
                   <View>
                         <MainText style={styles.titleDay}>FRIDAY</MainText>
                   </View>
                     
                   <View style={style=styles.labelMorning}>
-                                <MainText style={styles.label}>MORNING</MainText>
+                                <MainText style={styles.labelBlack}>MORNING</MainText>
                         </View>
-                            {this.renderItems(5,'morning_friday','Friday morning')}
+                            {this.renderItems(5,'morning_friday','Friday Morning')}
 
                         <View style={style=styles.labelAfternoon}>
                                 <MainText style={styles.label}>AFTERNOON</MainText>
                         </View>
-                            {this.renderItems(5,'afternoon_friday','Friday afternoon')}
+                            {this.renderItems(5,'afternoon_friday','Friday Afternoon')}
 
                         <View style={style=styles.labelEvening}>
                                 <MainText style={styles.label}>EVENING</MainText>
                         </View>
-                            {this.renderItems(5,'evening_friday','Friday evening')}
+                            {this.renderItems(5,'evening_friday','Friday Evening')}
 
                   <View>
                         <MainText style={styles.titleDay}>SATURDAY</MainText>
                   </View>
 
                         <View style={style=styles.labelMorning}>
-                                <MainText style={styles.label}>MORNING</MainText>
+                                <MainText style={styles.labelBlack}>MORNING</MainText>
                         </View>
-                            {this.renderItems(5,'morning_saturday','Saturday morning')}
+                            {this.renderItems(5,'morning_saturday','Saturday Morning')}
 
                         <View style={style=styles.labelAfternoon}>
                                 <MainText style={styles.label}>AFTERNOON</MainText>
                         </View>
-                            {this.renderItems(5,'afternoon_saturday','Saturday afternoon')}
+                            {this.renderItems(5,'afternoon_saturday','Saturday Afternoon')}
 
                         <View style={style=styles.labelEvening}>
                                 <MainText style={styles.label}>EVENING</MainText>
                         </View>
-                            {this.renderItems(5,'evening_saturday','Saturday evening')}
+                            {this.renderItems(5,'evening_saturday','Saturday Evening')}
 
                   <View>
                         <MainText style={styles.titleDay}>SUNDAY</MainText>
                   </View>
 
                          <View style={style=styles.labelMorning}>
-                                <MainText style={styles.label}>MORNING</MainText>
+                                <MainText style={styles.labelBlack}>MORNING</MainText>
                         </View>
-                            {this.renderItems(5,'morning_sunday','Sunday morning')}
+                            {this.renderItems(5,'morning_sunday','Sunday Morning')}
 
                         <View style={style=styles.labelAfternoon}>
                                 <MainText style={styles.label}>AFTERNOON</MainText>
                         </View>
-                            {this.renderItems(5,'afternoon_sunday','Sunday afternoon')}
+                            {this.renderItems(5,'afternoon_sunday','Sunday Afternoon')}
 
                         <View style={style=styles.labelEvening}>
                                 <MainText style={styles.label}>EVENING</MainText>
                         </View>
-                            {this.renderItems(5,'evening_sunday','Sunday evening')}
+                            {this.renderItems(5,'evening_sunday','Sunday Evening')}
 
             </View>
 
@@ -277,11 +277,17 @@ class ScheduleToolkit extends Component {
      titleDay: {
        fontWeight: 'bold',
        alignSelf: 'center',
+       fontSize: 24,
      },
      label: {
        fontWeight: 'bold',
-       fontSize: 14,
+       fontSize: 16,
+       color: 'white',
      },
+     labelBlack: {
+        fontWeight: 'bold',
+        fontSize: 16,
+      },
      labelMorning: {
         backgroundColor: 'yellow',
      },

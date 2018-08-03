@@ -13,7 +13,6 @@ import HeadingText from '../components/UI/HeadingText';
 import SubHeadingText from '../components/UI/SubHeadingText';
 import PictureLegend from '../components/UI/PictureLegend';
 import ImageContainer from "../components/UI/ImageContainer";
-import BorderBox from '../styles/BorderBox';
 
 class GettingUpScreen extends Component {
     constructor(props) {
@@ -107,7 +106,7 @@ class GettingUpScreen extends Component {
                 Feelings are all valid, and a reaction of what you've been through. 
             </MainText>
 
-            <View style={BorderBox.border}>
+            <View style={styles.border}>
                 <MainText style={[{color: '0d0d0d'},{fontWeight: 'bold'},{marginVertical: 0}]}>
                 Centers for Independent Living CIL
                 </MainText>
@@ -118,7 +117,7 @@ class GettingUpScreen extends Component {
                     </Text>
                 </TouchableOpacity> 
             </View>
-
+           
             </BodyScroll>                
           </View>           
         );
@@ -134,6 +133,13 @@ const styles = StyleSheet.create({
     },
     bullets: {
       marginVertical: 5,
+    },
+    border: {
+      borderStyle: 'solid',
+      borderWidth: 1, 
+      margin: 5,
+      backgroundColor: '#e6f2ff',
+      height: 70,
     },
   });
 

@@ -12,7 +12,6 @@ import BodyScroll from "../components/UI/BodyScroll";
 import LegendText from '../components/UI/LegendText';
 import ImageContainer from "../components/UI/ImageContainer";
 import HeadingText from '../components/UI/HeadingText';
-import BorderBox from '../styles/BorderBox';
 
 class BrainBodyScreen extends Component {
     constructor(props) {
@@ -118,7 +117,7 @@ class BrainBodyScreen extends Component {
             {`\u2022`} Find an Aphasia Group or a family with similar experiences. 
                 It can increases confidence, friendships.  
             </MainText>
-            <View style={BorderBox.border}>
+            <View style={styles.border}>
                 <MainText style={[{color: '0d0d0d'}, {fontWeight: 'bold'},{marginVertical: 0},{alignSelf: 'center'}]}>
                     National Aphasia Association.
                 </MainText>
@@ -131,6 +130,7 @@ class BrainBodyScreen extends Component {
                     </TouchableOpacity>  
                 
             </View>
+            
 
             </BodyScroll>                
           </View>           
@@ -147,6 +147,13 @@ const styles = StyleSheet.create({
     },
     bullets: {
         marginVertical: 5,
+    },
+    border: {
+        borderStyle: 'solid',
+        borderWidth: 1, 
+        margin: 5,
+        backgroundColor: '#e6f2ff',
+        height: 80,
       },
   });
 

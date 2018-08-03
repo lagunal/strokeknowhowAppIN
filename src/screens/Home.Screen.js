@@ -38,19 +38,6 @@ class HomeScreen extends Component {
 
   }
 
-  // async logOutHandler () {
-  //   rootNavigator.resetTo({
-  //     screen: 'StrokeApp.LoginScreen',
-  //     backButtonHidden: true,
-  //     navigatorStyle: {
-  //       tabBarHidden: true,
-  //     },
-  //     title: 'Login',
-  //   });
-
-  //   const user = await AsyncStorage.setItem('user', '');
-  // }
-
   render() {
 
     return (
@@ -59,9 +46,6 @@ class HomeScreen extends Component {
           barStyle="light-content"
       />
       <BodyScroll>
-        {/* <TouchableOpacity onPress={this.logOutHandler}>
-          <Icon size={40} name="md-exit" color="black" />
-        </TouchableOpacity> */}
 
         <ImageContainer src={require('../assets/home.png')} />  
         <MainText>    
@@ -89,6 +73,7 @@ class HomeScreen extends Component {
         <MainText style={[{marginVertical: 5}]}>  
             {`\u2022`} Before moving take your time, avoid quick changes to avoid becoming dizzy.  
         </MainText>
+
       </BodyScroll> 
       </View>
     );
@@ -103,7 +88,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
 
   },
-
 
 });
 
