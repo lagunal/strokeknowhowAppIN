@@ -107,12 +107,12 @@ class GettingUpScreen extends Component {
             </MainText>
 
             <View style={styles.border}>
-                <MainText style={[{color: '0d0d0d'},{fontWeight: 'bold'},{marginVertical: 0}]}>
+                <MainText style={{fontWeight: 'bold',marginVertical: 0, alignSelf: 'center'}}>
                 Centers for Independent Living CIL
                 </MainText>
-                <Text style={[{fontSize: 18},{alignSelf: 'center'}]}>Disability information.</Text>
+                <Text style={{fontSize: 18,alignSelf: 'center'}}>Disability information.</Text>
                     <TouchableOpacity onPress={() => Linking.openURL('http://www.ilru.org/projects/cil-net/cil-center-and-association-directory')}>
-                    <Text style={[{color: '0d0d0d'},{alignSelf: 'center'},{textDecorationLine: 'underline'}]}>
+                    <Text style={{alignSelf: 'center',textDecorationLine: 'underline'}}>
                         http://www.ilru.org/projects/cil-net/
                     </Text>
                 </TouchableOpacity> 

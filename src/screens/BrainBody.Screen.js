@@ -17,6 +17,9 @@ class BrainBodyScreen extends Component {
     constructor(props) {
         super(props);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        this.state = {
+            videoPaused: false,
+        }
     }
 
     static navigatorButtons = {
@@ -41,6 +44,10 @@ class BrainBodyScreen extends Component {
       }  
     }
     
+    playVideo = () => {
+        this.setState({videoPaused: !this.state.videoPaused})
+    }
+
     render() {
         return (
           <View style={styles.container}>
@@ -81,12 +88,13 @@ class BrainBodyScreen extends Component {
             {`\u2022`} Button/Unbutton shirt.
             </MainText>
 
+            <TouchableOpacity onPress={this.playVideo}>    
             <View style={{padding: 20}}>
               <Video
                 source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/19.Rob-Lawyer-and-blue-grass-musician.mp4"}}
                 style={{height: 300}}
                 rate={1}
-                paused={false}
+                paused={this.state.videoPaused}
                 volume={1}
                 muted={true}
                 playInBackground={false}
@@ -95,6 +103,7 @@ class BrainBodyScreen extends Component {
                 repeat={false}
                 />
             </View>
+            </TouchableOpacity>
 
             <MainText><HeadingText>What is Aphasia?</HeadingText></MainText>
 

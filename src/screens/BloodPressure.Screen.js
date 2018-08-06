@@ -90,15 +90,15 @@ class BloodPressureScreen extends Component {
             
             <View style={styles.border}>
 
-                <MainText style={[{margin: 0},{fontWeight: 'bold'},{alignSelf: 'center'}]}>
-                  National Rehabilitation {`\n`} Information Center NARIC
+                <MainText style={{margin: 0,fontWeight: 'bold',alignSelf: 'center'}}>
+                  National Rehabilitation {`\n`} Information Center (NARIC)
                 </MainText>                
                 <TouchableOpacity onPress={() => Linking.openURL('https://www.naric.com')}>
                   <MainText style={[{color: '0d0d0d'} , {alignSelf: 'center'},{marginVertical: 0},{textDecorationLine: 'underline'} ]}>
                     https://www.naric.com
                   </MainText>
                 </TouchableOpacity>
-                <MainText style={{marginTop: 0}}>
+                <MainText style={{marginTop: 0, alignSelf: 'center'}}>
                     1-800-346-2742.    English / Spanish
                 </MainText>
 
