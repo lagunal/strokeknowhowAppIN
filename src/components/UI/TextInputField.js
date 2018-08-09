@@ -31,7 +31,7 @@ class TextFieldInput extends Component {
             left: 0,
             top: this._animatedIsFocused.interpolate({
                 inputRange: [0, 1],
-                outputRange: [18, 0],
+                outputRange: [12, 0],
             }),
             fontSize: this._animatedIsFocused.interpolate({
                 inputRange: [0, 1],
@@ -57,7 +57,7 @@ class TextFieldInput extends Component {
                     secureTextEntry={secureTextEntry}
                     value={value}
                     onChangeText={onChangeText}
-                    style={styles.inputStyle}
+                    style={[styles.inputStyle , this.props.style]}
                     underlineColorAndroid={'transparent'}
                     autoCorrect={false}
                     maxLength={30}

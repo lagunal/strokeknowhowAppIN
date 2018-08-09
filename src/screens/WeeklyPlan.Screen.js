@@ -5,47 +5,31 @@ import {
     Text,
     Image,
     TouchableOpacity,
-    Linking
+    Linking,
+    Platform,
+    Dimensions
   } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import MainText from "../components/UI/MainText";
 import HeadingText from "../components/UI/HeadingText";
 import SubHeadingText from "../components/UI/SubHeadingText";
 import BodyScroll from "../components/UI/BodyScroll";
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
+import ImageContainer from "../components/UI/ImageContainer";
 
-const safetyImage = require('../assets/safety.png');
+const safetyImage = require('../assets/safety.jpg');
 const familyPlanImage = require('../assets/family-plan.png');
 const weeklyScheduleIcon = require('../assets/weekly-schedule-icon.png');
 const helpNeededIcon = require('../assets/help_needed_icon.png');
+const { width, height } = Dimensions.get("window");
 
 class WeeklyPlanScreen extends Component {
   constructor(props) {
     super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+    //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
   }
 
-  static navigatorButtons = {
-    rightButtons: [
-      {
-          icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-          title: "Forward",
-          label: "Forward",
-          id: "forwardButton"
-      }
-    ]
-  }
-
-  onNavigatorEvent = event => {
-        if (event.type === "NavBarButtonPress") {
-            if (event.id === "forwardButton") {
-              this.props.navigator.push({
-                  screen: "StrokeApp.MedicationsScreen",
-                  title: "Medications",
-              });
-          }
-        }  
-  }
 
   handleHelpNeeded = () => {
       this.props.navigator.push({
@@ -57,7 +41,8 @@ class WeeklyPlanScreen extends Component {
       screen: "StrokeApp.ScheduleToolkitScreen",
     });
   }
-    render() {
+
+  render() {
         return (
           <View style={styles.container}>
             <BodyScroll>
@@ -65,14 +50,14 @@ class WeeklyPlanScreen extends Component {
                 <LinkToolkitWrapper 
                   text={'Share Interactive Help Needed Toolkit with family. (click image below)'}
                   source={helpNeededIcon}
-                  onPress={this.handleHelpNeeded}
+                  onPress={this.props.pressHelp ? this.props.pressHelp : this.handleHelpNeeded}
                 />
                 
                 <MainText>
                     <HeadingText>Let's Talk About Safety</HeadingText>
                 </MainText>
 
-                <Image source={safetyImage} resizeMode='cover' style={styles.image} />
+                <ImageContainer src={safetyImage} />
 
                 <MainText>
                     Pat became a wheelchair user after a car crash. 
@@ -100,7 +85,7 @@ class WeeklyPlanScreen extends Component {
                     <HeadingText>A Weekly Plan</HeadingText>
                 </MainText>
 
-                <Image source={familyPlanImage} resizeMode='cover' style={styles.image} />
+                <ImageContainer src={familyPlanImage}  />
                 <MainText>
                     Rachel’s granddaughter shows her how to organize a weekly schedule. Tel Aviv, Israel.  
                 </MainText>
@@ -118,7 +103,7 @@ class WeeklyPlanScreen extends Component {
                 <LinkToolkitWrapper 
                   text={'Share interactive Weekly Schedule Toolkit with family. (click image below)'}
                   source={weeklyScheduleIcon}
-                  onPress={this.handleSchedule}
+                  onPress={this.props.pressSchedule ? this.props.pressSchedule : this.handleSchedule}
                 />
 
               <MainText style={styles.bullets}>
@@ -147,29 +132,29 @@ class WeeklyPlanScreen extends Component {
             </MainText>
 
             <View style={styles.border}>    
-                <View style={{flex:1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start',marginTop: 0}}>
+                <View style={styles.boxLineWrapper}>
                     <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/new_products')}>
-                      <MainText style={{fontSize: 20, textDecorationLine: 'underline'}}>
+                      <MainText style={styles.boxLink}>
                                   abledata.com 
                       </MainText>
                     </TouchableOpacity>
-                    <MainText style={{fontSize: 18}}>
-                      Product Information
+                    <MainText style={styles.boxText}>
+                      Product Information 
                     </MainText>  
                 </View>
 
-                <View style={{flex:1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start',marginTop: 0}}>  
+                <View style={styles.boxLineWrapper}>  
                   <TouchableOpacity onPress={() => Linking.openURL('https://www.acl.gov/')}>
-                      <MainText style={{fontSize: 20, textDecorationLine: 'underline'}}>
+                      <MainText style={styles.boxLink}>
                                   acl.gov
                       </MainText>
                   </TouchableOpacity>
-                  <MainText style={{fontSize: 18}}>
+                  <MainText style={styles.boxText}>
                       Community Information
                   </MainText> 
                 </View>
 
-                <MainText style={{fontSize: 18, marginVertical: 0, alignSelf: 'center'}}>
+                <MainText style={[styles.boxText , {alignSelf: 'center'}]}>
                     English / Spanish
                 </MainText>
 
@@ -189,20 +174,32 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       backgroundColor: 'white',
     },
-    image: {
-      alignSelf: 'center',
-      width: 250,
-    },
     bullets: {
       marginVertical: 5,
     },
     border: {
-      borderStyle: 'solid',
-      borderWidth: 1, 
       margin: 5,
       backgroundColor: '#e6f2ff',
-      height: 110,
+      height: 70,
     },
+    boxLink: {
+      fontSize: 15, 
+      marginHorizontal: hp('3%'),
+      marginVertical: 0, 
+      textDecorationLine: 'underline'
+    },
+    boxText: {
+      fontSize: 15, 
+      marginHorizontal: height > 600 ? 15 : 0,
+      marginVertical: 0,
+      fontWeight: 'bold',
+    },
+    boxLineWrapper: {
+      flex:1, 
+      flexDirection: 'row', 
+      justifyContent: height > 600 ? 'center' : 'flex-start',
+    }
+
   });
 
   

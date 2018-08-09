@@ -4,7 +4,7 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Linking
+    Linking,
   } from 'react-native';
 
 
@@ -18,30 +18,10 @@ const physicalIcon = require('../assets/physical-therapy-icon.png');
 class BloodPressureScreen extends Component {
     constructor(props) {
         super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        
     }
 
-    static navigatorButtons = {
-      rightButtons: [
-        {
-            icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-            title: "Forward",
-            label: "Forward",
-            id: "forwardButton"
-        }
-      ]
-    }
-
-    onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-        if (event.id === "forwardButton") {
-          this.props.navigator.push({
-              screen: "StrokeApp.RangeMotionScreen",
-              title: "Range of Motion",
-          });
-        }
-      }  
-    }
+    
     handlePhysical = () => {
       this.props.navigator.push({
         screen: "StrokeApp.PhysicalToolkitScreen",
@@ -80,26 +60,22 @@ class BloodPressureScreen extends Component {
             <MainText style={styles.bullets}>  
             {`\u2022`} When to test? Numbers to report.  
             </MainText>
-
-
-            {/* <MainText><SubHeadingText>
-              It doesn’t matter how slow you go {`\n`}
-              as long as you do not stop.
-            </SubHeadingText></MainText>
-            <MainText style={[{marginLeft: 250},{fontSize: 16}]}>Confucious</MainText> */}
             
             <View style={styles.border}>
 
-                <MainText style={{margin: 0,fontWeight: 'bold',alignSelf: 'center'}}>
-                  National Rehabilitation {`\n`} Information Center (NARIC)
+                <MainText style={[styles.boxText, {fontWeight: 'bold'}]}>
+                  National Rehabilitation 
+                </MainText>
+                <MainText style={[styles.boxText, {fontWeight: 'bold'}]}>
+                  Information Center (NARIC)
                 </MainText>                
                 <TouchableOpacity onPress={() => Linking.openURL('https://www.naric.com')}>
-                  <MainText style={[{color: '0d0d0d'} , {alignSelf: 'center'},{marginVertical: 0},{textDecorationLine: 'underline'} ]}>
+                  <MainText style={styles.boxLink}>
                     https://www.naric.com
                   </MainText>
                 </TouchableOpacity>
-                <MainText style={{marginTop: 0, alignSelf: 'center'}}>
-                    1-800-346-2742.    English / Spanish
+                <MainText style={styles.boxText}>
+                    1-800-346-2742. English / Spanish
                 </MainText>
 
             </View>
@@ -121,7 +97,7 @@ class BloodPressureScreen extends Component {
             <LinkToolkitWrapper 
               text={'Share Interactive Physical Therapy Toolkit with family. (click image below)'}
               source={physicalIcon}
-              onPress={this.handlePhysical}
+              onPress={this.props.pressPhysical ? this.props.pressPhysical : this.handlePhysical}
             />
 
             </BodyScroll>                
@@ -141,12 +117,19 @@ const styles = StyleSheet.create({
       marginVertical: 5,
     },
     border: {
-      borderStyle: 'solid',
-      borderWidth: 1, 
       margin: 5,
       backgroundColor: '#e6f2ff',
       height: 90,
     },
+    boxText: {
+      margin: 0,
+      alignSelf: 'center'
+    },
+    boxLink: {
+      alignSelf: 'center',
+      marginVertical: 0,
+      textDecorationLine: 'underline'
+    }
   });
 
   

@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    Text,
-    TouchableOpacity,
-    Linking
+    
   } from 'react-native';
-import Video from 'react-native-video';
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
@@ -16,30 +13,9 @@ import Link from "../components/UI/Link";
 class RangeMotionScreen extends Component {
     constructor(props) {
         super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        
     }
 
-    static navigatorButtons = {
-      rightButtons: [
-        {
-            icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-            title: "Forward",
-            label: "Forward",
-            id: "forwardButton"
-        }
-      ]
-    }
-
-    onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-        if (event.id === "forwardButton") {
-          this.props.navigator.push({
-              screen: "StrokeApp.SkinCareScreen",
-              title: "Skin Care",
-          });
-        }
-      }  
-    }
     
     render() {
         return (

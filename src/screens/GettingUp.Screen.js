@@ -4,8 +4,10 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Linking
+    Linking,
+    
   } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import MainText from "../components/UI/MainText";
 import BodyScroll from "../components/UI/BodyScroll";
@@ -14,32 +16,13 @@ import SubHeadingText from '../components/UI/SubHeadingText';
 import PictureLegend from '../components/UI/PictureLegend';
 import ImageContainer from "../components/UI/ImageContainer";
 
+const kufungisisaImage = require('../assets/kufungisisa.png');
+const skinImage = require('../assets/skin-care2.png');
+
 class GettingUpScreen extends Component {
     constructor(props) {
         super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
-    }
-
-    static navigatorButtons = {
-      rightButtons: [
-        {
-            icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-            title: "Forward",
-            label: "Forward",
-            id: "forwardButton"
-        }
-      ]
-    }
-
-    onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-        if (event.id === "forwardButton") {
-          this.props.navigator.push({
-              screen: "StrokeApp.BrainBodyScreen",
-              title: "Brain Body Connection",
-          });
-        }
-      }  
+        
     }
     
     render() {
@@ -49,7 +32,7 @@ class GettingUpScreen extends Component {
 
             <MainText><HeadingText>Kufungisisa {`\n`}</HeadingText><SubHeadingText>(Thinking too much in Zimbabwe)</SubHeadingText></MainText>
 
-            <ImageContainer src={require('../assets/kufungisisa.png')} />
+            <ImageContainer src={kufungisisaImage} />
 
             <MainText>
             After my stroke, depression hit me hard. I am the youngest lawyer in the court, suddenly I could not see what my future held. 
@@ -70,22 +53,20 @@ class GettingUpScreen extends Component {
             {`\u2022`} My best friend since childhood challenged me to reach for greater independence. 
             </MainText>
 
-            <MainText style={styles.bullets}>  
+            <MainText style={[styles.bullets, {marginBottom: 0}]}>  
             {`\u2022`} From a group of athletes with disabilities I learned an important lesson: ‘Don’t let anyone take away your role in the family, and the responsibilities you can handle.
             </MainText>
 
-            <PictureLegend style={{marginLeft: 150}}>
-            -- R.W., Zimbabwe, Africa
-            </PictureLegend>
+            <PictureLegend >&mdash;R.W., Zimbabwe, Africa</PictureLegend>
 
-            <ImageContainer src={require('../assets/skin-care2.png')} />
+            <ImageContainer src={skinImage} />
 
-            <MainText>
+            <MainText style={{marginBottom: 0}}>
             There’s no telling who or what it will be that gives you the will and determination to go forward— 
             your openness that counts. 
             It could be your wife or husband, children, God, friends of many years, or people you meet with similar experiences to yours.  
             </MainText>
-            <PictureLegend style={{marginLeft: 250}}>--Bill</PictureLegend>
+            <PictureLegend >&mdash;Bill</PictureLegend>
 
             <MainText><HeadingText>Getting Up {`\n`} When Feeling Down</HeadingText></MainText>
             <MainText>
@@ -107,13 +88,13 @@ class GettingUpScreen extends Component {
             </MainText>
 
             <View style={styles.border}>
-                <MainText style={{fontWeight: 'bold',marginVertical: 0, alignSelf: 'center'}}>
+                <MainText style={[styles.boxText, {fontSize: hp('2.5%')}]}>
                 Centers for Independent Living CIL
                 </MainText>
-                <Text style={{fontSize: 18,alignSelf: 'center'}}>Disability information.</Text>
+                <Text style={styles.boxText}>Disability information.</Text>
                     <TouchableOpacity onPress={() => Linking.openURL('http://www.ilru.org/projects/cil-net/cil-center-and-association-directory')}>
-                    <Text style={{alignSelf: 'center',textDecorationLine: 'underline'}}>
-                        http://www.ilru.org/projects/cil-net/
+                    <Text style={styles.boxLink}>
+                        http://www.ilru.org
                     </Text>
                 </TouchableOpacity> 
             </View>
@@ -135,12 +116,19 @@ const styles = StyleSheet.create({
       marginVertical: 5,
     },
     border: {
-      borderStyle: 'solid',
-      borderWidth: 1, 
       margin: 5,
       backgroundColor: '#e6f2ff',
-      height: 70,
+      height: 60,
     },
+    boxText: {
+      fontWeight: 'bold',
+      marginVertical: 0, 
+      alignSelf: 'center'
+    },
+    boxLink: {
+      alignSelf: 'center',
+      textDecorationLine: 'underline'
+    }
   });
 
   

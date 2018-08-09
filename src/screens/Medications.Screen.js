@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    TouchableOpacity,
-    Text, 
-    Linking
+    Platform
   } from 'react-native';
 
 
@@ -15,34 +13,33 @@ import ImageContainer from "../components/UI/ImageContainer";
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 
 const helpNeededIcon = require('../assets/medication-icon.png');
+const medicationsImage = require('../assets/medications.png');
 
-class NewDayScreen extends Component {
+class MedicationsScreen extends Component {
     constructor(props) {
         super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
     }
 
-    static navigatorButtons = {
-      rightButtons: [
-        {
-            icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-            title: "Forward",
-            label: "Forward",
-            id: "forwardButton"
-        }
-      ]
-    }
+    // static navigatorButtons = {
+    //   rightButtons: [
+    //     {
+    //         icon:  Platform.OS === 'android' ? require('../assets/baseline_arrow_forward_black_48.png') : require('../assets/baseline_chevron_right_black_24pt_2x.png'),
+    //         id: "forwardButton",   
+    //     },
+    //   ]
+    // }
 
-    onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-        if (event.id === "forwardButton") {
-          this.props.navigator.push({
-              screen: "StrokeApp.BladderControlScreen",
-              title: "Bladder Control",
-          });
-        }
-      }  
-    }
+    // onNavigatorEvent = event => {
+    //   if (event.type === "NavBarButtonPress") {
+    //     if (event.id === "forwardButton") {
+    //       this.props.navigator.push({
+    //           screen: "StrokeApp.BladderControlScreen",
+    //           title: "Bladder Control",
+    //       });
+    //     }
+    //   }  
+    // }
 
     handleMedication = () => {
       this.props.navigator.push({
@@ -56,7 +53,7 @@ class NewDayScreen extends Component {
             <BodyScroll> 
                 <MainText><HeadingText>Organizing Medications</HeadingText></MainText>
 
-                <ImageContainer src={require('../assets/medications.png')} />
+                <ImageContainer src={medicationsImage} />
                 
                 <MainText>
                     Ruth, M. 78, uses a pill organizer and the Interactive Medication Toolkit. Ruth’s daughter, can also see the Toolkit.
@@ -65,7 +62,7 @@ class NewDayScreen extends Component {
                 <LinkToolkitWrapper 
                   text={'Share Interactive Medication toolkit with family. (click image below)'}
                   source={helpNeededIcon}
-                  onPress={this.handleMedication}
+                  onPress={this.props.pressMedication ? this.props.pressMedication : this.handleMedication}
                 />
               
             </BodyScroll>                    
@@ -88,4 +85,4 @@ const styles = StyleSheet.create({
 
   
 
-export default NewDayScreen;
+export default MedicationsScreen;

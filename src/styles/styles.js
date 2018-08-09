@@ -54,16 +54,6 @@ export default StyleSheet.create({
         bottom: 30,
         backgroundColor: '#3fffff'
     },
-    TouchableOpacityStyle2: {
-        position: 'absolute',
-        width: 100,
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        left: 30,
-        bottom: 30,
-        backgroundColor: '#3fffff'
-    },
     footerContainer: {
         marginTop: 5,
         marginLeft: 10,
@@ -96,7 +86,8 @@ export default StyleSheet.create({
     termsContainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 0,
     },
     textHyper: {
         fontSize: 13,
@@ -126,9 +117,9 @@ export default StyleSheet.create({
         /*backgroundColor: '#2980b6',*/
         /*paddingVertical: 10,*/
         flex: 1,
-         flexDirection: 'column',
-         alignItems: 'center',
-         justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
         margin: 10,
     },
     buttonText: {
@@ -180,15 +171,6 @@ export default StyleSheet.create({
         height: 22,
         color: 'white',
     },
-    // containerMap: {
-    //     ...StyleSheet.absoluteFillObject,
-    //     justifyContent: 'flex-end',
-    //     //alignItems: 'center',
-    //     flex: 1
-    //   },
-    // map: {
-    //     ...StyleSheet.absoluteFillObject
-    // },
     label: {
         fontSize: 14,
         color: '#333',
@@ -196,7 +178,6 @@ export default StyleSheet.create({
     inputStyleToolkit: {
         color: 'black',
         fontSize: 17,
-        flex: 1,
         height: 50,
         width: '100%',
         borderWidth: 1,
@@ -207,8 +188,8 @@ export default StyleSheet.create({
         paddingBottom: 2,
         color: 'white',
         fontSize: 17,
-        flex: 1,
-        height: 100,
+        //flex: 1,
+        height: '100%',
         width: '100%',
         borderWidth: 1,
         borderColor: '#ccc',
@@ -233,17 +214,6 @@ export default StyleSheet.create({
         //borderColor: 'black',
         //borderBottomWidth: 1,
     },
-    // GooglePlusStyle: {
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     backgroundColor: '#4885ed',
-    //     borderWidth: .5,
-    //     borderColor: '#fff',
-    //     height: 30,
-    //     borderRadius: 3,
-    //     width: 190,
-    //     margin: 5,
-    // },    
     EMailLogin: {
         flex:1,
         opacity: 1,

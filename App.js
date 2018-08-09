@@ -32,7 +32,7 @@ import BrainBodyScreen from './src/screens/BrainBody.Screen';
 import EmergencyScreen from './src/screens/Emergency.Screen';
 import BioScreen from './src/screens/Bio.Screen';
 import ContentsScreen from './src/screens/Contents.Screen';
-import ForwardButton from './src/components/UI/ForwardButton';
+import NewDayScreen from './src/screens/NewDay.Screen';
 import ProfileScreen from './src/screens/Profile.Screen';
 
 // Register Screens
@@ -57,7 +57,7 @@ Navigation.registerComponent("StrokeApp.EmergencyScreen", () => EmergencyScreen)
 Navigation.registerComponent("StrokeApp.BioScreen", () => BioScreen);
 Navigation.registerComponent("StrokeApp.ContentsScreen", () => ContentsScreen);
 Navigation.registerComponent("StrokeApp.ProfileScreen", () => ProfileScreen);
-Navigation.registerComponent('ForwardButton', () => ForwardButton);
+Navigation.registerComponent('StrokeApp.NewDayScreen', () => NewDayScreen);
 
 // Start a App
 //   Promise.all([

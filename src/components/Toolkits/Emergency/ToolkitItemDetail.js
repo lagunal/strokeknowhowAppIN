@@ -20,6 +20,8 @@ class ToolkitItemDetail extends Component {
             purpose: this.props.item.purpose,
         }
     }
+
+
     //updates the data array with the updated info and call function to save 
     handlePress = () => {
         var data = this.props.data;

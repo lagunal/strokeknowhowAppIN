@@ -4,29 +4,19 @@ import {
   StyleSheet, View, Text, TouchableOpacity, Image
 } from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import HeadingText from '../../components/UI/HeadingText';
 import SubHeadingText from '../../components/UI/SubHeadingText';
 import MainText from "../../components/UI/MainText";
 
-
-
-const helpNeededImage = require('../../assets/help_needed_icon.png');
-const scheduleImage = require('../../assets/weekly-schedule-icon.png');
-const medicationsImage = require('../../assets/medication-icon.png');
-const physicalImage = require('../../assets/physical-therapy-icon.png');
-const emergencyImage = require('../../assets/emergency-station-icon.png');
 
 class ToolkitHomeScreen extends Component {
 
   constructor(props) {
       super(props);
-      this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+      
   }
 
-  onNavigatorEvent = event => {
-
-  }
 
   handlePressEmergency = () => {
     this.props.navigator.push({
@@ -134,7 +124,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 5,
     backgroundColor: '#b30000',
-    height: 100,
+    height: hp('15%'),
   },
   title: {
     color: 'white',

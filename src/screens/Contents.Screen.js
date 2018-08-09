@@ -13,20 +13,13 @@ import BodyScroll from '../components/UI/BodyScroll';
 
 class ContentsScreen extends Component {
 
-    // static navigatorStyle = {
-    //     navBarBackgroundColor: '#1749FF',
-    //     navBarButtonColor: 'white',
-    //     navBarTextColor: 'white',
-    // };
         
   constructor(props) {
       super(props);
       this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
 
   }
-  onNavigatorEvent = event => {
 
-  }
 
   handlePress = (screenName, screenTitle) => {
     this.props.navigator.push({
@@ -42,12 +35,12 @@ class ContentsScreen extends Component {
 
         <BodyScroll>
 
-            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.HomeScreen', 'Home')}>
+            <TouchableOpacity onPress={() => this.handlePress('StrokeApp.NewDayScreen', 'New Day')}>
                 <View style={styles.item}>
                     <Icon style={styles.icon} name="ios-home" size={30} md="md-home"></Icon>    
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Home - A New Day   
+                            A New Day   
                         </SubHeadingText>
                     </MainText>  
                     
@@ -83,7 +76,7 @@ class ContentsScreen extends Component {
                 <Icon style={styles.icon} name="ios-medkit" size={30} md="md-medkit"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Organizing Medications
+                            Medications
                         </SubHeadingText>
                     </MainText>  
                     
@@ -155,7 +148,7 @@ class ContentsScreen extends Component {
                 <Icon style={styles.icon} name="ios-body" size={30} md="md-body"></Icon>
                     <MainText>
                         <SubHeadingText style={styles.title}>
-                            Brain/Body Connection 
+                            Brain/Body
                         </SubHeadingText>
                     </MainText>  
                     

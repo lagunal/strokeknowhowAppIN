@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 
-const imageContainer = ({src}) => {
+const imageContainer = (props) => {
 
     return(
         <View style={styles.container}>
             <Image 
-                source={src}
-                style={[styles.image]}>
+                {...props} 
+                source={props.src}
+                style={[styles.image, props.style]}>
             </Image>
         </View>
     );
@@ -16,16 +17,16 @@ const imageContainer = ({src}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 10,
-    marginHorizontal: 0,
+    justifyContent: 'center',
+    paddingVertical: 0,
+    //backgroundColor: 'yellow'
+    
   },
   image: {
-    width: '100%',
-    //width: 375,
-    //height: 180,
-    //height: 'auto',
+    width: '90%',
+    resizeMode: 'contain',
+    //height: '100%',
   }
 });
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    TouchableOpacity
+    
   } from 'react-native';
 
 
@@ -16,30 +16,9 @@ const emergencyIcon = require('../assets/emergency-station-icon.png');
 class EmergencyScreen extends Component {
     constructor(props) {
         super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        
     }
 
-    static navigatorButtons = {
-      rightButtons: [
-        {
-            icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-            title: "Forward",
-            label: "Forward",
-            id: "forwardButton"
-        }
-      ]
-    }
-
-    onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-        if (event.id === "forwardButton") {
-          this.props.navigator.push({
-              screen: "StrokeApp.BioScreen",
-              title: "About Us",
-          });
-        }
-      }  
-    }
     handleEmergency = () => {
       this.props.navigator.push({
         screen: "StrokeApp.EmergencyToolkitScreen",
@@ -54,7 +33,7 @@ class EmergencyScreen extends Component {
                 <LinkToolkitWrapper 
                   text={'Share Interactive Emergency Information Station Toolkit with family. (Click image below)'}
                   source={emergencyIcon}
-                  onPress={this.handleEmergency}
+                  onPress={this.props.pressEmergency ? this.props.pressEmergency : this.handleEmergency}
                 />
 
                 {/* <MainText>

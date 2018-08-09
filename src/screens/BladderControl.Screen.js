@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    Image
+    Image,
+    Platform
   } from 'react-native';
 
 import SubHeadingText from '../components/UI/SubHeadingText';
@@ -17,39 +18,18 @@ const swallowingImage = require('../assets/swallowing.png');
 class BladderControlScreen extends Component {
     constructor(props) {
         super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        
     }
 
-    static navigatorButtons = {
-      rightButtons: [
-        {
-            icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-            title: "Forward",
-            label: "Forward",
-            id: "forwardButton"
-        }
-      ]
-    }
-
-    onNavigatorEvent = event => {
-      if (event.type === "NavBarButtonPress") {
-        if (event.id === "forwardButton") {
-          this.props.navigator.push({
-              screen: "StrokeApp.BloodPressureScreen",
-              title: "Blood Pressure",
-          });
-        }
-      }  
-    }
 
     render() {
         return (
           <View style={styles.container}>
-            <BodyScroll style={{flexGrow: 100}}>
-
-                <Image source={bladderImage} resizeMode='cover' style={styles.image} />
+            <BodyScroll >
 
                 <MainText><HeadingText>Bladder Control</HeadingText></MainText>
+
+                <ImageContainer src={bladderImage} style={styles.image}/>
 
                 <MainText style={styles.bullets}>  
                 {`\u2022`} Ask a doctor or nurse for help in reestablishing bladder control. 
@@ -79,7 +59,7 @@ class BladderControlScreen extends Component {
 
                 <MainText><HeadingText>Swallowing</HeadingText></MainText>
 
-                <Image source={swallowingImage} resizeMode='contain'  />
+                <ImageContainer src={swallowingImage}  />
 
                 <MainText>  
                     A speech therapist or nurse can help in retraining swallowing. 
@@ -118,10 +98,9 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
     },
     image: {
-      alignSelf: 'center',
       width: 250,
       height: 200,
-      marginTop: 20,
+      marginTop: 5,
     },
     bullets: {
       marginVertical: 5,
