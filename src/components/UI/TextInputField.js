@@ -35,7 +35,7 @@ class TextFieldInput extends Component {
             }),
             fontSize: this._animatedIsFocused.interpolate({
                 inputRange: [0, 1],
-                outputRange: [20, 14],
+                outputRange: [20, 12],
             }),
             color: this._animatedIsFocused.interpolate({
                 inputRange: [0, 1],

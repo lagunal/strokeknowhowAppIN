@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
+import MainText from "./MainText";
 
 const SubHeadingText = props => (
-  <Text 
+  <MainText 
     {...props} 
     style={[styles.textHeading, props.style]}>
     {props.children}
-  </Text>
+  </MainText>
 );
 
 const styles = StyleSheet.create({

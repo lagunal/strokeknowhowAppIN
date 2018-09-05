@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    Text,
-    TouchableOpacity,
-    Linking,
+    ScrollView
   } from 'react-native';
 
 
 import MainText from "../components/UI/MainText";
-import BodyScroll from "../components/UI/BodyScroll";
 import HeadingText from '../components/UI/HeadingText';
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 
@@ -29,11 +26,76 @@ class BloodPressureScreen extends Component {
     }
 
     render() {
+      // if (this.props.homeScreen === 'home') { 
+      //   return (
+      //     <View style={styles.container}>
+
+      //       <HeadingText>Blood Pressure</HeadingText>
+
+      //       <MainText style={styles.bullets}>
+      //       {`\u2022`} Higher (systolic) pressure during a heartbeat. 
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} Lower (diastolic) pressure is between beats. 
+      //       </MainText>
+      //       <MainText style={styles.bullets}>   
+      //       {`\u2022`} Normal Blood Pressure Less than 120 and less than 80.
+      //       </MainText>
+            
+      //       <MainText style={styles.bullets}>
+      //       {`\u2022`} Elevated 120-129 and less than 80. 
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} High Blood Pressure Hypertension stage 1 130-139 or 80-89.
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} High blood Pressure Hypertension stage 2   140 or higher or 90 or higher.
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} Hypertension crisis 
+      //                  Consult your doctor immediately higher than 180 and/or higher than 120
+      //       </MainText>
+
+      //       <HeadingText>Testing Blood Sugar </HeadingText>
+
+      //       <MainText style={styles.bullets}>
+      //       {`\u2022`} Blood glucose test is used for diabetes. Results are used to regulate medications, diet.  
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} When to test? Numbers to report.  
+      //       </MainText>
+            
+            
+      //       <HeadingText>Physical Therapists</HeadingText>
+
+      //       <MainText style={styles.bullets}>
+      //       {`\u2022`} How to continue physical therapy?  
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} Exercises to do? How? How often? 
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} How long?
+      //       </MainText>
+      //       <MainText style={styles.bullets}>  
+      //       {`\u2022`} Benefits? Purpose?
+      //       </MainText>
+
+      //       <LinkToolkitWrapper 
+      //         text={'Share Interactive Physical Therapy Toolkit with family. Click toolkit.'}
+      //         source={physicalIcon}
+      //         onPress={this.props.pressPhysical ? this.props.pressPhysical : this.handlePhysical}
+      //       />
+   
+      //     </View>           
+      //   );
+      // }  
+
         return (
           <View style={styles.container}>
-            <BodyScroll>
+            <ScrollView>
 
-            <MainText><HeadingText>Blood Pressure</HeadingText></MainText>
+            <HeadingText>Blood Pressure</HeadingText>
 
             <MainText style={styles.bullets}>
             {`\u2022`} Higher (systolic) pressure during a heartbeat. 
@@ -42,17 +104,24 @@ class BloodPressureScreen extends Component {
             {`\u2022`} Lower (diastolic) pressure is between beats. 
             </MainText>
             <MainText style={styles.bullets}>   
-            {`\u2022`} Blood pressure higher than 120/80, lower than (140/90), you are pre-hypertensive.
+            {`\u2022`} Normal Blood Pressure Less than 120 and less than 80.
             </MainText>
             
             <MainText style={styles.bullets}>
-            {`\u2022`} Blood pressure higher than 140/90, lower than 160/100, you have <Text style={{textDecorationLine: 'underline'}}>Stage 1</Text> high blood pressure. 
+            {`\u2022`} Elevated 120-129 and less than 80. 
             </MainText>
             <MainText style={styles.bullets}>  
-            {`\u2022`} Blood pressure higher than 160/100, you have <Text style={{textDecorationLine: 'underline'}}>Stage 2</Text> high blood pressure. 
+            {`\u2022`} High Blood Pressure Hypertension stage 1 130-139 or 80-89.
+            </MainText>
+            <MainText style={styles.bullets}>  
+            {`\u2022`} High blood Pressure Hypertension stage 2   140 or higher or 90 or higher.
+            </MainText>
+            <MainText style={styles.bullets}>  
+            {`\u2022`} Hypertension crisis {`\n`}
+                       Consult your doctor immediately higher than 180 and/or higher than 120
             </MainText>
 
-            <MainText><HeadingText>Testing Blood Sugar </HeadingText></MainText>
+            <HeadingText>Testing Blood Sugar </HeadingText>
 
             <MainText style={styles.bullets}>
             {`\u2022`} Blood glucose test is used for diabetes. Results are used to regulate medications, diet.  
@@ -61,25 +130,8 @@ class BloodPressureScreen extends Component {
             {`\u2022`} When to test? Numbers to report.  
             </MainText>
             
-            <View style={styles.border}>
-
-                <MainText style={[styles.boxText, {fontWeight: 'bold'}]}>
-                  National Rehabilitation 
-                </MainText>
-                <MainText style={[styles.boxText, {fontWeight: 'bold'}]}>
-                  Information Center (NARIC)
-                </MainText>                
-                <TouchableOpacity onPress={() => Linking.openURL('https://www.naric.com')}>
-                  <MainText style={styles.boxLink}>
-                    https://www.naric.com
-                  </MainText>
-                </TouchableOpacity>
-                <MainText style={styles.boxText}>
-                    1-800-346-2742. English / Spanish
-                </MainText>
-
-            </View>
-            <MainText><HeadingText>Physical Therapists</HeadingText></MainText>
+            
+            <HeadingText>Physical Therapists</HeadingText>
 
             <MainText style={styles.bullets}>
             {`\u2022`} How to continue physical therapy?  
@@ -95,12 +147,12 @@ class BloodPressureScreen extends Component {
             </MainText>
 
             <LinkToolkitWrapper 
-              text={'Share Interactive Physical Therapy Toolkit with family. (click image below)'}
+              text={'Share Interactive Physical Therapy Toolkit with family. Click toolkit.'}
               source={physicalIcon}
               onPress={this.props.pressPhysical ? this.props.pressPhysical : this.handlePhysical}
             />
 
-            </BodyScroll>                
+            </ScrollView>                
           </View>           
         );
     }
@@ -116,20 +168,7 @@ const styles = StyleSheet.create({
     bullets: {
       marginVertical: 5,
     },
-    border: {
-      margin: 5,
-      backgroundColor: '#e6f2ff',
-      height: 90,
-    },
-    boxText: {
-      margin: 0,
-      alignSelf: 'center'
-    },
-    boxLink: {
-      alignSelf: 'center',
-      marginVertical: 0,
-      textDecorationLine: 'underline'
-    }
+    
   });
 
   

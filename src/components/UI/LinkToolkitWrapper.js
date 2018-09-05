@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import ImageToolkitContainer from "../UI/ImageToolkitContainer";
 import MainText from "../UI/MainText";
@@ -23,20 +24,23 @@ const LinkToolkitWrapper = (props) => {
             
             <Link />
         </View>
+        
     );
 
 };
 
 const styles = StyleSheet.create({
     wrapper: {
-        borderWidth: 1,
         margin: 5,
         paddingTop: 0,
         paddingBottom: 5,
+        
     },
     text: {
         marginBottom: 0,
-        marginTop: 30,
+        alignSelf: 'center',
+        fontSize: wp('3.2%'),
+        
     }
 });
 

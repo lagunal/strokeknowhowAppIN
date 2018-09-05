@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    
+    ScrollView
   } from 'react-native';
 
 
 import MainText from "../components/UI/MainText";
-import HeadingText from "../components/UI/HeadingText";
-import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
 
 const bioImage = require('../assets/bio.jpg');
@@ -22,23 +20,22 @@ class BioScreen extends Component {
     render() {
         return (
           <View style={styles.container}>
-            <BodyScroll>
+            <ScrollView>
 
-            <MainText><HeadingText>About us</HeadingText></MainText>    
+                <ImageContainer source={bioImage} orientation={'portrait'} style={styles.image}/>    
 
-            <ImageContainer src={bioImage} style={styles.image}/>    
+                <MainText>
+                    A long-time activist in the disability rights movement, and author of more than a dozen books, Florence Weiner has interviewed hundreds of men and women and their families touched by stroke. 
+                    She shares their advice here, and at StrokeKnowHow.org: A worldwide stroke community based on the belief that we learn best from one another.    
+                </MainText>
 
-            <MainText>
-                A long-time activist in the disability rights movement, and author of more than a dozen books, Florence Weiner has interviewed hundreds of men and women and their families touched by stroke. 
-                She shares their advice here, and at StrokeKnowHow.org: A worldwide stroke community based on the belief that we learn best from one another.    
-            </MainText>
+                <MainText>
+                    Every stroke is unique. So is the path we choose to find our way back. 
+                    If you find answers, motivation, inspiration and hope, this work will have fulfilled its purpose.    
+                </MainText>
+                <MainText>For Richard, the brightest light.</MainText>
 
-            <MainText>
-                Every stroke is unique. So is the path we choose to find our way back. 
-                If you find answers, motivation, inspiration and hope, this work will have fulfilled its purpose. For Richard, the brightest light.       
-            </MainText>
-
-            </BodyScroll>                
+            </ScrollView>                
           </View>           
         );
     }

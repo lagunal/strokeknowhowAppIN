@@ -1,6 +1,7 @@
 console.disableYellowBox = true;
 
 import { Navigation } from "react-native-navigation";
+//import SplashScreen from 'react-native-splash-screen';
 
 //Translations
 // import I18n, { getLanguages } from 'react-native-i18n';
@@ -63,6 +64,11 @@ Navigation.registerComponent('StrokeApp.NewDayScreen', () => NewDayScreen);
 //   Promise.all([
 //       Icon.getImageSource("ios-menu", 30)
 //   ]).then(sources => {
+  
+      // setInterval(() => {
+        //SplashScreen.hide();
+      // }, 3000);
+      
       Navigation.startSingleScreenApp({
         screen: {
           screen: "StrokeApp.LoginScreen",

@@ -82,7 +82,7 @@ class HelpNeedeToolkit extends Component {
                 label3: item.label3,
                 name3: item.name3,
                 label4: item.label4,
-                name4: item.label4,                           
+                name4: item.name4,                           
               },
               keyId: keyId,
         });

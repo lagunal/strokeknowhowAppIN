@@ -11,7 +11,7 @@ const bodyScroll = props => (
 
 const styles = StyleSheet.create({
     body: {
-        flexGrow: 1,
+        
     }
 });
 

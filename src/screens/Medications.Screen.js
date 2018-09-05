@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    Platform
+    ScrollView
   } from 'react-native';
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import HeadingText from '../components/UI/HeadingText';
 import MainText from "../components/UI/MainText";
-import BodyScroll from "../components/UI/BodyScroll";
 import ImageContainer from "../components/UI/ImageContainer";
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 
@@ -21,25 +20,6 @@ class MedicationsScreen extends Component {
         //this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
     }
 
-    // static navigatorButtons = {
-    //   rightButtons: [
-    //     {
-    //         icon:  Platform.OS === 'android' ? require('../assets/baseline_arrow_forward_black_48.png') : require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-    //         id: "forwardButton",   
-    //     },
-    //   ]
-    // }
-
-    // onNavigatorEvent = event => {
-    //   if (event.type === "NavBarButtonPress") {
-    //     if (event.id === "forwardButton") {
-    //       this.props.navigator.push({
-    //           screen: "StrokeApp.BladderControlScreen",
-    //           title: "Bladder Control",
-    //       });
-    //     }
-    //   }  
-    // }
 
     handleMedication = () => {
       this.props.navigator.push({
@@ -48,24 +28,47 @@ class MedicationsScreen extends Component {
     }
 
     render() {
+    //   if (this.props.homeScreen === 'home') {
+    //     return (
+    //       <View style={styles.container}>
+            
+    //             <HeadingText>Organizing Medications</HeadingText>
+
+    //             <ImageContainer source={medicationsImage} />
+                
+    //             <MainText>
+    //                 Ruth, M. 78, uses a pill organizer and the Interactive Medication Toolkit. Ruth’s daughter, can also see the Toolkit.
+    //             </MainText>
+
+    //             <LinkToolkitWrapper 
+    //               text={'Share Medication toolkit with family. Click Toolkit'}
+    //               source={helpNeededIcon}
+    //               onPress={this.props.pressMedication ? this.props.pressMedication : this.handleMedication}
+    //             />
+                         
+
+    //       </View>           
+    //     );
+    // }
+
         return (
           <View style={styles.container}>
-            <BodyScroll> 
-                <MainText><HeadingText>Organizing Medications</HeadingText></MainText>
+            <ScrollView> 
+                <HeadingText>Organizing Medications</HeadingText>
 
-                <ImageContainer src={medicationsImage} />
+                <Image source={medicationsImage} style={styles.imageDefault} />
                 
                 <MainText>
                     Ruth, M. 78, uses a pill organizer and the Interactive Medication Toolkit. Ruth’s daughter, can also see the Toolkit.
                 </MainText>
 
                 <LinkToolkitWrapper 
-                  text={'Share Interactive Medication toolkit with family. (click image below)'}
+                  text={'Share Medication toolkit with family. Click Toolkit'}
                   source={helpNeededIcon}
                   onPress={this.props.pressMedication ? this.props.pressMedication : this.handleMedication}
                 />
               
-            </BodyScroll>                    
+            </ScrollView>                    
 
           </View>           
         );
@@ -80,7 +83,11 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       backgroundColor: 'white',
     },
-
+    imageDefault: {
+      width: wp('90%'),
+      marginTop: hp('2%'),
+      alignSelf: 'center'
+    },
   });
 
   

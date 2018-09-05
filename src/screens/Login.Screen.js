@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Video from 'react-native-video';
+
 import {widthPercentageToDP as wp, 
         heightPercentageToDP as hp,
         listenOrientationChange as lor,
@@ -33,11 +34,12 @@ const { width, height } = Dimensions.get("window");
 class LoginScreen extends Component {
   
   componentDidMount() {
-    lor(this);
+    lor(this); 
   }
   
   componentWillUnMount() {
     rol();
+    startTabs(); 
   }
 
   static navigatorStyle = {
@@ -61,7 +63,7 @@ class LoginScreen extends Component {
         inLogin: true,
         loading: false,
         showSpinner: false,
-        //videoPaused: false,
+        videoPaused: false,
       }
   }
 
@@ -120,6 +122,7 @@ class LoginScreen extends Component {
           }
           
           this.setUser(user);
+          this.setState({videoPaused: true})
           this.loggedHandler();
           
         }
@@ -284,10 +287,6 @@ class LoginScreen extends Component {
       </View>;
   }
 
-  // playVideo = () => {
-  //   this.setState({videoPaused: !this.state.videoPaused})
-  // }
-
   render() {
 
     const videoStyles = StyleSheet.create({
@@ -328,7 +327,7 @@ class LoginScreen extends Component {
     //     </KeyboardAvoidingView>
     //   );
     // }
-
+ 
       return (
         <ScrollView >
           <KeyboardAvoidingView behavior='position' style={videoStyles.KeyboardAvoidingView}>
@@ -336,23 +335,22 @@ class LoginScreen extends Component {
 
             <View style={videoStyles.backgroundVideo}>
               <Video
-                source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/07/102_Pattys_husband.mp4"}}
-               
+                source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/Ben_on_how_he_gets_starred_at.mp4"}}
                 style={videoStyles.video}
                 rate={1}
-                paused={false}
+                paused={this.state.videoPaused}
                 volume={1}
-                muted={true}
+                muted={false}
                 playWhenInactive={false}
                 playInBackground={false}
-                resizeMode='cover'
-                repeat={false}
+                resizeMode='stretch'
+                repeat={true}
               />
             </View>
             
           
             <View style={{marginTop: hp('10%')}}>
-              <MainText><HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow.org</HeadingText></MainText>
+              <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow.org</HeadingText>
               <MainText style={{textAlign: 'center', fontSize: hp('3%'), color: 'white'}}>We are a worldwide stroke <Text style={{fontSize: hp('5%'), fontWeight: 'bold'}}>community</Text> {`\n`} learning from one another</MainText>
             </View>
 

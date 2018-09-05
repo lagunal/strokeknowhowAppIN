@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, Linking } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const Link = () => (
 
-    <TouchableOpacity onPress={() => Linking.openURL('http://strokeknowhow.org')}>
+    <TouchableOpacity onPress={() => Linking.openURL('https://strokeknowhow.org')}>
         <View style={styles.wrapper}>
             <Text style={styles.textMore}>More at</Text>
             <Text style={styles.textLink}>
@@ -18,15 +19,15 @@ const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: hp('2%')
     },
     textMore: {
         marginHorizontal: 5,
-        fontSize: 18,
+        fontSize: hp('2.5%')
     },
     textLink: {
-        color: '#0d0d0d',
-        fontSize: 18,
+        fontSize: hp('2.5%'),
         textDecorationLine: 'underline',
     }
 
