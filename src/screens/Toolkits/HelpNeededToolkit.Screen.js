@@ -6,17 +6,15 @@ import {
     Text,
     ActivityIndicator,
     AsyncStorage,
-    TouchableOpacity,
   } from 'react-native';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 import HeadingText from '../../components/UI/HeadingText';
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
-
 import HelpNeededRow from "../../components/Toolkits/HelpNeeded/HelpNeededRow";
-import HelpNeededDetail from "../../components/Toolkits/HelpNeeded/HelpNeededDetail"
 
-import SubHeadingText from '../../components/UI/SubHeadingText';
+import HelpNeededDetail from "../../components/Toolkits/HelpNeeded/HelpNeededDetail"
 
 import jsonData from '../../assets/json/helpNeededToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
@@ -24,6 +22,22 @@ import ajax from '../../ajax/ajax';
 const logoImage = require('../../assets/logo-header.jpg');
 
 class HelpNeedeToolkit extends Component {
+    static navigatorButtons = {
+        rightButtons: [
+            {
+            title: 'Save', // for a textual button, provide the button title (label)
+            id: 'save', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+            //testID: 'e2e_rules', // optional, used to locate this view in end-to-end tests
+            //disabled: (this.state.currentItem) ? false : true, // optional, used to disable the button (appears faded and doesn't interact)
+            //disableIconTint: true, // optional, by default the image colors are overridden and tinted to navBarButtonColor, set to true to keep the original image colors
+            //showAsAction: 'ifRoom', // optional, Android only. Control how the button is displayed in the Toolbar. Accepted valued: 'ifRoom' (default) - Show this item as a button in an Action Bar if the system decides there is room for it. 'always' - Always show this item as a button in an Action Bar. 'withText' - When this item is in the action bar, always show it with a text label even if it also has an icon specified. 'never' - Never show this item as a button in an Action Bar.
+            buttonColor: 'white', // Optional, iOS only. Set color for the button (can also be used in setButtons function to set different button style programatically)
+            buttonFontSize: 18, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
+            buttonFontWeight: '600', // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
+            //systemItem: 'save',  
+          },
+        ]
+    };
 
     constructor(props){
       super(props);
@@ -36,29 +50,19 @@ class HelpNeedeToolkit extends Component {
     };
 
     
-    // static navigatorButtons = {
-    //     rightButtons: [
-    //         {
-    //             //icon:  require('../assets/baseline_chevron_right_black_24pt_2x.png'),
-    //             title: "Save",
-    //             label: "Save",
-    //             id: "save"
-    //         }
-    //     ]
-    // };
-
     //get data from rest API
     async componentDidMount() {
       //get the id from logged user
       const userData = await AsyncStorage.getItem('user');
       this.setState({ user: JSON.parse(userData) });
       try {
-          const data = await ajax.getToolkit(this.state.user.id, 'help_needed');
+          const data = await ajax.getToolkit(this.state.user.id, 'helpNeeded');
+          const dataValue = data.value;
           var dataToolkit = [];
-          if (Object.keys(data).length === 0) {//if toolkit is new (no data from fetch)
+          if (dataValue === null) {//if toolkit is new (no data from fetch)
              dataToolkit = jsonData; //assign "empty" json to data for toolkit
           } else {
-            dataToolkit = data; //assign existing data from toolkit
+            dataToolkit = dataValue; //assign existing data from toolkit
           }
           this.setState({ 
             isLoading: false, 
@@ -74,15 +78,14 @@ class HelpNeedeToolkit extends Component {
     setCurrentItem = (item, keyId) => {
         this.setState({
               currentItem: {
-                title: item.title,
-                label1: item.label1,
-                name1: item.name1,
-                label2: item.label2,
-                name2: item.name2,
-                label3: item.label3,
-                name3: item.name3,
-                label4: item.label4,
-                name4: item.name4,                           
+                medication: item.medication,
+                monday: (item.monday) ? item.monday : false,
+                tuesday: (item.tuesday) ? item.tuesday : false,
+                wednesday: (item.wednesday) ? item.wednesday : false,
+                thursday: (item.thursday) ? item.thursday : false,
+                friday: (item.friday) ? item.friday : false,   
+                saturday: (item.saturday) ? item.saturday : false,  
+                sunday: (item.sunday) ? item.sunday : false,                           
               },
               keyId: keyId,
         });
@@ -95,42 +98,39 @@ class HelpNeedeToolkit extends Component {
         })
     }
 
-    //function for rendering the rows of the toolkits using HelpNeededRow component
-    renderItems(day) {
-        const items = [];
-        items.push(
-        <HelpNeededRow 
-            title={'Personal Care'}
-            label1={'Nursing Care'} name1={this.state.data['personal-care-' + day + '1']}
-            label2={'Medications'} name2={this.state.data['personal-care-' + day + '2']}
-            label3={'Physical Therapy'} name3={this.state.data['personal-care-' + day + '3']}
-            keyId={['personal-care-' + day + '1', 'personal-care-' + day + '2','personal-care-' + day + '3']}
-            onItemPress={this.setCurrentItem}
-            textColor={'white'} backgroundColorTitle={'#1749FF'}
-        />);
-        items.push(
-        <HelpNeededRow 
-            title={'House Hold'}
-            label1={'Shopping'} name1={this.state.data['household-' + day + '1']}
-            label2={'Cooking'} name2={this.state.data['household-' + day + '2']}
-            label3={'Housekeeping'} name3={this.state.data['household-' + day + '3']}
-            label4={'Laundry'} name4={this.state.data['household-' + day + '4']}
-            keyId={['household-' + day + '1', 'household-' + day + '2','household-' + day + '3','household-' + day + '4']}
-            onItemPress={this.setCurrentItem}
-            textColor={'white'} backgroundColorTitle={'#ED7030'}
-        />);               
-        items.push(    
-        <HelpNeededRow 
-            title={'Schedule'}
-            label1={'Doctor Visits'} name1={this.state.data['schedule-' + day + '1']}
-            label2={'Therapist Visits'} name2={this.state.data['schedule-' + day + '2']}
-            keyId={['schedule-' + day + '1', 'schedule-' + day + '2']}
-            onItemPress={this.setCurrentItem}
-            textColor={'black'} backgroundColorTitle={'yellow'}
-        />);
-        
-        return items;
+    //loop for rendering the medicines row of the toolkits using RowRender component
+    renderHelpers(times) {
+        const helpers = [];
+        let background = '';
+        for (let i=1; i <= times; i++) {
+            background = (i%2 == 0) ? '#bad2ef' : 'white';
+            helpers.push(<HelpNeededRow 
+                            medication={this.state.data['helper' + i]} 
+                            monday={this.state.data['monday' + i]} 
+                            tuesday={this.state.data['tuesday' + i]} 
+                            wednesday={this.state.data['wednesday' + i]} 
+                            thursday={this.state.data['thursday' + i]} 
+                            friday={this.state.data['friday' + i]} 
+                            saturday={this.state.data['saturday' + i]} 
+                            sunday={this.state.data['sunday' + i]} 
+
+                            keyId={['helper' + i ,
+                                    'monday' + i,
+                                    'tuesday' + i,
+                                    'wednesday' + i,
+                                    'friday' + i,
+                                    'saturday' + i,
+                                    'sunday' + i
+                                    ]}
+                            onItemPress={this.setCurrentItem}
+                            backgroundColor={background}
+                            backgroundColorMedication={'#bad2ef'}
+                            />);
+        }
+        return helpers;
     }
+    
+  
 
     render() {
 
@@ -151,89 +151,94 @@ class HelpNeedeToolkit extends Component {
                                   onPress={this.saveData}
                                   userId={this.state.user.id} 
                                   token={this.state.user.token}
+                                  navigator={this.props.navigator}
                                  />
             </View>
           )
         }
 
         return (
-          <View style={styles.container}>
-          <BodyScroll>
-            <View>
-                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                <MainText><HeadingText>HELP NEEDED TOOLKIT</HeadingText></MainText>
-            </View>
-
-            <View style={{flex: 1}}>
-                  <View>
-                      <MainText style={styles.titleDay}>MONDAY</MainText>
+            <View style={styles.container}>
+            <BodyScroll>
+              <View style={{flex: 1}}>
+                  <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
+                  <MainText><HeadingText>Help Needed Toolkit</HeadingText></MainText>
+                
+                
+                  <View style={styles.containerGrid}> 
+  
+                    <View style={[styles.cell, {flex: 2}]}>
+                      <Text style={styles.titleCol}>Help Needed</Text>
+                    </View>
+                    <View style={styles.cell}> 
+                      <Text style={styles.titleCol}>Mo.</Text>
+                    </View>
+                    <View style={styles.cell}>
+                      <Text style={styles.titleCol}>Tu.</Text>
+                    </View>
+                    <View style={styles.cell}>
+                      <Text style={styles.titleCol}>Wed.</Text>
+                    </View>
+                    <View style={styles.cell}>
+                      <Text style={styles.titleCol}>Thu.</Text>
+                    </View>
+                    <View style={styles.cell}>
+                      <Text style={styles.titleCol}>Fri.</Text>
+                    </View>
+                    <View style={styles.cell}>
+                      <Text style={styles.titleCol}>Sa.</Text>
+                    </View> 
+                    <View style={styles.cell}>
+                      <Text style={styles.titleCol}>Sun.</Text>
+                    </View>
+  
                   </View>
-                  
-                      {this.renderItems('monday')}
-
-                  <View >
-                      <MainText style={styles.titleDay}>TUESDAY</MainText>
-                  </View>
-
-                      {this.renderItems('tuesday')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>WEDNESDAY</MainText>
-                  </View>
-
-                      {this.renderItems('wednesday')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>THURSDAY</MainText>
-                  </View>
-
-                      {this.renderItems('thursday')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>FRIDAY</MainText>
-                  </View>
-                    
-                      {this.renderItems('friday')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>SATURDAY</MainText>
-                  </View>
-
-                      {this.renderItems('saturday')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>SUNDAY</MainText>
-                  </View>
-
-                      {this.renderItems('sunday')}
-
-            </View>
-
-          </BodyScroll>
-          </View>           
+  
+                  {this.renderHelpers(18)}
+  
+              </View>
+  
+            </BodyScroll>
+            </View>          
         );
     }
 }
 
 
- const styles = StyleSheet.create({
-     container: {
-       flex: 1,
-       justifyContent: 'flex-start',
-       backgroundColor: 'white',
-     },
-     titleDay: {
-       fontWeight: 'bold',
-       alignSelf: 'center',
-       fontSize: 24,
-     },
-     label: {
-       fontWeight: 'bold',
-     },
-     logoImage: {
-        width: '100%',
-     },
- });
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      backgroundColor: 'white',
+    },
+    logoImage: {
+      width: '100%',
+    },
+    containerGrid: {
+      //backgroundColor: '#1749FF',
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
+
+    titleCol: {
+      color: 'white',
+      fontSize: hp('2%'),
+      alignSelf: 'center'
+    },
+
+    cell: {
+      //flex: 1,
+      backgroundColor: '#000099',
+      //margin: 1,
+      borderColor: '#ccc',
+      //borderColor: 'black',
+      borderWidth: 1,
+      height: hp('6%'),
+      width: wp('9.5%'),
+    },
+
+});
 
   
 

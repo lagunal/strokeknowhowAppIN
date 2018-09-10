@@ -196,10 +196,6 @@ class BrainBodyScreen extends Component {
             </MainText>
 
             <MainText style={styles.bullets}>
-            {`\u2022`} Polish silverware: Wash dishes.
-            </MainText>
-
-            <MainText style={styles.bullets}>
             {`\u2022`} Button/Unbutton shirt.
             </MainText>
 

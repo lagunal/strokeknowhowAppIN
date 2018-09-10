@@ -11,7 +11,7 @@ import {widthPercentageToDP as wp,
 import {
   StyleSheet, View, Image, TouchableOpacity, ScrollView, 
   KeyboardAvoidingView, Text, TextInput, Picker, AsyncStorage,
-  Dimensions, Linking, Platform
+  Dimensions, Linking, Platform, Modal
 } from 'react-native';
 
 import Icon from "react-native-vector-icons/Ionicons";
@@ -36,10 +36,10 @@ class LoginScreen extends Component {
   componentDidMount() {
     lor(this); 
   }
-  
+
   componentWillUnMount() {
     rol();
-    startTabs(); 
+    startTabs();
   }
 
   static navigatorStyle = {
@@ -63,11 +63,20 @@ class LoginScreen extends Component {
         inLogin: true,
         loading: false,
         showSpinner: false,
-        videoPaused: false,
+        videoPaused: true,
+        modalVisible: true,
       }
   }
 
   async componentDidMount() {
+    //close modal
+    setTimeout(function () {
+      this.setState({ 
+        modalVisible: false,
+        videoPaused: false,
+      });
+    }.bind(this), 6000);
+
     try {
       //const user = await AsyncStorage.setItem('user', '');
       const userData = await AsyncStorage.getItem('user');
@@ -331,6 +340,16 @@ class LoginScreen extends Component {
       return (
         <ScrollView >
           <KeyboardAvoidingView behavior='position' style={videoStyles.KeyboardAvoidingView}>
+
+            <Modal
+              animationType="slide"
+              transparent={false}
+              visible={this.state.modalVisible}
+              onRequestClose={()=>{}}
+            >
+                <Image style={styles.backgroundImage}  source={require('../assets/app.jpg')}/>
+            </Modal>          
+
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
 
             <View style={videoStyles.backgroundVideo}>
@@ -350,7 +369,7 @@ class LoginScreen extends Component {
             
           
             <View style={{marginTop: hp('10%')}}>
-              <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow.org</HeadingText>
+              <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow</HeadingText>
               <MainText style={{textAlign: 'center', fontSize: hp('3%'), color: 'white'}}>We are a worldwide stroke <Text style={{fontSize: hp('5%'), fontWeight: 'bold'}}>community</Text> {`\n`} learning from one another</MainText>
             </View>
 

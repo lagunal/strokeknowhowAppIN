@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet, View, Text, TouchableOpacity, Image
+  StyleSheet, View, Text, TouchableOpacity
 } from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';

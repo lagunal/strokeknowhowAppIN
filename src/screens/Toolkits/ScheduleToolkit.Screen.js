@@ -8,6 +8,7 @@ import {
     AsyncStorage,
     TouchableOpacity
   } from 'react-native';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 import HeadingText from '../../components/UI/HeadingText';
 import MainText from "../../components/UI/MainText";
@@ -22,6 +23,22 @@ import ajax from '../../ajax/ajax';
 const logoImage = require('../../assets/logo-header.jpg');
 
 class ScheduleToolkit extends Component {
+    static navigatorButtons = {
+        rightButtons: [
+            {
+            title: 'Save', // for a textual button, provide the button title (label)
+            id: 'save', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+            //testID: 'e2e_rules', // optional, used to locate this view in end-to-end tests
+            //disabled: (this.state.currentItem) ? false : true, // optional, used to disable the button (appears faded and doesn't interact)
+            //disableIconTint: true, // optional, by default the image colors are overridden and tinted to navBarButtonColor, set to true to keep the original image colors
+            //showAsAction: 'ifRoom', // optional, Android only. Control how the button is displayed in the Toolbar. Accepted valued: 'ifRoom' (default) - Show this item as a button in an Action Bar if the system decides there is room for it. 'always' - Always show this item as a button in an Action Bar. 'withText' - When this item is in the action bar, always show it with a text label even if it also has an icon specified. 'never' - Never show this item as a button in an Action Bar.
+            buttonColor: 'white', // Optional, iOS only. Set color for the button (can also be used in setButtons function to set different button style programatically)
+            buttonFontSize: 18, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
+            buttonFontWeight: '600', // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
+            //systemItem: 'save',  
+          },
+        ]
+    };
 
     constructor(props){
       super(props);
@@ -40,11 +57,12 @@ class ScheduleToolkit extends Component {
       this.setState({ user: JSON.parse(userData) });
       try {
           const data = await ajax.getToolkit(this.state.user.id, 'schedule');
+          const dataValue = data.value;
           var dataToolkit = [];
-          if (Object.keys(data).length === 0) {//if toolkit is new (no data from fetch)
+          if (dataValue === null) {//if toolkit is new (no data from fetch)
              dataToolkit = jsonData; //assign "empty" json to data for toolkit
           } else {
-            dataToolkit = data; //assign existing data from toolkit
+            dataToolkit = dataValue; //assign existing data from toolkit
           }
           this.setState({ 
             isLoading: false, 
@@ -57,13 +75,13 @@ class ScheduleToolkit extends Component {
     }
 
     //function to navigate to the detail information
-    setCurrentItem = (item, keyId) => {
+    setCurrentItem = (item,  keyId) => {
         this.setState({
               currentItem: {
-                label: item.label,  
-                name: item.name,   
+                time: item.time,  
+                activity: item.activity,  
               },
-              keyId: keyId,
+              keyId: keyId
         });
     }
 
@@ -75,18 +93,17 @@ class ScheduleToolkit extends Component {
     }
 
     //function for rendering the rows of the toolkits using HelpNeededRow component
-    renderItems(times, day, label) {
+    renderItems(times, day) {
         const items = [];
-        let background = '';
         for (let i=1; i <= times; i++) {
-            background = (i%2 == 0) ? 'white' : 'lightgrey';
             items.push(
                 <ScheduleRow
-                    label={label} 
-                    name={this.state.data[day + i]}
-                    keyId={[day + i]}
+                    time={this.state.data[day + 'Time' + i]}
+                    activity={this.state.data[day + 'Activity' + i]}
+                    keyId={[`${day}Time${i}`,
+                            `${day}Activity${i}`
+                    ]}
                     onItemPress={this.setCurrentItem}
-                    backgroundColor={background}
                 />
             );
         }
@@ -94,6 +111,7 @@ class ScheduleToolkit extends Component {
     }
 
     render() {
+        const background = '#bad2ef';
 
         if(this.state.isLoading){
           return(
@@ -112,195 +130,106 @@ class ScheduleToolkit extends Component {
                                   onPress={this.saveData}
                                   userId={this.state.user.id} 
                                   token={this.state.user.token}
+                                  navigator={this.props.navigator}
                                  />
             </View>
           )
         }
 
         return (
-          <View style={styles.container}>
-          <BodyScroll>
-            <View>
-                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                <MainText><HeadingText>WEEKLY SCHEDULE TOOLKIT</HeadingText></MainText>
-            </View>
-
-            <View style={{flex: 1}}>
-                  <View>
-                      <MainText style={styles.titleDay}>MONDAY</MainText>
-                  </View>
-
-                        <View style={style=styles.labelMorning}>
-                                <MainText style={styles.labelBlack}>MORNING</MainText>
+            <View style={styles.container}>
+            <BodyScroll>
+              <View style={{flex: 1}}>
+                  <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
+                  <MainText><HeadingText>Interactive Weekly Schedule</HeadingText></MainText>
+                
+                    <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                        <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                            <Text style={styles.titleMed}>Monday</Text>
                         </View>
-                            {this.renderItems(5,'morning_monday','Monday Morning')}
+                        {this.renderItems(6, 'monday')}
+                    </View>
 
-                        <View style={style=styles.labelAfternoon}>
-                                <MainText style={styles.label}>AFTERNOON</MainText>
+                    <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                        <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                            <Text style={styles.titleMed}>Tuesday</Text>
                         </View>
-                            {this.renderItems(5,'afternoon_monday','Monday Afternoon')}
+                        {this.renderItems(6, 'tuesday')}
+                    </View>
 
-                        <View style={style=styles.labelEvening}>
-                                <MainText style={styles.label}>EVENING</MainText>
+                    <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                        <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                            <Text style={styles.titleMed}>Wednesday</Text>
                         </View>
-                            {this.renderItems(5,'evening_monday','Monday Evening')}
+                        {this.renderItems(6, 'wednesday')}
+                    </View>
 
-                  <View >
-                        <MainText style={styles.titleDay}>TUESDAY</MainText>
-                  </View>
-
-                        <View style={style=styles.labelMorning}>
-                                <MainText style={styles.labelBlack}>MORNING</MainText>
+                    <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                        <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                            <Text style={styles.titleMed}>Thursday</Text>
                         </View>
-                            {this.renderItems(5,'morning_tuesday','Tuesday Morning')}
+                        {this.renderItems(6, 'thursday')}
+                    </View>  
 
-                        <View style={style=styles.labelAfternoon}>
-                                <MainText style={styles.label}>AFTERNOON</MainText>
+                    <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                        <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                            <Text style={styles.titleMed}>Friday</Text>
                         </View>
-                            {this.renderItems(5,'afternoon_tuesday','Tuesday Afternoon')}
+                        {this.renderItems(6, 'friday')}
+                    </View>
 
-                        <View style={style=styles.labelEvening}>
-                                <MainText style={styles.label}>EVENING</MainText>
+                    <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                        <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                            <Text style={styles.titleMed}>Saturday</Text>
                         </View>
-                            {this.renderItems(5,'evening_tuesday','Tuesday Evening')}
+                        {this.renderItems(6, 'saturday')}
+                    </View>
 
-                  <View>
-                        <MainText style={styles.titleDay}>WEDNESDAY</MainText>
-                  </View>
-
-                         <View style={style=styles.labelMorning}>
-                                <MainText style={styles.labelBlack}>MORNING</MainText>
+                    <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                        <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                            <Text style={styles.titleMed}>Sunday</Text>
                         </View>
-                            {this.renderItems(5,'morning_wednesday','Wednesday Morning')}
+                        {this.renderItems(6, 'sunday')}
+                    </View>
 
-                        <View style={style=styles.labelAfternoon}>
-                                <MainText style={styles.label}>AFTERNOON</MainText>
-                        </View>
-                            {this.renderItems(5,'afternoon_wednesday','Wednesday Afternoon')}
-
-                        <View style={style=styles.labelEvening}>
-                                <MainText style={styles.label}>EVENING</MainText>
-                        </View>
-                            {this.renderItems(5,'evening_wednesday','Wednesday Evening')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>THURSDAY</MainText>
-                  </View>
-
-                        <View style={style=styles.labelMorning}>
-                                <MainText style={styles.labelBlack}>MORNING</MainText>
-                        </View>
-                            {this.renderItems(5,'morning_thursday','Thursday Morning')}
-
-                        <View style={style=styles.labelAfternoon}>
-                                <MainText style={styles.label}>AFTERNOON</MainText>
-                        </View>
-                            {this.renderItems(5,'afternoon_thursday','Thursday Afternoon')}
-
-                        <View style={style=styles.labelEvening}>
-                                <MainText style={styles.label}>EVENING</MainText>
-                        </View>
-                            {this.renderItems(5,'evening_thursday','Thursday Evening')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>FRIDAY</MainText>
-                  </View>
-                    
-                  <View style={style=styles.labelMorning}>
-                                <MainText style={styles.labelBlack}>MORNING</MainText>
-                        </View>
-                            {this.renderItems(5,'morning_friday','Friday Morning')}
-
-                        <View style={style=styles.labelAfternoon}>
-                                <MainText style={styles.label}>AFTERNOON</MainText>
-                        </View>
-                            {this.renderItems(5,'afternoon_friday','Friday Afternoon')}
-
-                        <View style={style=styles.labelEvening}>
-                                <MainText style={styles.label}>EVENING</MainText>
-                        </View>
-                            {this.renderItems(5,'evening_friday','Friday Evening')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>SATURDAY</MainText>
-                  </View>
-
-                        <View style={style=styles.labelMorning}>
-                                <MainText style={styles.labelBlack}>MORNING</MainText>
-                        </View>
-                            {this.renderItems(5,'morning_saturday','Saturday Morning')}
-
-                        <View style={style=styles.labelAfternoon}>
-                                <MainText style={styles.label}>AFTERNOON</MainText>
-                        </View>
-                            {this.renderItems(5,'afternoon_saturday','Saturday Afternoon')}
-
-                        <View style={style=styles.labelEvening}>
-                                <MainText style={styles.label}>EVENING</MainText>
-                        </View>
-                            {this.renderItems(5,'evening_saturday','Saturday Evening')}
-
-                  <View>
-                        <MainText style={styles.titleDay}>SUNDAY</MainText>
-                  </View>
-
-                         <View style={style=styles.labelMorning}>
-                                <MainText style={styles.labelBlack}>MORNING</MainText>
-                        </View>
-                            {this.renderItems(5,'morning_sunday','Sunday Morning')}
-
-                        <View style={style=styles.labelAfternoon}>
-                                <MainText style={styles.label}>AFTERNOON</MainText>
-                        </View>
-                            {this.renderItems(5,'afternoon_sunday','Sunday Afternoon')}
-
-                        <View style={style=styles.labelEvening}>
-                                <MainText style={styles.label}>EVENING</MainText>
-                        </View>
-                            {this.renderItems(5,'evening_sunday','Sunday Evening')}
-
-            </View>
-
-          </BodyScroll>
-          </View>           
+              </View>
+  
+            </BodyScroll>
+            </View>       
         );
     }
 }
 
 
- const styles = StyleSheet.create({
-     container: {
-       flex: 1,
-       justifyContent: 'flex-start',
-       backgroundColor: 'white',
-     },
-     titleDay: {
-       fontWeight: 'bold',
-       alignSelf: 'center',
-       fontSize: 24,
-     },
-     label: {
-       fontWeight: 'bold',
-       fontSize: 16,
-       color: 'white',
-     },
-     labelBlack: {
-        fontWeight: 'bold',
-        fontSize: 16,
-      },
-     labelMorning: {
-        backgroundColor: 'yellow',
-     },
-     labelAfternoon: {
-        backgroundColor: '#ED7030',
-     },
-     labelEvening: {
-        backgroundColor: '#1749FF',
-     },
-     logoImage: {
-        width: '100%',
-     },
- });
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      backgroundColor: 'white',
+    },
+    logoImage: {
+      width: '100%',
+    },
+    titleMed: {
+        fontSize: hp('2%'),
+        paddingVertical: hp('9%')
+     
+    },
+    containerGrid: {
+      //backgroundColor: '#1749FF',
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
+    cell: {
+      flex: 1,
+      borderColor: '#ccc',
+      borderWidth: 1,
+      height: hp('20%'),
+      width: wp('9.5%'),
+    },
+
+});
 
   
 

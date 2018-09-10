@@ -1,28 +1,42 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 import MainText from "../../UI/MainText";
 
 const ScheduleRow = (props) => {
 
-    handlePress = () => {
+    handlePress =() => {
         props.onItemPress(props, props.keyId);
-    }
+    };
 
     return(
-        <TouchableOpacity onPress={this.handlePress}>
-            
-            <View style={{backgroundColor: props.backgroundColor}}>    
-
-                  <View>    
-                      <MainText style={{fontSize: 20}}>{props.name}</MainText>
-                  </View>
+                <TouchableOpacity style={styles.cell} onPress={this.handlePress}>
                 
-            </View>
-        </TouchableOpacity>
-    )
+                        <Text style={[styles.titleHour, {fontWeight: 'bold'}]}>{props.time} </Text>
+                        <Text style={styles.titleHour}>{props.activity}</Text>
+
+                </TouchableOpacity>
+    );
 
 }
+
+const styles = StyleSheet.create({
+
+    titleHour: {
+      fontSize: hp('2%'),
+
+    },
+    cell: {
+      flex: 1,
+      borderColor: '#ccc',
+      borderWidth: 1,
+      height: hp('20%'),
+    },
+
+});
+
 
 export default ScheduleRow;
 

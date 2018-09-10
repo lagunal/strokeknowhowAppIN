@@ -1,6 +1,7 @@
 import {
     StyleSheet
 } from 'react-native';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 export default StyleSheet.create({
     fullView:{
@@ -291,5 +292,10 @@ export default StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
     },
-
+    backgroundImage: {
+        flex: 1,
+        width: undefined,
+        height: undefined,
+        resizeMode: 'contain'
+    }
 });

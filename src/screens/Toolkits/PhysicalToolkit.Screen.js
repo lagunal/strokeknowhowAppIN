@@ -3,9 +3,11 @@ import {
     StyleSheet,
     View,
     Image,
+    Text,
     ActivityIndicator,
     AsyncStorage
   } from 'react-native';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 import HeadingText from '../../components/UI/HeadingText';
 import MainText from "../../components/UI/MainText";
@@ -22,6 +24,22 @@ import ajax from '../../ajax/ajax';
 const logoImage = require('../../assets/logo-header.jpg');
 
 class PhysicalToolkit extends Component {
+    static navigatorButtons = {
+      rightButtons: [
+          {
+          title: 'Save', // for a textual button, provide the button title (label)
+          id: 'save', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+          //testID: 'e2e_rules', // optional, used to locate this view in end-to-end tests
+          //disabled: (this.state.currentItem) ? false : true, // optional, used to disable the button (appears faded and doesn't interact)
+          //disableIconTint: true, // optional, by default the image colors are overridden and tinted to navBarButtonColor, set to true to keep the original image colors
+          //showAsAction: 'ifRoom', // optional, Android only. Control how the button is displayed in the Toolbar. Accepted valued: 'ifRoom' (default) - Show this item as a button in an Action Bar if the system decides there is room for it. 'always' - Always show this item as a button in an Action Bar. 'withText' - When this item is in the action bar, always show it with a text label even if it also has an icon specified. 'never' - Never show this item as a button in an Action Bar.
+          buttonColor: 'white', // Optional, iOS only. Set color for the button (can also be used in setButtons function to set different button style programatically)
+          buttonFontSize: 18, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
+          buttonFontWeight: '600', // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
+          //systemItem: 'save',  
+        },
+      ]
+    };
 
     constructor(props){
       super(props);
@@ -40,11 +58,12 @@ class PhysicalToolkit extends Component {
       this.setState({ user: JSON.parse(userData) });
       try {
           const data = await ajax.getToolkit(this.state.user.id, 'physical');
+          const dataValue = data.value;
           var dataToolkit = [];
-          if (Object.keys(data).length === 0) {//if toolkit is new (no data from fetch)
+          if (dataValue === null) {//if toolkit is new (no data from fetch)
              dataToolkit = jsonData; //assign "empty" json to data for toolkit
           } else {
-            dataToolkit = data; //assign existing data from toolkit
+            dataToolkit = dataValue; //assign existing data from toolkit
           }
           this.setState({ 
             isLoading: false, 
@@ -59,22 +78,10 @@ class PhysicalToolkit extends Component {
     //function to navigate to the detail information
     setCurrentItem = (item, keyId) => {
         this.setState({
-              currentItem: {
-                labelExercise: item.labelExercise,
-                exercise: item.exercise,
-                labelTime: item.labelTime,
-                time1: item.time1,
-                time2: item.time2,
-                labelPulse1: item.labelPulse1,
-                labelPulse2: item.labelPulse2,
-                pulse1: item.pulse1,
-                pulse2: item.pulse2,
-                labelGoals: item.labelGoals,
-                goals1: item.goals1,
-                goals2: item.goals2,
-                goals3: item.goals3                            
-              },
-              keyId: keyId,
+          currentItem: {
+            activity: item.activity,  
+          },
+          keyId: keyId
         });
     }
 
@@ -85,39 +92,23 @@ class PhysicalToolkit extends Component {
         })
     }
 
-    //loop for rendering the medicines row of the toolkits using MedicationRow component
-    renderItem(labelDay) {
-      const item = [];
-          item.push(<PhysicalRow 
-                            labelExercise='Exercise' 
-                            exercise={this.state.data[labelDay + '_exercise']} 
-                            labelTime='Time'
-                            time1={this.state.data[labelDay + '_time1']} 
-                            time2={this.state.data[labelDay + '_time2']} 
-                            labelPulse1={'Pulse during exercise'} 
-                            labelPulse2={'Pulse after exercise'}
-                            pulse1={this.state.data[labelDay + '_pulse_during']} 
-                            pulse2={this.state.data[labelDay + '_pulse_after']}
-                            labelGoals={'Personal goals'}
-                            goals1={this.state.data[labelDay + '_goals1']}
-                            goals2={this.state.data[labelDay + '_goals2']}
-                            goals3={this.state.data[labelDay + '_goals3']}
-
-                            keyId={[labelDay + '_exercise',
-                                    labelDay + '_time1',
-                                    labelDay + '_time2',
-                                    labelDay + '_pulse_during',
-                                    labelDay + '_pulse_after',
-                                    labelDay + '_goals1',
-                                    labelDay + '_goals2',
-                                    labelDay + '_goals3'
-                                ]}
-                            onItemPress={this.setCurrentItem}
-                            backgroundColor={'lightgrey'}/>);
-      return item;
+    //loop for rendering the items row of the toolkits using physicalRow component
+    renderItems(times, day) {
+      const items = [];
+      for (let i=1; i <= times; i++) {
+          items.push(
+              <PhysicalRow
+                  activity={this.state.data[day + 'Activity' + i]}
+                  keyId={[`${day}Activity${i}`]}
+                  onItemPress={this.setCurrentItem}
+              />
+          );
+      }
+      return items;
     }
 
     render() {
+        const background = '#bad2ef';
 
         if(this.state.isLoading){
           return(
@@ -136,6 +127,7 @@ class PhysicalToolkit extends Component {
                                   onPress={this.saveData}
                                   userId={this.state.user.id} 
                                   token={this.state.user.token}
+                                  navigator={this.props.navigator}
                                  />
             </View>
           )
@@ -144,82 +136,96 @@ class PhysicalToolkit extends Component {
         return (
           <View style={styles.container}>
           <BodyScroll>
-            <View >
-                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                <MainText><HeadingText>PHYSICAL THERAPY</HeadingText></MainText>
-            </View>
-
-            
-
             <View style={{flex: 1}}>
-                  <View style={styles.titleWrap}>    
-                      <MainText><SubHeadingText style={styles.titleDay}>MONDAY</SubHeadingText></MainText>
+                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
+                <MainText><HeadingText>Interactive Physical Therapy</HeadingText></MainText>
+              
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Monday</Text>
+                      </View>
+                      {this.renderItems(6, 'monday')}
                   </View>
 
-                    {this.renderItem('monday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>TUESDAY</SubHeadingText></MainText>
-                  </View>
-                    
-                    {this.renderItem('tuesday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>WEDNESDAY</SubHeadingText></MainText>
+                  <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Tuesday</Text>
+                      </View>
+                      {this.renderItems(6, 'tuesday')}
                   </View>
 
-                    {this.renderItem('wednesday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>THURSDAY</SubHeadingText></MainText>
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Wednesday</Text>
+                      </View>
+                      {this.renderItems(6, 'wednesday')}
                   </View>
 
-                    {this.renderItem('thursday')}
+                  <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Thursday</Text>
+                      </View>
+                      {this.renderItems(6, 'thursday')}
+                  </View>  
 
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>FRIDAY</SubHeadingText></MainText>
-                  </View>
-                    
-                    {this.renderItem('friday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>SATURDAY</SubHeadingText></MainText>
-                  </View>
-
-                    {this.renderItem('saturday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>SUNDAY</SubHeadingText></MainText>
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Friday</Text>
+                      </View>
+                      {this.renderItems(6, 'friday')}
                   </View>
 
-                    {this.renderItem('sunday')}
-                   
+                  <View style={[styles.containerGrid,{backgroundColor: 'white'}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Saturday</Text>
+                      </View>
+                      {this.renderItems(6, 'saturday')}
+                  </View>
+
+                  <View style={[styles.containerGrid,{backgroundColor: background}]}> 
+                      <View style={[styles.cell, {backgroundColor: 'white'}]}>
+                          <Text style={styles.titleMed}>Sunday</Text>
+                      </View>
+                      {this.renderItems(6, 'sunday')}
+                  </View>
+
             </View>
 
           </BodyScroll>
-          </View>           
+          </View>         
         );
     }
 }
 
-
- const styles = StyleSheet.create({
-     container: {
-       flex: 1,
-       justifyContent: 'flex-start',
-       backgroundColor: 'white',
-     },
-     logoImage: {
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      backgroundColor: 'white',
+    },
+    logoImage: {
       width: '100%',
     },
-    titleWrap: {
-      backgroundColor: '#1749FF',
+    titleMed: {
+        fontSize: hp('2%'),
+        paddingVertical: hp('9%')
+     
     },
-    titleDay: {
-      color: 'white',
+    containerGrid: {
+      //backgroundColor: '#1749FF',
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
+    cell: {
+      flex: 1,
+      borderColor: '#ccc',
+      borderWidth: 1,
+      height: hp('20%'),
+      //width: wp('9.5%'),
     },
 
- });
+});
 
   
 

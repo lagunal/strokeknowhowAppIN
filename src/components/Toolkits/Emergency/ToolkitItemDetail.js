@@ -10,6 +10,42 @@ import ajax from '../../../ajax/ajax';
 
 class ToolkitItemDetail extends Component {
 
+    onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
+        if (event.type == 'NavBarButtonPress') { // this is the event type for button presses
+          if (event.id == 'save') { // this is the same id field from the static navigatorButtons definition
+            var data = this.props.data;
+            if (this.props.keyId[2]) { //if parent is ToolkitMedication
+                for (var key in data){
+                    if (data.hasOwnProperty(key)) {
+                        data[key] = (key === this.props.keyId[0]) ? this.state.medication : data[key];
+                        data[key] = (key === this.props.keyId[1]) ? this.state.dosage : data[key];
+                        data[key] = (key === this.props.keyId[2]) ? this.state.purpose : data[key];
+                    }
+                }
+            } else if (this.props.keyId[1]) { //if parent is ToolkitContactInfo
+                for (var key in data){
+                    if (data.hasOwnProperty(key)) {
+                        data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];
+                        data[key] = (key === this.props.keyId[1]) ? this.state.phone : data[key];
+                        
+                    }
+                }
+            } else {
+                for (var key in data){
+                    if (data.hasOwnProperty(key)) {
+                        data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];                    
+                    }
+                }
+            }
+            let jsonData = JSON.stringify(data);
+            ajax.saveToolkit(jsonData, this.props.userId, this.props.token, 'emergency');
+            this.props.onPress();//calls the onPress event from parent 
+            
+          }
+        }
+    }
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -19,38 +55,40 @@ class ToolkitItemDetail extends Component {
             dosage: this.props.item.dosage,
             purpose: this.props.item.purpose,
         }
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
 
 
     //updates the data array with the updated info and call function to save 
-    handlePress = () => {
-        var data = this.props.data;
-        if (this.props.keyId[2]) { //if parent is ToolkitMedication
-            for (var key in data){
-                if (data.hasOwnProperty(key)) {
-                    data[key] = (key === this.props.keyId[0]) ? this.state.medication : data[key];
-                    data[key] = (key === this.props.keyId[1]) ? this.state.dosage : data[key];
-                    data[key] = (key === this.props.keyId[2]) ? this.state.purpose : data[key];
-                }
-            }
-        } else if (this.props.keyId[1]) { //if parent is ToolkitContactInfo
-            for (var key in data){
-                if (data.hasOwnProperty(key)) {
-                    data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];
-                    data[key] = (key === this.props.keyId[1]) ? this.state.phone : data[key];
+    //handlePress = () => {
+        // var data = this.props.data;
+        // if (this.props.keyId[2]) { //if parent is ToolkitMedication
+        //     for (var key in data){
+        //         if (data.hasOwnProperty(key)) {
+        //             data[key] = (key === this.props.keyId[0]) ? this.state.medication : data[key];
+        //             data[key] = (key === this.props.keyId[1]) ? this.state.dosage : data[key];
+        //             data[key] = (key === this.props.keyId[2]) ? this.state.purpose : data[key];
+        //         }
+        //     }
+        // } else if (this.props.keyId[1]) { //if parent is ToolkitContactInfo
+        //     for (var key in data){
+        //         if (data.hasOwnProperty(key)) {
+        //             data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];
+        //             data[key] = (key === this.props.keyId[1]) ? this.state.phone : data[key];
                     
-                }
-            }
-        } else {
-            for (var key in data){
-                if (data.hasOwnProperty(key)) {
-                    data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];                    
-                }
-            }
-        }
-        ajax.saveToolkit(data, this.props.userId, this.props.token, 'emergency');
-        this.props.onPress();//calls the onPress event from parent 
-    }
+        //         }
+        //     }
+        // } else {
+        //     for (var key in data){
+        //         if (data.hasOwnProperty(key)) {
+        //             data[key] = (key === this.props.keyId[0]) ? this.state.name : data[key];                    
+        //         }
+        //     }
+        // }
+        // let jsonData = JSON.stringify(data);
+        // ajax.saveToolkit(jsonData, this.props.userId, this.props.token, 'emergency');
+        // this.props.onPress();//calls the onPress event from parent 
+   // }
     
     render(){
         const { item } = this.props;
@@ -73,9 +111,9 @@ class ToolkitItemDetail extends Component {
                             style={styles.inputStyleToolkit}
                             onChangeText={purpose => this.setState({ purpose } )}/>
 
-                    <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
+                    {/* <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
                        Save
-                    </Button>
+                    </Button> */}
                 </View>
             )
         }
@@ -93,9 +131,9 @@ class ToolkitItemDetail extends Component {
                                 style={styles.inputStyleToolkit}
                                 onChangeText={phone => this.setState({ phone } )}/>
 
-                        <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
+                        {/* <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
                         Save
-                        </Button>
+                        </Button> */}
                     </View>
             )
         }
@@ -108,9 +146,9 @@ class ToolkitItemDetail extends Component {
                         style={styles.inputStyleToolkit}
                         onChangeText={name => this.setState({ name } )} />
 
-                <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
+                {/* <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
                 Save
-                </Button>
+                </Button> */}
             </View>
         )
     }

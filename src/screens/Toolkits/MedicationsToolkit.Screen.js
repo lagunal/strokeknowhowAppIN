@@ -4,24 +4,44 @@ import {
     View,
     Image,
     ActivityIndicator,
-    AsyncStorage
+    AsyncStorage,
+    Text
   } from 'react-native';
+import { connect } from 'react-redux';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+
 
 import HeadingText from '../../components/UI/HeadingText';
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
-
-import MedicationRow from "../../components/Toolkits/Medications/MedicationRow";
+import RowRender from "../../components/Toolkits/Medications/RowRender";
 import MedicationDetail from "../../components/Toolkits/Medications/MedicationDetail"
-
+import { selectItem } from '../../store/actions/index';
 import SubHeadingText from '../../components/UI/SubHeadingText';
 
 import jsonData from '../../assets/json/medicationsToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
 
+
 const logoImage = require('../../assets/logo-header.jpg');
 
 class MedicationsToolkit extends Component {
+    static navigatorButtons = {
+      rightButtons: [
+          {
+          title: 'Save', // for a textual button, provide the button title (label)
+          id: 'save', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+          //testID: 'e2e_rules', // optional, used to locate this view in end-to-end tests
+          //disabled: (this.state.currentItem) ? false : true, // optional, used to disable the button (appears faded and doesn't interact)
+          //disableIconTint: true, // optional, by default the image colors are overridden and tinted to navBarButtonColor, set to true to keep the original image colors
+          //showAsAction: 'ifRoom', // optional, Android only. Control how the button is displayed in the Toolbar. Accepted valued: 'ifRoom' (default) - Show this item as a button in an Action Bar if the system decides there is room for it. 'always' - Always show this item as a button in an Action Bar. 'withText' - When this item is in the action bar, always show it with a text label even if it also has an icon specified. 'never' - Never show this item as a button in an Action Bar.
+          buttonColor: 'white', // Optional, iOS only. Set color for the button (can also be used in setButtons function to set different button style programatically)
+          buttonFontSize: 18, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
+          buttonFontWeight: '600', // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
+          //systemItem: 'save',  
+        },
+      ]
+    };
 
     constructor(props){
       super(props);
@@ -31,7 +51,10 @@ class MedicationsToolkit extends Component {
         currentItem: null,
         user: [],
       }
+      
     };
+
+   
 
     //get data from rest API
     async componentDidMount() {
@@ -40,16 +63,18 @@ class MedicationsToolkit extends Component {
       this.setState({ user: JSON.parse(userData) });
       try {
           const data = await ajax.getToolkit(this.state.user.id, 'medication');
+          const dataValue = data.value;
           var dataToolkit = [];
-          if (Object.keys(data).length === 0) {//if toolkit is new (no data from fetch)
+          if (dataValue === null) {//if toolkit is new (no data from fetch)
              dataToolkit = jsonData; //assign "empty" json to data for toolkit
           } else {
-            dataToolkit = data; //assign existing data from toolkit
+            dataToolkit = dataValue; //assign existing data from toolkit
           }
           this.setState({ 
             isLoading: false, 
             data: dataToolkit,
           });
+          
       } catch(error) {
         console.log(error);
       }
@@ -60,20 +85,15 @@ class MedicationsToolkit extends Component {
     setCurrentItem = (item, keyId) => {
         this.setState({
               currentItem: {
-                labelMedicine: item.labelMedication,
-                nameMedicine: item.medication,
-                labelDose: item.labelDose,
-                dose: item.dose,
-                labelMorning: (item.labelMorning) ? item.labelMorning : '',
-                morning: (item.morning) ? item.morning : '',
-                labelNoon: (item.labelNoon) ? item.labelNoon : '',
-                noon: (item.noon) ? item.noon : '',
-                labelAfternoon: (item.labelAfternoon) ? item.labelAfternoon : '',
-                afternoon: (item.afternoon) ? item.afternoon : '',
-                labelEvening: (item.labelEvening) ? item.labelEvening : '',
-                evening: (item.evening) ? item.evening : '',
-                labelBedtime: (item.labelBedtime) ? item.labelBedtime : '',
-                bedtime: (item.bedtime) ? item.bedtime : '',                                
+                medicine: item.medication,
+                time: item.time,
+                monday: (item.monday),
+                tuesday: (item.tuesday),
+                wednesday: (item.wednesday),
+                thursday: (item.thursday),
+                friday: (item.friday),   
+                saturday: (item.saturday),  
+                sunday: (item.sunday),                              
               },
               keyId: keyId,
         });
@@ -86,44 +106,43 @@ class MedicationsToolkit extends Component {
         })
     }
 
-    //loop for rendering the medicines row of the toolkits using MedicationRow component
-    renderMedications(times,labelDay) {
+    //loop for rendering the medicines row of the toolkits using RowRender component
+    renderMedications(times) {
       const medicines = [];
       let background = '';
       for (let i=1; i <= times; i++) {
-          background = (i%2 == 0) ? 'white' : 'lightgray';
-          medicines.push(<MedicationRow 
-                            labelMedication='Medicine'
-                            medication={this.state.data['medicine' + labelDay + i]} 
-                            labelDose='Dose'
-                            dose={this.state.data['dose' + labelDay + i]} 
-                            labelMorning='morning'
-                            morning={this.state.data['morning' + labelDay + i]} 
-                            labelNoon='noon'
-                            noon={this.state.data['noon' + labelDay + i]} 
-                            labelAfternoon='afternoon'
-                            afternoon={this.state.data['afternoon' + labelDay + i]} 
-                            labelEvening='evening'
-                            evening={this.state.data['evening' + labelDay + i]} 
-                            labelBedtime='bedtime'
-                            bedtime={this.state.data['bedtime' + labelDay + i]} 
+          background = (i%2 == 0) ? '#bad2ef' : 'white';
+          medicines.push(<RowRender 
+                            medication={this.state.data['medicine' + i]} 
+                            time={this.state.data['time' + i]} 
+                            monday={this.state.data['monday' + i]} 
+                            tuesday={this.state.data['tuesday' + i]} 
+                            wednesday={this.state.data['wednesday' + i]} 
+                            thursday={this.state.data['thursday' + i]} 
+                            friday={this.state.data['friday' + i]} 
+                            saturday={this.state.data['saturday' + i]} 
+                            sunday={this.state.data['sunday' + i]} 
 
-                            keyId={['medicine' + labelDay + i ,
-                                    'dose' + labelDay + i, 
-                                    'morning' + labelDay + i,
-                                    'noon' + labelDay + i,
-                                    'afternoon' + labelDay + i,
-                                    'evening' + labelDay + i,
-                                    'bedtime' + labelDay + i
+                            keyId={['medicine' + i ,
+                                    'time' + i, 
+                                    'monday' + i,
+                                    'tuesday' + i,
+                                    'wednesday' + i,
+                                    'friday' + i,
+                                    'saturday' + i,
+                                    'sunday' + i
                                   ]}
                             onItemPress={this.setCurrentItem}
-                            backgroundColor={background}/>);
+                            backgroundColor={background}
+                            backgroundColorMedication={'#bad2ef'}/>);
       }
       return medicines;
     }
+    
+    
 
     render() {
-
+    
         if(this.state.isLoading){
           return(
             <View style={{flex: 1, padding: 20}}>
@@ -141,6 +160,7 @@ class MedicationsToolkit extends Component {
                                   onPress={this.saveData}
                                   userId={this.state.user.id} 
                                   token={this.state.user.token}
+                                  navigator={this.props.navigator}
                                  />
             </View>
           )
@@ -149,53 +169,45 @@ class MedicationsToolkit extends Component {
         return (
           <View style={styles.container}>
           <BodyScroll>
-            <View >
-                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                <MainText><HeadingText>MEDICATIONS TOOLKIT</HeadingText></MainText>
-                <View style={styles.titleWrap}> 
-                  <MainText><SubHeadingText style={styles.titleDay}>MONDAY</SubHeadingText></MainText>
-                </View>
-            </View>
-
             <View style={{flex: 1}}>
-                    
-                    {this.renderMedications(5, 'Monday')}
+                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
+                <MainText><HeadingText>Interactive Medication Toolkit</HeadingText></MainText>
+              
+              
+                <View style={styles.containerGrid}> 
 
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>TUESDAY</SubHeadingText></MainText>
+                  <View style={[styles.cell, {flex: 2}]}>
+                    <Text style={styles.titleCol}>Medication Dose</Text>
+                  </View>
+                  <View style={styles.cell }>
+                    <Text style={styles.titleCol}>Time</Text>
+                  </View>
+                  <View style={styles.cell}> 
+                    <Text style={styles.titleCol}>Mo.</Text>
+                  </View>
+                  <View style={styles.cell}>
+                    <Text style={styles.titleCol}>Tu.</Text>
+                  </View>
+                  <View style={styles.cell}>
+                    <Text style={styles.titleCol}>Wed.</Text>
+                  </View>
+                  <View style={styles.cell}>
+                    <Text style={styles.titleCol}>Thu.</Text>
+                  </View>
+                  <View style={styles.cell}>
+                    <Text style={styles.titleCol}>Fri.</Text>
+                  </View>
+                  <View style={styles.cell}>
+                    <Text style={styles.titleCol}>Sa.</Text>
+                  </View> 
+                  <View style={styles.cell}>
+                    <Text style={styles.titleCol}>Sun.</Text>
                   </View>
 
-                    {this.renderMedications(5, 'Tuesday')}
+                </View>
 
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>WEDNESDAY</SubHeadingText></MainText>
-                  </View>
+                {this.renderMedications(15)}
 
-                    {this.renderMedications(5, 'Wednesday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>THURSDAY</SubHeadingText></MainText>
-                  </View>
-
-                    {this.renderMedications(5, 'Thursday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>FRIDAY</SubHeadingText></MainText>
-                  </View>
-                    
-                    {this.renderMedications(5, 'Friday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>SATURDAY</SubHeadingText></MainText>
-                  </View>
-
-                    {this.renderMedications(5, 'Saturday')}
-
-                  <View style={styles.titleWrap}>
-                      <MainText><SubHeadingText style={styles.titleDay}>SUNDAY</SubHeadingText></MainText>
-                  </View>
-
-                    {this.renderMedications(5, 'Sunday')}
             </View>
 
           </BodyScroll>
@@ -214,15 +226,40 @@ class MedicationsToolkit extends Component {
      logoImage: {
        width: '100%',
      },
-     titleWrap: {
-       backgroundColor: '#1749FF',
+     containerGrid: {
+       flex: 1,
+       flexDirection: 'row',
+       flexWrap: 'wrap',
      },
-     titleDay: {
+
+     titleCol: {
        color: 'white',
-     }
+       fontSize: hp('2%'),
+       alignSelf: 'center'
+     },
+
+     cell: {
+       flex: 1,
+       backgroundColor: '#000099',
+       borderColor: '#ccc',
+       borderWidth: 1,
+       height: hp('6%'),
+     },
 
  });
 
-  
+const mapStateToProps = state => {
+  return {
+    //toolkits:
+    currentItem: state.toolkits.currentItem,
+  };
+};    
 
+const mapDispatchToProps = dispatch => {
+  return {
+    selectItem: (item) => dispatch(selectItem(item)),
+  };
+};
+
+//export default connect(mapStateToProps, mapDispatchToProps) (MedicationsToolkit);
 export default MedicationsToolkit;

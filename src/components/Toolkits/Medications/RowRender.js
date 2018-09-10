@@ -15,7 +15,7 @@ IconRender = () => {
 }
 
 
-const HelpNeededRow = (props) => {
+const RowRender = (props) => {
     
     handlePress = () => {
         props.onItemPress(props, props.keyId);
@@ -28,6 +28,11 @@ const HelpNeededRow = (props) => {
                 <View style={[styles.cell, {flex: 2 , backgroundColor: props.backgroundColorMedication}]}>
                     <Text style={styles.titleMed}>{props.medication}</Text>
                 </View>
+
+                {props.parent !== 'HelpNeeded' &&
+                <View style={[styles.cell, {backgroundColor: props.backgroundColorMedication}]}>
+                    <Text style={styles.titleHour}>{props.time}</Text>
+                </View>}
 
                 <View style={styles.cell}>
                     {props.monday  &&
@@ -81,11 +86,11 @@ const styles = StyleSheet.create({
       },
   
     cell: {
-      //flex:  1,
+      flex:  1,
       borderColor: '#ccc',
       borderWidth: 1,
       height: hp('6%'),
-      width: wp('9.5%'),
+      //width: wp('9.5%'),
     },
     icon: {
         marginHorizontal: wp('2%'),
@@ -93,4 +98,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HelpNeededRow;
+export default RowRender;

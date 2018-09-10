@@ -757,7 +757,7 @@ class HomeScreen extends Component {
                                   <MainText style={styles.boxLink}>
                                       www.abledata.com
                                   </MainText>
-                                  </TouchableOpacity>>
+                                  </TouchableOpacity>
                                   <Text style={styles.boxText}>Best adaptable product information - English Spanish</Text>
                                   <Text style={styles.boxText}>800-227-0216, 703-992-8313. TTY</Text>
                                   <Text style={styles.boxText}>abledata@neweditions.net Products to ease living.</Text>
@@ -770,9 +770,9 @@ class HomeScreen extends Component {
                                   <MainText style={styles.boxLink}>
                                       www.acl.gov
                                   </MainText>
-                                  </TouchableOpacity>>
+                                  </TouchableOpacity>
                                   <Text style={styles.boxText}>Community living information.</Text>
-                            </View>>
+                            </View>
 
 
                             <View style={[styles.border, {height: 100}]}>
