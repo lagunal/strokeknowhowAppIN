@@ -128,6 +128,7 @@ class MedicationsToolkit extends Component {
                                     'monday' + i,
                                     'tuesday' + i,
                                     'wednesday' + i,
+                                    'thursday' + i,
                                     'friday' + i,
                                     'saturday' + i,
                                     'sunday' + i

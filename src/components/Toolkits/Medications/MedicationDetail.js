@@ -19,7 +19,6 @@ class MedicationDetail extends Component {
           if (event.id == 'save') { // this is the same id field from the static navigatorButtons definition
                 
                 var data = this.props.data;
-                console.log(data);
                 for (var key in data){
                     if (data.hasOwnProperty(key)) {
                         data[key] = (key === this.props.keyId[0]) ? this.state.medicine : data[key];
