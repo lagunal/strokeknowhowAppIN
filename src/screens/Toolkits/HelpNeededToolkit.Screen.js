@@ -162,8 +162,8 @@ class HelpNeedeToolkit extends Component {
             <View style={styles.container}>
             <BodyScroll>
               <View style={{flex: 1}}>
-                  <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                  <MainText><HeadingText>Help Needed Toolkit</HeadingText></MainText>
+                  {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
+                  <MainText><HeadingText>Interactive Help Needed Toolkit</HeadingText></MainText>
                 
                 
                   <View style={styles.containerGrid}> 

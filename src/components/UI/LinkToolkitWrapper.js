@@ -18,7 +18,7 @@ const LinkToolkitWrapper = (props) => {
                 {props.text}
             </MainText>
 
-            <TouchableOpacity onPress={this.handlePress}>
+            <TouchableOpacity style={[styles.wrapper, {marginBottom: 10}]} onPress={this.handlePress}>
                 <ImageToolkitContainer src={props.source} />
             </TouchableOpacity>
             

@@ -102,7 +102,7 @@ class ToolkitHomeScreen extends Component {
                         <Icon style={styles.icon} name="ios-warning" size={30} md="md-warning"></Icon>    
                         <MainText>
                             <SubHeadingText style={styles.title}>
-                                Emergency Information 
+                                Emergency Information Toolkit
                             </SubHeadingText>
                         </MainText>  
                         
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 22,
+    fontSize: wp('4.5%')
   },
   icon: {
       marginHorizontal: 10,

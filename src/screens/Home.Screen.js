@@ -19,12 +19,12 @@ import Link from "../components/UI/Link";
 const familyImage = require('../assets/family.png');
 const safetyImage = require('../assets/safety.jpg');
 const familyPlanImage = require('../assets/family-plan.png');
-const weeklyScheduleIcon = require('../assets/weekly-schedule-icon.png');
-const helpNeededIcon = require('../assets/help_needed_icon.png');
+//const weeklyScheduleIcon = require('../assets/weekly-schedule-icon.png');
+//const helpNeededIcon = require('../assets/help_needed_icon.png');
 const medicationsImage = require('../assets/medications.png');
 const bladderImage = require('../assets/bladder.png');
 const swallowingImage = require('../assets/swallowing.png');
-const physicalIcon = require('../assets/physical-therapy-icon.png');
+//const physicalIcon = require('../assets/physical-therapy-icon.png');
 const skinImage = require('../assets/skin-care1.png');
 const kufungisisaImage = require('../assets/kufungisisa.png');
 const skinImage2 = require('../assets/skin-care2.png');
@@ -32,6 +32,10 @@ const brainImage = require('../assets/brain-body.png');
 const emergencyIcon = require('../assets/emergency-station-icon.png');
 const strokeLine = require('../assets/helpline-logo.png');
 const bioImage = require('../assets/bio.jpg');
+const weeklyScheduleIcon = require('../assets/fotoWeeklySchedule.jpg');
+const helpNeededIcon = require('../assets/fotohelpneeded.jpg');
+const medicationIcon = require('../assets/FotoMedication.jpg');
+const physicalIcon = require('../assets/FotoPhysicalTherapy.jpg');
 
 const THRESHOLD = 200;
 
@@ -210,7 +214,7 @@ class HomeScreen extends Component {
                       <View>
                               <TouchableOpacity onPress={this.playVideoAnimation}>
                                   <View style={{padding: 20}}>
-                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: 22}}>Check VIDEO &rarr;</SubHeadingText></MainText>
+                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
                                       <Video
                                         source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/16_Transfer_from_bed_to_wheelchair.mp4"}}
                                         ref={(ref) => {
@@ -370,7 +374,7 @@ class HomeScreen extends Component {
 
                         <LinkToolkitWrapper 
                           text={'Share Medication toolkit with family. Click Toolkit'}
-                          source={helpNeededIcon}
+                          source={medicationIcon}
                           onPress={this.handleMedication}
                         />
                     </View>     
@@ -677,7 +681,7 @@ class HomeScreen extends Component {
                   
                               <TouchableOpacity onPress={this.playVideo}>    
                                   <View style={{padding: 20}}>
-                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: 22}}>Check VIDEO &rarr;</SubHeadingText></MainText>
+                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
                                       <Video
                                           source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/19_Rob_Lawyer_and_blue_grass_musician.mp4"}}
                                           ref={(ref) => {

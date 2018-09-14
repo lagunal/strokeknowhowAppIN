@@ -153,8 +153,8 @@ class EmergencyToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View >
-                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                <MainText><HeadingText>EMERGENCY INFORMATION STATION</HeadingText></MainText>
+                {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
+                <MainText><HeadingText>Interactive Emergency Information Station Toolkit</HeadingText></MainText>
             </View>
             <View style={styles.labelEsential}>    
                 <MainText><SubHeadingText>ESSENTIAL INFORMATION</SubHeadingText></MainText>

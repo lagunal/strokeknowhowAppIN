@@ -33,13 +33,14 @@ const { width, height } = Dimensions.get("window");
 
 class LoginScreen extends Component {
   
-  componentDidMount() {
-    lor(this); 
-  }
+  // componentDidMount() {
+  //   lor(this); 
+  // }
 
   componentWillUnMount() {
     rol();
     startTabs();
+  
   }
 
   static navigatorStyle = {
@@ -66,32 +67,36 @@ class LoginScreen extends Component {
         videoPaused: true,
         modalVisible: true,
       }
+    
   }
 
   async componentDidMount() {
     //close modal
     setTimeout(function () {
-      this.setState({ 
-        modalVisible: false,
-        videoPaused: false,
-      });
+          this.setState({ 
+            modalVisible: false,
+            videoPaused: false,
+          });
+          this.autoLogin(); //performs autologin
     }.bind(this), 6000);
+  
+  }
 
-    try {
-      //const user = await AsyncStorage.setItem('user', '');
-      const userData = await AsyncStorage.getItem('user');
+  async autoLogin() {
+      try {
+        //const user = await AsyncStorage.setItem('user', '');
+        const userData = await AsyncStorage.getItem('user');
 
-      this.setState({ user: JSON.parse(userData) });
-
-      //Try login
-      if(this.state.user && this.state.user.username !=='' && this.state.user.password !=='') {
-        this.setState({username: this.state.user.username, password: this.state.user.password});
-        this.onEMailLogin();
+        this.setState({ user: JSON.parse(userData) });
+        //Try login
+        if(this.state.user && this.state.user.username !=='' && this.state.user.password !=='') {
+          this.setState({username: this.state.user.username, password: this.state.user.password});
+          this.onEMailLogin();
+        }
+      } catch (error) {
+        console.log(error);
+        alert(error);
       }
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
   }
 
   //start bottom tabs navigation 

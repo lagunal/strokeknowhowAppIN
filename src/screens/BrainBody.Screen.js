@@ -201,7 +201,7 @@ class BrainBodyScreen extends Component {
 
             <TouchableOpacity onPress={this.playVideo}>    
                 <View style={{padding: 20}}>
-                    <MainText><SubHeadingText style={{marginBottom: 0, fontSize: 22}}>Check VIDEO &rarr;</SubHeadingText></MainText>
+                    <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
                     <Video
                         source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/19_Rob_Lawyer_and_blue_grass_musician.mp4"}}
                         ref={(ref) => {

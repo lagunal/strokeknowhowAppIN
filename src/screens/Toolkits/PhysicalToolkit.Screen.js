@@ -137,8 +137,8 @@ class PhysicalToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View style={{flex: 1}}>
-                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                <MainText><HeadingText>Interactive Physical Therapy</HeadingText></MainText>
+                {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
+                <MainText><HeadingText>Interactive Physical Therapy Toolkit</HeadingText></MainText>
               
                   <View style={[styles.containerGrid,{backgroundColor: background}]}> 
                       <View style={[styles.cell, {backgroundColor: 'white'}]}>

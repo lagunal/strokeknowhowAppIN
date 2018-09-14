@@ -140,8 +140,8 @@ class ScheduleToolkit extends Component {
             <View style={styles.container}>
             <BodyScroll>
               <View style={{flex: 1}}>
-                  <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
-                  <MainText><HeadingText>Interactive Weekly Schedule</HeadingText></MainText>
+                  {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
+                  <MainText><HeadingText>Interactive Weekly Schedule Toolkit</HeadingText></MainText>
                 
                     <View style={[styles.containerGrid,{backgroundColor: background}]}> 
                         <View style={[styles.cell, {backgroundColor: 'white'}]}>

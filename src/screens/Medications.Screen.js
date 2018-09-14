@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    ScrollView
+    ScrollView,
+    Image
   } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
@@ -11,7 +12,7 @@ import MainText from "../components/UI/MainText";
 import ImageContainer from "../components/UI/ImageContainer";
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 
-const helpNeededIcon = require('../assets/medication-icon.png');
+const medicationIcon = require('../assets/FotoMedication.jpg');
 const medicationsImage = require('../assets/medications.png');
 
 class MedicationsScreen extends Component {
@@ -64,7 +65,7 @@ class MedicationsScreen extends Component {
 
                 <LinkToolkitWrapper 
                   text={'Share Medication toolkit with family. Click Toolkit'}
-                  source={helpNeededIcon}
+                  source={medicationIcon}
                   onPress={this.props.pressMedication ? this.props.pressMedication : this.handleMedication}
                 />
               

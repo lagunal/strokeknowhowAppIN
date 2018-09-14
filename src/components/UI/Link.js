@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: hp('2%')
+        marginTop: hp('3%')
     },
     textMore: {
         marginHorizontal: 5,

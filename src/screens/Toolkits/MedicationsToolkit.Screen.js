@@ -171,7 +171,7 @@ class MedicationsToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View style={{flex: 1}}>
-                <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/>
+                {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
                 <MainText><HeadingText>Interactive Medication Toolkit</HeadingText></MainText>
               
               

@@ -28,7 +28,7 @@ const startTabs = () => {
                 {
                     screen: "StrokeApp.ToolkitHomeScreen",
                     label: "Toolkits",
-                    title: "Toolkits Home",
+                    title: "Interactive Toolkits",
                     icon: sources[1],
                 },
                 {
