@@ -10,6 +10,7 @@ import {
 import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 import HeadingText from '../../components/UI/HeadingText';
+import SubHeadingText from '../../components/UI/SubHeadingText';
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
 import HelpNeededRow from "../../components/Toolkits/HelpNeeded/HelpNeededRow";
@@ -163,8 +164,9 @@ class HelpNeedeToolkit extends Component {
             <BodyScroll>
               <View style={{flex: 1}}>
                   {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
-                  <MainText><HeadingText>Interactive Help Needed Toolkit</HeadingText></MainText>
-                
+                  <View style={{margin: 20}}>
+                      <MainText><SubHeadingText>INTERACTIVE HELP NEEDED TOOLKIT</SubHeadingText></MainText>
+                  </View>
                 
                   <View style={styles.containerGrid}> 
   

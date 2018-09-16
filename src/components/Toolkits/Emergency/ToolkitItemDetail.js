@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 
 import HeadingText from '../../UI/HeadingText';
+import SubHeadingText from '../../UI/SubHeadingText';
 import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
 import Button from "../../UI/Button";
@@ -96,17 +97,17 @@ class ToolkitItemDetail extends Component {
             return(
                 <View style={{flex: 1}}>    
                                     
-                    <MainText><HeadingText>{item.labelMedication}</HeadingText>  </MainText>
+                    <MainText><SubHeadingText>{item.labelMedication}</SubHeadingText>  </MainText>
                     <TextInput value={this.state.medication} 
                             style={styles.inputStyleToolkit}
                             onChangeText={medication => this.setState({ medication } )} />
 
-                    <MainText><HeadingText> {item.labelDosage} </HeadingText> </MainText>
+                    <MainText><SubHeadingText> {item.labelDosage} </SubHeadingText> </MainText>
                     <TextInput value={this.state.dosage} 
                             style={styles.inputStyleToolkit}
                             onChangeText={dosage => this.setState({ dosage } )}/>
 
-                    <MainText><HeadingText> {item.labelPurpose} </HeadingText> </MainText>
+                    <MainText><SubHeadingText> {item.labelPurpose} </SubHeadingText> </MainText>
                     <TextInput value={this.state.purpose} 
                             style={styles.inputStyleToolkit}
                             onChangeText={purpose => this.setState({ purpose } )}/>
@@ -122,11 +123,11 @@ class ToolkitItemDetail extends Component {
             return(
                     <View style={{flex: 1}}>    
                                         
-                        <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
+                        <MainText><SubHeadingText>{item.label}</SubHeadingText>  </MainText>
                         <TextInput value={this.state.name} 
                                 style={styles.inputStyleToolkit}
                                 onChangeText={name => this.setState({ name } )} />
-                        <MainText><HeadingText> {item.labelContact} </HeadingText> </MainText>
+                        <MainText><SubHeadingText> {item.labelContact} </SubHeadingText> </MainText>
                         <TextInput value={this.state.phone} 
                                 style={styles.inputStyleToolkit}
                                 onChangeText={phone => this.setState({ phone } )}/>
@@ -141,7 +142,7 @@ class ToolkitItemDetail extends Component {
         return(
             <View style={{flex: 1}}>    
                                 
-                <MainText><HeadingText>{item.label}</HeadingText>  </MainText>
+                <MainText><SubHeadingText>{item.label}</SubHeadingText>  </MainText>
                 <TextInput value={this.state.name} 
                         style={styles.inputStyleToolkit}
                         onChangeText={name => this.setState({ name } )} />

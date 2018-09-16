@@ -98,27 +98,26 @@ class BloodPressureScreen extends Component {
             <HeadingText>Blood Pressure</HeadingText>
 
             <MainText style={styles.bullets}>
-            {`\u2022`} Higher (systolic) pressure during a heartbeat. 
+            {`\u2022`} Systolic pressure (S), is the highest pressure during a heartbeat. 
             </MainText>
             <MainText style={styles.bullets}>  
-            {`\u2022`} Lower (diastolic) pressure is between beats. 
+            {`\u2022`} Diastolic pressure (D), is the lowest pressure between beats.
             </MainText>
             <MainText style={styles.bullets}>   
-            {`\u2022`} Normal Blood Pressure Less than 120 and less than 80.
+            {`\u2022`} Normal blood pressure, less than 120 (S) and less than 80 (D).
             </MainText>
             
             <MainText style={styles.bullets}>
-            {`\u2022`} Elevated 120-129 and less than 80. 
+            {`\u2022`} Elevated between 120-129 (S) and less than 80 (D).
             </MainText>
             <MainText style={styles.bullets}>  
-            {`\u2022`} High Blood Pressure Hypertension stage 1 130-139 or 80-89.
+            {`\u2022`} High Blood Pressure Hypertension state 1, 130-139 (S) or 80-89 (D).
             </MainText>
             <MainText style={styles.bullets}>  
-            {`\u2022`} High blood Pressure Hypertension stage 2   140 or higher or 90 or higher.
+            {`\u2022`} High Blood Pressure Hypertension state 2, 140 or higher (S) or 90 or higher (S).
             </MainText>
             <MainText style={styles.bullets}>  
-            {`\u2022`} Hypertension crisis {`\n`}
-                       Consult your doctor immediately higher than 180 and/or higher than 120
+            {`\u2022`} Hypertension crisis, consult your doctor immediately, higher than 180 (S) and/or higher than 120 (D).
             </MainText>
 
             <HeadingText>Testing Blood Sugar </HeadingText>

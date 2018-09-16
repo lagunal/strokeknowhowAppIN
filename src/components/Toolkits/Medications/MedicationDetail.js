@@ -128,7 +128,7 @@ class MedicationDetail extends Component {
                         onChangeText={medicine => this.setState({ medicine } )} />
                 
                 <TouchableOpacity onPress={this._showDateTimePicker}>
-                        <View style={styleComponent.dayContainer}> 
+                        <View style={styleComponent.timeContainer}> 
                             <MainText><SubHeadingText>Time</SubHeadingText>  </MainText>
                             <MainText>{this.state.time} </MainText>
                         </View>
@@ -220,7 +220,16 @@ const styleComponent = StyleSheet.create({
         padding: 5,
         
     },
- 
+    timeContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 5,
+        marginTop: 5
+        
+    },
 });
 
 export default MedicationDetail;

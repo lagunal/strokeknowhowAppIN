@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 
-import HeadingText from '../../components/UI/HeadingText';
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
 import RowRender from "../../components/Toolkits/Medications/RowRender";
@@ -172,8 +171,9 @@ class MedicationsToolkit extends Component {
           <BodyScroll>
             <View style={{flex: 1}}>
                 {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
-                <MainText><HeadingText>Interactive Medication Toolkit</HeadingText></MainText>
-              
+                <View style={{margin: 20}}>
+                    <MainText><SubHeadingText>INTERACTIVE MEDICATION TOOLKIT</SubHeadingText></MainText>
+                </View>
               
                 <View style={styles.containerGrid}> 
 
