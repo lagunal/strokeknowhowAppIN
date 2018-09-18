@@ -12,7 +12,7 @@ const ToolkitSingleItem = (props) => {
     return(
 
         <TouchableOpacity onPress={this.handlePress}>
-            <View style={styles.container}>    
+            <View style={[styles.container, props.style]}>    
 
                 <View style={{flex: 1}}>   
                 <MainText>{props.label}</MainText>

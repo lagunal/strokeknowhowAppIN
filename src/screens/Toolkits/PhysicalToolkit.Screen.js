@@ -11,7 +11,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nati
 
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
-
+import HeaderToolkit from '../../components/UI/HeaderToolkit';
 import PhysicalRow from "../../components/Toolkits/Physical/PhysicalRow";
 import PhysicalDetail from "../../components/Toolkits/Physical/PhysicalDetail";
 
@@ -136,10 +136,14 @@ class PhysicalToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View style={{flex: 1}}>
-                {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
-                <View style={{margin: 20}}>
-                        <MainText><SubHeadingText>INTERACTIVE PHYSICAL THERAPY TOOLKIT</SubHeadingText></MainText>
-                </View>
+                
+                <HeaderToolkit 
+                        title='INTERACTIVE PHYSICAL THERAPY'
+                        instructions="Type in Activities."
+                        style={{fontSize: wp('4.3%')}}
+                />
+
+                List physical activity
                   <View style={[styles.containerGrid,{backgroundColor: background}]}> 
                       <View style={[styles.cell, {backgroundColor: 'white'}]}>
                           <Text style={styles.titleMed}>Monday</Text>
@@ -208,7 +212,9 @@ const styles = StyleSheet.create({
     },
     titleMed: {
         fontSize: hp('2%'),
-        paddingVertical: hp('9%')
+        paddingVertical: hp('9%'),
+        fontWeight: 'bold',
+        alignSelf: 'center'
      
     },
     containerGrid: {
@@ -219,7 +225,7 @@ const styles = StyleSheet.create({
     },
     cell: {
       flex: 1,
-      borderColor: '#ccc',
+      borderColor: 'black',
       borderWidth: 1,
       height: hp('20%'),
       //width: wp('9.5%'),

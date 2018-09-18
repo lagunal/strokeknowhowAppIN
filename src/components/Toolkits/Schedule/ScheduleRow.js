@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
     },
     cell: {
       flex: 1,
-      borderColor: '#ccc',
+      //borderColor: '#ccc',
+      borderColor: 'black',
       borderWidth: 1,
       height: hp('20%'),
     },

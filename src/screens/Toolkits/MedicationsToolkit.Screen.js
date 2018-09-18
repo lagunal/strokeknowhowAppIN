@@ -13,6 +13,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nati
 
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
+import HeaderToolkit from '../../components/UI/HeaderToolkit';
 import RowRender from "../../components/Toolkits/Medications/RowRender";
 import MedicationDetail from "../../components/Toolkits/Medications/MedicationDetail"
 import { selectItem } from '../../store/actions/index';
@@ -170,11 +171,13 @@ class MedicationsToolkit extends Component {
           <View style={styles.container}>
           <BodyScroll>
             <View style={{flex: 1}}>
-                {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
-                <View style={{margin: 20}}>
-                    <MainText><SubHeadingText>INTERACTIVE MEDICATION TOOLKIT</SubHeadingText></MainText>
-                </View>
-              
+
+                <HeaderToolkit 
+                    title='INTERACTIVE MEDICATION'
+                    instructions="List and Check of Medications."
+                    //style={{fontSize: wp('4%')}}
+                />
+
                 <View style={styles.containerGrid}> 
 
                   <View style={[styles.cell, {flex: 2}]}>
@@ -242,7 +245,7 @@ class MedicationsToolkit extends Component {
      cell: {
        flex: 1,
        backgroundColor: '#000099',
-       borderColor: '#ccc',
+       borderColor: 'black',
        borderWidth: 1,
        height: hp('6%'),
      },

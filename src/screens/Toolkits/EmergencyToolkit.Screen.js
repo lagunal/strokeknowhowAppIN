@@ -8,9 +8,11 @@ import {
     TouchableOpacity,
     AsyncStorage
   } from 'react-native';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 import HeadingText from '../../components/UI/HeadingText';
 import MainText from "../../components/UI/MainText";
+import HeaderToolkit from '../../components/UI/HeaderToolkit';
 import BodyScroll from "../../components/UI/BodyScroll";
 import ToolkitMedication from "../../components/Toolkits/Emergency/ToolkitMedication";
 import ToolkitContactInfo from "../../components/Toolkits/Emergency/ToolkitContactInfo";
@@ -20,6 +22,7 @@ import SubHeadingText from '../../components/UI/SubHeadingText';
 
 import jsonData from '../../assets/json/emergencyToolkit.json'; //json used for first time toolkit.
 import ajax from '../../ajax/ajax';
+
 
 const logoImage = require('../../assets/logo-header.jpg');
 
@@ -152,10 +155,13 @@ class EmergencyToolkit extends Component {
         return (
           <View style={styles.container}>
           <BodyScroll>
-            <View style={{margin: 20}}>
-                {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
-                <MainText><SubHeadingText>INTERACTIVE EMERGENCY INFORMATION STATION TOOLKIT</SubHeadingText></MainText>
-            </View>
+            
+            <HeaderToolkit 
+                    title='INTERACTIVE EMERGENCY INFORMATION STATION'
+                    instructions="Type in Emergency Information."
+                    //style={{fontSize: wp('4%')}}
+            />
+
             <View style={styles.labelEsential}>    
                 <MainText><SubHeadingText>ESSENTIAL INFORMATION</SubHeadingText></MainText>
             </View>
@@ -274,7 +280,8 @@ class EmergencyToolkit extends Component {
                     label='Allergies to Medications'
                     name={this.state.data.allergies1}
                     keyId={['allergies1']}
-                    onItemPress={this.setCurrentItem}/>
+                    onItemPress={this.setCurrentItem}
+                    style={{backgroundColor: 'lightgray'}}/>
 
             </View>
 

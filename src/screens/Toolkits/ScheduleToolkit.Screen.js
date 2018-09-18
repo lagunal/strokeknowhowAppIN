@@ -13,6 +13,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nati
 import SubHeadingText from '../../components/UI/SubHeadingText';
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
+import HeaderToolkit from '../../components/UI/HeaderToolkit';
 
 import ScheduleRow from "../../components/Toolkits/Schedule/ScheduleRow";
 import ScheduleDetail from "../../components/Toolkits/Schedule/ScheduleDetail"
@@ -141,9 +142,13 @@ class ScheduleToolkit extends Component {
             <BodyScroll>
               <View style={{flex: 1}}>
                   {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
-                  <View style={{margin: 20}}>
-                        <MainText><SubHeadingText>INTERACTIVE WEEKLY SCHEDULE TOOLKIT</SubHeadingText></MainText>
-                  </View>
+
+                    <HeaderToolkit 
+                        title='INTERACTIVE WEEKLY SCHEDULE'
+                        instructions="Type in Activities."
+                        style={{fontSize: wp('4%')}}
+                    />
+
                     <View style={[styles.containerGrid,{backgroundColor: background}]}> 
                         <View style={[styles.cell, {backgroundColor: 'white'}]}>
                             <Text style={styles.titleMed}>Monday</Text>
@@ -213,8 +218,9 @@ const styles = StyleSheet.create({
     },
     titleMed: {
         fontSize: hp('2%'),
-        paddingVertical: hp('9%')
-     
+        paddingVertical: hp('9%'),
+        fontWeight: 'bold',
+        alignSelf: 'center'
     },
     containerGrid: {
       //backgroundColor: '#1749FF',
@@ -224,7 +230,8 @@ const styles = StyleSheet.create({
     },
     cell: {
       flex: 1,
-      borderColor: '#ccc',
+      //borderColor: '#ccc',
+      borderColor: 'black',
       borderWidth: 1,
       height: hp('20%'),
       width: wp('9.5%'),

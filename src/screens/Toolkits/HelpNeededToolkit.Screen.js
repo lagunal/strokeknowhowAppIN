@@ -11,6 +11,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nati
 
 import HeadingText from '../../components/UI/HeadingText';
 import SubHeadingText from '../../components/UI/SubHeadingText';
+import HeaderToolkit from '../../components/UI/HeaderToolkit';
 import MainText from "../../components/UI/MainText";
 import BodyScroll from "../../components/UI/BodyScroll";
 import HelpNeededRow from "../../components/Toolkits/HelpNeeded/HelpNeededRow";
@@ -22,7 +23,7 @@ import ajax from '../../ajax/ajax';
 
 const logoImage = require('../../assets/logo-header.jpg');
 
-class HelpNeedeToolkit extends Component {
+class HelpNeededToolkit extends Component {
     static navigatorButtons = {
         rightButtons: [
             {
@@ -163,11 +164,12 @@ class HelpNeedeToolkit extends Component {
             <View style={styles.container}>
             <BodyScroll>
               <View style={{flex: 1}}>
-                  {/* <Image source={logoImage} style={styles.logoImage} resizeMode='contain'/> */}
-                  <View style={{margin: 20}}>
-                      <MainText><SubHeadingText>INTERACTIVE HELP NEEDED TOOLKIT</SubHeadingText></MainText>
-                  </View>
                 
+                  <HeaderToolkit 
+                    title='INTERACTIVE HELP NEEDED'
+                    instructions="Type in what's needed."
+                  />
+
                   <View style={styles.containerGrid}> 
   
                     <View style={[styles.cell, {flex: 2}]}>
@@ -234,8 +236,8 @@ const styles = StyleSheet.create({
       //flex: 1,
       backgroundColor: '#000099',
       //margin: 1,
-      borderColor: '#ccc',
-      //borderColor: 'black',
+      //borderColor: '#ccc',
+      borderColor: 'black',
       borderWidth: 1,
       height: hp('6%'),
       width: wp('9.5%'),
@@ -245,4 +247,4 @@ const styles = StyleSheet.create({
 
   
 
-export default HelpNeedeToolkit;
+export default HelpNeededToolkit;
