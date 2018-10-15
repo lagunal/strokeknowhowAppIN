@@ -175,82 +175,9 @@ class EmergencyScreen extends Component {
                 
                 <View style={{height: 30}}></View>
 
-                <View style={[styles.border, {height: 90}]}>    
-                      <TouchableOpacity onPress={() => Linking.openURL('https://abledata.acl.gov/new_products')}>
-                      <MainText style={styles.boxLink}>
-                          www.abledata.com
-                      </MainText>
-                      </TouchableOpacity>
-                      <Text style={styles.boxText}>Best adaptable product information - English Spanish</Text>
-                      <Text style={styles.boxText}>800-227-0216, 703-992-8313. TTY</Text>
-                      <Text style={styles.boxText}>abledata@neweditions.net Products to ease living.</Text>
-
-                </View>   
-
-
-                <View style={[styles.border, {height: 50}]}>    
-                      <TouchableOpacity onPress={() => Linking.openURL('https://www.acl.gov/')}>
-                      <MainText style={styles.boxLink}>
-                          www.acl.gov
-                      </MainText>
-                      </TouchableOpacity>
-                      <Text style={styles.boxText}>Community living information.</Text>
-                </View>
-
-
-                <View style={[styles.border, {height: 100}]}>
-              
-                      <TouchableOpacity onPress={() => Linking.openURL('https://www.naric.com')}>
-                        <MainText style={styles.boxLink}>
-                          https://www.naric.com
-                        </MainText>
-                      </TouchableOpacity>
-                      
-                      <Text style={styles.boxText}>National Rehabilitation Information Center/ NARIC </Text>
-                      <Text style={[styles.boxText,{fontSize: wp('3.5%')}]}>Leading disability-related information.  English/Spanish.</Text>
-                      <Text style={styles.boxText}>1-800-346-2742. English / Spanish</Text>
-                      
-                </View>
-
-                <View style={[styles.border, {height: 50}]}>
-                    <TouchableOpacity onPress={() => Linking.openURL('https://www.aphasia.org/site ')}>
-                    <MainText style={styles.boxLink}>
-                        https://www.aphasia.org/site 
-                    </MainText>
-                    </TouchableOpacity>
-
-                    <Text style={styles.boxText}>Find support/aphasia programs. English/Spanish</Text>
-                  
-                </View> 
-
-                <ImageContainer source={strokeLine} style={{width: wp('60%')}}/>
-
-                <View style={[styles.border, {height: 90}]}>
-                        <TouchableOpacity onPress={() => Linking.openURL('http://www.strokeassociation.org/STROKEORG/strokegroup')}>
-                        <MainText style={styles.boxLink}>
-                            http://strokeassociation.org 
-                        </MainText>
-                        </TouchableOpacity>
-                        <Text style={styles.boxText}>American Stroke Association</Text>
-                        <Text style={styles.boxText}>1-888-4-STROKE 1-888-478-7653</Text>
-                        <Text style={styles.boxText}>Learn CPR – Spanish, Chinese, Vietnamese</Text>
-
-                </View> 
+                <HeadingText >In Emergency</HeadingText>
                 
                 <Link />  
-
-                <HeadingText>Getting Organized</HeadingText>
-
-                <MainText style={styles.bullets}>
-                {`\u2022`} Consider using a notebook, cell phone or computer –whatever works for you with subjects 
-                – medications, physical therapy, speech, doctors, therapists’ notes. 
-                </MainText>
-                <MainText style={styles.bullets}>    
-                {`\u2022`} Keep handy names, phones, addresses of doctors, therapists, helpers, family, neighbors. 
-                 </MainText>
-                <MainText style={styles.bullets}>   
-                {`\u2022`} Save bills: Paid and Unpaid, receipts health-care-related purchases, papers for insurance. tax purposes.       
-                </MainText>
 
             </ScrollView>                
           </View>           

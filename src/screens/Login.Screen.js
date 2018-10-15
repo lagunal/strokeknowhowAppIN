@@ -361,6 +361,7 @@ class LoginScreen extends Component {
               <Video
                 source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/Ben_on_how_he_gets_starred_at.mp4"}}
                 style={videoStyles.video}
+                //style={StyleSheet.absoluteFill}
                 rate={1}
                 paused={this.state.videoPaused}
                 volume={1}
@@ -368,6 +369,7 @@ class LoginScreen extends Component {
                 playWhenInactive={false}
                 playInBackground={false}
                 resizeMode='stretch'
+                //resizeMode='cover'
                 repeat={true}
               />
             </View>
@@ -375,7 +377,7 @@ class LoginScreen extends Component {
           
             <View style={{marginTop: hp('10%')}}>
               <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow</HeadingText>
-              <MainText style={{textAlign: 'center', fontSize: hp('3%'), color: 'white'}}>We are a worldwide stroke <Text style={{fontSize: hp('5%'), fontWeight: 'bold'}}>community</Text> {`\n`} learning from one another</MainText>
+              <MainText style={{textAlign: 'center', fontSize: hp('3%'), color: 'white'}}>We are a worldwide {`\n`}<Text style={{fontSize: hp('5%'), fontWeight: 'bold'}}>stroke community</Text> {`\n`} learning from one another</MainText>
             </View>
 
            
@@ -461,7 +463,7 @@ class LoginScreen extends Component {
             </View>}
 
             {this.state.inLogin && Platform.OS === 'android' ?
-              <View style={{height: 200}}>
+              <View style={{height: hp('10%')}}>
               </View>
               :
               <View style={{height: 0}}>

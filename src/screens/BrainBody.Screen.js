@@ -37,9 +37,9 @@ class BrainBodyScreen extends Component {
     //     this.player.seek(0);
     // }
 
-    playVideo = () => {
-        this.player.presentFullscreenPlayer();
-    }
+    // playVideo = () => {
+    //     this.player.presentFullscreenPlayer();
+    // }
 
     // handleOnLoadRob = () => {
     //     this.player.seek(1);
@@ -47,35 +47,35 @@ class BrainBodyScreen extends Component {
     //     this.setState({ paused: true });
     
     // };
-    handleVideoLayout = (e) => {
-        const { height } = Dimensions.get("window");
-        //console.log('layout ' + e.nativeEvent.layout.y);
-        this.state.position.start = e.nativeEvent.layout.y + height - THRESHOLD;
-        this.state.position.end = this.state.position.start + e.nativeEvent.layout.height + THRESHOLD;
-      };
+    // handleVideoLayout = (e) => {
+    //     const { height } = Dimensions.get("window");
+    //     //console.log('layout ' + e.nativeEvent.layout.y);
+    //     this.state.position.start = e.nativeEvent.layout.y + height - THRESHOLD;
+    //     this.state.position.end = this.state.position.start + e.nativeEvent.layout.height + THRESHOLD;
+    //   };
   
-      handleScroll = (e) => {
+    //   handleScroll = (e) => {
       
-        const scrollPosition = e.nativeEvent.contentOffset.y;
-        const paused = this.state.videoRobPaused;
+    //     const scrollPosition = e.nativeEvent.contentOffset.y;
+    //     const paused = this.state.videoRobPaused;
   
-        const { start, end } = this.state.position;
+    //     const { start, end } = this.state.position;
   
-        // console.log('scroll ' + scrollPosition);
-        // console.log('start ' + this.state.position.start);
-        // console.log('end ' + this.state.position.end);
+    //     // console.log('scroll ' + scrollPosition);
+    //     // console.log('start ' + this.state.position.start);
+    //     // console.log('end ' + this.state.position.end);
     
-        //Video animation
-        if (scrollPosition > start && scrollPosition < end && paused) {
-          this.setState({ videoRobPaused: false });
-        } else if (
-          (scrollPosition > end || scrollPosition < start) && !paused
-        ) {
-          this.setState({ videoRobPaused: true });
-        }
+    //     //Video animation
+    //     if (scrollPosition > start && scrollPosition < end && paused) {
+    //       this.setState({ videoRobPaused: false });
+    //     } else if (
+    //       (scrollPosition > end || scrollPosition < start) && !paused
+    //     ) {
+    //       this.setState({ videoRobPaused: true });
+    //     }
     
-        //console.log(this.state.videoRobPaused);
-    };  
+    //     //console.log(this.state.videoRobPaused);
+    // };  
 
     render() {
         // if (this.props.homeScreen === 'home') { 
@@ -192,14 +192,14 @@ class BrainBodyScreen extends Component {
             </MainText>
 
             <MainText style={styles.bullets}>
-            {`\u2022`} Cut/peel vegetables, fruit. Polish silverware: Wash dishes. Place cans on a shelf.
+            {`\u2022`} Cut/peel vegetables, fruit. Polish silverware, Wash dishes. Place cans on a shelf.
             </MainText>
 
             <MainText style={styles.bullets}>
             {`\u2022`} Button/Unbutton shirt.
             </MainText>
 
-            <TouchableOpacity onPress={this.playVideo}>    
+            {/* <TouchableOpacity onPress={this.playVideo}>    
                 <View style={{padding: 20}}>
                     <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
                     <Video
@@ -221,7 +221,7 @@ class BrainBodyScreen extends Component {
                         repeat
                         />  
                 </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <HeadingText>What is Aphasia?</HeadingText>
 

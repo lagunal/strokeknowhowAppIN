@@ -6,14 +6,22 @@ import HeadingText from '../../UI/HeadingText';
 import SubHeadingText from '../../UI/SubHeadingText';
 import MainText from "../../UI/MainText";
 import TextFieldInput from "../../UI/TextInputField";
+import Button from "../../UI/Button";
+import DetailToolkit from '../../UI/DetailToolkit';
 import BodyScroll from "../../UI/BodyScroll";
 import styles from '../../../styles/styles';
 import ajax from '../../../ajax/ajax';
 
 class PhysicalDetail extends Component {
-    onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
-        if (event.type == 'NavBarButtonPress') { // this is the event type for button presses
-          if (event.id == 'save') { // this is the same id field from the static navigatorButtons definition
+    constructor(props) {
+        super(props);
+        this.state = {
+            activity: this.props.item.activity,
+        }
+        this.handlePress = this.handlePress.bind(this);
+    }
+
+    handlePress() {
             var data = this.props.data;
             for (var key in data){
                 if (data.hasOwnProperty(key)) {
@@ -23,25 +31,17 @@ class PhysicalDetail extends Component {
             let jsonData = JSON.stringify(data);
             ajax.saveToolkit(jsonData, this.props.userId, this.props.token, 'physical');
             this.props.onPress();//calls the onPress event from parent                
-
-          }
-        }
     }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            activity: this.props.item.activity,
-        }
-        console.log(this.props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-    }
-
-    
+      
     render(){
 
         return(
             <BodyScroll>
+
+                <DetailToolkit 
+                    instructions={'Type in Exercise.'}
+                />
+
             <View style={{flex: 1}}>    
                                 
                     <MainText><SubHeadingText>Activity</SubHeadingText>  </MainText>
@@ -50,8 +50,13 @@ class PhysicalDetail extends Component {
                             numberOfLines = {4} 
                             value={this.state.activity} 
                             style={[styles.inputStyleToolkit, {height: hp('20%')}]}
-                            onChangeText={activity => this.setState({ activity } )} />
-                    
+                            onChangeText={activity => this.setState({ activity } )} 
+                            underlineColorAndroid={'transparent'}/>
+                            
+                    <Button style={{margin: 50}} color={'#ED7030'} textColor={'white'} onPress={this.handlePress}>
+                    Save
+                    </Button>
+
             </View>
             </BodyScroll>
         )
