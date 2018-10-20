@@ -11,9 +11,9 @@ import MainText from "../components/UI/MainText";
 import HeadingText from '../components/UI/HeadingText';
 import PictureLegend from '../components/UI/PictureLegend';
 import ImageContainer from "../components/UI/ImageContainer";
+import Link from '../components/UI/Link';
 
-const kufungisisaImage = require('../assets/kufungisisa.png');
-const skinImage = require('../assets/skin-care2.png');
+const gettingUp = require('../assets/india5.png');
 
 class GettingUpScreen extends Component {
     constructor(props) {
@@ -90,63 +90,47 @@ class GettingUpScreen extends Component {
           <View style={styles.container}>
             <ScrollView>
 
-            <HeadingText>Kufungisisa {`\n`}
-            Thinking too much/depressed in Zimbabwe</HeadingText>
+                          <Image source={gettingUp} style={styles.imageDefault} resizeMode='contain'/>
 
-            <Image source={kufungisisaImage} style={styles.imageDefault}/>
+                          <MainText>
+                          After my stroke, depression hit me hard. I am the youngest lawyer in the court, suddenly I could not see what my future held. 
+                          </MainText>
+                          <MainText>  
+                          My husband continued my care until he had to return to his job. Then my aunt came, two neighbors helped the most.
+                          </MainText>
 
-            <MainText>
-            After my stroke, depression hit me hard. I am the youngest lawyer in the court, suddenly I could not see what my future held. 
-            </MainText>
-            <MainText>  
-            My wife continued my care until she had to return to her job for our income. Then my uncle and a neighbor came.
-            </MainText>
+                          <MainText>
+                          Two things helped me: 
+                          </MainText>
 
-            <MainText>
-            Three things that helped me: 
-            </MainText>
+                          <MainText style={styles.bullets}>
+                          {`\u2022`}  The love of my husband.  
+                          </MainText>
 
-            <MainText style={styles.bullets}>
-            {`\u2022`} The love of my wife and children. 
-            </MainText>
+                          <MainText style={styles.bullets}>  
+                          {`\u2022`} My best friend challenged me to reach greater independence.  
+                          </MainText>
 
-            <MainText style={styles.bullets}>  
-            {`\u2022`} My best friend since childhood challenged me to reach for greater independence. 
-            </MainText>
+                          <PictureLegend >&mdash; Anaya</PictureLegend>
 
-            <MainText style={[styles.bullets, {marginBottom: 0}]}>  
-            {`\u2022`} From a group of athletes with disabilities I learned an important lesson: ‘Don’t let anyone take away your role in the family, and the responsibilities you can handle.
-            </MainText>
+                          <HeadingText>Getting Up when Feeling Down</HeadingText>
+                          <MainText>
+                          Advice from men and women who have had a stroke:
+                          </MainText>
 
-            <PictureLegend >&mdash; R.W., Zimbabwe, Africa</PictureLegend>
+                          <MainText>
+                          {`\u2022`} Stress comes from what we tell ourselves. Substitute positive ‘self-talk’ for negative ones. 
+                          </MainText>
 
-            <Image source={skinImage} style={styles.imageGetting}/>
+                          <MainText>
+                          {`\u2022`} Be around people who make you feel good about yourself. Look for a family touched by stroke, can make a difference.
+                          </MainText>
 
-            <MainText style={{marginBottom: 0}}>
-            There’s no telling who or what it will be that gives you the will and determination to go forward— 
-            your openness that counts. 
-            It could be your wife or husband, children, God, friends of many years, or people you meet with similar experiences to yours.  
-            </MainText>
-            <PictureLegend >&mdash; Bill</PictureLegend>
+                          <MainText>
+                          {`\u2022`} Sadness, impatience, loss, love, come with one another. All feelings are valid, reactions what you've been through. 
+                          </MainText>           
 
-            <HeadingText>Getting Up {`\n`} When Feeling Down</HeadingText>
-            <MainText>
-              Advice from people who’ve been there:
-            </MainText>
-
-            <MainText>
-            {`\u2022`} Stress comes from what we tell ourselves. Substitute positive ‘self-talk’ for negative ones.
-            </MainText>
-
-            <MainText>
-            {`\u2022`} Be around people who make you feel good about yourself.  Meet at a
-                stroke club and aphasia group. Look for a family touched by stroke, can make a difference.
-            </MainText>
-
-            <MainText>
-            {`\u2022`} Sadness, impatience, loss, love, come with one another. 
-                Feelings are all valid, and a reaction of what you've been through. 
-            </MainText>
+                          <Link />
             
             </ScrollView>                
           </View>           

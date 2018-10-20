@@ -14,11 +14,9 @@ import MainText from "../components/UI/MainText";
 import HeadingText from '../components/UI/HeadingText';
 import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 import Link from "../components/UI/Link";
-import ImageContainer from "../components/UI/ImageContainer";
 
 const { width, height } = Dimensions.get("window");
 const emergencyIcon = require('../assets/emergency-station-icon.png');
-const strokeLine = require('../assets/helpline-logo.png');
 
 class EmergencyScreen extends Component {
     constructor(props) {
@@ -148,36 +146,34 @@ class EmergencyScreen extends Component {
           <View style={styles.container}>
             <ScrollView>
 
-                <LinkToolkitWrapper 
-                  text={'Share Interactive Emergency Information Station Toolkit with family. Click toolkit.'}
-                  source={emergencyIcon}
-                  onPress={this.props.pressEmergency ? this.props.pressEmergency : this.handleEmergency}
-                />
+                          <LinkToolkitWrapper 
+                              text={'Type information on this Toolkit. Family can share information on their cell phone.'}
+                              source={emergencyIcon}
+                              onPress={this.handleEmergency}
+                            />
 
-                <HeadingText style={{fontWeight: 'bold'}}>Don’t wait. Get help.</HeadingText>
+                            <MainText>If you believe it is an emergency – it probably is!</MainText>
+                            <HeadingText style={{fontWeight: 'bold'}}>Get help immediately.</HeadingText>
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Call 911 or your emergency number.   
-                </MainText>      
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} Call your Emergency Number.   
+                            </MainText>      
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Report possible stroke, or another emergency. 
-                </MainText>    
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} Report possible stroke, or another emergency. 
+                            </MainText>    
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Answer questions in clear, short answers.
-                    If you need a translator, ask immediately. 
-                </MainText>    
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} When calling in an emergency, answer questions in clear, short answers.  
+                            </MainText>    
 
-                <MainText style={styles.bullets}>
-                {`\u2022`} Do not hang up first: Wait for instructions. 
-                </MainText> 
-                
-                <View style={{height: 30}}></View>
+                            <MainText style={styles.bullets}>
+                            {`\u2022`} Do not hang up first: Wait for instructions. 
+                            </MainText> 
 
-                <HeadingText >In Emergency</HeadingText>
-                
-                <Link />  
+                            <HeadingText >In Emergency</HeadingText>
+                            
+                            <Link />  
 
             </ScrollView>                
           </View>           

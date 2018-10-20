@@ -16,24 +16,15 @@ import LinkToolkitWrapper from "../components/UI/LinkToolkitWrapper";
 import Link from "../components/UI/Link";
 
 
-const familyImage = require('../assets/family.png');
-const safetyImage = require('../assets/safety.jpg');
-const familyPlanImage = require('../assets/family-plan.png');
-//const weeklyScheduleIcon = require('../assets/weekly-schedule-icon.png');
-//const helpNeededIcon = require('../assets/help_needed_icon.png');
-const medicationsImage = require('../assets/medications.png');
-const bladderImage = require('../assets/bladder.png');
-const swallowingImage = require('../assets/swallowing.png');
-//const physicalIcon = require('../assets/physical-therapy-icon.png');
-const skinImage = require('../assets/skin-care1.png');
-const kufungisisaImage = require('../assets/kufungisisa.png');
-const skinImage2 = require('../assets/skin-care2.png');
-const brainImage = require('../assets/brain-body.png');
+const medicationsImage = require('../assets/india3.png');
+
+const brainImage = require('../assets/india6.png');
 const emergencyIcon = require('../assets/emergency-station-icon.png');
-const strokeLine = require('../assets/helpline-logo.png');
 const bioImage = require('../assets/bio.jpg');
+const rangeMotion = require('../assets/india4.png');
+const gettingUp = require('../assets/india5.png');
 const weeklyScheduleIcon = require('../assets/fotoWeeklySchedule.jpg');
-const helpNeededIcon = require('../assets/fotohelpneeded.jpg');
+const helpNeededIcon = require('../assets/fotohelpneeded.png');
 const medicationIcon = require('../assets/FotoMedication.jpg');
 const physicalIcon = require('../assets/FotoPhysicalTherapy.jpg');
 
@@ -183,30 +174,40 @@ class HomeScreen extends Component {
                             barStyle="light-content"
                         />    
 
-                        <Image source={require('../assets/home.png')} style={styles.imageDefault}/>  
+                        <Image source={require('../assets/india2.png')} style={styles.imageDefault} resizeMode='contain'/>  
 
                         <MainText style={{marginBottom: 0}}>    
-                            I was a sports writer of a major newspaper,  who had a stroke in a New York subway during rush hour.  In the ambulance, 
-                            I overheard the word ‘stroke,’ and realized they were talking about me. 
-                            Out of the hospital in five days: I could stand, not walk.
-                            Insurance paid for a handful of physical therapy. NOW WHAT?
+                        After mother had a stroke, my sisters and a helper care for her. When she left the hospital, my mother could stand, but not walk. Aphysical therapist trained us to continue therapy at home. 
                         </MainText>
-                        <PictureLegend style={{marginRight: wp('10%') }}>&mdash; Mike</PictureLegend>    
+                        <PictureLegend style={{marginRight: wp('10%') }}>&mdash; Aryun</PictureLegend>    
                         
-                        <HeadingText>A New Day</HeadingText>
-                        
-                        <Image source={require('../assets/newDay.png')} style={styles.imageDefault}/>
-                        
+                        <MainText style={{marginBottom: 0}}>    
+                        Her doctor told our family it is important for my mother to get out of bed and dress every day. {`\n`}Benefits: 
+                        </MainText>
+                          
                         <MainText style={styles.bullets}>
-                            {`\u2022`} It’s important to get out of bed and dress every day. Complete bed rest deconditions the body. Lowers the capacity of heart’s pumping rate, reduces lung capacity, alters blood pressure, increases chance 
-                            of pneumonia. 
+                            {`\u2022`} Complete bed rest deconditions the body.  
                         </MainText>
                         <MainText style={styles.bullets}>  
-                            {`\u2022`} Do slow stretches in bed to ease stiffness. Roll from side to side. 
+                            {`\u2022`} Lowers the heart's pumping rate, reduces lung capacity 
                         </MainText>
                         <MainText style={styles.bullets}>  
-                            {`\u2022`} Before moving take your time, avoid quick changes to avoid becoming dizzy.  
+                            {`\u2022`} Alters blood pressure  
                         </MainText>
+                        <MainText style={styles.bullets}>  
+                            {`\u2022`} Increases chance of pneumonia   
+                        </MainText>
+                        <MainText style={styles.bullets}>  
+                            {`\u2022`} Can cause skin pressure sores  
+                        </MainText>
+                        <View style={{borderWidth: 1, marginHorizontal: wp('1%')}}>
+                            <MainText style={styles.bullets}>  
+                                {`\u2022`} Do slow stretches to ease stiffness. Roll from side to side.  
+                            </MainText>
+                            <MainText style={styles.bullets}>  
+                                {`\u2022`} Before moving take your time. Quick changes can cause becoming dizzy.  
+                            </MainText>
+                        </View>
 
                 </View>
 
@@ -242,27 +243,16 @@ class HomeScreen extends Component {
                               {`\u2022`} When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
                               </MainText>
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Stand with feet slightly apart, one foot ahead of the other to keep your balance, shift your weight if necessary.
+                              {`\u2022`} Stand with feet slightly apart, one foot ahead of the other to keep your balance, and shift your weight if necessary.
                               </MainText>
-                              <HeadingText>Share the Care</HeadingText>
-
-                              <Image source={familyImage} style={styles.imageDefault}/>
-
-                              <MainText style={{marginBottom: 0}}>  
-                                  When my wife, Tina, had a stroke,
-                                    it hit our whole family, and we each had 
-                                    a job to do– even the kids.
-                              </MainText>
-                              <PictureLegend >&mdash; Javier, Lima, Peru</PictureLegend>
-
-                              
-                                <HeadingText>Questions Families {`\n`} Ask Themselves</HeadingText>
+                
+                              <HeadingText>Questions Families {`\n`} Ask Themselves</HeadingText>
                               
                               <MainText style={styles.bullets}>
                                   {`\u2022`} Who will handle personal care; physical therapy? When?
                               </MainText>
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Shop, share housekeeping? When? 
+                                  {`\u2022`} Who will Shop, housekeeping? When? 
                               </MainText>
                               <MainText style={styles.bullets}>     
                                   {`\u2022`} Drive to doctor and therapy appointments. 
@@ -273,7 +263,7 @@ class HomeScreen extends Component {
                     <View>
 
                     <LinkToolkitWrapper 
-                      text={'Share Help Needed Toolkit with family. Click Toolkit.'}
+                      text={'The family can share this Interactive Toolkit on their cell phone.'}
                       source={helpNeededIcon}
                       onPress={this.handleHelpNeeded}
                     />
@@ -281,81 +271,38 @@ class HomeScreen extends Component {
 
                     <HeadingText>Let's Talk About Safety</HeadingText>
 
-
-                    <Image source={safetyImage} style={styles.imagePat}/>
-
                     <MainText>
-                        Pat became a wheelchair user after a car crash. 
-                        Her husband, Bill made their home safer and accessible.     
+                      To make your home safer after a stroke:   
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} To widen the door opening for Pat’s wheelchair, the molding was removed.    
+                        {`\u2022`} Doors may need to be widen for a wheelchair.    
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} Light switches, toilet-tissue dispensers, towel racks to be easily reached were lowered. 
+                        {`\u2022`} Lower light switches, toilet-tissue dispensers, towel racksto be easily reached. Lower a mirror and medicine cabinet. 
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} A raised toilet makes transfers easier. 
-                        A grab bar, and on side of the toilet ensure safer transfers.   
+                        {`\u2022`} A raised toilet makestransfers easier. Grab barson side of toilet, on wall, ensure safer transfers.   
                     </MainText>
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} The mirrored medicine cabinet was lowered.   
+                        {`\u2022`} Falls #1 cause of home injuries, especially on wet bathroom floors transferring. Many people return to hospitals one month after discharge because of injuries.   
                     </MainText>
-                    <MainText>
-                        Falls are the #1 cause of home injuries. Wet bathroom floors lead 
-                        home injuries. Millions return to hospitals a month after discharge.     
-                    </MainText>
-
-
-                    <HeadingText>A Weekly Plan</HeadingText>
-
-
-                    <Image source={familyPlanImage} style={styles.imageWeekly}/>
-
-                    <MainText>
-                        Rachel’s granddaughter shows her how to organize a weekly schedule. Tel Aviv, Israel.  
-                    </MainText>
-
-                    
-                      <SubHeadingText>Benefits of a Weekly Schedule</SubHeadingText>
+                   
+                    <Link />  
+                  
+                    <HeadingText>Benefits of a Weekly Schedule</HeadingText>
 
                     <MainText style={styles.bullets}>      
-                        {`\u2022`} Keeping track of time organizes each day. Prioritize what you need to take place, and give it a time.  
+                        {`\u2022`} Organizing each day benefits the family. It prioritizes what needs to take place, give it a time.  
                     </MainText>
                     <MainText style={styles.bullets}>  
-                        {`\u2022`} Have stimulating times, others in between, that are quiet — to sit down, nap, simply relax.    
+                        {`\u2022`} Have stimulating times, in between, time to relax, nap. Gives a caring partner time to rest and renew.    
                     </MainText>
 
                     <LinkToolkitWrapper 
-                      text={'Share Weekly Schedule Toolkit with family. Click toolkit'}
+                      text={'Type in your schedule. Share with family this Toolkit on their cell phone.'}
                       source={weeklyScheduleIcon}
                       onPress={this.handleSchedule}
                     />
-
-                    <MainText style={styles.bullets}>
-                    {`\u2022`} After a stroke, each family looks at the care, their living and medical expenses needed, and how each one will help.   
-                    </MainText>
-                    <MainText style={styles.bullets}> 
-                    {`\u2022`} Ask a physical therapist to evaluate the ability to move, talk, understand, handle personal care. 
-                    </MainText>
-                    <MainText style={styles.bullets}>
-                    {`\u2022`} A psychologist can evaluate the emotional affects, and ways the family can cope with the changes.
-                    </MainText>
-
-
-                    <HeadingText>
-                    Personal Cleanliness
-                    </HeadingText>
-
-
-                    <MainText style={styles.bullets}> 
-                    {`\u2022`} To prevent infection, protect skin, and for comfort, a loved one needs to be washed or bathed every day with warm water and soap. 
-                          Dry, then massaged with soothing lotion. 
-                    </MainText>
-
-                    <MainText style={styles.bullets}>  
-                    {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
-                    </MainText>
 
                     </View>
 
@@ -366,14 +313,16 @@ class HomeScreen extends Component {
                     <View>
                         <HeadingText>Organizing Medications</HeadingText>
 
-                        <Image source={medicationsImage} style={styles.imageDefault} />
+                        <Image source={medicationsImage} style={styles.imageDefault} resizeMode='contain'/>
                         
                         <MainText>
-                            Ruth, M. 78, uses a pill organizer and the Interactive Medication Toolkit. Ruth’s daughter, can also see the Toolkit.
+                        My mother uses a pill organizer, Interactive Medication Toolkit. 
+                        I typed in her medications. After taking a medication my mother’s
+                        helpers put a check in the box. I can also see Toolkit on my cell phone and certain mother is taking her medications.
                         </MainText>
 
                         <LinkToolkitWrapper 
-                          text={'Share Medication toolkit with family. Click Toolkit'}
+                          text={'Family can see Interactive Medication Toolkiton a cell phone.'}
                           source={medicationIcon}
                           onPress={this.handleMedication}
                         />
@@ -385,60 +334,78 @@ class HomeScreen extends Component {
 
                     <View>
 
+                        <HeadingText>Looking at Expenses</HeadingText>
+
+                        <MainText>  
+                          After stroke, a family looks at livingand medical expenses, how each one will help. 
+                        </MainText>
+
+                        <MainText style={styles.bullets}>  
+                        {`\u2022`}  A family may ask a physical therapist or nurse to evaluate their loved one’s ability to move, talk, understand, handle personal care.  
+                        </MainText>
+                        <MainText style={styles.bullets}>  
+                        {`\u2022`}  A psychologist, if a family asks, can evaluate emotional effects of stroke; offer how to cope with changes.  
+                        </MainText>
+
+                          <HeadingText>
+                          Personal Cleanliness
+                          </HeadingText>
+
+
+                          <MainText style={styles.bullets}> 
+                          {`\u2022`} To prevent infection, protect skin, and for comfort, your loved one needs to be washed or bathed every day. Use warm water and soap. Dried thoroughly, massaged with soothing lotion. 
+                          </MainText>
+
+                          <MainText style={styles.bullets}>  
+                          {`\u2022`} All family members, helpers must wash their hands frequently – after using bathroom, before eating.
+                          </MainText>
+
                         <HeadingText>Bladder Control</HeadingText>
 
-                        <Image source={bladderImage} style={styles.image}/>
-
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Ask a doctor or nurse for help in reestablishing bladder control. 
-                                  Brain and bladder need to keep dry on your schedule.
+                        {`\u2022`} Ask a doctor, nurse, health worker reestablishing bladder control. Brain and bladder need to keep dry on your schedule.
                         </MainText>
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} At first, urinate every hour, not wait for the urge, until urination is controlled. 
-                                  With greater control, urinate every 3 to 4 hours.  
+                        {`\u2022`} At first, urinate every hour, not wait for the urge, until urination is controlled. With greater control, urinate every 3 to 4 hours.  
                         </MainText>
 
-                        <HeadingText>Bowel Control</HeadingText>
+                        <HeadingText>Regaining Bowel Control</HeadingText>
 
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Help is needed in re-training the brain’s ability to control movements. At first, empty on a routine. 
-                                  Then, increase the time to relieve oneself. 
+                        {`\u2022`} Help is needed in re-training brain’s ability to control movements. At first, empty on a routine. Increase time to relieve oneself. 
                         </MainText>
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Constipation is an effect of stroke, also caused by certain medications, aging, inactivity, and low-fiber. 
+                        {`\u2022`} Constipation is an effect of stroke, also caused by certain medications, aging, inactivity, low-fiber diet.  
                         </MainText>
 
                         <HeadingText>Drinking Water</HeadingText>
 
                         <MainText>  
-                        {`\u2022`} We depend on drinking water to live. After a stroke, swallowing may be difficult, drink sips of water often to avoid dehydration. 
-                                  Do not use a straw.                 
+                        {`\u2022`} We depend on drinking water to live. After a stroke, swallowing may be difficult, drink sips of water often to avoid dehydration. Do not use a straw.                 
                         </MainText>
 
                         <HeadingText>Swallowing</HeadingText>
 
-                        <Image source={swallowingImage} style={styles.imageDefault} />
-
                         <MainText>  
-                            A speech therapist or nurse can help in retraining swallowing. 
+                          A nurse or speech therapistcan help retraining swallowing.
                         </MainText>
                         <MainText style={styles.bullets}>
-                        {`\u2022`} Act quickly in a swallowing emergency. Learn CPR. 
+                        {`\u2022`} Act quickly in a swallowing emergency. Learn CPR to save a life. 
                         </MainText>
                         <MainText style={styles.bullets}>   
                         {`\u2022`} After eating, check for food in cheeks, under tongue, upper palate.              
                         </MainText>
 
-                        <HeadingText>Questions for a Doctor</HeadingText>
+                        <HeadingText>Questions to Ask Your Doctor</HeadingText>
 
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} What should we know about the stroke? High blood pressure? Diabetes?  Numbers to report? 
+                        {`\u2022`} What information do we need about our loved one’s stroke? High blood pressure? Diabetes? Numbers to report? 
                         </MainText>  
                         <MainText style={styles.bullets}>  
                         {`\u2022`} Side effects of medicine to report?
                         </MainText>
                         <MainText style={styles.bullets}>  
-                        {`\u2022`} Has hospital report been sent to my other doctors?
+                        {`\u2022`} Has my hospital report been sent to my other doctors?
                         </MainText>
 
                     </View>        
@@ -476,12 +443,8 @@ class HomeScreen extends Component {
                           <HeadingText>Testing Blood Sugar </HeadingText>
 
                           <MainText style={styles.bullets}>
-                          {`\u2022`} Blood glucose test is used for diabetes. Results are used to regulate medications, diet.  
+                          {`\u2022`} Blood glucose test is used for diabetes. Results used to regulate medications, diet. Ask when to test, numbers to report to doctor.    
                           </MainText>
-                          <MainText style={styles.bullets}>  
-                          {`\u2022`} When to test? Numbers to report.  
-                          </MainText>
-
 
                           <HeadingText>Physical Therapists</HeadingText>
 
@@ -499,7 +462,7 @@ class HomeScreen extends Component {
                           </MainText>
 
                           <LinkToolkitWrapper 
-                            text={'Share Physical Therapy Toolkit with family. Click toolkit.'}
+                            text={'Share the Interactive Physical Therapy Toolkit with the family on their cell phones.'}
                             source={physicalIcon}
                             onPress={this.handlePhysical}
                           />
@@ -511,7 +474,9 @@ class HomeScreen extends Component {
 
                       <View>
                             <HeadingText>Range-of-Motion</HeadingText>
-                
+
+                            <Image source={rangeMotion} style={styles.imageDefault} resizeMode='contain'/>     
+
                             <MainText>
                                 Range-of-motion exercises can keep joints
                                 moving freely and fully. Exercises are to do either by yourself or with someone. 
@@ -522,7 +487,7 @@ class HomeScreen extends Component {
                                       Helpers stop exercise when a joint is not moving freely, or there is discomfort. 
                             </MainText>  
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Move and stretch muscles in a weakened arm and leg several times a day, 
+                            {`\u2022`} Move and stretch muscles in a weakened arm and leg <Text style={{textDecorationLine: 'underline'}}>several times a day</Text>, 
                             to prevent contractures, shortening of muscles around joints that cause tight, painful bands.
                             </MainText>          
 
@@ -556,14 +521,12 @@ class HomeScreen extends Component {
                       <View>
                             <HeadingText>Skin Care</HeadingText>
 
-                            <Image source={skinImage} style={styles.imageDefault} />
-
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Check skin every day for redness, and injury – especially when skin is fragile, poor circulation, diabetic.
+                            {`\u2022`} Check skin every day for redness, injury – especially when skin is fragile, poor circulation, diabetic. Pressure sores, skin breakdown occur from infrequent turning, changing positions when seated.
                             </MainText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Pressure sore or bruise requires immediate attention for medication and treatment.
+                            {`\u2022`} Pressure sores require immediate medication, treatment.
                             </MainText>
 
                             <MainText style={styles.bullets}>
@@ -574,130 +537,109 @@ class HomeScreen extends Component {
                             {`\u2022`} Helpers must <Text style={{textDecorationLine: 'underline'}}>lift not pull</Text> someone across sheet, to avoid friction injuries. 
                             </MainText>
 
-                            <MainText style={styles.bullets}>
-                            {`\u2022`} Pressure sores, skin breakdown occur from infrequent turning, changing positions.  
-                            </MainText>
                       </View>           
 
 {/*************** Getting Up Screen  ********************************/}
 
                       <View>
-                            <HeadingText>Kufungisisa {`\n`}
-                            Thinking too much/depressed in Zimbabwe</HeadingText>
 
-                            <Image source={kufungisisaImage} style={styles.imageDefault}/>
+                            <Image source={gettingUp} style={styles.imageDefault} resizeMode='contain'/>
 
                             <MainText>
                             After my stroke, depression hit me hard. I am the youngest lawyer in the court, suddenly I could not see what my future held. 
                             </MainText>
                             <MainText>  
-                            My wife continued my care until she had to return to her job for our income. Then my uncle and a neighbor came.
+                            My husband continued my care until he had to return to his job. Then my aunt came, two neighbors helped the most.
                             </MainText>
 
                             <MainText>
-                            Three things that helped me: 
+                            Two things helped me: 
                             </MainText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} The love of my wife and children. 
+                            {`\u2022`}  The love of my husband.  
                             </MainText>
 
                             <MainText style={styles.bullets}>  
-                            {`\u2022`} My best friend since childhood challenged me to reach for greater independence. 
+                            {`\u2022`} My best friend challenged me to reach greater independence.  
                             </MainText>
 
-                            <MainText style={[styles.bullets, {marginBottom: 0}]}>  
-                            {`\u2022`} From a group of athletes with disabilities I learned an important lesson: ‘Don’t let anyone take away your role in the family, and the responsibilities you can handle.
-                            </MainText>
+                            <PictureLegend >&mdash; Anaya</PictureLegend>
 
-                            <PictureLegend >&mdash; R.W., Zimbabwe, Africa</PictureLegend>
-
-                            <Image source={skinImage2} style={styles.imageGetting}/>
-
-                            <MainText style={{marginBottom: 0}}>
-                            There’s no telling who or what it will be that gives you the will and determination to go forward— 
-                            your openness that counts. 
-                            It could be your wife or husband, children, God, friends of many years, or people you meet with similar experiences to yours.  
-                            </MainText>
-                            <PictureLegend >&mdash; Bill</PictureLegend>
-
-                            <HeadingText>Getting Up {`\n`} When Feeling Down</HeadingText>
+                            <HeadingText>Getting Up when Feeling Down</HeadingText>
                             <MainText>
-                              Advice from people who’ve been there:
+                            Advice from men and women who have had a stroke:
                             </MainText>
 
                             <MainText>
-                            {`\u2022`} Stress comes from what we tell ourselves. Substitute positive ‘self-talk’ for negative ones.
+                            {`\u2022`} Stress comes from what we tell ourselves. Substitute positive ‘self-talk’ for negative ones. 
                             </MainText>
 
                             <MainText>
-                            {`\u2022`} Be around people who make you feel good about yourself.  Meet at a
-                                stroke club and aphasia group. Look for a family touched by stroke, can make a difference.
+                            {`\u2022`} Be around people who make you feel good about yourself. Look for a family touched by stroke, can make a difference.
                             </MainText>
 
                             <MainText>
-                            {`\u2022`} Sadness, impatience, loss, love, come with one another. 
-                                Feelings are all valid, and a reaction of what you've been through. 
+                            {`\u2022`} Sadness, impatience, loss, love, come with one another. All feelings are valid, reactions what you've been through. 
                             </MainText>           
+
+                            <Link />
                       </View>           
 
 {/*************** Brain Body Screen  ********************************/}
 
                       <View>
+                              <HeadingText>What is Aphasia?</HeadingText>
+                              
+                              <MainText>
+                              More than half of all people who have had a stroke have aphasia -- a condition that makes it difficult to say what you are thinking, or understand what is said.  
+                              </MainText>
+                  
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} Aphasia does not affect intelligence.  
+                              </MainText>
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} Relearning is ongoing: Talking, reading, writing, problem solving. You keep at it, until you get back what you've lost.   
+                              </MainText>
+                  
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} It is helpful to find an Aphasia Group or a family with similar experiences. It can increase confidence, encourage friendships.  
+                              </MainText>
+                        
                               <HeadingText>Brain Body Connection</HeadingText>
                               
-                              <Image source={brainImage} style={[styles.imageDefault, {height: hp('50%')}]}/>
+                              <Image source={brainImage} style={styles.imageDefault} resizeMode='contain'/>
                               
                               <MainText>
-                              My doctor told me about research that proves after a stroke, when an area of the brain is injured, doing tasks, repeating them several times, helps healing. 
-                                    For six months, I used both my weaker and stronger hand, washing my kitchen window, sorting laundry, polishing the table.{`\n`}
-                                
-                              My goal was for my right hand to open and fingers to move. I kept at it, but saw no difference, {`\n`}
-                              One morning I reached for a cup for coffee, suddenly fingers in my right hand slowly opened. I began to cry, and kept moving my fingers. 
+                              My doctor told our family about research that proves when an area of the brain is injured,doing tasks, repeating them several times, helpsin healing.{`\n`}
+                              For six months, my mother used both her weaker and stronger hand, washingdishes, sorting laundry, polishing.{`\n`}  
+                              Her goal was for her right hand to open and fingers to move. For six months mother kept at it, but saw no difference.{`\n`}
+                              One morning reaching for a plate, suddenly fingers in her right hand slowly opened. She began to cry, kept moving my fingers. 
                               </MainText>
                   
-                              <PictureLegend >&mdash; Madeline, Stuttgart, Germany</PictureLegend>
+                              {/* <PictureLegend >&mdash; Madeline, Stuttgart, Germany</PictureLegend> */}
                   
                               <MainText>
-                                  Add your tasks, use both hands, repeat them several times. 
+                              Add your tasks, use both hands, repeat each one several times.  
                               </MainText>
                   
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Fold, open, re-fold items: paper napkins, clothes.
+                              {`\u2022`} Fold, open, re-fold items: paper napkins, clothes
                               </MainText>
                   
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Cut/peel vegetables, fruit. Place cans on a shelf.
+                              {`\u2022`} Cut/peel vegetables, fruit.
                               </MainText>
                   
                               <MainText style={styles.bullets}>
-                              {`\u2022`} Polish silverware, Wash dishes.
+                              {`\u2022`} Wash/dry dishes
                               </MainText>
                   
                               <MainText style={styles.bullets}>
                               {`\u2022`} Button/Unbutton shirt.
                               </MainText>
                   
-                              <HeadingText>What is Aphasia?</HeadingText>
-                  
-                              <MainText>
-                                  Aphasia is a condition that makes it difficult to say what you are thinking, or understand what is said. 
-                                  More than half of men and women after a stroke have the condition. 
-                              </MainText>
-                  
-                              <MainText style={styles.bullets}>
-                              {`\u2022`} Intelligence is not affected. 
-                              </MainText>
-                              <MainText style={styles.bullets}>
-                              {`\u2022`} Relearning is ongoing: Talking, reading, writing, problem solving. 
-                                          You keep at it, until you get back what you've lost.  
-                              </MainText>
-                  
-                              <MainText style={styles.bullets}>
-                              {`\u2022`} Find an Aphasia Group or a family with similar experiences. 
-                                  It can increases confidence, friendships.  
-                              </MainText>
-                        
+    
                       </View>          
 
 
@@ -705,15 +647,16 @@ class HomeScreen extends Component {
 
                     <View>
                             <LinkToolkitWrapper 
-                              text={'Share Emergency Inf. Toolkit with family. Click toolkit.'}
+                              text={'Type information on this Toolkit. Family can share information on their cell phone.'}
                               source={emergencyIcon}
                               onPress={this.handleEmergency}
                             />
 
-                            <HeadingText style={{fontWeight: 'bold'}}>Don’t wait. Get help.</HeadingText>
+                            <MainText>If you believe it is an emergency – it probably is!</MainText>
+                            <HeadingText style={{fontWeight: 'bold'}}>Get help immediately.</HeadingText>
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Call 911 or your emergency number.   
+                            {`\u2022`} Call your Emergency Number.   
                             </MainText>      
 
                             <MainText style={styles.bullets}>
@@ -721,16 +664,13 @@ class HomeScreen extends Component {
                             </MainText>    
 
                             <MainText style={styles.bullets}>
-                            {`\u2022`} Answer questions in clear, short answers.
-                                If you need a translator, ask immediately. 
+                            {`\u2022`} When calling in an emergency, answer questions in clear, short answers.  
                             </MainText>    
 
                             <MainText style={styles.bullets}>
                             {`\u2022`} Do not hang up first: Wait for instructions. 
                             </MainText> 
                             
-                            <View style={{height: 30}}></View>
-
                             <HeadingText >In Emergency</HeadingText>
                             
                             <Link />  
@@ -743,13 +683,11 @@ class HomeScreen extends Component {
                           <ImageContainer source={bioImage} orientation={'portrait'} style={[styles.image, {height: '100%'}]} />    
 
                           <MainText>
-                              A long-time activist in the disability rights movement, and author of more than a dozen books, Florence Weiner has interviewed hundreds of men and women and their families touched by stroke. 
-                              She shares their advice here, and at StrokeKnowHow.org: A worldwide stroke community based on the belief that we learn best from one another.    
+                          A long-time activist in the disability rights movement, and author of more than a dozen books, Florence Weiner has interviewed hundreds of men and women and their families touched by stroke. She shares their advice here, at StrokeKnowHow.org a worldwide stroke community based on the belief we learn best from one another.    
                           </MainText>
 
                           <MainText>
-                              Every stroke is unique. So is the path we choose to find our way back. 
-                              If you find answers, motivation, inspiration and hope, this work will have fulfilled its purpose.    
+                          Every stroke is unique. So is the path we choose to find our way back. If you find answers, motivation, inspiration and hope, this work will fulfill its purpose.    
                           </MainText>
                           <MainText>For Richard, the brightest light.</MainText>
                   </View>       

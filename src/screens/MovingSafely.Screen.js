@@ -16,8 +16,6 @@ import SubHeadingText from '../components/UI/SubHeadingText';
 import ImageContainer from "../components/UI/ImageContainer";
 import PictureLegend from "../components/UI/PictureLegend";
 
-
-const familyImage = require('../assets/family.png');
 const THRESHOLD = 200;
 
 class MovingSafelyScreen extends Component {
@@ -134,61 +132,50 @@ class MovingSafelyScreen extends Component {
               scrollEventThrottle={16} 
               onScroll={this.handleScroll}
             >
-                    <TouchableOpacity onPress={this.playVideo}>
-                        <View style={{padding: 20}}>
-                            <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
-                            <Video
-                              source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/16_Transfer_from_bed_to_wheelchair.mp4"}}
-                              ref={(ref) => {
-                                this.player = ref
-                              }}       
-                              style={{height: 300}}                             
-                              rate={1}
-                              paused={this.state.videoAnimationPaused}
-                              onLayout={this.handleVideoLayout}
-                              //onLoad={this.handleOnLoadAnimation}
-                              //onFullscreenPlayerDidPresent={this.handleFullScreenAnimation}
-                              volume={1}
-                              muted={false}
-                              playInBackground={false}
-                              playWhenInactive={false}
-                              resizeMode='contain'
-                              repeat
-                              />
-                        </View>
-                    </TouchableOpacity>  
+                            <TouchableOpacity onPress={this.playVideoAnimation}>
+                                  <View style={{padding: 20}}>
+                                      <MainText><SubHeadingText style={{marginBottom: 0, fontSize: wp('3.5%')}}>Touch video to open full screen player &rarr;</SubHeadingText></MainText>
+                                      <Video
+                                        source={{uri: "https://strokeknowhow.org/wp-content/uploads/2018/08/16_Transfer_from_bed_to_wheelchair.mp4"}}
+                                        ref={(ref) => {
+                                          this.player2 = ref
+                                        }}       
+                                        style={{height: 300}}                             
+                                        rate={1}
+                                        paused={this.state.videoAnimationPaused}
+                                        onLayout={this.handleVideoLayout}
+                                       // volume={1}
+                                       // muted={false}
+                                       // onLoad={this.handleOnLoadAnimation}
+                                       // onFullscreenPlayerDidPresent={this.handleFullScreenAnimation}
+                                        //playInBackground={false}
+                                        //playWhenInactive={false}
+                                        resizeMode='contain'
+                                        repeat
+                                        />
+                                  </View>
+                              </TouchableOpacity> 
 
-                    <HeadingText>Helpers Protecting Themselves</HeadingText>
-                    
-                    <MainText style={styles.bullets}>  
-                    {`\u2022`} When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
-                    </MainText>
-                    <MainText style={styles.bullets}>
-                    {`\u2022`} Stand with feet slightly apart, one foot ahead of the other to keep your balance, shift your weight if necessary.
-                    </MainText>
-                    <HeadingText>Share the Care</HeadingText>
-
-                    <Image source={familyImage} style={styles.imageDefault}/>
-
-                    <MainText style={{marginBottom: 0}}>  
-                        When my wife, Tina, had a stroke,
-                          it hit our whole family, and we each had 
-                          a job to do– even the kids.
-                    </MainText>
-                    <PictureLegend >&mdash; Javier, Lima, Peru</PictureLegend>
-
-                    
-                      <HeadingText>Questions Families {`\n`} Ask Themselves</HeadingText>
-                    
-                    <MainText style={styles.bullets}>
-                        {`\u2022`} Who will handle personal care; physical therapy? When?
-                    </MainText>
-                    <MainText style={styles.bullets}>
-                        {`\u2022`} Shop, share housekeeping? When? 
-                    </MainText>
-                    <MainText style={styles.bullets}>     
-                        {`\u2022`} Drive to doctor and therapy appointments. 
-                    </MainText>
+                              <HeadingText>Helpers Protecting Themselves</HeadingText>
+                              
+                              <MainText style={styles.bullets}>  
+                              {`\u2022`} When moving someone, keep your hips and knees slightly bent. Stand close to person – too far away puts a strain on your back. 
+                              </MainText>
+                              <MainText style={styles.bullets}>
+                              {`\u2022`} Stand with feet slightly apart, one foot ahead of the other to keep your balance, and shift your weight if necessary.
+                              </MainText>
+                
+                              <HeadingText>Questions Families {`\n`} Ask Themselves</HeadingText>
+                              
+                              <MainText style={styles.bullets}>
+                                  {`\u2022`} Who will handle personal care; physical therapy? When?
+                              </MainText>
+                              <MainText style={styles.bullets}>
+                                  {`\u2022`} Who will Shop, housekeeping? When? 
+                              </MainText>
+                              <MainText style={styles.bullets}>     
+                                  {`\u2022`} Drive to doctor and therapy appointments. 
+                              </MainText>        
           
             </ScrollView>                
 

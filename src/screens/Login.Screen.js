@@ -376,7 +376,7 @@ class LoginScreen extends Component {
             
           
             <View style={{marginTop: hp('10%')}}>
-              <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow</HeadingText>
+              <HeadingText style={{color: 'white', fontSize: hp('4%')}}>Welcome to {`\n`} StrokeKnowHow INDIA</HeadingText>
               <MainText style={{textAlign: 'center', fontSize: hp('3%'), color: 'white'}}>We are a worldwide {`\n`}<Text style={{fontSize: hp('5%'), fontWeight: 'bold'}}>stroke community</Text> {`\n`} learning from one another</MainText>
             </View>
 
