@@ -352,7 +352,12 @@ class LoginScreen extends Component {
               visible={this.state.modalVisible}
               onRequestClose={()=>{}}
             >
-                <Image style={styles.backgroundImage}  source={require('../assets/app.jpg')}/>
+                 <View>
+                  <HeadingText style={{fontSize: hp('4%'), color: 'red'}}>Welcome to {`\n`} StrokeKnowHow INDIA</HeadingText>
+                  <MainText style={{textAlign: 'center', fontSize: hp('3.5%'), color: 'red'}}>Caring for a Parent</MainText>
+                </View>
+                <Image style={styles.backgroundImage}  source={require('../assets/india7.png')} />
+           
             </Modal>          
 
             <Spinner visible={this.state.showSpinner} textContent={"Please wait..."} textStyle={{color: '#FFF'}} />
